@@ -1,11 +1,40 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <section style="padding: 4rem 1.5rem; max-width: 960px; margin: 0 auto;">
+    <h1>Landing Factory</h1>
+    <p>Staging environment for DevPartners landing pages. Open a landing directly by slug, for example <a href="/offer19">/offer19</a>.</p>
+  </section>
+
+  <form name="landing-offer19" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="company" />
+    <textarea name="message"></textarea>
+    <input type="hidden" name="landing_slug" value="offer19" />
+    <input type="hidden" name="utm_source" />
+    <input type="hidden" name="utm_medium" />
+    <input type="hidden" name="utm_campaign" />
+    <input type="hidden" name="utm_content" />
+    <input type="hidden" name="utm_term" />
+    <input type="text" name="bot-field" />
+  </form>
+
+  <form name="landing-example-company" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="company" />
+    <textarea name="message"></textarea>
+    <input type="hidden" name="landing_slug" value="example-company" />
+    <input type="hidden" name="utm_source" />
+    <input type="hidden" name="utm_medium" />
+    <input type="hidden" name="utm_campaign" />
+    <input type="hidden" name="utm_content" />
+    <input type="hidden" name="utm_term" />
+    <input type="text" name="bot-field" />
+  </form>
 </Layout>

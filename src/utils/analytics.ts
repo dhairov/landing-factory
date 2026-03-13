@@ -1,9 +1,4 @@
-/**
- * Analytics utility for tracking landing page events
- * Captures UTM parameters and logs page views, CTA clicks, and form submissions
- */
-
-interface UTMParams {
+export interface UTMParams {
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
@@ -18,45 +13,95 @@ interface AnalyticsEvent {
   timestamp: string;
 }
 
-/**
- * Extract UTM parameters from URL query string
- */
-export function getUTMParams(): UTMParams {
-  if (typeof window === 'undefined') return {};
-  
+const UTM_STORAGE_KEY = 'landing_utm_params';
+const EVENTS_STORAGE_KEY = 'landing_events';
+
+function isBrowser(): boolean {
+  return typeof window !== 'undefined';
+}
+
+function normalizeUTMParams(params: UTMParams): UTMParams {
+  return Object.fromEntries(
+    Object.entries(params).filter(([, value]) => Boolean(value))
+  ) as UTMParams;
+}
+
+export function getUTMParamsFromUrl(): UTMParams {
+  if (!isBrowser()) return {};
+
   const params = new URLSearchParams(window.location.search);
-  return {
+  return normalizeUTMParams({
     utm_source: params.get('utm_source') || undefined,
     utm_medium: params.get('utm_medium') || undefined,
     utm_campaign: params.get('utm_campaign') || undefined,
     utm_content: params.get('utm_content') || undefined,
     utm_term: params.get('utm_term') || undefined,
-  };
+  });
+}
+
+export function getStoredUTMParams(): UTMParams {
+  if (!isBrowser()) return {};
+
+  try {
+    return JSON.parse(localStorage.getItem(UTM_STORAGE_KEY) || '{}');
+  } catch {
+    return {};
+  }
+}
+
+export function storeUTMParams(): UTMParams {
+  if (!isBrowser()) return {};
+
+  const current = getUTMParamsFromUrl();
+  const stored = getStoredUTMParams();
+  const merged = normalizeUTMParams({ ...stored, ...current });
+
+  if (Object.keys(merged).length > 0) {
+    localStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(merged));
+  }
+
+  return merged;
+}
+
+export function getUTMParams(): UTMParams {
+  if (!isBrowser()) return {};
+
+  const current = getUTMParamsFromUrl();
+  if (Object.keys(current).length > 0) {
+    return storeUTMParams();
+  }
+
+  return getStoredUTMParams();
+}
+
+export function populateUTMFields(form: HTMLFormElement): void {
+  const utmParams = getUTMParams();
+  Object.entries(utmParams).forEach(([key, value]) => {
+    const field = form.querySelector<HTMLInputElement>(`input[name="${key}"]`);
+    if (field && value) {
+      field.value = value;
+    }
+  });
 }
 
 /**
  * Log an analytics event
  */
 export function logAnalyticsEvent(event: AnalyticsEvent): void {
-  if (typeof window === 'undefined') return;
-  
-  // Send to analytics service (e.g., Google Analytics, Mixpanel, etc.)
+  if (!isBrowser()) return;
+
   console.log('Analytics Event:', event);
-  
-  // Store in localStorage for reference
-  const events = JSON.parse(localStorage.getItem('landing_events') || '[]');
+
+  const events = JSON.parse(localStorage.getItem(EVENTS_STORAGE_KEY) || '[]');
   events.push(event);
-  localStorage.setItem('landing_events', JSON.stringify(events));
-  
-  // If you have a custom analytics endpoint, you can send it here:
-  // fetch('/api/analytics', { method: 'POST', body: JSON.stringify(event) });
+  localStorage.setItem(EVENTS_STORAGE_KEY, JSON.stringify(events));
 }
 
 /**
  * Track page view
  */
 export function trackPageView(landingSlug: string): void {
-  const utmParams = getUTMParams();
+  const utmParams = storeUTMParams();
   logAnalyticsEvent({
     event_type: 'page_view',
     landing_slug: landingSlug,
@@ -95,14 +140,14 @@ export function trackFormSubmission(landingSlug: string): void {
  * Get all stored analytics events
  */
 export function getStoredEvents(): AnalyticsEvent[] {
-  if (typeof window === 'undefined') return [];
-  return JSON.parse(localStorage.getItem('landing_events') || '[]');
+  if (!isBrowser()) return [];
+  return JSON.parse(localStorage.getItem(EVENTS_STORAGE_KEY) || '[]');
 }
 
 /**
  * Clear stored analytics events
  */
 export function clearStoredEvents(): void {
-  if (typeof window === 'undefined') return;
-  localStorage.removeItem('landing_events');
+  if (!isBrowser()) return;
+  localStorage.removeItem(EVENTS_STORAGE_KEY);
 }
