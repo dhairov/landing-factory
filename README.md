@@ -1,46 +1,168 @@
-# Astro Starter Kit: Basics
+# DevPartners Landing Factory
 
-```sh
-npm create astro@latest -- --template basics
-```
+Infrastructure for generating **personalized landing pages for account-based marketing campaigns**.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Stack:
 
-## 🚀 Project Structure
+- Astro
+- Netlify
+- Cloudflare (DNS / routing)
+- AI-assisted content generation (Manus)
 
-Inside of your Astro project, you'll see the following folders and files:
+The system allows generating **multiple personalized landing pages using reusable templates and structured data**.
+
+---
+
+# Architecture Overview
+
+Landing pages are generated using the following model:
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+Template + Company Data + Assets
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+**Templates** define page structure and layout.  
+**Company data** defines personalized content.  
+**Assets** contain images and visual materials.
 
-## 🧞 Commands
+Routing is handled via **dynamic slug pages**.
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+# Project Structure
 
-## 👀 Want to learn more?
+```text
+src/
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+components/        reusable landing sections
+layouts/           base landing layouts
+pages/
+
+[slug].astro       dynamic landing rendering
+index.astro
+thank-you.astro
+
+content/           landing content data
+
+public/
+
+assets/            images and static assets
+_redirects         redirect configuration
+
+netlify/
+
+functions/         backend logic (form events)
+```
+
+---
+
+# Core Landing Components
+
+Landing pages are assembled from reusable components:
+
+```text
+Hero
+Problem
+Solution
+Proof
+CTA
+FAQ
+Form
+Analytics
+```
+
+These components together form landing templates.
+
+---
+
+# Creating a New Landing
+
+To create a new landing page:
+
+1. Create a landing data file
+2. Attach company images
+3. Generate a slug
+4. Deploy preview
+5. Verify layout and form
+
+Detailed instructions are located in:
+
+```text
+LANDING_CREATION_GUIDE.md
+```
+
+---
+
+# Forms and Analytics
+
+Lead forms are processed using **Netlify Forms**.
+
+Form submission events are handled via:
+
+```text
+netlify/functions/submission-created.ts
+```
+
+Analytics tracking is implemented using:
+
+```text
+src/components/Analytics.astro
+```
+
+Full setup documentation:
+
+```text
+FORMS_AND_ANALYTICS_GUIDE.md
+```
+
+---
+
+# Development
+
+Install dependencies:
+
+```text
+npm install
+```
+
+Run development server:
+
+```text
+npm run dev
+```
+
+Build production bundle:
+
+```text
+npm run build
+```
+
+Preview production build locally:
+
+```text
+npm run preview
+```
+
+---
+
+# Deployment
+
+Deployment is handled automatically by **Netlify**.
+
+Each commit triggers a new build and deploy.
+
+Production domain is managed via **Cloudflare DNS**.
+
+---
+
+# Important Notes
+
+This repository is a **landing generation system**, not a single static website.
+
+Never:
+
+- duplicate templates
+- create standalone HTML pages
+- bypass the template system
+
+All landing pages should be created as **template-driven instances**.
