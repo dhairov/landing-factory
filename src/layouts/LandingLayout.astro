@@ -1,8 +1,23 @@
 ---
 import Hero from '../components/Hero.astro';
+import Problem from '../components/Problem.astro';
+import Solution from '../components/Solution.astro';
+import Proof from '../components/Proof.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import Form from '../components/Form.astro';
 import '../styles/global.css';
 
-const { headline, subtitle, cta } = Astro.props;
+const { 
+  headline, 
+  subtitle, 
+  cta,
+  slug,
+  problems = [],
+  benefits = [],
+  caseStudies = [],
+  faqs = []
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -16,6 +31,17 @@ const { headline, subtitle, cta } = Astro.props;
   </head>
   <body>
     <Hero headline={headline} subtitle={subtitle} cta={cta} />
+    {problems.length > 0 && <Problem problems={problems} />}
+    {benefits.length > 0 && <Solution benefits={benefits} />}
+    {caseStudies.length > 0 && <Proof caseStudies={caseStudies} />}
+    {faqs.length > 0 && <FAQ faqs={faqs} />}
+    <CTA 
+      headline="Ready to get started?" 
+      description="Join hundreds of companies transforming their product development." 
+      buttonText={cta}
+      buttonUrl="#contact"
+    />
+    <Form formName={`landing-${slug}`} landingSlug={slug} />
     <slot />
   </body>
 </html>

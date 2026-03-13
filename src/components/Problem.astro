@@ -1,0 +1,23 @@
+---
+const { problems = [] } = Astro.props;
+---
+
+<section class="problem py-20 bg-gray-50">
+  <div class="container mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12">The Problem</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {problems.length > 0 ? (
+        problems.map((problem) => (
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-4">{problem.title}</h3>
+            <p class="text-gray-600">{problem.description}</p>
+          </div>
+        ))
+      ) : (
+        <div class="col-span-3 text-center text-gray-500">
+          <p>No problems defined yet.</p>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

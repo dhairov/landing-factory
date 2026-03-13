@@ -1,0 +1,24 @@
+---
+const { caseStudies = [] } = Astro.props;
+---
+
+<section class="proof py-20 bg-gray-900 text-white">
+  <div class="container mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12">Proof & Case Studies</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {caseStudies.length > 0 ? (
+        caseStudies.map((study) => (
+          <div class="bg-gray-800 p-8 rounded-lg">
+            <h3 class="text-2xl font-semibold mb-4">{study.company}</h3>
+            <p class="text-gray-300 mb-4">{study.challenge}</p>
+            <p class="text-green-400 font-semibold">{study.result}</p>
+          </div>
+        ))
+      ) : (
+        <div class="col-span-2 text-center text-gray-400">
+          <p>No case studies defined yet.</p>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

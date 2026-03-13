@@ -1,0 +1,7 @@
+# Example redirects - add more as needed
+# /old-page /new-page 301
+# /offer-pzs-ceo /pzs-ceo 302
+# /offer-pzs-owner /pzs-owner 302
+
+# Catch-all redirect for SPA
+/* /index.html 200

@@ -1,0 +1,23 @@
+---
+const { faqs = [] } = Astro.props;
+---
+
+<section class="faq py-20 bg-white">
+  <div class="container mx-auto max-w-2xl">
+    <h2 class="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+    <div class="space-y-6">
+      {faqs.length > 0 ? (
+        faqs.map((faq) => (
+          <details class="bg-gray-50 p-6 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+            <summary class="font-semibold text-lg text-gray-900">{faq.question}</summary>
+            <p class="mt-4 text-gray-700">{faq.answer}</p>
+          </details>
+        ))
+      ) : (
+        <div class="text-center text-gray-500">
+          <p>No FAQs defined yet.</p>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

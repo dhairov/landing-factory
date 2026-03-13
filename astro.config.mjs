@@ -8,14 +8,30 @@ export default defineConfig({
   collections: {
     landings: {
       type: 'content',
-      schema: {
-        slug: ({ z }) => z.string(),
-        company: ({ z }) => z.string(),
-        headline: ({ z }) => z.string(),
-        subtitle: ({ z }) => z.string(),
-        cta: ({ z }) => z.string(),
-        // Add other fields as needed for your landing page content
-      },
+      schema: ({ z }) => z.object({
+        slug: z.string(),
+        company: z.string(),
+        headline: z.string(),
+        subtitle: z.string(),
+        cta: z.string(),
+        problems: z.array(z.object({
+          title: z.string(),
+          description: z.string(),
+        })).optional(),
+        benefits: z.array(z.object({
+          title: z.string(),
+          description: z.string(),
+        })).optional(),
+        caseStudies: z.array(z.object({
+          company: z.string(),
+          challenge: z.string(),
+          result: z.string(),
+        })).optional(),
+        faqs: z.array(z.object({
+          question: z.string(),
+          answer: z.string(),
+        })).optional(),
+      }),
     },
   },
 });

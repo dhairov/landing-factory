@@ -1,4 +1,4 @@
---- 
+---
 import { getCollection } from 'astro:content';
 import LandingLayout from '../layouts/LandingLayout.astro';
 
@@ -6,14 +6,14 @@ export async function getStaticPaths() {
   const landings = await getCollection('landings');
   return landings.map((landing) => ({
     params: { slug: landing.slug },
-    props: landing,
+    props: { landing },
   }));
 }
 
-const { props } = Astro;
-const { Content } = await props.render();
+const { landing } = Astro.props;
+const { Content } = await landing.render();
 ---
 
-<LandingLayout {...props.data}>
+<LandingLayout {...landing.data} slug={landing.slug}>
   <Content />
 </LandingLayout>
