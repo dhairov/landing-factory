@@ -5,15 +5,18 @@ import LandingLayout from '../layouts/LandingLayout.astro';
 export async function getStaticPaths() {
   const landings = await getCollection('landings');
   return landings.map((landing) => ({
-    params: { slug: landing.slug },
+    params: { slug: landing.id },
     props: { landing },
   }));
 }
 
 const { landing } = Astro.props;
-const { Content } = await landing.render();
 ---
 
-<LandingLayout {...landing.data} slug={landing.slug}>
-  <Content />
+<LandingLayout {...landing.data} slug={landing.id}>
+  {landing.body && (
+    <section class="prose prose-lg mx-auto px-6 py-16">
+      <Fragment set:html={landing.body} />
+    </section>
+  )}
 </LandingLayout>
