@@ -252,19 +252,15 @@ const processSteps = [
         </div>
       </section>
 
-      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.compare})`}>
+      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.aha3})`}>
         <div class="container immersive745__inner immersive745__inner--right">
-          <div class="immersive745__card immersive745__card--wide">
-            <p class="immersive745__eyebrow">745 квартал · Мы не для всех</p>
-            <h2>Мы не продаём золотые вензеля, старый фонд или массовый компромисс. Мы собираем редкую среду.</h2>
-            <div class="comparisons745__grid">
-              {comparisons.map((item) => (
-                <article class="comparison745-card comparison745-card--overlay">
-                  <p class="comparison745-card__overline">{item.overline}</p>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </article>
-              ))}
+          <div class="immersive745__card immersive745__card--single-story">
+            <div class="story745-card">
+              <div class="story745-card__number">03</div>
+              <h2>Жизнь без компромиссов</h2>
+              <p class="story745-card__problem">«Чтобы жить в правильной атмосфере, мне приходится мириться со старыми трубами и отсутствием паркинга в историческом центре».</p>
+              <p>Мне больше не нужно выбирать между духом старой Перми и современным комфортом. Я получил дом, в который можно вписаться, не теряя себя.</p>
+              <a class="inline-link745" href="#contact">Готовы поговорить? → Написать нам</a>
             </div>
           </div>
         </div>
@@ -314,14 +310,12 @@ const processSteps = [
           <div class="section745-heading center745 section745-heading--light section745-heading--max">
             <h2>Как проходит путь к персональному предложению</h2>
           </div>
-          <div class="process745__grid">
+          <div class="process745__grid process745__grid--stacked">
             {processSteps.map((step) => (
-              <article class="process745-card process745-card--light">
+              <article class="process745-card process745-card--light process745-card--stacked">
                 <div class="process745-card__number">{step.number}</div>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
               </article>
             ))}
           </div>
@@ -369,23 +363,23 @@ const processSteps = [
                   </label>
                 </p>
 
-                <div class="final745__form-grid">
-                  <div>
+                <div class="final745__form-grid final745__form-grid--single">
+                  <div class="final745__field-block">
                     <label for="name" class="field-label745">Как к вам обращаться</label>
                     <input type="text" id="name" name="name" required class="field-input745" />
                   </div>
 
-                  <div>
+                  <div class="final745__field-block">
                     <label for="phone" class="field-label745">Телефон или мессенджер</label>
                     <input type="tel" id="phone" name="phone" required class="field-input745" />
                   </div>
 
-                  <div>
+                  <div class="final745__field-block">
                     <label for="email" class="field-label745">Email</label>
                     <input type="email" id="email" name="email" class="field-input745" />
                   </div>
 
-                  <div class="final745__form-full">
+                  <div class="final745__field-block final745__form-full">
                     <label for="message" class="field-label745">Что особенно важно для вас</label>
                     <textarea
                       id="message"
@@ -721,6 +715,52 @@ const processSteps = [
     max-width: 780px;
   }
 
+  .immersive745__card--single-story {
+    max-width: 760px;
+    padding: 24px;
+  }
+
+  .story745-card {
+    background: rgba(255, 248, 242, 0.96);
+    border-radius: 28px;
+    padding: 34px 36px;
+    color: #241b16;
+  }
+
+  .story745-card__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    background: #f5ede6;
+    color: #2b211c;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 22px;
+  }
+
+  .story745-card h2 {
+    margin: 0 0 18px;
+    font-size: clamp(36px, 4vw, 58px);
+    line-height: 1.02;
+    color: #201713;
+  }
+
+  .story745-card p {
+    margin: 0 0 22px;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #544137;
+  }
+
+  .story745-card__problem {
+    font-size: 22px;
+    line-height: 1.55;
+    color: #4c3930;
+  }
+
   .immersive745__card h2 {
     margin: 14px 0 16px;
     font-size: clamp(34px, 4vw, 56px);
@@ -1041,12 +1081,31 @@ const processSteps = [
     z-index: 2;
   }
 
+  .process745__grid--stacked {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
   .process745-card {
     padding: 24px;
     display: grid;
     grid-template-columns: 52px minmax(0, 1fr);
     gap: 16px;
     align-items: start;
+  }
+
+  .process745-card--stacked {
+    display: block;
+    padding: 28px;
+  }
+
+  .process745-card--stacked .process745-card__number {
+    margin-bottom: 18px;
+  }
+
+  .process745-card--stacked h3,
+  .process745-card--stacked p {
+    max-width: none;
   }
 
   .process745-card--light {
@@ -1124,6 +1183,12 @@ const processSteps = [
     align-items: start;
   }
 
+  .final745__form-grid--single {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .final745__field-block,
   .final745__form-grid > div {
     display: flex;
     flex-direction: column;
@@ -1135,10 +1200,12 @@ const processSteps = [
 
   .field-label745 {
     display: block;
-    min-height: 22px;
-    margin-bottom: 8px;
+    min-height: auto;
+    margin-bottom: 10px;
     color: #4f3a31;
     font-weight: 700;
+    font-size: 18px;
+    line-height: 1.35;
   }
 
   .field-input745 {
