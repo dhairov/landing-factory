@@ -180,8 +180,9 @@ const processSteps = [
         </div>
       </section>
 
-      <section class="section section--tight triggers745-wrap section--photo-band" style={`--section-bg: url(${images.aha3})`}>
-        <div class="section-band745__overlay"></div>
+      <section class="section section--tight triggers745-wrap triggers745-wrap--hero-continued">
+        <div class="hero745__backdrop hero745__backdrop--continued" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="triggers745__tone"></div>
         <div class="container triggers745__container">
           <div class="triggers745">
             {triggerPoints.map((item) => <p>{item}</p>)}
@@ -506,16 +507,16 @@ const processSteps = [
   .immersive745__eyebrow {
     display: inline-flex;
     align-items: center;
-    padding: 10px 14px;
-    border-radius: 999px;
-    background: rgba(255, 247, 240, 0.14);
-    color: #fff0e4;
-    font-size: 14px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #f2d6c6;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 247, 240, 0.16);
+    backdrop-filter: none;
+    border: none;
   }
 
   .hero745__grid,
@@ -629,6 +630,30 @@ const processSteps = [
     z-index: 1;
   }
 
+  .triggers745-wrap {
+    overflow: hidden;
+  }
+
+  .triggers745-wrap--hero-continued {
+    margin-top: -1px;
+    background: #2a201c;
+  }
+
+  .hero745__backdrop--continued {
+    inset: 0;
+  }
+
+  .hero745__backdrop--continued::after {
+    background: linear-gradient(180deg, rgba(16, 12, 10, 0.36) 0%, rgba(16, 12, 10, 0.54) 100%);
+  }
+
+  .triggers745__tone {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(42, 32, 28, 0.72) 0%, rgba(63, 47, 40, 0.86) 100%);
+    z-index: 1;
+  }
+
   .section-band745__overlay--dark {
     background: linear-gradient(180deg, rgba(17, 13, 11, 0.62) 0%, rgba(17, 13, 11, 0.78) 100%);
   }
@@ -636,6 +661,8 @@ const processSteps = [
   .triggers745__container {
     position: relative;
     z-index: 2;
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 
   .triggers745 {
@@ -1085,10 +1112,21 @@ const processSteps = [
     color: #241b16;
   }
 
+  .final745__form {
+    display: block;
+  }
+
   .final745__form-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    column-gap: 18px;
+    row-gap: 18px;
+    align-items: start;
+  }
+
+  .final745__form-grid > div {
+    display: flex;
+    flex-direction: column;
   }
 
   .final745__form-full {
@@ -1097,6 +1135,7 @@ const processSteps = [
 
   .field-label745 {
     display: block;
+    min-height: 22px;
     margin-bottom: 8px;
     color: #4f3a31;
     font-weight: 700;
@@ -1104,16 +1143,20 @@ const processSteps = [
 
   .field-input745 {
     width: 100%;
+    min-height: 54px;
     border-radius: 16px;
     border: 1px solid rgba(111, 75, 63, 0.2);
     background: rgba(255, 255, 255, 0.95);
     padding: 14px 16px;
     font: inherit;
+    line-height: 1.4;
     color: #241b16;
+    box-sizing: border-box;
   }
 
   .field-textarea745 {
-    min-height: 140px;
+    min-height: 148px;
+    padding-top: 16px;
     resize: vertical;
   }
 
