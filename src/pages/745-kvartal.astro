@@ -113,23 +113,23 @@ const lifeStages = [
 const processSteps = [
   {
     number: '01',
-    title: 'Вы пишете нам',
-    text: 'Нажимаете «Написать нам» или «Запросить показ» — в удобном для вас формате.',
+    title: 'Вы оставляете запрос',
+    text: 'Сообщаете, что для вас важно: тишина, планировка, приватность, вид, семейный формат или инвестиционная логика.',
   },
   {
     number: '02',
-    title: 'Мы отвечаем за 1 день',
-    text: 'Связываемся с вами в течение одного рабочего дня. Без автоответчиков и скриптов.',
+    title: 'Мы собираем персональный сценарий',
+    text: 'Не отправляем обезличенную подборку, а подбираем релевантные варианты именно под ваш ритм жизни и запрос.',
   },
   {
     number: '03',
-    title: 'Закрытая встреча',
-    text: 'Приглашаем вас на спокойную личную встречу, где можно обсудить планировки, цены и детали проекта.',
+    title: 'Приглашаем на спокойную встречу',
+    text: 'Показываем материалы, планировки и сценарии покупки без навязчивости и давления.',
   },
   {
     number: '04',
-    title: 'Диалог без давления',
-    text: 'Показываем материалы и отвечаем на вопросы без навязчивых продаж и лишнего шума.',
+    title: 'Вы выбираете своё',
+    text: 'В фокусе не метраж как таковой, а квартира, в которой действительно можно жить по себе.',
   },
 ];
 ---
@@ -161,7 +161,7 @@ const processSteps = [
                 по себе. Не выше. Не громче. А с достоинством.
               </p>
               <div class="hero745__actions">
-                <a class="button745 button745--primary" href="#contact">Посмотреть планировки на закрытой встрече</a>
+                <a class="button745 button745--primary" href="#contact">Получить персональное предложение</a>
               </div>
             </div>
 
@@ -175,35 +175,12 @@ const processSteps = [
                 />
               </div>
               <div class="hero745__card-body">
-                <h2>47 квартир бизнес-класса в тихом центре Перми для тех, кто живёт по себе</h2>
+                <h2>47 квартир бизнес-класса в тихом центре Перми для тех, кто выбирает не статус, а совпадение с собой</h2>
                 <p class="hero745__meta">Сдача — IV квартал 2025 · Закрытая презентация — по приглашению</p>
                 <p>
-                  Малый дом. Конкретные люди. Правильная интонация. Мы не строим жилой комплекс —
-                  мы создаём среду, в которой хочется оставаться.
+                  Малый дом. Конкретные люди. Правильная интонация. Мы создаём не просто жилой комплекс,
+                  а редкую среду, где архитектура не спорит с человеком, а поддерживает его характер.
                 </p>
-                <div class="journey745">
-                  <article class="journey745__item">
-                    <span>01</span>
-                    <div>
-                      <h3>Тишина как норма</h3>
-                      <p>Здесь архитектура не спорит с вами и не навязывает характер — она поддерживает ваш ритм.</p>
-                    </div>
-                  </article>
-                  <article class="journey745__item">
-                    <span>02</span>
-                    <div>
-                      <h3>Люди без шума</h3>
-                      <p>Комьюнити не строится на демонстрации статуса. Оно складывается из уважения и внутреннего масштаба.</p>
-                    </div>
-                  </article>
-                  <article class="journey745__item">
-                    <span>03</span>
-                    <div>
-                      <h3>Центр без компромиссов</h3>
-                      <p>Историческая Пермь, современный комфорт и приватность, которую редко можно найти в центре.</p>
-                    </div>
-                  </article>
-                </div>
               </div>
             </aside>
           </div>
@@ -214,6 +191,19 @@ const processSteps = [
         <div class="container">
           <div class="triggers745">
             {triggerPoints.map((item) => <p>{item}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="immersive745 immersive745--hero" style={`--immersive-bg: url(${images.aha1})`}>
+        <div class="container immersive745__inner">
+          <div class="immersive745__card">
+            <p class="immersive745__eyebrow">745 квартал · Право на тишину</p>
+            <h2>Когда дом не вторгается в вашу жизнь, а бережно собирает её вокруг вас</h2>
+            <p>
+              В исходном ощущении этого проекта важна не только рациональность. Важна редкая роскошь —
+              возможность выдохнуть, остаться наедине с собой и не чувствовать постоянное давление города.
+            </p>
           </div>
         </div>
       </section>
@@ -244,6 +234,19 @@ const processSteps = [
         </div>
       </section>
 
+      <section class="immersive745 immersive745--community" style={`--immersive-bg: url(${images.aha2})`}>
+        <div class="container immersive745__inner immersive745__inner--right">
+          <div class="immersive745__card">
+            <p class="immersive745__eyebrow">745 квартал · Культура своих</p>
+            <h2>Комьюнити без витрины. Среда, где не нужно играть роль.</h2>
+            <p>
+              Здесь важна не демонстрация статуса, а интонация людей, рядом с которыми спокойно жить,
+              говорить и молчать. Это не массовая среда и не сценарий «посмотрите на меня».
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section class="section section745-alt qualifier745">
         <div class="container">
           <div class="qualifier745__grid">
@@ -269,6 +272,19 @@ const processSteps = [
         </div>
       </section>
 
+      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.aha3})`}>
+        <div class="container immersive745__inner">
+          <div class="immersive745__card immersive745__card--wide">
+            <p class="immersive745__eyebrow">745 квартал · Жизнь без компромиссов</p>
+            <h2>Старая Пермь — без усталости старого фонда. Современный комфорт — без обезличенности нового жилья.</h2>
+            <p>
+              Это тот редкий случай, когда не приходится выбирать между духом места и качеством повседневной жизни.
+              Между историческим контекстом и приватностью. Между городом и собой.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section class="section comparisons745">
         <div class="container">
           <div class="comparisons745__hero">
@@ -286,7 +302,7 @@ const processSteps = [
                 ))}
               </div>
             </div>
-            <div class="comparisons745__media card745-media">
+            <div class="comparisons745__media card745-media comparisons745__media--bleed">
               <img src={images.compare} alt="Сравнение вычурной роскоши и сдержанного современного интерьера" loading="lazy" />
             </div>
           </div>
@@ -330,7 +346,7 @@ const processSteps = [
             </table>
           </div>
           <div class="center745 action745-wrap">
-            <a class="button745 button745--ghost" href="#contact">Подобрать свой этап на закрытой встрече</a>
+            <a class="button745 button745--ghost" href="#contact">Подобрать квартиру под свой сценарий жизни</a>
           </div>
         </div>
       </section>
@@ -338,7 +354,7 @@ const processSteps = [
       <section class="section section745-alt">
         <div class="container">
           <div class="section745-heading center745">
-            <h2>Мы ценим ваше время и не любим навязчивый маркетинг</h2>
+            <h2>Как проходит путь к персональному предложению</h2>
           </div>
           <div class="process745__grid">
             {processSteps.map((step) => (
@@ -353,20 +369,22 @@ const processSteps = [
       </section>
 
       <section id="contact" class="section final745">
-        <div class="container">
+        <div class="final745__backdrop" style={`--final-bg: url(${images.footer})`}></div>
+        <div class="container final745__container">
           <div class="final745__layout">
-            <div class="final745__media card745-media">
-              <img
-                src={images.footer}
-                alt="Вечерний интерьер у панорамного окна для финального призыва к записи на встречу"
-                loading="lazy"
-              />
+            <div class="final745__media-copy">
+              <p class="final745__eyebrow">745 квартал · Персональное предложение по приглашению</p>
+              <h2>Узнайте, как жить по себе — и получите персональное предложение именно под ваш ритм жизни</h2>
+              <p class="final745__lead final745__lead--light">
+                Мы подберём релевантные планировки, ценовой сценарий и формат встречи так, чтобы разговор начинался не с давления,
+                а с понимания того, что для вас действительно важно.
+              </p>
             </div>
             <div class="final745__card">
-              <p class="final745__eyebrow">745 квартал · Закрытая встреча по приглашению</p>
-              <h2>Выберите квартиру, которая совпадает с вашим ритмом жизни</h2>
+              <p class="final745__eyebrow">Закрытый диалог без навязчивых продаж</p>
+              <h3 class="final745__form-title">Оставьте контакты — и мы соберём для вас персональное предложение по 745 кварталу</h3>
               <p class="final745__lead">
-                Оставьте контакты, и мы спокойно покажем планировки, диапазоны цен и предложим удобное время личной встречи. Без давления, без спешки, без лишних разговоров.
+                С учётом вашего запроса, этапа жизни и того, каким должен быть дом, где действительно можно быть собой.
               </p>
               <form
                 name={formName}
@@ -408,19 +426,19 @@ const processSteps = [
                   </div>
 
                   <div class="final745__form-full">
-                    <label for="message" class="field-label745">Что важно узнать в первую очередь</label>
+                    <label for="message" class="field-label745">Что особенно важно для вас</label>
                     <textarea
                       id="message"
                       name="message"
                       rows="5"
                       class="field-input745 field-textarea745"
-                      placeholder="Например: планировки 2-комнатных, видовые квартиры, диапазон цен, формат встречи"
+                      placeholder="Например: тишина, 2-комнатная планировка, приватность, семейный формат, диапазон бюджета, формат личной встречи"
                     ></textarea>
                   </div>
                 </div>
 
                 <button type="submit" class="button745 button745--primary final745__submit">
-                  Запросить планировки и личную встречу
+                  Узнать, как жить по себе, и получить персональное предложение
                 </button>
               </form>
             </div>
@@ -461,10 +479,19 @@ const processSteps = [
     position: relative;
   }
 
+  .hero745,
+  .qualifier745,
+  .comparisons745,
+  .life745,
+  .final745 {
+    position: relative;
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
   .hero745 {
     padding-top: 72px;
     padding-bottom: 48px;
-    position: relative;
   }
 
   .hero745::before {
@@ -479,7 +506,8 @@ const processSteps = [
 
   .hero745__label,
   .final745__eyebrow,
-  .comparison745-card__overline {
+  .comparison745-card__overline,
+  .immersive745__eyebrow {
     display: inline-flex;
     align-items: center;
     padding: 10px 14px;
@@ -495,8 +523,8 @@ const processSteps = [
   .hero745__grid,
   .qualifier745__grid,
   .comparisons745__hero,
-  .final745__layout,
-  .life745__intro {
+  .life745__intro,
+  .final745__layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
     gap: 32px;
@@ -507,10 +535,6 @@ const processSteps = [
 
   .hero745__grid {
     margin-top: 24px;
-  }
-
-  .hero745__content {
-    align-self: start;
   }
 
   .hero745__content h1 {
@@ -545,7 +569,8 @@ const processSteps = [
   .comparison745-card,
   .process745-card,
   .final745__card,
-  .quote745 {
+  .quote745,
+  .immersive745__card {
     background: rgba(255, 250, 245, 0.92);
     border: 1px solid rgba(111, 75, 63, 0.12);
     border-radius: 28px;
@@ -559,7 +584,8 @@ const processSteps = [
   }
 
   .hero745__visual-wrap,
-  .card745-media {
+  .card745-media,
+  .response745-card__media {
     overflow: hidden;
     border-radius: 28px;
     background: #e9e0d6;
@@ -573,12 +599,17 @@ const processSteps = [
     position: relative;
   }
 
-  .hero745__visual-wrap::after {
+  .hero745__visual-wrap::after,
+  .immersive745::before,
+  .final745__backdrop::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(34, 23, 18, 0.02) 0%, rgba(34, 23, 18, 0.16) 100%);
     pointer-events: none;
+  }
+
+  .hero745__visual-wrap::after {
+    background: linear-gradient(180deg, rgba(34, 23, 18, 0.02) 0%, rgba(34, 23, 18, 0.16) 100%);
   }
 
   .hero745__visual,
@@ -606,45 +637,6 @@ const processSteps = [
     color: #6b4b3e;
   }
 
-  .journey745 {
-    display: grid;
-    gap: 18px;
-    margin-top: 24px;
-  }
-
-  .journey745__item,
-  .process745-card {
-    display: grid;
-    grid-template-columns: 60px minmax(0, 1fr);
-    gap: 16px;
-    align-items: start;
-  }
-
-  .journey745__item span,
-  .response745-card__number,
-  .process745-card__number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px;
-    height: 52px;
-    border-radius: 16px;
-    background: #f0e2d6;
-    color: #6b4b3e;
-    font-weight: 800;
-    flex-shrink: 0;
-  }
-
-  .journey745__item h3,
-  .response745-card h3,
-  .comparison745-card h3,
-  .process745-card h3 {
-    margin: 0 0 10px;
-    font-size: 24px;
-    line-height: 1.2;
-    color: #241b16;
-  }
-
   .triggers745-wrap {
     padding-top: 18px;
     padding-bottom: 18px;
@@ -669,6 +661,61 @@ const processSteps = [
     line-height: 1.55;
   }
 
+  .immersive745 {
+    position: relative;
+    min-height: 74vh;
+    display: flex;
+    align-items: center;
+    background-image: var(--immersive-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .immersive745::before {
+    background:
+      linear-gradient(90deg, rgba(24, 18, 15, 0.78) 0%, rgba(24, 18, 15, 0.45) 42%, rgba(24, 18, 15, 0.18) 100%),
+      linear-gradient(180deg, rgba(24, 18, 15, 0.14) 0%, rgba(24, 18, 15, 0.46) 100%);
+  }
+
+  .immersive745__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .immersive745__inner--right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .immersive745__card {
+    max-width: 640px;
+    padding: 32px;
+    backdrop-filter: blur(6px);
+    background: rgba(255, 248, 242, 0.84);
+  }
+
+  .immersive745__card--wide {
+    max-width: 760px;
+  }
+
+  .immersive745__card h2 {
+    margin: 14px 0 16px;
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1.02;
+    color: #201713;
+  }
+
+  .immersive745__card p:last-child {
+    margin-bottom: 0;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #44332a;
+  }
+
   .section745-heading {
     margin-bottom: 26px;
   }
@@ -691,19 +738,26 @@ const processSteps = [
     text-align: center;
   }
 
-  .responses745__stack {
+  .responses745 {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .responses745__stack,
+  .comparisons745__grid,
+  .self745 {
     display: grid;
-    gap: 28px;
+    gap: 24px;
   }
 
   .response745-card {
     display: grid;
-    grid-template-columns: minmax(300px, 0.95fr) minmax(0, 1.05fr);
+    grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
     overflow: hidden;
   }
 
   .response745-card:nth-child(even) {
-    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
   }
 
   .response745-card:nth-child(even) .response745-card__media {
@@ -715,8 +769,7 @@ const processSteps = [
   }
 
   .response745-card__media {
-    min-height: 360px;
-    background: #ddd2c5;
+    min-height: 380px;
   }
 
   .response745-card__body {
@@ -724,6 +777,29 @@ const processSteps = [
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }
+
+  .response745-card__number,
+  .process745-card__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: #f0e2d6;
+    color: #6b4b3e;
+    font-weight: 800;
+  }
+
+  .response745-card h3,
+  .comparison745-card h3,
+  .process745-card h3,
+  .final745__form-title {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.18;
+    color: #241b16;
   }
 
   .response745-card__problem {
@@ -751,25 +827,6 @@ const processSteps = [
     background: rgba(255, 249, 243, 0.62);
   }
 
-  .qualifier745,
-  .comparisons745,
-  .life745,
-  .final745 {
-    padding-top: 72px;
-    padding-bottom: 72px;
-  }
-
-  .qualifier745__content,
-  .comparisons745__content {
-    align-self: center;
-  }
-
-  .self745 {
-    display: grid;
-    gap: 14px;
-    margin-bottom: 24px;
-  }
-
   .quote745 {
     padding: 28px;
   }
@@ -786,17 +843,16 @@ const processSteps = [
     font-weight: 700;
   }
 
-  .comparisons745__grid {
-    display: grid;
-    gap: 16px;
-  }
-
   .comparison745-card {
     padding: 24px;
   }
 
   .comparison745-card__overline {
     margin-bottom: 14px;
+  }
+
+  .comparisons745__media--bleed {
+    min-height: 100%;
   }
 
   .life745__intro {
@@ -855,15 +911,46 @@ const processSteps = [
 
   .process745-card {
     padding: 24px;
+    display: grid;
     grid-template-columns: 52px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
   }
 
-  .final745__media {
-    min-height: 100%;
+  .final745 {
+    color: #fff8f2;
+    overflow: hidden;
   }
 
-  .final745__card {
-    padding: 32px;
+  .final745__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: var(--final-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .final745__backdrop::after {
+    background:
+      linear-gradient(90deg, rgba(18, 14, 12, 0.84) 0%, rgba(18, 14, 12, 0.62) 40%, rgba(18, 14, 12, 0.48) 100%),
+      linear-gradient(180deg, rgba(18, 14, 12, 0.24) 0%, rgba(18, 14, 12, 0.62) 100%);
+  }
+
+  .final745__container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .final745__media-copy {
+    align-self: center;
+  }
+
+  .final745__media-copy h2 {
+    margin: 18px 0;
+    font-size: clamp(38px, 4.3vw, 64px);
+    line-height: 1.02;
+    color: #fff8f2;
   }
 
   .final745__lead {
@@ -871,6 +958,18 @@ const processSteps = [
     line-height: 1.55;
     color: #5a453b;
     margin-bottom: 24px;
+  }
+
+  .final745__lead--light {
+    color: rgba(255, 248, 242, 0.9);
+    max-width: 640px;
+    margin-bottom: 0;
+  }
+
+  .final745__card {
+    padding: 32px;
+    background: rgba(255, 247, 240, 0.92);
+    color: #241b16;
   }
 
   .final745__form-grid {
@@ -894,7 +993,7 @@ const processSteps = [
     width: 100%;
     border-radius: 16px;
     border: 1px solid rgba(111, 75, 63, 0.2);
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     padding: 14px 16px;
     font: inherit;
     color: #241b16;
@@ -957,10 +1056,11 @@ const processSteps = [
     .hero745__grid,
     .qualifier745__grid,
     .comparisons745__hero,
-    .final745__layout,
     .life745__intro,
+    .final745__layout,
     .response745-card,
-    .response745-card:nth-child(even) {
+    .response745-card:nth-child(even),
+    .process745__grid {
       grid-template-columns: 1fr;
     }
 
@@ -969,20 +1069,35 @@ const processSteps = [
       order: initial;
     }
 
-    .triggers745,
-    .process745__grid {
+    .triggers745 {
       grid-template-columns: 1fr;
+    }
+
+    .immersive745 {
+      min-height: 58vh;
+    }
+
+    .immersive745__inner--right {
+      justify-content: flex-start;
     }
   }
 
   @media (max-width: 720px) {
-    .hero745 {
+    .hero745,
+    .qualifier745,
+    .comparisons745,
+    .life745,
+    .final745,
+    .responses745 {
       padding-top: 40px;
+      padding-bottom: 40px;
     }
 
     .hero745__content h1,
-    .section745-heading h2 {
-      line-height: 1.02;
+    .section745-heading h2,
+    .immersive745__card h2,
+    .final745__media-copy h2 {
+      line-height: 1.04;
     }
 
     .hero745__card,
@@ -990,7 +1105,8 @@ const processSteps = [
     .comparison745-card,
     .process745-card,
     .quote745,
-    .final745__card {
+    .final745__card,
+    .immersive745__card {
       padding: 22px;
     }
 
@@ -1006,6 +1122,10 @@ const processSteps = [
 
     .life745-table {
       min-width: 720px;
+    }
+
+    .immersive745 {
+      min-height: 46vh;
     }
   }
 </style>
