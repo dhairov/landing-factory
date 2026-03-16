@@ -1,0 +1,650 @@
+---
+import Analytics from '../components/Analytics.astro';
+import Form from '../components/Form.astro';
+import '../styles/global.css';
+
+const slug = '745-kvartal';
+const formName = `landing-${slug}`;
+
+const triggerPoints = [
+  'Вы устали от архитектуры, которая кричит, навязывает статус и лишает воздуха.',
+  'Вы ищете дом, где не нужно ничего доказывать соседям, потому что вы уже всё доказали себе.',
+  'Вы хотите жить в центре города, но при этом сохранить тишину, приватность и свой внутренний ритм.',
+];
+
+const responseCards = [
+  {
+    number: '01',
+    title: 'Право на тишину',
+    problem: '«Современные ЖК слишком шумные и плотные. В них нет места, чтобы просто побыть в тишине после работы».',
+    answer:
+      'Я закрываю дверь, и город остается снаружи. Здесь архитектура не давит на меня. Я могу читать в тишине и ужинать, глядя на парк, а не в окна соседям.',
+    cta: 'Хотите увидеть планировки вживую? → Запросить показ',
+  },
+  {
+    number: '02',
+    title: 'Культура «своих»',
+    problem: '«Я боюсь оказаться в доме, где соседи соревнуются в статусе, а не уважают личные границы».',
+    answer:
+      'Здесь нет ярмарки тщеславия. В лифте я встречаю людей, с которыми мы говорим на одном языке — не громко, но в точку. Это комьюнити нормальных, достойных людей.',
+  },
+  {
+    number: '03',
+    title: 'Жизнь без компромиссов',
+    problem:
+      '«Чтобы жить в правильной атмосфере, мне приходится мириться со старыми трубами и отсутствием паркинга в историческом центре».',
+    answer:
+      'Мне больше не нужно выбирать между духом старой Перми и современным комфортом. Я получил дом, в который можно вписаться, не теряя себя.',
+    cta: 'Готовы поговорить? → Написать нам',
+  },
+];
+
+const selfSelection = [
+  'Когда вы понимаете, что статус — это то, что внутри, а не то, что нужно выставлять напоказ.',
+  'Когда вы переросли суету и ищете пространство, соразмерное вашему внутреннему масштабу.',
+  'Когда для вас «нормально» и «по-человечески» — это высшая форма похвалы.',
+];
+
+const comparisons = [
+  {
+    overline: 'Против «элитных» ЖК',
+    title: 'Благородная сдержанность',
+    text: 'Мы не продаем золотые вензеля и искусственный пафос. Мы предлагаем благородную сдержанность.',
+  },
+  {
+    overline: 'Против старого фонда',
+    title: 'Историческая атмосфера — без исторических проблем',
+    text: 'Дух старой Перми без изношенных коммуникаций, без случайных соседей, без отсутствия паркинга.',
+  },
+  {
+    overline: 'Против массовой застройки',
+    title: 'Приватность как архитектурный принцип',
+    text: 'Малое количество соседей на этаже. Уважение к вашему личному пространству заложено в проект.',
+  },
+];
+
+const lifeStages = [
+  {
+    stage: 'Первый свой',
+    price: 'От 8,5 млн ₽',
+    who: 'Вы впервые покупаете жильё полностью «под себя», без компромиссов с родственниками или партнёрами.',
+    hire: 'Пространство, где вы наконец можете быть собой — без чужих правил и чужого вкуса.',
+    format: 'Студии и 1-комнатные с авторской планировкой. Вход в культуру 745.',
+  },
+  {
+    stage: 'Тихий центр',
+    price: 'От 14,2 млн ₽',
+    who: 'Вы живёте в историческом центре, но устали от изношенных коммуникаций и случайных соседей.',
+    hire: 'Атмосферу старой Перми — но с современным комфортом и правильным окружением.',
+    format: '2-комнатные с видовыми характеристиками. Переезд без потери духа.',
+  },
+  {
+    stage: 'Пространство для жизни',
+    price: 'От 21,5 млн ₽',
+    who: 'Вы всё доказали. Вам нужен дом, который соответствует тому, кем вы стали — без лишних слов.',
+    hire: 'Среду, где культура — это не декор, а способ жить. Где соседи — «свои».',
+    format: '3-комнатные и семейные форматы. Пространство для тех, кто уже дома.',
+  },
+  {
+    stage: 'Личная территория',
+    price: 'От 35,0 млн ₽',
+    who: 'Вы цените абсолютную приватность и хотите, чтобы ваш дом был вашей крепостью — видовой, закрытой, неповторимой.',
+    hire: 'Собственное пространство над городом, где никто не смотрит в ваши окна.',
+    format: 'Видовые квартиры верхних этажей с террасами. Только для «своих».',
+  },
+];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Вы пишете нам',
+    text: 'Нажимаете «Написать нам» или «Запросить показ» — в удобном для вас мессенджере.',
+  },
+  {
+    number: '02',
+    title: 'Мы отвечаем за 1 день',
+    text: 'Связываемся с вами в течение одного рабочего дня. Без автоответчиков и скриптов.',
+  },
+  {
+    number: '03',
+    title: 'Закрытая встреча',
+    text: 'Приглашаем вас на закрытую встречу в шоу-руме 745 квартала. По-человечески.',
+  },
+  {
+    number: '04',
+    title: 'Диалог без давления',
+    text: 'За чашкой кофе вы смотрите планировки и материалы отделки. Никакого давления — только конструктивный диалог.',
+  },
+];
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>ЖК «745 квартал» — Жить по себе</title>
+    <meta
+      name="description"
+      content="47 квартир бизнес-класса в тихом центре Перми для тех, кто живёт по себе. Закрытая встреча, планировки и материалы — по приглашению."
+    />
+  </head>
+  <body class="landing-745">
+    <Analytics landingSlug={slug} />
+
+    <main>
+      <section class="hero745 section">
+        <div class="container">
+          <div class="hero745__label">ЖК «745 квартал» · Пермь · Тихий центр</div>
+          <div class="hero745__grid">
+            <div class="hero745__content">
+              <h1>Кто сказал, что быть собой — <em>для пермяка недостаточно?</em></h1>
+              <p class="hero745__lead">
+                Мы верим, что город должен слышать своих. Что быть старым пермяком — это честь.
+                ЖК «745 квартал» — это среда для тех, кто не нуждается в доказательствах. Жить
+                по себе. Не выше. Не громче. А с достоинством.
+              </p>
+              <a class="button745 button745--primary" href="#contact">Посмотреть планировки на закрытой встрече</a>
+            </div>
+            <aside class="hero745__card">
+              <h2>47 квартир бизнес-класса в тихом центре Перми для тех, кто живёт по себе</h2>
+              <p class="hero745__meta">Сдача — IV квартал 2025 · Закрытая презентация — по приглашению</p>
+              <p>
+                Малый дом. Конкретные люди. Правильная интонация. Мы не строим жилой комплекс —
+                мы создаём среду, в которой хочется оставаться.
+              </p>
+              <div class="journey745">
+                <article class="journey745__item">
+                  <span>01</span>
+                  <div>
+                    <h3>Вы выбираете</h3>
+                    <p>Мы спроектировали пространства без навязчивости — с правильной интонацией, воздухом и видами, которые не давят.</p>
+                  </div>
+                </article>
+                <article class="journey745__item">
+                  <span>02</span>
+                  <div>
+                    <h3>Вы переезжаете</h3>
+                    <p>Вы выбираете планировку, где культура начинается с кухни, и переезжаете в дом, который говорит с вами на одном языке.</p>
+                  </div>
+                </article>
+                <article class="journey745__item">
+                  <span>03</span>
+                  <div>
+                    <h3>Вы остаётесь</h3>
+                    <p>Вы обретаете комьюнити без шоу и социального давления — просто нормальных, достойных людей, уважающих тишину.</p>
+                  </div>
+                </article>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight triggers745-wrap">
+        <div class="container">
+          <div class="triggers745">
+            {triggerPoints.map((item) => <p>{item}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="section responses745">
+        <div class="container">
+          <div class="section745-heading">
+            <h2>Как 745 квартал отвечает на то, что вас останавливало</h2>
+          </div>
+          <div class="responses745__grid">
+            {responseCards.map((card) => (
+              <article class="response745-card">
+                <div class="response745-card__number">{card.number}</div>
+                <h3>{card.title}</h3>
+                <p class="response745-card__problem">{card.problem}</p>
+                <p>{card.answer}</p>
+                {card.cta && (
+                  <a class="inline-link745" href="#contact">{card.cta}</a>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section section745-alt">
+        <div class="container narrow745">
+          <div class="section745-heading center745">
+            <h2>Узнайте себя</h2>
+          </div>
+          <div class="self745">
+            {selfSelection.map((item) => <p>{item}</p>)}
+          </div>
+          <blockquote class="quote745">
+            <p>
+              «В Перми есть особая интонация. Умение молчать и слушать. 745 квартал — это первое
+              место за долгое время, которое построено именно с этой интонацией. Без нажима».
+            </p>
+            <footer>Амбассадор проекта · Архитектор, Пермь</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="section comparisons745">
+        <div class="container">
+          <div class="section745-heading center745">
+            <h2>Мы не для всех. Именно поэтому — для вас.</h2>
+          </div>
+          <div class="comparisons745__grid">
+            {comparisons.map((item) => (
+              <article class="comparison745-card">
+                <p class="comparison745-card__overline">{item.overline}</p>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section life745">
+        <div class="container">
+          <div class="section745-heading">
+            <h2>На каком этапе вашей жизни вы хотите жить?</h2>
+            <p>Мы не продаём квадратные метры. Мы предлагаем выбрать, на каком этапе вашей жизни вы хотите жить.</p>
+          </div>
+          <div class="life745-table-wrap">
+            <table class="life745-table">
+              <thead>
+                <tr>
+                  <th>Этап</th>
+                  <th>Кто вы сейчас</th>
+                  <th>Что вы «нанимаете»</th>
+                  <th>Формат в 745 квартале</th>
+                </tr>
+              </thead>
+              <tbody>
+                {lifeStages.map((item) => (
+                  <tr>
+                    <td>
+                      <strong>{item.stage}</strong>
+                      <span>{item.price}</span>
+                    </td>
+                    <td>{item.who}</td>
+                    <td>{item.hire}</td>
+                    <td>{item.format}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div class="center745 action745-wrap">
+            <a class="button745 button745--ghost" href="#contact">Подобрать свой этап на закрытой встрече</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section745-alt">
+        <div class="container">
+          <div class="section745-heading center745">
+            <h2>Мы ценим ваше время и не любим навязчивый маркетинг</h2>
+          </div>
+          <div class="process745__grid">
+            {processSteps.map((step) => (
+              <article class="process745-card">
+                <div class="process745-card__number">{step.number}</div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section final745">
+        <div class="container final745__card">
+          <p class="final745__eyebrow">745 квартал · Пермь</p>
+          <h2>Напишите нам — мы пришлём материалы и предложим время встречи.</h2>
+          <p>Никакого давления — только конструктивный диалог, планировки и возможность увидеть проект вживую.</p>
+          <a class="button745 button745--primary" href="#contact">Написать нам</a>
+        </div>
+      </section>
+
+      <Form formName={formName} landingSlug={slug} />
+    </main>
+  </body>
+</html>
+
+<style>
+  :global(body.landing-745) {
+    background:
+      radial-gradient(circle at top left, rgba(141, 110, 99, 0.12), transparent 32%),
+      linear-gradient(180deg, #f7f3ee 0%, #f3eee7 100%);
+    color: #241b16;
+  }
+
+  .landing-745 main {
+    overflow-x: hidden;
+  }
+
+  .hero745 {
+    padding-top: 72px;
+    padding-bottom: 48px;
+  }
+
+  .hero745__label,
+  .final745__eyebrow,
+  .comparison745-card__overline {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(81, 52, 35, 0.08);
+    color: #6b4b3e;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .hero745__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    gap: 32px;
+    align-items: start;
+    margin-top: 24px;
+  }
+
+  .hero745__content h1 {
+    font-size: clamp(46px, 6vw, 86px);
+    line-height: 0.95;
+    margin-bottom: 24px;
+    color: #201713;
+  }
+
+  .hero745__content h1 em {
+    display: inline-block;
+    font-style: italic;
+    color: #6f4b3f;
+  }
+
+  .hero745__lead {
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.45;
+    max-width: 760px;
+    color: #4e3b33;
+    margin-bottom: 32px;
+  }
+
+  .hero745__card,
+  .response745-card,
+  .comparison745-card,
+  .process745-card,
+  .final745__card,
+  .quote745 {
+    background: rgba(255, 250, 245, 0.9);
+    border: 1px solid rgba(111, 75, 63, 0.12);
+    border-radius: 28px;
+    box-shadow: 0 18px 42px rgba(60, 39, 29, 0.08);
+  }
+
+  .hero745__card {
+    padding: 30px;
+  }
+
+  .hero745__card h2 {
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: #201713;
+  }
+
+  .hero745__meta {
+    font-weight: 700;
+    color: #6b4b3e;
+  }
+
+  .journey745 {
+    display: grid;
+    gap: 18px;
+    margin-top: 24px;
+  }
+
+  .journey745__item {
+    display: grid;
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .journey745__item span,
+  .response745-card__number,
+  .process745-card__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: #f0e2d6;
+    color: #6b4b3e;
+    font-weight: 800;
+  }
+
+  .journey745__item h3,
+  .response745-card h3,
+  .comparison745-card h3,
+  .process745-card h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    line-height: 1.2;
+    color: #241b16;
+  }
+
+  .triggers745-wrap {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .triggers745 {
+    display: grid;
+    gap: 16px;
+    background: linear-gradient(180deg, rgba(107, 75, 62, 0.12) 0%, rgba(107, 75, 62, 0.06) 100%);
+    border: 1px solid rgba(107, 75, 62, 0.12);
+    border-radius: 28px;
+    padding: 28px;
+  }
+
+  .triggers745 p {
+    margin: 0;
+    font-size: clamp(22px, 2.8vw, 30px);
+    line-height: 1.35;
+    color: #2f211b;
+    font-weight: 500;
+  }
+
+  .section745-heading {
+    max-width: 860px;
+    margin-bottom: 28px;
+  }
+
+  .center745 {
+    text-align: center;
+  }
+
+  .narrow745 {
+    width: min(calc(100% - 32px), 900px);
+    margin: 0 auto;
+  }
+
+  .responses745__grid,
+  .comparisons745__grid,
+  .process745__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .response745-card,
+  .comparison745-card,
+  .process745-card,
+  .final745__card {
+    padding: 28px;
+  }
+
+  .response745-card__problem {
+    color: #6b4b3e;
+    font-weight: 700;
+  }
+
+  .inline-link745 {
+    display: inline-flex;
+    margin-top: 12px;
+    font-weight: 700;
+    color: #6b4b3e;
+  }
+
+  .section745-alt {
+    background: rgba(255, 255, 255, 0.52);
+    border-top: 1px solid rgba(111, 75, 63, 0.08);
+    border-bottom: 1px solid rgba(111, 75, 63, 0.08);
+  }
+
+  .self745 {
+    display: grid;
+    gap: 14px;
+  }
+
+  .self745 p {
+    margin: 0;
+    font-size: clamp(22px, 2.7vw, 32px);
+    line-height: 1.3;
+    color: #2b201a;
+  }
+
+  .quote745 {
+    margin: 28px 0 0;
+    padding: 28px;
+  }
+
+  .quote745 p {
+    font-size: 22px;
+    line-height: 1.5;
+    color: #2f211b;
+  }
+
+  .quote745 footer {
+    color: #6b4b3e;
+    font-weight: 700;
+  }
+
+  .life745-table-wrap {
+    overflow-x: auto;
+    border-radius: 28px;
+    border: 1px solid rgba(111, 75, 63, 0.12);
+    background: rgba(255, 250, 245, 0.92);
+    box-shadow: 0 18px 42px rgba(60, 39, 29, 0.08);
+  }
+
+  .life745-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 860px;
+  }
+
+  .life745-table th,
+  .life745-table td {
+    padding: 22px 20px;
+    text-align: left;
+    border-bottom: 1px solid rgba(111, 75, 63, 0.1);
+    vertical-align: top;
+  }
+
+  .life745-table th {
+    color: #6b4b3e;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .life745-table td strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: #241b16;
+  }
+
+  .life745-table td span {
+    color: #6b4b3e;
+    font-weight: 700;
+  }
+
+  .action745-wrap {
+    margin-top: 28px;
+  }
+
+  .final745__card {
+    text-align: center;
+  }
+
+  .final745__card h2 {
+    margin-top: 18px;
+  }
+
+  .button745 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0 24px;
+    border-radius: 16px;
+    font-weight: 800;
+    border: 1px solid transparent;
+    transition: 0.2s ease;
+  }
+
+  .button745--primary {
+    background: #6b4b3e;
+    color: #fff8f3;
+  }
+
+  .button745--primary:hover {
+    background: #553b31;
+    transform: translateY(-1px);
+  }
+
+  .button745--ghost {
+    background: rgba(107, 75, 62, 0.08);
+    color: #553b31;
+    border-color: rgba(107, 75, 62, 0.14);
+  }
+
+  .button745--ghost:hover {
+    background: rgba(107, 75, 62, 0.14);
+  }
+
+  @media (max-width: 1100px) {
+    .responses745__grid,
+    .comparisons745__grid,
+    .process745__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .hero745__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero745 {
+      padding-top: 48px;
+    }
+
+    .hero745__content h1 {
+      font-size: clamp(40px, 12vw, 64px);
+    }
+
+    .triggers745 p,
+    .self745 p {
+      font-size: 22px;
+    }
+  }
+</style>
