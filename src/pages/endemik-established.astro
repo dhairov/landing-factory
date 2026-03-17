@@ -6,15 +6,15 @@ const slug = 'endemik-established';
 const formName = `landing-${slug}`;
 
 const images = {
-  hero: '/assets/745-kvartal/original/hero_hero.webp',
-  aha1: '/assets/745-kvartal/original/aha1_silence.webp',
-  aha2: '/assets/745-kvartal/original/aha2_community.webp',
-  aha3: '/assets/745-kvartal/original/aha3_soul.webp',
-  qualifier: '/assets/745-kvartal/original/qualifier_who.webp',
-  compare: '/assets/745-kvartal/original/advantages_compare.webp',
-  evolution: '/assets/745-kvartal/original/evolution_levels.webp',
-  footer: '/assets/745-kvartal/original/footer_cta.webp',
-  currentPositioning: '/assets/745-kvartal/original/current_positioning.webp',
+  hero: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/endemik-hero-reference-eus25nkA8657US26p4feZu.webp',
+  aha1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/endemik-quiet-lobby-PqzWp4uAdFGHpA4eE8B8No.webp',
+  aha2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/endemik-amenity-gallery-gtecWK6oBMfuP2pZ9HQQ3o.webp',
+  aha3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/endemik-view-terrace-D6VLZghDXEwSACAh7ZT68F.webp',
+  qualifier: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/endemik-private-courtyard-jM9kQwKPjxUefYb3XjZvBh.webp',
+  compare: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/endemik-night-facade-i3j3g7dZPzDSP5w33GLw3T.webp',
+  evolution: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/endemik-view-terrace-D6VLZghDXEwSACAh7ZT68F.webp',
+  footer: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/endemik-night-facade-i3j3g7dZPzDSP5w33GLw3T.webp',
+  currentPositioning: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/pasted_file_EVKaGJ_изображение_5b7ef669.webp',
 };
 
 const triggerPoints = [
@@ -365,11 +365,11 @@ const processSteps = [
               <p class="final745__eyebrow">ЖК «Эндемик» · Следующий шаг</p>
               <h2>Готовы увидеть, как может выглядеть новая версия лендинга</h2>
               <p class="final745__lead">
-                Слева — текущий экран позиционирования. Справа — форма для встречи, на которой разберём, как перевести Эндемик
+                Слева — текущий экран лендинга Эндемика. Справа — форма для встречи, на которой разберём, как перевести проект
                 в более точную коммуникацию для сегмента «Одинокие и состоявшиеся».
               </p>
               <div class="final745__visual-card">
-                <img src={images.currentPositioning} alt="Текущий экран позиционирования ЖК Эндемик" loading="lazy" />
+                <img src={images.currentPositioning} alt="Текущий экран лендинга ЖК Эндемик" loading="lazy" />
               </div>
             </div>
 
@@ -416,16 +416,6 @@ const processSteps = [
                   <div class="final745__field-block final745__form-full">
                     <label for="email" class="field-label745">Email</label>
                     <input type="email" id="email" name="email" required class="field-input745" />
-                  </div>
-                  <div class="final745__field-block final745__form-full">
-                    <label for="message" class="field-label745">Что сейчас не работает в позиционировании</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="5"
-                      class="field-input745 field-textarea745"
-                      placeholder="Например: проект выглядит достойно, но не цепляет нужный сегмент; не хватает цельного образа; форма и финальный CTA слишком типовые"
-                    ></textarea>
                   </div>
                 </div>
                 <button type="submit" class="button745 button745--primary final745__submit">
@@ -975,7 +965,7 @@ const processSteps = [
   }
 
   .split-photo745__content-wrap::before {
-    background-image: url('/assets/745-kvartal/original/aha3_soul.webp');
+    background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/endemik-view-terrace-D6VLZghDXEwSACAh7ZT68F.webp');
     background-size: cover;
     background-position: center;
     opacity: 0.2;
