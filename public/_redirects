@@ -1,8 +1,12 @@
-# Example redirects - add more as needed
-# /old-page /new-page 301
-# /offer-pzs-ceo /pzs-ceo 302
-# /offer-pzs-owner /pzs-owner 302
+# Public offer aliases for staging.devpartners.ru
+# Rule: every landing has a canonical internal route and a public /offer-* alias.
+# Format:
+# /offer-{campaign} /{canonical-slug}/ 200
+# Example:
+# /offer-745 /745-kvartal/ 200
+#
+# Add new landing aliases above the catch-all rule.
 /offer-745 /745-kvartal/ 200
 
-# Catch-all redirect for SPA
+# Catch-all redirect for SPA/runtime routing
 /* /index.html 200
