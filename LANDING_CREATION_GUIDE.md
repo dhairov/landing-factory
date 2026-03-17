@@ -1,190 +1,203 @@
 # Landing Factory — Creating New Landing Pages
 
-This guide explains how to create new landing pages in the Landing Factory system.
+This guide defines the **standard process** for creating and publishing new DevPartners landing pages on **staging.devpartners.ru**.
 
-## Overview
+## Core Principle
 
-Each landing page is defined by a single **content file** in Markdown format. The system automatically generates a live page from this file, making it easy to create and publish landing pages without writing any code.
+A landing page in this repository is created from a **fixed structural framework**. From one landing to another, the following parts may change:
 
-## How It Works
+| Layer | What changes |
+|---|---|
+| Copy | Headlines, subheads, descriptive text, CTA wording |
+| Visual style | Color palette, gradients, card treatment, spacing accents |
+| Images | Hero image, section images, background photos, CTA visual |
+| Offer alias | Public-facing `/offer-*` route |
 
-1.  **Create a content file** in `src/content/landings/` directory
-2.  **Define your landing data** in the file's frontmatter (YAML)
-3.  **Commit to GitHub**
-4.  **Netlify automatically deploys** your new landing page
-5.  **Preview before publishing** using Netlify's Deploy Previews
+The following parts should remain stable:
 
-## Step-by-Step Guide
+| Stable element | Rule |
+|---|---|
+| Section order | Keep the same landing anatomy |
+| Section semantics | Each block keeps its role in the conversion narrative |
+| Form logic | Netlify form, honeypot, UTM fields, submission tracking |
+| Publishing model | Canonical slug + public offer alias on staging.devpartners.ru |
 
-### 1. Create a New Content File
+## Fixed Landing Anatomy
 
-Create a new file in `src/content/landings/` with a descriptive name. Use lowercase and hyphens for the filename.
+Every landing should follow the same base composition:
 
-**Example:** `src/content/landings/my-company.md`
-
-### 2. Define the Landing Page Structure
-
-Every landing file must include a frontmatter section (YAML between `---` markers) with the following required fields:
-
-```yaml
----
-slug: my-company
-company: My Company Name
-headline: Your main headline here
-subtitle: Supporting subtitle or tagline
-cta: Call-to-action button text
----
+```text
+1. Hero
+2. Trigger / insight section
+3. Qualifier section
+4. Comparison / positioning section
+5. Journey / process section
+6. Evolution / life-stage section
+7. Final CTA with form
+8. Thank-you / post-submit path
 ```
 
-### 3. Add Optional Content Sections
+This means that new landings should be treated as **variations of one stable template system**, not as fully independent site concepts.
 
-You can enhance your landing with structured data for different sections:
+## URL and Publishing Model
 
-#### Problems Section
-```yaml
-problems:
-  - title: Problem 1
-    description: Description of the first problem
-  - title: Problem 2
-    description: Description of the second problem
+Every landing must have two coordinated routes.
+
+| Route type | Example | Purpose |
+|---|---|---|
+| Canonical internal route | `/745-kvartal/` | Actual Astro page |
+| Public staging route | `/offer-745` | Shareable campaign URL |
+
+The canonical route is implemented as a page in `src/pages/`. The public route is implemented in `public/_redirects` as a rewrite to the canonical route.
+
+### Required Rule
+
+For each new landing:
+
+```text
+1. Create src/pages/{slug}.astro
+2. Put assets into public/assets/{slug}/
+3. Add a rewrite in public/_redirects
 ```
 
-#### Benefits/Solution Section
-```yaml
-benefits:
-  - title: Benefit 1
-    description: Description of the first benefit
-  - title: Benefit 2
-    description: Description of the second benefit
+Example:
+
+```text
+src/pages/745-kvartal.astro
+public/assets/745-kvartal/*
+public/_redirects:
+/offer-745 /745-kvartal/ 200
 ```
 
-#### Case Studies / Proof Section
-```yaml
-caseStudies:
-  - company: Client Company A
-    challenge: What challenge they faced
-    result: What results they achieved
-  - company: Client Company B
-    challenge: What challenge they faced
-    result: What results they achieved
+Public URL:
+
+```text
+https://staging.devpartners.ru/offer-745
 ```
 
-#### FAQ Section
-```yaml
-faqs:
-  - question: First frequently asked question?
-    answer: Answer to the first question
-  - question: Second frequently asked question?
-    answer: Answer to the second question
+## Step-by-Step Workflow
+
+### 1. Create the Canonical Landing Page
+
+Create a new Astro page in `src/pages/`.
+
+**Example:**
+
+```text
+src/pages/offer-name.astro
 ```
 
-### 4. Add Body Content (Optional)
+Use lowercase and hyphens in the filename.
 
-After the frontmatter (the `---` section), you can add additional Markdown content that will be rendered at the bottom of the page:
+### 2. Reuse the Stable Structure
 
-```markdown
----
-slug: my-company
-company: My Company
-headline: Main Headline
-subtitle: Subtitle
-cta: Get Started
----
+Build the new landing by keeping the same fixed structure. Do not redesign the information architecture from scratch.
 
-## Additional Section
+Instead, adapt:
 
-This is additional content that appears after all the structured sections.
+- headings
+- paragraphs
+- CTA wording
+- imagery
+- color treatment
+- section styling
 
-You can use **bold**, *italic*, and other Markdown formatting here.
+### 3. Add Assets
+
+Store all landing-specific images in:
+
+```text
+public/assets/{slug}/
 ```
 
-## Complete Example
+Example:
 
-Here's a complete example of a landing page file:
-
-```markdown
----
-slug: saas-startup
-company: SaaS Startup Inc
-headline: Automate your workflow in minutes
-subtitle: The easiest way to streamline your business processes
-cta: Start Free Trial
-problems:
-  - title: Manual Processes Waste Time
-    description: Your team spends hours on repetitive tasks that could be automated
-  - title: Errors and Inconsistencies
-    description: Manual work leads to mistakes that cost money and reputation
-  - title: Difficult to Scale
-    description: As you grow, manual processes become impossible to manage
-benefits:
-  - title: Save 20 Hours Per Week
-    description: Automation handles repetitive tasks automatically
-  - title: 99.9% Accuracy
-    description: Eliminate human error with intelligent automation
-  - title: Scale Effortlessly
-    description: Handle 10x more work without hiring more staff
-caseStudies:
-  - company: Tech Company A
-    challenge: Processing 1000+ orders daily manually
-    result: Reduced processing time by 90% and cut errors to near zero
-  - company: Enterprise B
-    challenge: Inconsistent data entry across departments
-    result: Standardized all processes and improved data quality by 95%
-faqs:
-  - question: How long does setup take?
-    answer: Most customers are up and running within 24 hours. Our team provides full onboarding support.
-  - question: Can we integrate with our existing tools?
-    answer: Yes, we support 200+ integrations with popular business tools.
-  - question: What about security?
-    answer: We use enterprise-grade encryption and comply with SOC 2, GDPR, and HIPAA standards.
----
-
-## Why Choose Us?
-
-We've helped over 5,000 companies automate their workflows and save millions in operational costs.
-
-Our platform is trusted by companies of all sizes, from startups to Fortune 500 enterprises.
+```text
+public/assets/745-kvartal/hero_hero.webp
+public/assets/745-kvartal/aha1_silence.webp
+public/assets/745-kvartal/footer_cta.webp
 ```
 
-## Naming Convention
+### 4. Add the Public Offer Alias
 
-Use the following naming convention for your landing files:
+Open `public/_redirects` and add a rewrite from the campaign route to the canonical page.
 
-- **Lowercase only**
-- **Hyphens instead of spaces** (e.g., `my-company.md`, not `My Company.md`)
-- **Descriptive names** (e.g., `pzs-ceo.md`, `enterprise-solution.md`)
-
-The `slug` field in the frontmatter determines the URL. For example:
-- File: `src/content/landings/pzs-ceo.md`
-- URL: `https://staging.devpartners.ru/pzs-ceo`
-
-## Publishing Workflow
-
-1.  **Create or edit** a landing file in `src/content/landings/`
-2.  **Commit to GitHub** with a descriptive message (e.g., `feat: Add new landing for PZS CEO`)
-3.  **Netlify creates a Deploy Preview** automatically (visible in the GitHub pull request)
-4.  **Review the preview** to ensure everything looks correct
-5.  **Merge to main** when ready
-6.  **Netlify deploys to production** automatically
-
-## Redirects
-
-If you need to redirect old URLs to new landing pages, edit the `public/_redirects` file:
-
-```
-/old-landing /new-landing 301
-/offer-pzs-ceo /pzs-ceo 302
+```text
+/offer-745 /745-kvartal/ 200
 ```
 
-## Tips for Best Results
+Use **200 rewrite**, not a temporary redirect, when the goal is to serve the same landing under the public route.
 
-- **Keep headlines concise** (5-10 words)
-- **Use clear, benefit-focused language** in subtitles
-- **Limit problems to 3-5** for better readability
-- **Include 2-4 case studies** for credibility
-- **Write FAQs that answer real customer questions**
-- **Test your landing** in the Deploy Preview before publishing
+### 5. Preserve Shared Form Logic
 
-## Need Help?
+Every landing must keep the shared form mechanics:
 
-If you encounter any issues or need assistance, please refer to the main project documentation or contact the development team.
+| Element | Must be present |
+|---|---|
+| Netlify form attributes | Yes |
+| Honeypot field | Yes |
+| Hidden UTM fields | Yes |
+| Landing slug/form identification | Yes |
+| Submit tracking | Yes |
+
+If the form layout changes visually, the capture logic still must remain intact.
+
+### 6. Build and Verify
+
+Before pushing, run:
+
+```text
+npm run build
+```
+
+Then verify both URLs:
+
+```text
+https://staging.devpartners.ru/{slug}/
+https://staging.devpartners.ru/offer-{name}
+```
+
+### 7. Publish
+
+Push the changes to `main`. Publication is considered finished only after the landing opens correctly on the **public offer route** on `staging.devpartners.ru`.
+
+## Recommended Naming Convention
+
+| Element | Convention |
+|---|---|
+| Canonical slug | lowercase-hyphenated |
+| Public alias | `/offer-{campaign}` |
+| Asset folder | same as canonical slug |
+| Image filenames | semantic, lowercase, underscored or hyphenated |
+
+Examples:
+
+```text
+src/pages/745-kvartal.astro
+public/assets/745-kvartal/
+/offer-745
+```
+
+## Routing Examples
+
+```text
+/offer-745 /745-kvartal/ 200
+/offer-pzs-ceo /pzs-ceo/ 200
+/offer-pzs-owner /pzs-owner/ 200
+```
+
+## Completion Checklist
+
+| Check | Required |
+|---|---|
+| Canonical Astro page created | Yes |
+| Assets stored in landing-specific folder | Yes |
+| Fixed structure preserved | Yes |
+| Copy/style/images adapted | Yes |
+| Public offer alias added to `_redirects` | Yes |
+| Build passes | Yes |
+| `staging.devpartners.ru/offer-*` opens the landing | Yes |
+
+## Important Rule
+
+> New DevPartners landings are not separate mini-sites. They are standardized offer pages built from one stable structure, with variation only in **copy, visuals, and styling**, and published on **staging.devpartners.ru** via a public `/offer-*` alias.
