@@ -2,6 +2,10 @@
 slug: offer806
 title: "ГК Первый строительный фонд — ЖК «Первый на Титова»"
 description: ""
+company: "ГК Первый строительный фонд"
+headline: "ГК Первый строительный фонд — ЖК «Первый на Титова»"
+subtitle: ""
+cta: "Получить материалы по переупаковке оффера"
 heroTitle: "ГК Первый строительный фонд — ЖК «Первый на Титова»"
 heroText: ""
 heroImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80"

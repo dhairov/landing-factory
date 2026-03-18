@@ -2,6 +2,10 @@
 slug: offer815
 title: "СЕВЕРНАЯ КОМПАНИЯ — Жилой дом «Кипарис»"
 description: ""
+company: "СЕВЕРНАЯ КОМПАНИЯ"
+headline: "СЕВЕРНАЯ КОМПАНИЯ — Жилой дом «Кипарис»"
+subtitle: ""
+cta: "Получить материалы по переупаковке оффера"
 heroTitle: "СЕВЕРНАЯ КОМПАНИЯ — Жилой дом «Кипарис»"
 heroText: ""
 heroImage: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"

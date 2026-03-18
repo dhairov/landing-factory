@@ -2,6 +2,10 @@
 slug: offer817
 title: "СПК Зелёный сад — ЖК ITower"
 description: ""
+company: "СПК Зелёный сад"
+headline: "СПК Зелёный сад — ЖК ITower"
+subtitle: ""
+cta: "Получить материалы по переупаковке оффера"
 heroTitle: "СПК Зелёный сад — ЖК ITower"
 heroText: ""
 heroImage: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"

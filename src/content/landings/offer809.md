@@ -2,6 +2,10 @@
 slug: offer809
 title: "ДК ТСИ / Группа ТСИ — ЖК Притяжение"
 description: ""
+company: "ДК ТСИ / Группа ТСИ"
+headline: "ДК ТСИ / Группа ТСИ — ЖК Притяжение"
+subtitle: ""
+cta: "Получить материалы по переупаковке оффера"
 heroTitle: "ДК ТСИ / Группа ТСИ — ЖК Притяжение"
 heroText: ""
 heroImage: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80"
