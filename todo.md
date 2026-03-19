@@ -13,3 +13,8 @@
 - [ ] Verify the evolution table is removed on staging.
 - [ ] Verify the phrase `семья второго цикла` is removed from the targeted visible sections on staging.
 - [ ] Verify `current_positioning_user.webp` is visible next to the form on staging.
+- [ ] Make the paragraph beginning `Поэтому «Дома у сада» может читаться как выбор...` light.
+- [ ] Make the response card titles `У каждого появляется своё место`, `Жизнь остаётся в своём районе, но становится качественно другой`, and `Дом выдерживает длинный горизонт` dark.
+- [ ] Make the quote `«Не “ещё одна квартира для семьи”, а более зрелая база для следующего этапа жизни».` light.
+- [ ] Keep `Стратегическая встреча по переупаковке` and the paragraph beginning `Проведём встречу и покажем...` dark.
+- [ ] Remove the form field `Что сейчас не работает в позиционировании` from the form.
