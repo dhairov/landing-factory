@@ -1,0 +1,360 @@
+---
+import Analytics from '../components/Analytics.astro';
+import '../styles/global.css';
+
+// ─── ЖК-специфичные данные ───────────────────────────────────────────────────
+const developerName = 'ГК ИКАР';
+const projectName = 'Высота 323';
+const city = 'Челябинск';
+const projectTagline = 'Бизнес-класс · Сдача 4 кв. 2028';
+const slug = 'ikar-vysota-323';
+const formName = `landing-${slug}`;
+
+// ─── Картинки: сегментные (stay-but-grow) + уникальный скриншот ЖК ──────────
+const images = {
+  hero: '/assets/stay-but-grow/original/hero_hero.jpg',
+  aha1: '/assets/stay-but-grow/original/aha1_lobby.jpg',
+  aha2: '/assets/stay-but-grow/original/aha2_view.jpg',
+  aha3: '/assets/stay-but-grow/original/aha3_space.jpg',
+  qualifier: '/assets/stay-but-grow/original/qualifier_who.jpg',
+  footer: '/assets/stay-but-grow/original/footer_cta.jpg',
+  currentPositioning: '/assets/ikar-vysota-323/original/current_positioning.webp',
+};
+
+// ─── Тексты сегмента (stay-and-grow) — не меняются ──────────────────────────
+const triggerPoints = [
+  'Вы давно живёте в Челябинске и не хотите его менять — но чувствуете, что выросли из текущего жилья.',
+  'Вы не ищете новый старт и не переезжаете ради перемен. Вы просто хотите, чтобы дом наконец совпал с тем, кем вы стали.',
+  'Вам важно остаться в своём городе, в своём ритме — но жить в среде, которая соответствует вашему реальному уровню жизни.',
+];
+
+const responseCards = [
+  {
+    number: '01',
+    title: 'Остаться в Челябинске — и наконец выдохнуть',
+    problem: '«Я не хочу никуда переезжать. Я люблю этот город, здесь мои связи, мой бизнес, мой ритм. Но текущее жильё перестало соответствовать тому, кем я стал».',
+    answer:
+      'Переезд не обязательно означает смену города. Иногда это просто переход в среду, которая наконец совпадает с тем, как вы живёте сейчас. Тот же Челябинск, та же жизнь — но дом, в котором больше не нужно ничего терпеть.',
+    detail:
+      'Не эмиграция, не побег, не новый старт. Просто апгрейд среды внутри привычного города — без потери всего, что здесь важно. Высота 323 — это именно такой переход.',
+    cta: 'Посмотреть, как этот сценарий работает для Высоты 323',
+    image: images.aha1,
+    alt: 'Статусное лобби Высоты 323 — первое ощущение нового уровня',
+  },
+  {
+    number: '02',
+    title: 'Среда, которая соответствует реальному уровню жизни',
+    problem: '«Я вырос из текущего жилья. Но переезжать из Челябинска не хочу — здесь всё моё. Просто хочу жить в среде, которая соответствует тому, кем я стал».',
+    answer:
+      'Есть момент, когда человек понимает: дом больше не совпадает с его реальным образом жизни. Не потому что плохой — а потому что он сам стал другим. Это не кризис, это рост. И решение здесь — не переезд в другой город, а переход в другую среду внутри своего.',
+    detail:
+      'Вид на центр Челябинска с 30 этажей, атриум с дизайнерским интерьером, трёхуровневый паркинг — всё это формирует ощущение своего уровня. Когда среда совпадает с человеком, он перестаёт тратить энергию на внутреннее несоответствие.',
+    cta: 'Обсудить, как Высота 323 попадает в этот сценарий',
+    image: images.aha2,
+    alt: 'Панорамный вид из окна Высоты 323 — знакомый Челябинск, новый уровень',
+  },
+  {
+    number: '03',
+    title: 'Апгрейд без потери себя',
+    problem: '«Я не хочу ничего менять в своей жизни. Я просто хочу, чтобы дом наконец совпал с тем, кем я стал. Без переезда в другой город, без потери связей, без нового старта с нуля».',
+    answer:
+      'Это не про то, чтобы стать кем-то другим. Это про то, чтобы жить в среде, которая честно отражает, кем вы уже являетесь. Тот же Челябинск, те же люди, тот же ритм — но пространство, которое наконец перестало тебя сдерживать.',
+    detail:
+      'Высота 323: бизнес-класс в центре города, чистая геометрия неомодернизма, панорамные виды с высоты 30 этажей. Апгрейд среды без потери идентичности.',
+    cta: 'Если Высота 323 — это про вас, давайте разберём переупаковку',
+    image: images.aha3,
+    alt: 'Просторная квартира Высоты 323 с большими окнами — пространство, которое не сдерживает',
+  },
+];
+
+const selfSelection = [
+  'Когда вы понимаете, что выросли из текущего жилья — но не хотите менять Челябинск и привычный ритм жизни.',
+  'Когда вам важно остаться в своём городе, сохранить связи и бизнес, но жить в среде, которая наконец совпадает с вашим реальным уровнем.',
+  'Когда «переехать» для вас означает не новый старт, а просто апгрейд среды — из типовой квартиры в бизнес-класс в центре.',
+];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Вы оставляете контакты',
+    text: 'Мы смотрим на текущее позиционирование Высоты 323 и находим, где именно теряется ценность в подаче.',
+  },
+  {
+    number: '02',
+    title: 'Мы собираем гипотезу переупаковки',
+    text: 'Смотрим, как сценарий «остаться, но вырасти» работает для бизнес-класса в центре Челябинска.',
+  },
+  {
+    number: '03',
+    title: 'Проводим встречу по проекту',
+    text: 'Показываем, как может выглядеть более точное позиционирование Высоты 323 под сценарий апгрейда среды.',
+  },
+  {
+    number: '04',
+    title: 'Фиксируем следующий шаг',
+    text: 'Определяем, что именно нужно делать дальше: корректировать сегмент, перепрошивать оффер или полностью пересобирать упаковку.',
+  },
+];
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{projectName} — {developerName} · {city}</title>
+    <meta
+      name="description"
+      content={`${projectName} от ${developerName} в ${city}. ${projectTagline}. Позиционирование под сегмент «Остаться, но вырасти» — апгрейд среды без смены города.`}
+    />
+  </head>
+  <body class="landing-745">
+    <Analytics landingSlug={slug} />
+
+    <main>
+      <section class="hero745 section section--photo-hero">
+        <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="container hero745__container">
+          <div class="hero745__label">{developerName} · {projectName} · {city} · {projectTagline}</div>
+          <div class="hero745__grid">
+            <div class="hero745__content hero745__content--glass">
+              <h1>Вы выросли из текущего жилья. <em>Но не из Челябинска.</em></h1>
+              <p class="hero745__lead">
+                Есть момент, когда человек понимает: дом больше не совпадает с его реальным образом жизни.
+                Не потому что плохой — а потому что он сам стал другим. Решение здесь — не переезд в другой город,
+                а переход в другую среду внутри своего.
+              </p>
+              <p class="hero745__offer-line">Тот же Челябинск. Тот же ритм. Другая среда.</p>
+              <div class="hero745__actions hero745__actions--stacked">
+                <a class="button745 button745--primary" href="#contact">Посмотреть предложение</a>
+              </div>
+            </div>
+
+            <aside class="hero745__card hero745__card--floating">
+              <div class="hero745__card-body">
+                <h2>{projectName} — бизнес-класс в центре Челябинска для тех, кто хочет остаться в своём городе и наконец жить в среде, которая совпадает с тем, кем они стали</h2>
+                <p class="hero745__meta">{developerName} · {projectTagline} · Сегмент «Остаться, но вырасти»</p>
+                <p>
+                  Два 30-этажных корпуса на пересечении улиц Братьев Каширины и Каслинской. Атриум с дизайнерским интерьером,
+                  трёхуровневый паркинг, панорамные виды на центр города. Не эмиграция — апгрейд среды внутри привычного Челябинска.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight triggers745-wrap triggers745-wrap--hero-continued">
+        <div class="hero745__backdrop hero745__backdrop--continued" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="triggers745__tone"></div>
+        <div class="container triggers745__container">
+          <div class="triggers745">
+            {triggerPoints.map((item) => <p>{item}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="immersive745 immersive745--hero" style={`--immersive-bg: url(${images.aha1})`}>
+        <div class="container immersive745__inner">
+          <div class="immersive745__card">
+            <p class="immersive745__eyebrow">{projectName} · {developerName} · Апгрейд без потери себя</p>
+            <h2>Когда жилой комплекс перестаёт продаваться как набор характеристик и начинает отвечать на подлинную задачу человека</h2>
+            <p>
+              В сегменте «остаться, но вырасти» важна не только цена и метраж. Важна точность попадания в напряжение:
+              человек вырос, но не хочет терять привычный Челябинск и ритм жизни. {projectName} — это именно такой ответ.
+            </p>
+            <div class="immersive745__facts">
+              <span>Бизнес-класс</span>
+              <span>Центр Челябинска</span>
+              <span>30 этажей</span>
+              <span>Сдача 4 кв. 2028</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section responses745 section--photo-soft" style={`--section-bg: url(${images.aha2})`}>
+        <div class="responses745__veil"></div>
+        <div class="container responses745__container">
+          <div class="section745-heading center745 section745-heading--light">
+            <h2>Как {projectName} отвечает на то, что останавливает человека перед покупкой</h2>
+          </div>
+          <div class="responses745__stack">
+            {responseCards.map((card) => (
+              <article class="response745-card">
+                <div class="response745-card__media">
+                  <img src={card.image} alt={card.alt} loading="lazy" />
+                </div>
+                <div class="response745-card__body">
+                  <div class="response745-card__number">{card.number}</div>
+                  <h3>{card.title}</h3>
+                  <p class="response745-card__problem">{card.problem}</p>
+                  <p>{card.answer}</p>
+                  <p class="response745-card__detail">{card.detail}</p>
+                  {card.cta && (
+                    <a class="inline-link745" href="#contact">{card.cta}</a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="split-photo745">
+        <div class="split-photo745__image" style={`--split-bg: url(${images.qualifier})`}></div>
+        <div class="split-photo745__content-wrap">
+          <div class="container split-photo745__container">
+            <div class="split-photo745__content">
+              <p class="immersive745__eyebrow">{projectName} · Узнайте себя в этом сценарии</p>
+              <h2>Этот проект — для тех, кто вырос из текущего жилья, но не хочет уезжать из Челябинска</h2>
+              <div class="self745 self745--transparent">
+                {selfSelection.map((item) => <p>{item}</p>)}
+              </div>
+              <blockquote class="quote745 quote745--light">
+                <p>
+                  «Иногда самое правильное решение — это не переезд в другой город, а переход в другую среду внутри своего.
+                  Тот же Челябинск, те же люди, тот же ритм — но пространство, которое наконец перестало тебя сдерживать».
+                </p>
+                <footer>{projectName} · {developerName}</footer>
+              </blockquote>
+              <a class="inline-link745 inline-link745--light" href="#contact">Если {projectName} — это про вас, давайте обсудим</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.aha3})`}>
+        <div class="container immersive745__inner immersive745__inner--right">
+          <div class="immersive745__card immersive745__card--single-story">
+            <div class="story745-card">
+              <div class="story745-card__number">03</div>
+              <h2>Апгрейд без потери себя</h2>
+              <p class="story745-card__problem">«Я не хочу ничего менять в своей жизни. Я просто хочу, чтобы дом наконец совпал с тем, кем я стал. Без переезда из Челябинска, без потери связей, без нового старта с нуля».</p>
+              <p>Это не про то, чтобы стать кем-то другим. Это про то, чтобы жить в среде, которая честно отражает, кем вы уже являетесь. Тот же Челябинск, те же люди, тот же ритм — но {projectName}: пространство, которое наконец перестало тебя сдерживать.</p>
+              <a class="inline-link745" href="#contact">Если {projectName} — это про вас, давайте разберём</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process745 section--photo-band" style={`--section-bg: url(${images.footer})`}>
+        <div class="section-band745__overlay section-band745__overlay--dark"></div>
+        <div class="container process745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max">
+            <h2>Как проходит путь от первого контакта до встречи по проекту</h2>
+          </div>
+          <div class="process745__grid process745__grid--stacked">
+            {processSteps.map((step) => (
+              <article class="process745-card process745-card--light process745-card--stacked">
+                <div class="process745-card__number">{step.number}</div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section final745 final745--photo">
+        <div class="final745__backdrop" style={`--final-bg: url(${images.footer})`}></div>
+        <div class="container final745__container">
+          <div class="final745__layout">
+            <div class="final745__media-copy">
+              <p class="final745__eyebrow">Текущее позиционирование {projectName} vs. сегментная переупаковка</p>
+              <h2>Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу, где расскажем про наш подход</h2>
+              <p class="final745__lead final745__lead--light">
+                Покажем, как сейчас выглядит подача {projectName} — и как её можно переупаковать под сценарий «остаться, но вырасти»
+                с точным попаданием в логику апгрейда среды без смены города.
+              </p>
+              <div class="final745__positioning-shot">
+                <img src={images.currentPositioning} alt={`Текущее позиционирование ${projectName} на сайте ${developerName}`} loading="lazy" />
+              </div>
+            </div>
+            <div class="final745__card">
+              <p class="final745__eyebrow">Стратегическая встреча по переупаковке</p>
+              <h3 class="final745__form-title">Оставьте контакты — проведём встречу и расскажем про наш подход</h3>
+              <p class="final745__lead">
+                Разберём текущее позиционирование {projectName}, посмотрим, как сценарий «остаться, но вырасти»
+                работает для бизнес-класса в центре Челябинска, и покажем, как может выглядеть новая упаковка.
+              </p>
+              <form
+                name={formName}
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="/thank-you"
+                class="final745__form"
+              >
+                <input type="hidden" name="form-name" value={formName} />
+                <input type="hidden" name="landing_slug" value={slug} />
+                <input type="hidden" name="developer" value={developerName} />
+                <input type="hidden" name="project" value={projectName} />
+                <input type="hidden" name="utm_source" value="" />
+                <input type="hidden" name="utm_medium" value="" />
+                <input type="hidden" name="utm_campaign" value="" />
+                <input type="hidden" name="utm_content" value="" />
+                <input type="hidden" name="utm_term" value="" />
+
+                <p class="sr-only">
+                  <label>
+                    Не заполняйте это поле, если вы человек:
+                    <input name="bot-field" />
+                  </label>
+                </p>
+
+                <div class="final745__form-grid">
+                  <div class="final745__field-block">
+                    <label for="name" class="field-label745">Имя</label>
+                    <input type="text" id="name" name="name" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="phone" class="field-label745">Телефон / Telegram</label>
+                    <input type="tel" id="phone" name="phone" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="email" class="field-label745">Email</label>
+                    <input type="email" id="email" name="email" required class="field-input745" />
+                  </div>
+                </div>
+
+                <button type="submit" class="button745 button745--primary final745__submit">
+                  Записаться на встречу
+                </button>
+                <p class="final745__submit-note">Если текущее позиционирование не приводит к продажам, оставьте контакты — проведём встречу.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script define:vars={{ slug }}>
+      import { populateUTMFields, trackFormSubmission } from '../utils/analytics.ts';
+
+      const form = document.querySelector('#contact form');
+
+      if (form instanceof HTMLFormElement) {
+        populateUTMFields(form);
+        form.addEventListener('submit', () => {
+          populateUTMFields(form);
+          trackFormSubmission(slug);
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  :global(body.landing-745) {
+    background: #130f0d;
+    color: #241b16;
+  }
+
+  .landing-745 main {
+    overflow-x: hidden;
+    background: #f6efe8;
+  }
+</style>
