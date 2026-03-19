@@ -1,0 +1,365 @@
+---
+import Analytics from '../components/Analytics.astro';
+import '../styles/global.css';
+
+const slug = 'offer801';
+const formName = 'offer801-repack-request';
+
+const images = {
+  hero: '/assets/offer801/ak-bars-dom_doma-u-sada_hero.webp',
+  aha1: '/assets/offer801/ak-bars-dom_doma-u-sada_hero.webp',
+  aha2: '/assets/offer801/ak-bars-dom_doma-u-sada_hero.webp',
+  aha3: '/assets/offer801/ak-bars-dom_doma-u-sada_hero.webp',
+  qualifier: '/assets/offer801/ak-bars-dom_doma-u-sada_hero.webp',
+  compare: '/assets/offer801/ak-bars-dom_doma-u-sada_hero.webp',
+  evolution: '/assets/offer801/ak-bars-dom_doma-u-sada_hero.webp',
+  footer: '/assets/offer801/ak-bars-dom_doma-u-sada_hero.webp',
+  currentPositioning: '/assets/offer801/current_positioning.webp',
+};
+
+const triggerPoints = [
+  'Когда день начинается и заканчивается в шуме, плотности и постоянной нехватке воздуха.',
+  'Когда маршрут ребёнка, дорога, двор и быт каждый день собираются через лишние компромиссы.',
+  'Когда хочется жить ближе к природе и тишине, но без ощущения, что ты выпал из города и привычной логистики.',
+  'Когда семье нужен не просто новый метраж, а более спокойная, безопасная и предсказуемая среда на каждый день.',
+];
+
+const responseCards = [
+  {
+    number: '01',
+    title: 'Семье нужен двор, который не тревожит, а поддерживает жизнь',
+    problem: 'Когда ребёнку негде безопасно гулять, а любое движение за пределами квартиры требует лишнего контроля, даже хорошая планировка перестаёт спасать.',
+    answer:
+      'В «Дома у сада» ценность двора можно показывать не как украшение проекта, а как часть нормального семейного ритма — прогулки, воздух, визуальный покой, предсказуемая среда рядом с домом.',
+    detail:
+      'Это важный разворот: человек покупает не «двор с озеленением», а ощущение, что повседневная жизнь ребёнка и взрослых становится легче организуемой.',
+    cta: 'Посмотреть, как это решение может быть упаковано для вашего ЖК',
+    image: images.aha1,
+    alt: 'ЖК Дома у сада — семейная среда и двор проекта',
+  },
+  {
+    number: '02',
+    title: 'Квартира должна выдерживать рост семейного сценария, а не только текущий момент',
+    problem: 'Семьи редко ищут жильё только «на сейчас». Их тревожит, насколько квартира выдержит следующий этап: больше вещей, больше бытовых задач, больше потребности в личном и общем пространстве.',
+    answer:
+      'Поэтому проект важно показывать как место, где семья не просто переезжает, а получает более жизнеспособную базу — свет, воздух, сценарии для общей жизни, ощущение собранности дома.',
+    detail:
+      'Даже если конкретный пользователь ещё не формулирует это словами, он покупает не метраж, а шанс не упереться в новую тесноту через короткий промежуток времени.',
+    cta: 'Обсудить, как показать рост семейного сценария в позиционировании проекта',
+    image: images.aha2,
+    alt: 'ЖК Дома у сада — пространство для семейной жизни',
+  },
+  {
+    number: '03',
+    title: 'Жить ближе к природе — не значит выпадать из городской жизни',
+    problem: 'Многие проекты обещают тишину, но на практике заставляют человека платить за неё логистическим разрывом, потерей времени и ощущением удалённости от нормальной жизни города.',
+    answer:
+      '«Дома у сада» стоит раскрывать через более зрелую формулу: природа и спокойствие здесь не противопоставлены связности, а собираются в баланс, который делает семейную жизнь устойчивее.',
+    detail:
+      'Это снимает один из главных внутренних конфликтов клиента: не выбирать между «городом» и «жизнью», а получить более человеческий режим, не обнуляя удобство.',
+    cta: 'Если в вашем проекте есть ценность, которую рынок не считывает — обсудим переупаковку',
+    image: images.aha3,
+    alt: 'ЖК Дома у сада — баланс природы и городской связности',
+  },
+];
+
+const selfSelection = [
+  'Для тех, кто устал от перегруженного городского быта и хочет больше воздуха в ежедневной жизни.',
+  'Для тех, кому важны двор, безопасность, природное окружение и спокойный ритм как часть нормальной семейной среды.',
+  'Для тех, кто не хочет выбирать между близостью к городу и ощущением, что жить стало тише и легче.',
+  'Для тех, кому нужна не просто квартира, а более собранный жизненный контур на несколько лет вперёд.',
+];
+
+const comparisons = [
+  {
+    overline: 'Против generic-family ЖК',
+    title: 'Не просто семейный проект, а среда с меньшим повседневным трением',
+    text: 'Сила «Дома у сада» не в банальном ярлыке семейности, а в более тихом, зелёном и собранном сценарии жизни.',
+  },
+  {
+    overline: 'Против шумной городской плотности',
+    title: 'Больше воздуха — без выпадения из города',
+    text: 'Проект можно раскрывать как баланс между природной средой, спокойствием и нормальной городской связностью.',
+  },
+  {
+    overline: 'Против покупки только метража',
+    title: 'Не квартира сама по себе, а жизненный переход семьи',
+    text: 'Переупаковка должна показывать не квадратные метры отдельно, а собранный контур повседневной жизни семьи.',
+  },
+];
+
+const lifeStages = [
+  {
+    stage: 'Больше воздуха',
+    price: 'JTBD stage 01',
+    who: 'Семья устала от перегруженного городского быта и хочет среду, где легче дышать и проще организовывать день.',
+    hire: 'Не просто новую квартиру, а более спокойный контур повседневной жизни.',
+    format: 'Переход от тесноты и шума к собранной семейной среде.',
+  },
+  {
+    stage: 'Спокойный ритм',
+    price: 'JTBD stage 02',
+    who: 'Покупателю важны двор, предсказуемость, безопасность и нормальная ежедневная логистика для семьи.',
+    hire: 'Среду, которая поддерживает быт семьи, а не создаёт дополнительное трение.',
+    format: 'Проект как семейный сценарий, а не просто объект недвижимости.',
+  },
+  {
+    stage: 'Баланс природы и города',
+    price: 'JTBD stage 03',
+    who: 'Семья хочет тишины и зелени, но не готова терять ощущение связности с городом и обычной жизнью.',
+    hire: 'Баланс между природным окружением и удобством городской жизни.',
+    format: 'Связность без ощущения удалённости.',
+  },
+  {
+    stage: 'Жизнь на вырост',
+    price: 'JTBD stage 04',
+    who: 'Решение о покупке принимается не только под текущий момент, но и под следующий этап семейной жизни.',
+    hire: 'Квартиру и проект, которые выдерживают рост семьи и не обнуляются через короткое время.',
+    format: 'Покупка среды, которая работает дольше одного жизненного этапа.',
+  },
+];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Вы оставляете контакты и ссылку на проект',
+    text: 'Показываете текущий ЖК, лендинг или рекламную коммуникацию, которая не даёт нужной конверсии.',
+  },
+  {
+    number: '02',
+    title: 'Мы собираем гипотезу переупаковки',
+    text: 'Смотрим сегмент, JTBD-напряжение, текущий оффер и архитектуру страницы, чтобы найти, где именно теряется сила проекта.',
+  },
+  {
+    number: '03',
+    title: 'Проводим встречу по проекту',
+    text: 'Показываем, как может выглядеть более точное позиционирование, структура лендинга и конверсионная логика без банальных штампов.',
+  },
+  {
+    number: '04',
+    title: 'Фиксируем следующий шаг',
+    text: 'Определяем, что именно нужно делать дальше: корректировать сегмент, перепрошивать оффер или полностью пересобирать упаковку проекта.',
+  },
+];
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Как переупаковать ЖК «Дома у сада» под реальный семейный job — пример для Ак Барс Дом</title>
+    <meta
+      name="description"
+      content="Показываем, как можно раскрыть ценность ЖК «Дома у сада» не через общие обещания о семейном проекте, а через конкретный жизненный переход семьи к более спокойной, зелёной и собранной среде."
+    />
+  </head>
+  <body class="landing-745">
+    <Analytics landingSlug={slug} />
+
+    <main>
+      <section class="hero745 section section--photo-hero">
+        <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="container hero745__container">
+          <div class="hero745__label">Ак Барс Дом · ЖК «Дома у сада» · семейный сценарий жизни</div>
+          <div class="hero745__grid">
+            <div class="hero745__content hero745__content--glass">
+              <h1>Как показать ЖК «Дома у сада» не как ещё одну семейную новостройку, а <em>как понятный переход семьи в более спокойную, зелёную и собранную жизнь.</em></h1>
+              <p class="hero745__lead">
+                У проекта уже есть сильная база: природное окружение, семейный сценарий, благоустройство, близость к Казани и ощущение квартала-среды.
+                Но если говорить обо всём этом слишком общо, часть реальной ценности остаётся нераспакованной. Мы предлагаем показать «Дома у сада»
+                как готовое жизненное решение для семей, которые устали от городского шума, бытовой тесноты и постоянных компромиссов.
+              </p>
+              <p class="hero745__offer-line">Переупаковка ценности жилого проекта под реальный семейный job.</p>
+              <div class="hero745__actions hero745__actions--stacked">
+                <a class="button745 button745--primary" href="#contact">Показать вариант переупаковки проекта</a>
+              </div>
+            </div>
+
+            <aside class="hero745__card hero745__card--floating">
+              <div class="hero745__card-body">
+                <h2>Более точная упаковка ЖК для семей, которым нужен не просто новый метраж, а более устойчивый жизненный контур</h2>
+                <p class="hero745__meta">Природная среда · Семейный ритм · Близость к городу</p>
+                <p>
+                  Здесь важно продавать не отдельные характеристики, а уже собранный сценарий жизни: воздух, спокойствие,
+                  предсказуемость быта и среду, в которой семье становится легче жить каждый день.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight triggers745-wrap triggers745-wrap--hero-continued">
+        <div class="hero745__backdrop hero745__backdrop--continued" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="triggers745__tone"></div>
+        <div class="container triggers745__container">
+          <div class="triggers745">
+            {triggerPoints.map((item) => <p>{item}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="immersive745 immersive745--hero" style={`--immersive-bg: url(${images.aha1})`}>
+        <div class="container immersive745__inner">
+          <div class="immersive745__card">
+            <p class="immersive745__eyebrow">ЖК «Дома у сада» · семейная среда без лишнего напряжения</p>
+            <h2>«Дома у сада» можно показать как уже собранное семейное решение, а не как набор разрозненных преимуществ</h2>
+            <p>
+              Сила проекта не в одной отдельной характеристике, а в том, как среда складывается в целостный сценарий:
+              зелёное окружение, дворы, безопасность, понятные маршруты, ощущение воздуха и более мягкий ритм повседневности.
+            </p>
+            <div class="immersive745__facts">
+              <span>Зелёное окружение</span>
+              <span>Семейный сценарий</span>
+              <span>Благоустройство и двор</span>
+              <span>Связность без ощущения удалённости</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section responses745 section--photo-soft" style={`--section-bg: url(${images.aha2})`}>
+        <div class="responses745__veil"></div>
+        <div class="container responses745__container">
+          <div class="section745-heading center745 section745-heading--light">
+            <h2>Как «Дома у сада» отвечает на реальные напряжения семейного выбора</h2>
+          </div>
+          <div class="responses745__stack">
+            {responseCards.map((card) => (
+              <article class="response745-card">
+                <div class="response745-card__media">
+                  <img src={card.image} alt={card.alt} loading="lazy" />
+                </div>
+                <div class="response745-card__body">
+                  <span class="response745-card__number">{card.number}</span>
+                  <h3>{card.title}</h3>
+                  <p class="response745-card__problem">{card.problem}</p>
+                  <p>{card.answer}</p>
+                  <p class="response745-card__detail">{card.detail}</p>
+                  <a class="text-link745" href="#contact">{card.cta}</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="split-photo745 section">
+        <div class="container split-photo745__grid">
+          <div class="split-photo745__image-wrap">
+            <img src={images.qualifier} alt="ЖК Дома у сада — спокойная семейная среда" loading="lazy" />
+          </div>
+          <div class="split-photo745__content">
+            <div class="section745-heading">
+              <h2>Этот проект особенно силён для семей, которые ищут не статусный шум, а более устойчивую среду для жизни</h2>
+            </div>
+            <div class="split-photo745__list">
+              {selfSelection.map((item) => (
+                <div class="split-photo745__item">
+                  <span>—</span>
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="life745 section section--warm">
+        <div class="container">
+          <div class="section745-heading center745">
+            <p class="section745-heading__eyebrow">От объекта — к жизненному переходу</p>
+            <h2>Сильный проект часто теряет часть своей ценности, когда о нём говорят слишком общими девелоперскими словами</h2>
+            <p>
+              Если показывать «Дома у сада» просто как современный семейный жилой комплекс с благоустройством и хорошей локацией,
+              коммуникация остаётся в категории привычных рыночных обещаний. Но если раскрыть проект через реальный job семьи,
+              ценность становится гораздо конкретнее и сильнее.
+            </p>
+          </div>
+
+          <div class="compare745">
+            {comparisons.map((item) => (
+              <article class="compare745__card">
+                <p class="compare745__overline">{item.overline}</p>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div class="life745__grid">
+            {lifeStages.map((item) => (
+              <article class="life745__card">
+                <p class="life745__stage">{item.stage}</p>
+                <p class="life745__price">{item.price}</p>
+                <p>{item.who}</p>
+                <p><strong>Что на самом деле нанимают:</strong> {item.hire}</p>
+                <p><strong>Формат:</strong> {item.format}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="process745 section section--dark">
+        <div class="container">
+          <div class="section745-heading center745 section745-heading--light">
+            <h2>Как может выглядеть переупаковка проекта под реальный job клиента</h2>
+          </div>
+          <div class="process745__grid">
+            {processSteps.map((step) => (
+              <article class="process745__card">
+                <span class="process745__number">{step.number}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="final745 section" id="contact">
+        <div class="container final745__grid">
+          <div class="final745__content">
+            <div class="section745-heading">
+              <p class="section745-heading__eyebrow">Точка входа в переупаковку</p>
+              <h2>Если хотите, мы можем показать, как могла бы выглядеть более сильная упаковка ЖК «Дома у сада» под реальный семейный job</h2>
+              <p>
+                На примере текущего позиционирования проекта можно быстро увидеть, какие сильные стороны уже есть у ЖК,
+                какие из них недораскрыты и как их можно превратить в более точный оффер, страницу и воронку коммуникации.
+              </p>
+            </div>
+
+            <form class="form745" name={formName} method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value={formName} />
+              <input type="hidden" name="bot-field" />
+              <input type="hidden" name="offer" value="offer801" />
+              <input type="hidden" name="project" value="doma-u-sada" />
+              <input type="hidden" name="developer" value="ak-bars-dom" />
+              <input type="hidden" name="templateBase" value="offer-745" />
+              <label>
+                <span>Имя</span>
+                <input type="text" name="name" required />
+              </label>
+              <label>
+                <span>Телефон или Telegram</span>
+                <input type="text" name="contact" required />
+              </label>
+              <label>
+                <span>Ссылка на проект или комментарий</span>
+                <textarea name="comment" rows="4"></textarea>
+              </label>
+              <button class="button745 button745--primary" type="submit">Показать вариант переупаковки проекта</button>
+            </form>
+          </div>
+
+          <div class="final745__visual">
+            <img src={images.currentPositioning} alt="Текущее позиционирование ЖК Дома у сада" loading="lazy" />
+            <p class="final745__caption">Текущее позиционирование проекта — как точка входа в переупаковку</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
