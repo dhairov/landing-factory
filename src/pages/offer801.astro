@@ -10,52 +10,55 @@ const images = {
   aha1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-courtyard-clean-KqDL6AqqXYREWP6gYVxE9T.webp',
   aha2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-interior-clean-iWWvJJ96yaYAh4KrVnVRRa.webp',
   aha3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-green-life-clean-dUMd5Atin3umGzTBnPyXSV.webp',
-  qualifier: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-green-life-clean-dUMd5Atin3umGzTBnPyXSV.webp',
-  compare: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-courtyard-clean-KqDL6AqqXYREWP6gYVxE9T.webp',
+  qualifier: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-courtyard-clean-KqDL6AqqXYREWP6gYVxE9T.webp',
+  compare: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-green-life-clean-dUMd5Atin3umGzTBnPyXSV.webp',
   evolution: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-interior-clean-iWWvJJ96yaYAh4KrVnVRRa.webp',
   footer: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-strategy-clean-E5MfcWKwwZcEvkEZgCTEGq.webp',
   currentPositioning: '/assets/offer801/current_positioning.webp',
 };
 
 const triggerPoints = [
-  'Вы переросли квартиру, в которой семья всё время лавирует между теснотой, вещами и усталостью, вместо того чтобы просто жить.',
-  'Вы хотите, чтобы у ребёнка были воздух, зелень и понятный двор рядом с домом, а не только ещё один адрес в плотной городской застройке.',
-  'Вы ищете более спокойную семейную среду, но не готовы платить за неё выпадением из городской логистики, маршрутов и ритма.',
+  'Вы понимаете, что семье стало тесно не только в метраже, но и в самом качестве повседневной жизни.',
+  'Вы хотите дом, где ребёнок, двор, зелень и спокойный ритм дня работают вместе, а не существуют как разрозненные обещания в рекламном буклете.',
+  'Вы ищете более тихую и природную среду, но не готовы платить за неё выпадением из привычной городской логистики и семейных маршрутов.',
 ];
 
 const responseCards = [
   {
     number: '01',
-    title: 'Двор как часть повседневной жизни семьи',
-    problem: '«Нам уже недостаточно просто новой квартиры. Нужна среда, где ребёнка не приходится постоянно выдёргивать из случайного, небезопасного и перегруженного окружения».',
+    title: 'Двор как продолжение квартиры',
+    problem:
+      '«Нам уже недостаточно просто новой квартиры. Нужна среда, где ребёнка не приходится постоянно выдёргивать из хаоса, машин, случайного окружения и тревоги родителей».',
     answer:
-      'В “Дома у сада” двор можно показывать не как очередную галочку в списке благоустройства, а как естественное продолжение квартиры. Это сценарий, в котором семья получает более понятную и управляемую среду рядом с домом, а повседневная жизнь перестаёт быть постоянным контролем и напряжением.',
+      'Сильнее всего проект звучит тогда, когда двор показывается не как галочка благоустройства, а как естественное продолжение семейной жизни. Здесь ребёнка можно отпускать не в абстрактно “красивое пространство”, а в понятную и более управляемую среду рядом с домом.',
     detail:
-      'Тогда проект начинает продаваться не обещанием “двор без машин”, а более сильной ценностью: семье становится легче жить, выпускать ребёнка, дышать и удерживать более собранный ритм дня.',
-    cta: 'Посмотреть, как эта логика может работать в позиционировании проекта',
+      'Тогда проект начинает продаваться не набором формальных преимуществ, а более ценной семейной свободой: меньше контроля, меньше бытовой тревоги, больше воздуха и более спокойный ритм дня.',
+    cta: 'Посмотреть, как эту ценность можно упаковать в продающий оффер проекта',
     image: images.aha1,
     alt: 'Приватный семейный двор как продолжение квартиры',
   },
   {
     number: '02',
-    title: 'Жизнь на вырост, а не бытовой апгрейд на пару лет',
-    problem: '«Мы не хотим переезжать просто ради метража и через короткое время снова оказаться в тесноте, спешке и усталости».',
+    title: 'Жизнь на вырост, а не метраж на время',
+    problem:
+      '«Мы не хотим переезжать просто ради пары дополнительных комнат и через несколько лет снова оказаться в той же тесноте, перегрузке и усталости».',
     answer:
-      'Сила проекта раскрывается тогда, когда он обещает семье не локальное улучшение быта, а более устойчивую базу на годы вперёд. Больше воздуха, понятнее сценарии для ребёнка, лучше организован дом и меньше ощущение, что вся жизнь всё время упирается в ограничения прежнего контура.',
+      'Проект раскрывается тогда, когда обещает семье не временный бытовой апгрейд, а более устойчивую жизненную базу на годы вперёд. Больше воздуха, понятнее сценарии дома, меньше ощущения, что вся жизнь постоянно упирается в ограничения прежней квартиры.',
     detail:
       'Здесь важно продавать не квадратные метры сами по себе, а переход семьи в формат жизни, который выдерживает рост ребёнка, привычек, вещей и повседневных сценариев без нового цикла перегрузки.',
-    cta: 'Обсудить, как показать семейный рост без банальных слов про простор',
+    cta: 'Обсудить, как показать семейный рост без штампов про простор и метры',
     image: images.aha2,
     alt: 'Светлый интерьер семейной квартиры как среда для жизни на вырост',
   },
   {
     number: '03',
     title: 'Природа без ощущения, что вы уехали из жизни',
-    problem: '«Нам нужна тишина и зелень, но не хочется платить за это сложной логистикой, удалённостью и потерей городского темпа».',
+    problem:
+      '«Нам нужны зелень и спокойствие, но не хочется ради этого ломать логистику, терять связность с городом и постоянно чувствовать себя на отшибе».',
     answer:
-      '“Дома у сада” можно раскрывать через зрелый баланс: проект не противопоставляет природную среду городской жизни, а собирает их в один более человеческий режим. Семье легче дышать, но не приходится рвать маршруты, заново перестраивать день и чувствовать себя за пределами привычного города.',
+      '“Дома у сада” можно показывать как зрелый баланс: проект не противопоставляет природную среду городской жизни, а собирает их в один более человеческий семейный режим. Жить становится мягче, но не приходится рвать маршруты, перестраивать день и выпадать из города.',
     detail:
-      'Это снимает один из главных внутренних конфликтов семейного выбора: не выбирать между “удобно” и “по-человечески”, а получить обе ценности сразу в одном жизненном сценарии.',
+      'Это снимает один из главных внутренних конфликтов семейного выбора: не выбирать между “по-человечески” и “удобно”, а получить обе ценности сразу в одном жизненном сценарии.',
     cta: 'Если в проекте есть сильная ценность, которую рынок пока не считывает, — обсудим переупаковку',
     image: images.aha3,
     alt: 'Зелёная семейная среда рядом с городом без ощущения удалённости',
@@ -63,27 +66,26 @@ const responseCards = [
 ];
 
 const selfSelection = [
-  'Для семей, которые чувствуют, что прежний формат жизни стал тесным не только по метражу, но и по самому качеству ежедневной среды.',
-  'Для родителей, которым важны воздух, двор, зелёное окружение и более мягкий ритм дня — без выпадения из привычной городской логистики.',
-  'Для тех, кто ищет не просто квартиру побольше, а более устойчивую семейную базу, которая выдержит следующий жизненный цикл.',
-  'Для покупателей, которые хотят, чтобы следующий переезд был не временным компромиссом, а более точным решением на годы вперёд.',
+  'Когда вы понимаете, что семье стало тесно не только в квартире, но и в самом устройстве дня.',
+  'Когда вы хотите для ребёнка более понятную, зелёную и безопасную среду, а для себя — меньше трения в повседневной жизни.',
+  'Когда вы ищете не просто новый адрес, а более собранный жизненный сценарий на годы вперёд.',
 ];
 
 const comparisons = [
   {
     overline: 'Против generic family-коммуникации',
-    title: 'Не “семейный ЖК”, а среда с меньшим повседневным трением',
-    text: 'Проект выигрывает не там, где обещает абстрактный комфорт для семьи, а там, где показывает более спокойный, зелёный и лучше организованный режим ежедневной жизни.',
+    title: 'Не “семейный ЖК”, а семейная жизнь с меньшим трением',
+    text: 'Сила проекта — не в абстрактных словах про заботу о семье, а в более спокойном, зелёном и лучше организованном режиме повседневной жизни.',
   },
   {
     overline: 'Против продажи только метража',
     title: 'Не квадратные метры, а жизненный переход семьи',
-    text: 'Переезд здесь нужно упаковывать как смену жизненного контура: больше воздуха, лучше выстроенный быт, меньше усталости и больше устойчивости на несколько лет вперёд.',
+    text: 'Переезд здесь нужно упаковывать как смену жизненного контура: больше воздуха, меньше усталости, более понятный быт и среда, которая выдерживает следующий семейный цикл.',
   },
   {
     overline: 'Против ложного выбора между городом и природой',
     title: 'Связность без шумной плотности',
-    text: 'Сильная сторона проекта — возможность жить мягче и зеленее, не разрывая привычную логику города, семейных маршрутов и рабочего ритма.',
+    text: 'Проект выигрывает там, где показывает возможность жить мягче и зеленее, не разрывая привычную логику города, семейных маршрутов и рабочего ритма.',
   },
 ];
 
@@ -127,7 +129,7 @@ const processSteps = [
   {
     number: '02',
     title: 'Мы собираем гипотезу переупаковки',
-    text: 'Смотрим сегмент, JTBD-напряжение, текущий оффер и архитектуру страницы, чтобы найти, где именно теряется сила проекта.',
+    text: 'Смотрим сегмент, JTBD-напряжение, текущий оффер и архитектуру страницы, чтобы найти, где именно проект теряет силу.',
   },
   {
     number: '03',
@@ -137,7 +139,7 @@ const processSteps = [
   {
     number: '04',
     title: 'Фиксируем следующий шаг',
-    text: 'Определяем, что именно делать дальше: корректировать сегмент, перепрошивать оффер или полностью пересобирать упаковку проекта.',
+    text: 'Определяем, что делать дальше: корректировать сегмент, перепрошивать оффер или полностью пересобирать упаковку проекта.',
   },
 ];
 ---
@@ -203,17 +205,16 @@ const processSteps = [
         <div class="container immersive745__inner">
           <div class="immersive745__card">
             <p class="immersive745__eyebrow">ЖК «Дома у сада» · семейная среда без лишнего шума</p>
-            <h2>Когда проект перестаёт продаваться как “ещё один семейный ЖК” и начинает собираться вокруг подлинной задачи семьи</h2>
+            <h2>Когда проект перестаёт продаваться как набор семейных штампов и начинает собираться вокруг настоящей задачи семьи</h2>
             <p>
-              В этом кейсе важно не просто перечислять благоустройство, зелень и планировки. Важно показать, что “Дома у сада”
-              отвечает на более глубокий запрос: помочь семье выйти из режима тесноты, шума и постоянного бытового трения
-              в более устойчивую и человечную среду повседневной жизни.
+              В этом проекте важна не только эстетика. Важна точность попадания в напряжение аудитории: не обещать очередной “комфортный ЖК”,
+              а показать семье среду, где можно жить спокойнее, зеленее и собраннее без ощущения, что ради этого нужно выпасть из города.
             </p>
             <div class="immersive745__facts">
-              <span>Семейный сценарий</span>
-              <span>Природное окружение</span>
-              <span>Понятный двор</span>
-              <span>Связность без перегрузки</span>
+              <span>Семья второго цикла</span>
+              <span>Двор как сценарий жизни</span>
+              <span>Природная среда рядом с городом</span>
+              <span>Переезд как жизненный переход</span>
             </div>
           </div>
         </div>
@@ -223,7 +224,7 @@ const processSteps = [
         <div class="responses745__veil"></div>
         <div class="container responses745__container">
           <div class="section745-heading center745 section745-heading--light">
-            <h2>Как «Дома у сада» отвечает на реальные напряжения семейного выбора</h2>
+            <h2>Как «Дома у сада» отвечает на то, что по-настоящему останавливает семью</h2>
           </div>
           <div class="responses745__stack">
             {responseCards.map((card) => (
@@ -232,12 +233,14 @@ const processSteps = [
                   <img src={card.image} alt={card.alt} loading="lazy" />
                 </div>
                 <div class="response745-card__body">
-                  <span class="response745-card__number">{card.number}</span>
+                  <div class="response745-card__number">{card.number}</div>
                   <h3>{card.title}</h3>
                   <p class="response745-card__problem">{card.problem}</p>
                   <p>{card.answer}</p>
                   <p class="response745-card__detail">{card.detail}</p>
-                  <a class="text-link745" href="#contact">{card.cta}</a>
+                  {card.cta && (
+                    <a class="inline-link745" href="#contact">{card.cta}</a>
+                  )}
                 </div>
               </article>
             ))}
@@ -245,72 +248,110 @@ const processSteps = [
         </div>
       </section>
 
-      <section class="section section--photo-soft section--dark" style={`--section-bg: url(${images.qualifier})`}>
-        <div class="responses745__veil"></div>
-        <div class="container">
-          <div class="qualifier745 qualifier745--overlay">
-            <div class="section745-heading section745-heading--light">
-              <p class="section745-heading__eyebrow">Кому это действительно откликается</p>
-              <h2>Этот проект особенно откликается семьям, которые ищут не статусный шум, а более устойчивую среду для жизни</h2>
-            </div>
-            <div class="split-photo745__list split-photo745__list--light">
-              {selfSelection.map((item) => (
-                <div class="split-photo745__item split-photo745__item--light">
-                  <span>—</span>
-                  <p>{item}</p>
-                </div>
-              ))}
+      <section class="split-photo745">
+        <div class="split-photo745__image" style={`--split-bg: url(${images.qualifier})`}></div>
+        <div class="split-photo745__content-wrap">
+          <div class="container split-photo745__container">
+            <div class="split-photo745__content">
+              <p class="immersive745__eyebrow">ЖК «Дома у сада» · Узнайте себя</p>
+              <h2>Этот проект — для семьи, которая уже не хочет жить в режиме постоянного бытового трения</h2>
+              <div class="self745 self745--transparent">
+                {selfSelection.map((item) => <p>{item}</p>)}
+              </div>
+              <blockquote class="quote745 quote745--light">
+                <p>
+                  «Сильные семейные проекты продаются не через клише о счастье, а через точное ощущение,
+                  что жизнь действительно становится тише, мягче и лучше собрана вокруг семьи».
+                </p>
+                <footer>Стратегия переупаковки девелоперского продукта</footer>
+              </blockquote>
+              <a class="inline-link745 inline-link745--light" href="#contact">Если ваш продукт сильнее, чем его текущая упаковка — обсудим это на встрече</a>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="life745 section section--warm section--dark" style={`--section-bg: url(${images.compare})`}>
-        <div class="container life745__shell">
-          <div class="section745-heading center745 section745-heading--light">
-            <p class="section745-heading__eyebrow">От объекта — к жизненному переходу</p>
-            <h2>Сильный семейный проект часто теряет ценность, когда о нём говорят слишком общими девелоперскими словами</h2>
-            <p>
-              Если показывать «Дома у сада» просто как современный семейный жилой комплекс с благоустройством и хорошей локацией,
-              коммуникация остаётся в категории обычных рыночных обещаний. Но если раскрыть проект через реальный job семьи,
-              ценность становится конкретнее: меньше трения, больше воздуха, больше устойчивости на годы вперёд.
-            </p>
+      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.aha3})`}>
+        <div class="container immersive745__inner immersive745__inner--right">
+          <div class="immersive745__card immersive745__card--single-story">
+            <div class="story745-card">
+              <div class="story745-card__number">03</div>
+              <h2>Природа без ощущения, что вы выпали из жизни</h2>
+              <p class="story745-card__problem">«Мы хотим более зелёную и спокойную среду, но не готовы платить за это потерей связности с городом, маршрутами и нормальным семейным ритмом».</p>
+              <p>Проект становится сильнее, когда показывает не компромисс, а зрелый баланс: семья получает воздух, двор, зелень и более тихий ритм, не вырывая себя из привычной логистики, работы, школы и обычной городской жизни.</p>
+              <a class="inline-link745" href="#contact">Если у вашего проекта есть ценность, которую рынок пока не считывает — давайте это разберём</a>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div class="compare745 compare745--elevated">
+      <section class="section life745 section--photo-soft" style={`--section-bg: url(${images.evolution})`}>
+        <div class="responses745__veil responses745__veil--warm"></div>
+        <div class="container life745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max">
+            <h2>На каком этапе семейного цикла клиент выбирает ваш продукт?</h2>
+            <p>Эта таблица показывает не ассортимент, а логику того, как жизненная ситуация семьи, её напряжение и Core Job соединяются в осмысленное позиционирование.</p>
+          </div>
+          <div class="life745-table-wrap">
+            <table class="life745-table">
+              <thead>
+                <tr>
+                  <th>Этап</th>
+                  <th>Кто семья сейчас</th>
+                  <th>Что она нанимает</th>
+                  <th>Как это упаковывать</th>
+                </tr>
+              </thead>
+              <tbody>
+                {lifeStages.map((item) => (
+                  <tr>
+                    <td>
+                      <strong>{item.stage}</strong>
+                      <span>{item.price}</span>
+                    </td>
+                    <td>{item.who}</td>
+                    <td>{item.hire}</td>
+                    <td>{item.format}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div class="center745 action745-wrap">
+            <a class="button745 button745--ghost" href="#contact">Обсудить, как упаковать семейный ЖК под реальный сценарий жизни клиента</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section compare745 section--contrast">
+        <div class="compare745__backdrop" style={`--compare-bg: url(${images.compare})`}></div>
+        <div class="container compare745__container">
+          <div class="section745-heading section745-heading--light section745-heading--max">
+            <p class="section745-heading__eyebrow">Почему такой оффер выигрывает</p>
+            <h2>Как «Дома у сада» может выглядеть сильнее на фоне типовых конкурентов</h2>
+          </div>
+          <div class="compare745__grid">
             {comparisons.map((item) => (
-              <article class="compare745__card compare745__card--dark">
-                <p class="compare745__overline">{item.overline}</p>
+              <article class="compare745-card">
+                <p class="compare745-card__eyebrow">{item.overline}</p>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </article>
             ))}
           </div>
-
-          <div class="life745__grid life745__grid--elevated">
-            {lifeStages.map((item) => (
-              <article class="life745__card life745__card--dark">
-                <p class="life745__stage">{item.stage}</p>
-                <p class="life745__price">{item.price}</p>
-                <p>{item.who}</p>
-                <p><strong>Что на самом деле нанимают:</strong> {item.hire}</p>
-                <p><strong>Формат:</strong> {item.format}</p>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section class="process745 section section--dark section--photo-soft" style={`--section-bg: url(${images.evolution})`}>
-        <div class="responses745__veil"></div>
-        <div class="container process745__shell">
-          <div class="section745-heading center745 section745-heading--light">
-            <h2>Как может выглядеть переупаковка проекта под реальный семейный job</h2>
+      <section class="section process745 section--photo-band" style={`--section-bg: url(${images.footer})`}>
+        <div class="section-band745__overlay section-band745__overlay--dark"></div>
+        <div class="container process745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max">
+            <h2>Как проходит путь к переупаковке девелоперского продукта</h2>
           </div>
-          <div class="process745__grid process745__grid--glass">
+          <div class="process745__grid process745__grid--stacked">
             {processSteps.map((step) => (
-              <article class="process745__card process745__card--glass">
-                <span class="process745__number">{step.number}</span>
+              <article class="process745-card process745-card--light process745-card--stacked">
+                <div class="process745-card__number">{step.number}</div>
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
               </article>
@@ -319,50 +360,896 @@ const processSteps = [
         </div>
       </section>
 
-      <section class="final745 section section--dark section--photo-soft" id="contact" style={`--section-bg: url(${images.footer})`}>
-        <div class="responses745__veil"></div>
-        <div class="container final745__shell">
-          <div class="final745__grid final745__grid--overlay">
-            <div class="final745__content final745__content--glass">
-              <div class="section745-heading section745-heading--light">
-                <p class="section745-heading__eyebrow">Точка входа в переупаковку</p>
-                <h2>Если хотите, мы можем показать, как могла бы выглядеть более сильная упаковка ЖК «Дома у сада» под реальный семейный job</h2>
-                <p>
-                  На примере текущего позиционирования проекта можно быстро увидеть, какие сильные стороны уже есть у ЖК,
-                  какие из них недораскрыты и как их можно превратить в более точный оффер, страницу и воронку коммуникации.
-                </p>
+      <section id="contact" class="section final745 final745--photo">
+        <div class="final745__backdrop" style={`--final-bg: url(${images.footer})`}></div>
+        <div class="container final745__container">
+          <div class="final745__layout">
+            <div class="final745__media-copy">
+              <p class="final745__eyebrow">Текущее позиционирование vs. возможная переупаковка</p>
+              <h2>Если семейный проект не приводит к нужной конверсии, возможно, проблема не в трафике, а в том, как упакован сам жизненный сценарий</h2>
+              <p class="final745__lead final745__lead--light">
+                Этот лендинг — демонстрация того, как можно переупаковать ЖК через сегмент, JTBD и конверсионную архитектуру.
+                Слева — привычная девелоперская подача. Справа — следующий шаг для управленческой встречи по переупаковке.
+              </p>
+              <div class="final745__positioning-shot">
+                <img src={images.currentPositioning} alt="Пример текущего позиционирования проекта девелопера" loading="lazy" />
               </div>
-
-              <form class="form745 form745--glass" name={formName} method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value={formName} />
-                <input type="hidden" name="bot-field" />
-                <input type="hidden" name="offer" value="offer801" />
-                <input type="hidden" name="project" value="doma-u-sada" />
-                <input type="hidden" name="developer" value="ak-bars-dom" />
-                <input type="hidden" name="templateBase" value="offer-745" />
-                <label>
-                  <span>Имя</span>
-                  <input type="text" name="name" required />
-                </label>
-                <label>
-                  <span>Телефон или Telegram</span>
-                  <input type="text" name="contact" required />
-                </label>
-                <label>
-                  <span>Ссылка на проект или комментарий</span>
-                  <textarea name="comment" rows="4"></textarea>
-                </label>
-                <button class="button745 button745--primary" type="submit">Показать вариант переупаковки проекта</button>
-              </form>
             </div>
+            <div class="final745__card">
+              <p class="final745__eyebrow">Стратегическая встреча по переупаковке</p>
+              <h3 class="final745__form-title">Оставьте контакты — подготовим разбор текущего позиционирования проекта</h3>
+              <p class="final745__lead">
+                Проведём встречу и покажем, как можно переупаковать ваш ЖК через сегмент, JTBD и структуру страницы,
+                которая помогает продавать не обещания, а более точный жизненный сценарий для нужной аудитории.
+              </p>
+              <form
+                name={formName}
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="/thank-you"
+                class="final745__form"
+              >
+                <input type="hidden" name="form-name" value={formName} />
+                <input type="hidden" name="landing_slug" value={slug} />
+                <input type="hidden" name="utm_source" value="" />
+                <input type="hidden" name="utm_medium" value="" />
+                <input type="hidden" name="utm_campaign" value="" />
+                <input type="hidden" name="utm_content" value="" />
+                <input type="hidden" name="utm_term" value="" />
 
-            <div class="final745__visual final745__visual--floating">
-              <img src={images.footer} alt="Стратегическая встреча по переупаковке проекта" loading="lazy" />
-              <p class="final745__caption">Стратегическая сессия по переупаковке проекта: оффер, структура страницы и коммуникационный сценарий</p>
+                <p class="sr-only">
+                  <label>
+                    Не заполняйте это поле, если вы человек:
+                    <input name="bot-field" />
+                  </label>
+                </p>
+
+                <div class="final745__form-grid">
+                  <div class="final745__field-block">
+                    <label for="name" class="field-label745">Имя</label>
+                    <input type="text" id="name" name="name" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="phone" class="field-label745">Телефон / Telegram</label>
+                    <input type="tel" id="phone" name="phone" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="email" class="field-label745">Email</label>
+                    <input type="email" id="email" name="email" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="message" class="field-label745">Что сейчас не работает в позиционировании</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="5"
+                      class="field-input745 field-textarea745"
+                      placeholder="Например: проект выглядит как типовой семейный ЖК; неясно, чем он отличается; текущая упаковка не собирает сильный оффер"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <button type="submit" class="button745 button745--primary final745__submit">
+                  Назначить встречу по переупаковке
+                </button>
+                <p class="final745__submit-note">Если текущее позиционирование не приводит к продажам, оставьте контакты — проведем встречу.</p>
+              </form>
             </div>
           </div>
         </div>
       </section>
     </main>
+
+    <script define:vars={{ slug }}>
+      import { populateUTMFields, trackFormSubmission } from '../utils/analytics.ts';
+
+      const form = document.querySelector('#contact form');
+
+      if (form instanceof HTMLFormElement) {
+        populateUTMFields(form);
+        form.addEventListener('submit', () => {
+          populateUTMFields(form);
+          trackFormSubmission(slug);
+        });
+      }
+    </script>
   </body>
 </html>
+
+<style>
+  :global(body.landing-745) {
+    background: #130f0d;
+    color: #241b16;
+  }
+
+  .landing-745 main {
+    overflow-x: hidden;
+    background: #f6efe8;
+  }
+
+  .section {
+    position: relative;
+  }
+
+  .hero745,
+  .life745,
+  .final745,
+  .responses745,
+  .process745 {
+    position: relative;
+  }
+
+  .hero745__container,
+  .responses745__container,
+  .life745__container,
+  .process745__container,
+  .final745__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .section--photo-hero,
+  .section--photo-band,
+  .section--photo-soft,
+  .final745--photo {
+    background-image: var(--section-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero745 {
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    padding: 48px 0;
+    overflow: hidden;
+  }
+
+  .hero745__backdrop,
+  .compare745__backdrop,
+  .final745__backdrop,
+  .split-photo745__image,
+  .immersive745,
+  .section--photo-band,
+  .section--photo-soft {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero745__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(120deg, rgba(17, 12, 9, 0.82), rgba(17, 12, 9, 0.38)), var(--section-bg);
+    transform: scale(1.04);
+  }
+
+  .hero745__backdrop--continued {
+    background-image: linear-gradient(180deg, rgba(17, 12, 9, 0.3), rgba(17, 12, 9, 0.72)), var(--section-bg);
+  }
+
+  .hero745__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-end;
+    min-height: calc(100vh - 96px);
+  }
+
+  .hero745__label,
+  .hero745__offer-line,
+  .section745-heading__eyebrow,
+  .immersive745__eyebrow,
+  .compare745-card__eyebrow,
+  .final745__eyebrow,
+  .hero745__meta {
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .hero745__label {
+    color: rgba(255, 247, 240, 0.82);
+  }
+
+  .hero745__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.28fr) minmax(280px, 0.72fr);
+    gap: 28px;
+    align-items: end;
+  }
+
+  .hero745__content {
+    display: grid;
+    gap: 20px;
+    max-width: 820px;
+  }
+
+  .hero745__content--glass {
+    padding: clamp(28px, 4vw, 44px);
+    border-radius: 32px;
+    background: linear-gradient(135deg, rgba(20, 16, 13, 0.62), rgba(20, 16, 13, 0.36));
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 30px 80px rgba(9, 7, 6, 0.28);
+    backdrop-filter: blur(16px);
+  }
+
+  .hero745__content h1 {
+    margin: 0;
+    color: #fff7f0;
+    font-size: clamp(3.2rem, 7vw, 7rem);
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+    font-weight: 650;
+    max-width: 14ch;
+  }
+
+  .hero745__content h1 em {
+    font-style: italic;
+    font-weight: 450;
+  }
+
+  .hero745__lead,
+  .hero745__offer-line,
+  .hero745__content p,
+  .final745__lead,
+  .compare745-card p,
+  .process745-card p,
+  .response745-card p,
+  .life745-table td,
+  .life745-table th,
+  .story745-card p,
+  .self745 p,
+  .quote745 p {
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+
+  .hero745__lead,
+  .hero745__offer-line,
+  .hero745__content p {
+    color: rgba(255, 246, 237, 0.9);
+    max-width: 66ch;
+  }
+
+  .hero745__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .hero745__actions--stacked {
+    align-items: flex-start;
+  }
+
+  .button745 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 26px;
+    border-radius: 999px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+  }
+
+  .button745:hover {
+    transform: translateY(-2px);
+  }
+
+  .button745--primary {
+    color: #231610;
+    background: linear-gradient(135deg, #f4d9c5, #f9ece1);
+    box-shadow: 0 18px 35px rgba(12, 8, 6, 0.18);
+  }
+
+  .button745--ghost {
+    color: #fff8f2;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
+  }
+
+  .hero745__card {
+    background: rgba(252, 245, 239, 0.94);
+    border-radius: 28px;
+    box-shadow: 0 24px 54px rgba(12, 8, 6, 0.22);
+  }
+
+  .hero745__card--floating {
+    transform: translateY(20px);
+  }
+
+  .hero745__card-body {
+    padding: 28px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .hero745__card h2,
+  .section745-heading h2,
+  .immersive745__card h2,
+  .compare745-card h3,
+  .response745-card h3,
+  .story745-card h2,
+  .final745__form-title,
+  .final745__media-copy h2,
+  .process745-card h3 {
+    margin: 0;
+    font-weight: 620;
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+  }
+
+  .hero745__card h2,
+  .section745-heading h2,
+  .immersive745__card h2,
+  .final745__media-copy h2,
+  .story745-card h2 {
+    font-size: clamp(2rem, 4vw, 4rem);
+  }
+
+  .hero745__card p,
+  .hero745__meta {
+    margin: 0;
+    color: rgba(47, 33, 26, 0.82);
+  }
+
+  .section--tight {
+    padding: 0 0 88px;
+  }
+
+  .triggers745-wrap {
+    position: relative;
+    margin-top: -8px;
+    overflow: hidden;
+  }
+
+  .triggers745__tone {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(16, 11, 9, 0.3), rgba(16, 11, 9, 0.72));
+  }
+
+  .triggers745__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .triggers745 {
+    display: grid;
+    gap: 18px;
+    max-width: 860px;
+    color: rgba(255, 244, 236, 0.92);
+  }
+
+  .triggers745 p {
+    margin: 0;
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    line-height: 1.55;
+  }
+
+  .immersive745 {
+    position: relative;
+    padding: 120px 0;
+    background-image: linear-gradient(120deg, rgba(17, 12, 9, 0.72), rgba(17, 12, 9, 0.28)), var(--immersive-bg);
+  }
+
+  .immersive745--contrast {
+    background-image: linear-gradient(120deg, rgba(17, 12, 9, 0.38), rgba(17, 12, 9, 0.78)), var(--immersive-bg);
+  }
+
+  .immersive745__inner {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .immersive745__inner--right {
+    justify-content: flex-end;
+  }
+
+  .immersive745__card {
+    width: min(680px, 100%);
+    display: grid;
+    gap: 18px;
+    padding: clamp(28px, 3vw, 44px);
+    border-radius: 28px;
+    background: rgba(24, 18, 15, 0.68);
+    color: #fff8f2;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 24px 64px rgba(10, 7, 6, 0.24);
+    backdrop-filter: blur(12px);
+  }
+
+  .immersive745__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .immersive745__facts span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 0.86rem;
+    color: rgba(255, 248, 242, 0.92);
+  }
+
+  .responses745 {
+    padding: 120px 0;
+  }
+
+  .responses745__veil,
+  .responses745__veil--warm {
+    position: absolute;
+    inset: 0;
+  }
+
+  .responses745__veil {
+    background: linear-gradient(180deg, rgba(20, 15, 12, 0.74), rgba(20, 15, 12, 0.58));
+  }
+
+  .responses745__veil--warm {
+    background: linear-gradient(180deg, rgba(36, 24, 18, 0.84), rgba(36, 24, 18, 0.62));
+  }
+
+  .section745-heading {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 42px;
+  }
+
+  .section745-heading--light,
+  .section745-heading--light p,
+  .section745-heading--light h2 {
+    color: #fff8f2;
+  }
+
+  .section745-heading--max {
+    max-width: 860px;
+  }
+
+  .center745 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .responses745__stack {
+    display: grid;
+    gap: 24px;
+  }
+
+  .response745-card {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.92fr) minmax(0, 1.08fr);
+    gap: 0;
+    border-radius: 30px;
+    overflow: hidden;
+    background: rgba(250, 244, 238, 0.96);
+    box-shadow: 0 28px 70px rgba(12, 8, 6, 0.22);
+  }
+
+  .response745-card__media img,
+  .final745__positioning-shot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .response745-card__media {
+    min-height: 100%;
+  }
+
+  .response745-card__body {
+    padding: clamp(26px, 3vw, 40px);
+    display: grid;
+    gap: 16px;
+  }
+
+  .response745-card__number,
+  .process745-card__number,
+  .story745-card__number {
+    font-size: 0.82rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(87, 59, 46, 0.68);
+  }
+
+  .response745-card__problem,
+  .story745-card__problem {
+    color: rgba(48, 34, 27, 0.72);
+    font-style: italic;
+  }
+
+  .response745-card__detail {
+    color: rgba(48, 34, 27, 0.86);
+  }
+
+  .inline-link745 {
+    color: #5c3926;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(92, 57, 38, 0.26);
+    width: fit-content;
+  }
+
+  .inline-link745--light {
+    color: #fff5ed;
+    border-bottom-color: rgba(255, 245, 237, 0.34);
+  }
+
+  .split-photo745 {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    min-height: 720px;
+  }
+
+  .split-photo745__image {
+    background-image: linear-gradient(180deg, rgba(15, 11, 9, 0.12), rgba(15, 11, 9, 0.36)), var(--split-bg);
+    min-height: 520px;
+  }
+
+  .split-photo745__content-wrap {
+    background: linear-gradient(180deg, #231914, #17100d);
+    color: #fff5ed;
+    display: flex;
+    align-items: center;
+  }
+
+  .split-photo745__container {
+    width: 100%;
+  }
+
+  .split-photo745__content {
+    display: grid;
+    gap: 20px;
+    max-width: 560px;
+    padding: 80px 0;
+  }
+
+  .self745 {
+    display: grid;
+    gap: 16px;
+  }
+
+  .self745 p,
+  .quote745 {
+    margin: 0;
+  }
+
+  .quote745 {
+    padding: 24px 26px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .quote745 footer {
+    margin-top: 10px;
+    font-size: 0.88rem;
+    color: rgba(255, 245, 237, 0.72);
+  }
+
+  .story745-card {
+    display: grid;
+    gap: 16px;
+  }
+
+  .life745 {
+    padding: 120px 0;
+  }
+
+  .life745-table-wrap {
+    overflow-x: auto;
+    border-radius: 28px;
+    background: rgba(250, 244, 238, 0.92);
+    box-shadow: 0 24px 64px rgba(12, 8, 6, 0.2);
+  }
+
+  .life745-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+  }
+
+  .life745-table th,
+  .life745-table td {
+    padding: 22px 24px;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(74, 50, 39, 0.12);
+    color: #2f211a;
+    text-align: left;
+  }
+
+  .life745-table th {
+    background: rgba(247, 233, 223, 0.92);
+    font-size: 0.84rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .life745-table td strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .life745-table td span {
+    display: block;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(87, 59, 46, 0.68);
+  }
+
+  .action745-wrap {
+    margin-top: 28px;
+  }
+
+  .compare745 {
+    position: relative;
+    padding: 120px 0;
+    overflow: hidden;
+  }
+
+  .section--contrast {
+    background: #120d0b;
+    color: #fff8f2;
+  }
+
+  .compare745__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(120deg, rgba(14, 10, 8, 0.9), rgba(14, 10, 8, 0.54)), var(--compare-bg);
+    transform: scale(1.04);
+  }
+
+  .compare745__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .compare745__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .compare745-card {
+    display: grid;
+    gap: 14px;
+    padding: 28px;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+  }
+
+  .process745 {
+    padding: 120px 0;
+  }
+
+  .section-band745__overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .section-band745__overlay--dark {
+    background: linear-gradient(180deg, rgba(18, 13, 11, 0.82), rgba(18, 13, 11, 0.72));
+  }
+
+  .process745__grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .process745__grid--stacked {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .process745-card {
+    display: grid;
+    gap: 14px;
+    padding: 26px;
+    border-radius: 24px;
+  }
+
+  .process745-card--light {
+    background: rgba(255, 248, 242, 0.12);
+    color: #fff8f2;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(10px);
+  }
+
+  .final745 {
+    overflow: hidden;
+    padding: 120px 0;
+  }
+
+  .final745__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(120deg, rgba(17, 12, 9, 0.78), rgba(17, 12, 9, 0.46)), var(--final-bg);
+    transform: scale(1.04);
+  }
+
+  .final745__layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+    gap: 28px;
+    align-items: start;
+  }
+
+  .final745__media-copy {
+    display: grid;
+    gap: 18px;
+    color: #fff8f2;
+  }
+
+  .final745__positioning-shot {
+    overflow: hidden;
+    border-radius: 26px;
+    box-shadow: 0 24px 64px rgba(10, 7, 6, 0.24);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .final745__card {
+    display: grid;
+    gap: 18px;
+    padding: clamp(26px, 3vw, 38px);
+    border-radius: 30px;
+    background: rgba(249, 242, 236, 0.96);
+    box-shadow: 0 28px 72px rgba(10, 7, 6, 0.24);
+  }
+
+  .final745__form {
+    display: grid;
+    gap: 18px;
+  }
+
+  .final745__form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .final745__form-full {
+    grid-column: 1 / -1;
+  }
+
+  .final745__field-block {
+    display: grid;
+    gap: 8px;
+  }
+
+  .field-label745 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(56, 37, 29, 0.72);
+  }
+
+  .field-input745 {
+    min-height: 52px;
+    border-radius: 18px;
+    border: 1px solid rgba(88, 60, 46, 0.16);
+    background: #fffaf6;
+    padding: 0 16px;
+    font: inherit;
+    color: #261b15;
+  }
+
+  .field-textarea745 {
+    min-height: 136px;
+    resize: vertical;
+    padding: 14px 16px;
+  }
+
+  .final745__submit {
+    width: 100%;
+  }
+
+  .final745__submit-note {
+    margin: 0;
+    color: rgba(56, 37, 29, 0.68);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  @media (max-width: 1080px) {
+    .hero745__grid,
+    .final745__layout,
+    .split-photo745,
+    .compare745__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero745__card--floating {
+      transform: none;
+    }
+
+    .split-photo745__image {
+      min-height: 360px;
+    }
+  }
+
+  @media (max-width: 820px) {
+    .hero745,
+    .responses745,
+    .life745,
+    .process745,
+    .final745,
+    .immersive745 {
+      padding: 88px 0;
+    }
+
+    .response745-card,
+    .process745__grid--stacked,
+    .final745__form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero745__content h1,
+    .hero745__card h2,
+    .section745-heading h2,
+    .immersive745__card h2,
+    .final745__media-copy h2,
+    .story745-card h2 {
+      max-width: none;
+    }
+
+    .hero745__container {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hero745 {
+      min-height: auto;
+      padding: 28px 0 72px;
+    }
+
+    .hero745__content--glass,
+    .hero745__card-body,
+    .immersive745__card,
+    .response745-card__body,
+    .process745-card,
+    .final745__card {
+      padding: 22px;
+    }
+
+    .button745 {
+      width: 100%;
+    }
+  }
+</style>
