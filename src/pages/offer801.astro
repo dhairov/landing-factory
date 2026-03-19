@@ -260,8 +260,8 @@ const processSteps = [
               </div>
               <blockquote class="quote745 quote745--light">
                 <p>
-                  «Сильные семейные проекты продаются не через клише о счастье, а через точное ощущение,
-                  что жизнь действительно становится тише, мягче и лучше собрана вокруг семьи».
+                  «Сильные семейные проекты продаются не через обещания “счастливой жизни”, а через более точное ощущение,
+                  что ежедневная жизнь семьи действительно становится тише, мягче и лучше собрана».
                 </p>
                 <footer>Стратегия переупаковки девелоперского продукта</footer>
               </blockquote>
@@ -503,10 +503,10 @@ const processSteps = [
   }
 
   .hero745 {
-    min-height: 100vh;
+    min-height: clamp(760px, 92vh, 980px);
     display: flex;
     align-items: stretch;
-    padding: 48px 0;
+    padding: 36px 0 28px;
     overflow: hidden;
   }
 
@@ -536,9 +536,9 @@ const processSteps = [
   .hero745__container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
     justify-content: flex-end;
-    min-height: calc(100vh - 96px);
+    min-height: clamp(700px, calc(92vh - 64px), 900px);
   }
 
   .hero745__label,
@@ -572,22 +572,23 @@ const processSteps = [
   }
 
   .hero745__content--glass {
-    padding: clamp(28px, 4vw, 44px);
+    padding: clamp(28px, 4vw, 42px);
     border-radius: 32px;
-    background: linear-gradient(135deg, rgba(20, 16, 13, 0.62), rgba(20, 16, 13, 0.36));
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    box-shadow: 0 30px 80px rgba(9, 7, 6, 0.28);
-    backdrop-filter: blur(16px);
+    background: linear-gradient(135deg, rgba(18, 14, 12, 0.78), rgba(18, 14, 12, 0.52));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 30px 80px rgba(9, 7, 6, 0.34);
+    backdrop-filter: blur(18px);
   }
 
   .hero745__content h1 {
     margin: 0;
     color: #fff7f0;
-    font-size: clamp(3.2rem, 7vw, 7rem);
-    line-height: 0.96;
-    letter-spacing: -0.06em;
+    font-size: clamp(3rem, 6vw, 6.2rem);
+    line-height: 0.97;
+    letter-spacing: -0.055em;
     font-weight: 650;
-    max-width: 14ch;
+    max-width: 13ch;
+    text-wrap: balance;
   }
 
   .hero745__content h1 em {
@@ -614,8 +615,9 @@ const processSteps = [
   .hero745__lead,
   .hero745__offer-line,
   .hero745__content p {
-    color: rgba(255, 246, 237, 0.9);
-    max-width: 66ch;
+    color: rgba(255, 246, 237, 0.98);
+    text-shadow: 0 2px 18px rgba(8, 6, 5, 0.42);
+    max-width: 62ch;
   }
 
   .hero745__actions {
@@ -729,7 +731,8 @@ const processSteps = [
     display: grid;
     gap: 18px;
     max-width: 860px;
-    color: rgba(255, 244, 236, 0.92);
+    color: rgba(255, 244, 236, 0.98);
+    text-shadow: 0 2px 18px rgba(8, 6, 5, 0.42);
   }
 
   .triggers745 p {
@@ -936,8 +939,9 @@ const processSteps = [
   .quote745 {
     padding: 24px 26px;
     border-radius: 24px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 18px 40px rgba(9, 7, 6, 0.22);
   }
 
   .quote745 footer {
@@ -1210,7 +1214,7 @@ const processSteps = [
     .process745,
     .final745,
     .immersive745 {
-      padding: 88px 0;
+      padding: 80px 0;
     }
 
     .response745-card,
@@ -1231,12 +1235,17 @@ const processSteps = [
     .hero745__container {
       min-height: auto;
     }
+
+    .hero745__content h1 {
+      font-size: clamp(2.6rem, 11vw, 4.6rem);
+      max-width: 11ch;
+    }
   }
 
   @media (max-width: 560px) {
     .hero745 {
       min-height: auto;
-      padding: 28px 0 72px;
+      padding: 24px 0 56px;
     }
 
     .hero745__content--glass,
@@ -1250,6 +1259,16 @@ const processSteps = [
 
     .button745 {
       width: 100%;
+    }
+
+    .hero745__lead,
+    .hero745__offer-line,
+    .hero745__content p,
+    .triggers745,
+    .quote745,
+    .quote745 p,
+    .quote745 footer {
+      color: rgba(255, 246, 237, 0.98);
     }
   }
 </style>
