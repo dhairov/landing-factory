@@ -315,10 +315,6 @@ const processSteps = [
       <section class="section life745 section--photo-soft" style={`--section-bg: url(${images.evolution})`}>
         <div class="responses745__veil responses745__veil--warm"></div>
         <div class="container life745__container">
-          <div class="section745-heading center745 section745-heading--light section745-heading--max">
-            <h2>Как семейный продукт превращается из общей категории в более точный JTBD-сегмент</h2>
-            <p>Начиная с этого блока, страница уже говорит с руководителем девелоперского продукта: показывает эволюцию семейной задачи и то, где начинается более точное позиционирование.</p>
-          </div>
           <div class="life745-table-wrap">
             <table class="life745-table">
               <thead>
@@ -757,7 +753,20 @@ const processSteps = [
   .hero745__card p,
   .hero745__meta {
     margin: 0;
-    color: rgba(47, 33, 26, 0.82);
+    color: rgba(44, 30, 24, 0.88);
+  }
+
+  .hero745__card h2 {
+    color: rgba(34, 24, 19, 0.96);
+    font-size: clamp(1.42rem, 2vw, 1.86rem);
+    line-height: 1.28;
+    max-width: 18ch;
+  }
+
+  .hero745__meta {
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: rgba(66, 46, 37, 0.72);
   }
 
   .section--tight {
@@ -783,20 +792,28 @@ const processSteps = [
 
   .triggers745 {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
-    max-width: 860px;
+    max-width: 980px;
     color: rgba(255, 247, 241, 0.98);
-    text-shadow: 0 3px 20px rgba(6, 4, 3, 0.56);
+    text-shadow: none;
   }
 
   .triggers745 p {
     margin: 0;
-    font-size: clamp(1.22rem, 2vw, 1.58rem);
-    line-height: 1.7;
-    font-weight: 600;
-    max-width: 32ch;
+    min-height: 100%;
+    padding: 22px 24px;
+    border-radius: 24px;
+    background: rgba(255, 248, 242, 0.14);
+    border: 1px solid rgba(255, 248, 242, 0.2);
+    box-shadow: 0 18px 48px rgba(6, 4, 3, 0.18);
+    backdrop-filter: blur(12px);
+    font-size: clamp(0.98rem, 1.35vw, 1.12rem);
+    line-height: 1.58;
+    font-weight: 500;
+    max-width: none;
     color: rgba(255, 248, 242, 0.98);
-    text-shadow: 0 3px 22px rgba(6, 4, 3, 0.62);
+    text-shadow: none;
   }
 
   .immersive745 {
@@ -950,9 +967,14 @@ const processSteps = [
 
   .response745-card__problem,
   .story745-card__problem {
-    color: rgba(255, 248, 242, 0.96);
+    color: rgba(40, 28, 22, 0.9);
     font-style: normal;
     font-weight: 500;
+  }
+
+  .response745-card h3,
+  .response745-card__detail {
+    color: rgba(32, 22, 17, 0.96);
   }
   .compare745-card {
     position: relative;
@@ -966,8 +988,8 @@ const processSteps = [
   }
   .compare745-card__eyebrow {
     margin: 0 0 18px;
-    color: rgba(248, 233, 220, 0.9);
-    text-shadow: 0 1px 10px rgba(7, 5, 4, 0.3);
+    color: rgba(255, 246, 238, 0.94);
+    text-shadow: 0 1px 10px rgba(7, 5, 4, 0.22);
   }
   .compare745-card h3 {
     color: #fff8f3;
@@ -1187,8 +1209,8 @@ const processSteps = [
   }
   .process745-card p {
     margin: 0;
-    color: rgba(255, 247, 240, 0.96);
-    text-shadow: 0 2px 14px rgba(6, 4, 3, 0.28);
+    color: rgba(255, 247, 240, 0.98);
+    text-shadow: 0 2px 14px rgba(6, 4, 3, 0.24);
   }
 
   .final745 {
@@ -1397,5 +1419,10 @@ const processSteps = [
     .story745-card p {
       color: rgba(255, 246, 237, 0.98);
     }
+
+    .triggers745 {
+      grid-template-columns: 1fr;
+    }
+  }
   }}
 </style>
