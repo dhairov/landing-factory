@@ -1,0 +1,367 @@
+---
+import Analytics from '../components/Analytics.astro';
+import '../styles/global.css';
+
+const slug = 'aesthetes';
+const formName = `landing-${slug}`;
+
+const images = {
+  hero: '/assets/aesthetes/original/hero_hero.jpg',
+  aha1: '/assets/aesthetes/original/aha1_architecture.jpg',
+  aha2: '/assets/aesthetes/original/aha2_materials.jpg',
+  aha3: '/assets/aesthetes/original/aha3_courtyard.jpg',
+  qualifier: '/assets/aesthetes/original/qualifier_who.jpg',
+  footer: '/assets/aesthetes/original/footer_cta.jpg',
+  currentPositioning: '/assets/aesthetes/original/current_positioning.jpg',
+};
+
+const triggerPoints = [
+  'Вы устали от архитектуры, которая кричит, навязывает статус и лишает воздуха.',
+  'Вы ищете дом, в котором не устают глаза, не раздражают детали и не хочется всё время что-то мысленно исправлять.',
+  'Вам важно не роскошь, а среда — место, в котором приятно жить долго, где качество считывается не по словам, а по тому, как всё решено.',
+];
+
+const responseCards = [
+  {
+    number: '01',
+    title: 'Фасад, который не надоедает через полгода',
+    problem: '«Даже в дорогом сегменте я постоянно сталкиваюсь с одним и тем же: слишком много крика в архитектуре, слишком много желания произвести впечатление вместо того, чтобы создать достойное пространство».',
+    answer:
+      'Дом не пытается кричать о себе, но обладает архитектурной силой, которую приятно считывать годами. Это редкое качество: когда фасад не давит, не устаревает эмоционально и продолжает ощущаться как точный выбор.',
+    detail:
+      'Архитектура, на которую приятно смотреть не только на рендерах. Силуэт, пропорции, пластическая чистота — всё это работает не один день, а на длинной дистанции.',
+    cta: 'Посмотреть, как архитектурную силу проекта можно упаковать для правильного сегмента',
+    image: images.aha1,
+    alt: 'Чистый архитектурный фасад с правильными пропорциями и спокойной палитрой',
+  },
+  {
+    number: '02',
+    title: 'Двор, где нет визуальной истерики',
+    problem: '«Когда дом не имеет характера и ничем не отличается от десятков других проектов, жильё перестаёт быть средой. Оно становится просто коробкой».',
+    answer:
+      'Есть воздух, мера, сценарии спокойного присутствия и ощущение, что пространство собрано для жизни, а не только для продажи. Среда, в которой можно замедлиться, а не только пройти через неё.',
+    detail:
+      'Озеленение, приватность, ритм движения — всё это создаёт более деликатную и уважительную среду. Двор, в котором хочется находиться, а не только проходить мимо.',
+    cta: 'Обсудить, как средовые качества проекта перевести в язык продающего оффера',
+    image: images.aha2,
+    alt: 'Спокойный двор с озеленением и деликатным освещением — среда без визуального шума',
+  },
+  {
+    number: '03',
+    title: 'Качество, которое видно не по словам, а по тому, как всё решено',
+    problem: '«Я хочу не роскоши, а среды, в которой приятно жить долго. Но большинство проектов либо кричат о статусе, либо выглядят безлико».',
+    answer:
+      'Хороший дом узнаётся не по обещаниям, а по тому, как он собран в деталях. Входные группы, лобби, навигация, материалы, свет — всё это доказательства зрелого подхода, которые человек считывает тактильно и визуально каждый день.',
+    detail:
+      'Материалы и детали, которые поддерживают ощущение качества каждый день. Более тихая и собранная повседневность без лишнего визуального напряжения.',
+    cta: 'Если у вашего проекта есть скрытая средовая сила — давайте её раскроем',
+    image: images.aha3,
+    alt: 'Детали лобби и общих пространств — качество, которое считывается тактильно',
+  },
+];
+
+const selfSelection = [
+  'Когда вы понимаете, что вам важна не роскошь, а среда — место, в котором не устают глаза.',
+  'Когда вы переросли безликость и ищете дом с характером, тактом и ощущением цельности.',
+  'Когда для вас «красиво» — это не про крик, а про меру, собранность и удовольствие быть в этом пространстве каждый день.',
+];
+
+const comparisons = [
+  {
+    overline: 'Против «premium» без содержания',
+    title: 'Архитектурная сила, а не декоративный статус',
+    text: 'Мы не продаём золотые вензеля и искусственный пафос. Мы переводим реальные качества проекта в язык, который считывает этот сегмент.',
+  },
+  {
+    overline: 'Против визуального шума',
+    title: 'Тишина как архитектурный принцип',
+    text: 'Дом не спорит с человеком, не давит и не утомляет. Ценность считывается не через крик, а через такт, собранность и деликатность.',
+  },
+  {
+    overline: 'Против безликости',
+    title: 'Характер и среда, а не просто адрес',
+    text: 'Проект с архитектурной идентичностью и продуманной средой — это не просто ЖК. Это место, где человеку становится просто легче жить.',
+  },
+];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Вы оставляете контакты и ссылку на проект',
+    text: 'Показываете текущий ЖК, лендинг или рекламную коммуникацию, которая не даёт нужной конверсии.',
+  },
+  {
+    number: '02',
+    title: 'Мы смотрим текущую подачу',
+    text: 'Находим, где проект говорит слишком общо и теряет свою архитектурную и средовую ценность. Проверяем, подходит ли он для сегмента эстетов.',
+  },
+  {
+    number: '03',
+    title: 'Собираем новую подачу',
+    text: 'Переводим язык фасада, двора, материалов и тишины в narrative покупки. Показываем, как может выглядеть более точное позиционирование.',
+  },
+  {
+    number: '04',
+    title: 'Передаём готовую страницу',
+    text: 'Итогом становится не абстрактная стратегия, а готовая страница, где человек считывает проект через ту ценность, которая действительно может стать причиной выбора.',
+  },
+];
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Эстеты и средофилы — дом, в котором приятно жить долго</title>
+    <meta
+      name="description"
+      content="Позиционирование жилого проекта под сегмент эстетов и средофилов. Архитектура, среда и качество деталей — для тех, кому важно не только где жить, но и как ощущается сама среда жизни."
+    />
+  </head>
+  <body class="landing-745">
+    <Analytics landingSlug={slug} />
+
+    <main>
+      <section class="hero745 section section--photo-hero">
+        <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="container hero745__container">
+          <div class="hero745__label">Сегментная упаковка · Эстеты и средофилы · Архитектура и среда</div>
+          <div class="hero745__grid">
+            <div class="hero745__content hero745__content--glass">
+              <h1>Дом, в котором город становится тише. <em>Пространство, которое не спорит с вашим вкусом.</em></h1>
+              <p class="hero745__lead">
+                Есть проекты, которые решают вопрос адреса. А есть проекты, которые меняют само качество повседневности.
+                Это важно для тех, кто устал от визуального шума, безликости и ощущения, что даже хорошее жильё слишком часто выглядит случайным.
+              </p>
+              <p class="hero745__offer-line">Жить среди красивого — не роскошь, а нормальная потребность.</p>
+              <div class="hero745__actions hero745__actions--stacked">
+                <a class="button745 button745--primary" href="#contact">Посмотреть предложение</a>
+              </div>
+            </div>
+
+            <aside class="hero745__card hero745__card--floating">
+              <div class="hero745__card-body">
+                <h2>Дом для тех, кому важно не только где жить, но и как ощущается сама среда жизни</h2>
+                <p class="hero745__meta">Сегмент «Эстеты и средофилы» · Архитектура · Среда · Качество деталей</p>
+                <p>
+                  Здесь ценность считывается не через крик, а через такт, собранность и удовольствие быть в этом
+                  пространстве каждый день. Не роскошь, а среда — место, в котором приятно жить долго.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight triggers745-wrap triggers745-wrap--hero-continued">
+        <div class="hero745__backdrop hero745__backdrop--continued" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="triggers745__tone"></div>
+        <div class="container triggers745__container">
+          <div class="triggers745">
+            {triggerPoints.map((item) => <p>{item}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="immersive745 immersive745--hero" style={`--immersive-bg: url(${images.aha1})`}>
+        <div class="container immersive745__inner">
+          <div class="immersive745__card">
+            <p class="immersive745__eyebrow">Сегмент «Эстеты и средофилы» · Скрытая архитектурная сила</p>
+            <h2>Когда продукт перестаёт продаваться как набор характеристик и начинает собираться вокруг подлинного ощущения среды</h2>
+            <p>
+              В этом сегменте важна не только цена и метраж. Важна редкая точность попадания: не показать статус,
+              а дать человеку пространство, где архитектура, тишина, материалы и среда собираются в более спокойную, цельную и достойную жизнь.
+            </p>
+            <div class="immersive745__facts">
+              <span>Архитектурная цельность</span>
+              <span>Средовое качество</span>
+              <span>Тишина как принцип</span>
+              <span>Долгий горизонт</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section responses745 section--photo-soft" style={`--section-bg: url(${images.aha2})`}>
+        <div class="responses745__veil"></div>
+        <div class="container responses745__container">
+          <div class="section745-heading center745 section745-heading--light">
+            <h2>Как сегментная упаковка отвечает на то, что останавливает эстета</h2>
+          </div>
+          <div class="responses745__stack">
+            {responseCards.map((card) => (
+              <article class="response745-card">
+                <div class="response745-card__media">
+                  <img src={card.image} alt={card.alt} loading="lazy" />
+                </div>
+                <div class="response745-card__body">
+                  <div class="response745-card__number">{card.number}</div>
+                  <h3>{card.title}</h3>
+                  <p class="response745-card__problem">{card.problem}</p>
+                  <p>{card.answer}</p>
+                  <p class="response745-card__detail">{card.detail}</p>
+                  {card.cta && (
+                    <a class="inline-link745" href="#contact">{card.cta}</a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="split-photo745">
+        <div class="split-photo745__image" style={`--split-bg: url(${images.qualifier})`}></div>
+        <div class="split-photo745__content-wrap">
+          <div class="container split-photo745__container">
+            <div class="split-photo745__content">
+              <p class="immersive745__eyebrow">Сегмент «Эстеты и средофилы» · Узнайте себя</p>
+              <h2>Этот сценарий — для тех, кто выбирает дом как более тихую, цельную и достойную среду жизни</h2>
+              <div class="self745 self745--transparent">
+                {selfSelection.map((item) => <p>{item}</p>)}
+              </div>
+              <blockquote class="quote745 quote745--light">
+                <p>
+                  «Эстеты и средофилы — это лендинг для людей, которые выбирают дом как более тихую, цельную и достойную среду жизни.
+                  Он продаёт не роскошь, а совпадение жилья с вкусом, чувством меры и качеством повседневности».
+                </p>
+                <footer>Из логики сегмента «Эстеты и средофилы»</footer>
+              </blockquote>
+              <a class="inline-link745 inline-link745--light" href="#contact">Если ваш проект сильнее, чем его текущая упаковка — обсудим это на встрече</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.aha3})`}>
+        <div class="container immersive745__inner immersive745__inner--right">
+          <div class="immersive745__card immersive745__card--single-story">
+            <div class="story745-card">
+              <div class="story745-card__number">03</div>
+              <h2>Качество, которое видно не по словам</h2>
+              <p class="story745-card__problem">«Я хочу дом, в котором не устают глаза, не раздражают детали и не хочется всё время что-то мысленно исправлять и оправдывать. Но большинство проектов либо кричат, либо выглядят безлико».</p>
+              <p>Хороший дом узнаётся не по обещаниям, а по тому, как он собран в деталях. Входные группы, лобби, навигация, материалы, свет — всё это доказательства зрелого подхода, которые человек считывает каждый день.</p>
+              <a class="inline-link745" href="#contact">Если у вашего проекта есть скрытая средовая сила — давайте её раскроем</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process745 section--photo-band" style={`--section-bg: url(${images.footer})`}>
+        <div class="section-band745__overlay section-band745__overlay--dark"></div>
+        <div class="container process745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max">
+            <h2>Как проходит путь к переупаковке девелоперского продукта</h2>
+          </div>
+          <div class="process745__grid process745__grid--stacked">
+            {processSteps.map((step) => (
+              <article class="process745-card process745-card--light process745-card--stacked">
+                <div class="process745-card__number">{step.number}</div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section final745 final745--photo">
+        <div class="final745__backdrop" style={`--final-bg: url(${images.footer})`}></div>
+        <div class="container final745__container">
+          <div class="final745__layout">
+            <div class="final745__media-copy">
+              <p class="final745__eyebrow">Ваше текущее позиционирование vs. сегментная переупаковка</p>
+              <h2>Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу, где расскажем про наш подход</h2>
+              <p class="final745__lead final745__lead--light">
+                Покажем, как сейчас выглядит подача проекта — и где в нём скрыта более сильная архитектурная и средовая история, которую можно превратить в точный оффер для этого сегмента.
+              </p>
+              <div class="final745__positioning-shot">
+                <img src={images.currentPositioning} alt="Пример текущего позиционирования проекта девелопера" loading="lazy" />
+              </div>
+            </div>
+            <div class="final745__card">
+              <p class="final745__eyebrow">Стратегическая встреча по переупаковке</p>
+              <h3 class="final745__form-title">Оставьте контакты — проведём встречу и расскажем про наш подход</h3>
+              <p class="final745__lead">
+                Разберём текущее позиционирование проекта, посмотрим, насколько он подходит для сегмента эстетов,
+                и покажем, как может выглядеть новая упаковка лендинга и оффера.
+              </p>
+              <form
+                name={formName}
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="/thank-you"
+                class="final745__form"
+              >
+                <input type="hidden" name="form-name" value={formName} />
+                <input type="hidden" name="landing_slug" value={slug} />
+                <input type="hidden" name="utm_source" value="" />
+                <input type="hidden" name="utm_medium" value="" />
+                <input type="hidden" name="utm_campaign" value="" />
+                <input type="hidden" name="utm_content" value="" />
+                <input type="hidden" name="utm_term" value="" />
+
+                <p class="sr-only">
+                  <label>
+                    Не заполняйте это поле, если вы человек:
+                    <input name="bot-field" />
+                  </label>
+                </p>
+
+                <div class="final745__form-grid">
+                  <div class="final745__field-block">
+                    <label for="name" class="field-label745">Имя</label>
+                    <input type="text" id="name" name="name" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="phone" class="field-label745">Телефон / Telegram</label>
+                    <input type="tel" id="phone" name="phone" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="email" class="field-label745">Email</label>
+                    <input type="email" id="email" name="email" required class="field-input745" />
+                  </div>
+                </div>
+
+                <button type="submit" class="button745 button745--primary final745__submit">
+                  Записаться на встречу
+                </button>
+                <p class="final745__submit-note">Если текущее позиционирование не приводит к продажам, оставьте контакты — проведём встречу.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script define:vars={{ slug }}>
+      import { populateUTMFields, trackFormSubmission } from '../utils/analytics.ts';
+
+      const form = document.querySelector('#contact form');
+
+      if (form instanceof HTMLFormElement) {
+        populateUTMFields(form);
+        form.addEventListener('submit', () => {
+          populateUTMFields(form);
+          trackFormSubmission(slug);
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  :global(body.landing-745) {
+    background: #130f0d;
+    color: #241b16;
+  }
+
+  .landing-745 main {
+    overflow-x: hidden;
+    background: #f6efe8;
+  }
+</style>

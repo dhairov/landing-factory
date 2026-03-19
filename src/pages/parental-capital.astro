@@ -1,0 +1,367 @@
+---
+import Analytics from '../components/Analytics.astro';
+import '../styles/global.css';
+
+const slug = 'parental-capital';
+const formName = `landing-${slug}`;
+
+const images = {
+  hero: '/assets/parental-capital/original/hero_hero.jpg',
+  aha1: '/assets/parental-capital/original/aha1_timing.jpg',
+  aha2: '/assets/parental-capital/original/aha2_choice.jpg',
+  aha3: '/assets/parental-capital/original/aha3_investment.jpg',
+  qualifier: '/assets/parental-capital/original/qualifier_who.jpg',
+  footer: '/assets/parental-capital/original/footer_cta.jpg',
+  currentPositioning: '/assets/parental-capital/original/current_positioning.jpg',
+};
+
+const triggerPoints = [
+  'Вы думаете о будущем ребёнка — и понимаете, что жилищный вопрос лучше решить заранее, пока у вас ещё есть время выбирать спокойно.',
+  'Вы не хотите принимать это решение в режиме аврала, когда обстоятельства уже давят и выбор становится хуже.',
+  'Вы ищете не просто квартиру, а осмысленную семейную опору — на долгий горизонт, в правильной среде, без случайных компромиссов.',
+];
+
+const responseCards = [
+  {
+    number: '01',
+    title: 'Право выбирать без спешки',
+    problem: '«Мы всё время откладываем этот вопрос. А потом, когда он станет срочным, выбирать придётся в панике».',
+    answer:
+      'Когда решение принято заранее, у семьи есть время подумать не только о цене, но и о жизненном сценарии. Можно выбрать среду, а не просто метраж. Можно подбирать объект на долгий горизонт, а не под текущую спешку.',
+    detail:
+      'Заблаговременно — не значит рано. Это значит: у вас ещё есть пространство выбора, которого не будет, когда вопрос станет срочным.',
+    cta: 'Посмотреть, как этот сценарий упаковать для вашего проекта',
+    image: images.aha1,
+    alt: 'Светлая квартира с видом на город — спокойный семейный горизонт',
+  },
+  {
+    number: '02',
+    title: 'Среда, а не просто адрес',
+    problem: '«Когда придёт время, мы возьмём что-нибудь подходящее. Главное — чтобы было жильё».',
+    answer:
+      'Для сценария «квартира ребёнку» важен не только сегодняшний вид объекта. Гораздо важнее, сможет ли он оставаться понятным, ликвидным и достойным выбором через несколько лет. Локация, среда, формат — всё это имеет значение на длинной дистанции.',
+    detail:
+      'Не просто адрес, а локация, с которой ребёнку будет проще начинать самостоятельную жизнь. Не просто метры, а формат, который не потеряет смысл через несколько лет.',
+    cta: 'Обсудить, как показать долгосрочную ценность в позиционировании',
+    image: images.aha2,
+    alt: 'Городской пейзаж с высоты — перспектива самостоятельной жизни',
+  },
+  {
+    number: '03',
+    title: 'Семейное решение, а не инвестиция',
+    problem: '«Это звучит как инвестиция. Но мы не инвесторы — мы просто хотим, чтобы у ребёнка было жильё».',
+    answer:
+      'Квартира для ребёнка — это не абстрактная инвестиция и не срочная покупка. Это заранее созданная опора для будущего старта. Семья не решает финансовую задачу — она снижает будущую неопределённость и даёт ребёнку более уверенное начало.',
+    detail:
+      'Иная narrative-рамка: предусмотрительность, а не апгрейд статуса. Иной язык ценности: не улучшение жизни сейчас, а снижение хаоса будущего решения.',
+    cta: 'Если ваш проект подходит под этот сценарий — обсудим переупаковку',
+    image: images.aha3,
+    alt: 'Спокойный семейный интерьер — опора для будущего',
+  },
+];
+
+const selfSelection = [
+  'Когда вы понимаете, что важные семейные решения лучше принимать не в аврале.',
+  'Когда вы хотите дать ребёнку более уверенный старт — и понимаете, что для этого нужно действовать заранее.',
+  'Когда для вас «подготовить заранее» — это не тревожность, а зрелость и забота.',
+];
+
+const comparisons = [
+  {
+    overline: 'Против «подождём, пока нужно»',
+    title: 'Заблаговременно — не значит рано',
+    text: 'Самое разумное время решать такой вопрос — когда у семьи ещё есть пространство выбора, а не когда обстоятельства уже давят.',
+  },
+  {
+    overline: 'Против инвестиционного языка',
+    title: 'Семейная опора, а не актив',
+    text: 'Это не про доходность и не про спекуляцию. Это про то, чтобы у ребёнка было достойное место для самостоятельного старта.',
+  },
+  {
+    overline: 'Против случайного выбора',
+    title: 'Осмысленное решение на длинный горизонт',
+    text: 'Хорошее решение для ребёнка должно выдерживать длинную дистанцию: локация, среда, ликвидность, уместность через годы.',
+  },
+];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Вы оставляете контакты и ссылку на проект',
+    text: 'Показываете текущий ЖК, лендинг или рекламную коммуникацию, которая не даёт нужной конверсии.',
+  },
+  {
+    number: '02',
+    title: 'Мы собираем гипотезу переупаковки',
+    text: 'Смотрим, подходит ли проект под сценарий «квартира ребёнку», и находим, где именно теряется ценность в текущей подаче.',
+  },
+  {
+    number: '03',
+    title: 'Проводим встречу по проекту',
+    text: 'Показываем, как может выглядеть более точное позиционирование под семейный сценарий заблаговременной покупки.',
+  },
+  {
+    number: '04',
+    title: 'Фиксируем следующий шаг',
+    text: 'Определяем, что именно нужно делать дальше: корректировать сегмент, перепрошивать оффер или полностью пересобирать упаковку.',
+  },
+];
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Квартира ребёнку — заранее, без спешки и случайных компромиссов</title>
+    <meta
+      name="description"
+      content="Позиционирование жилого проекта под сценарий «квартира ребёнку». Семейное решение на длинный горизонт — пока у вас ещё есть время выбирать спокойно."
+    />
+  </head>
+  <body class="landing-745">
+    <Analytics landingSlug={slug} />
+
+    <main>
+      <section class="hero745 section section--photo-hero">
+        <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="container hero745__container">
+          <div class="hero745__label">Сегментная упаковка · Квартира ребёнку · Семейное решение на будущее</div>
+          <div class="hero745__grid">
+            <div class="hero745__content hero745__content--glass">
+              <h1>Квартиру для ребёнка лучше выбирать тогда, когда у вас ещё есть <em>время выбирать спокойно.</em></h1>
+              <p class="hero745__lead">
+                Жилищный вопрос ребёнка можно решить заранее — без спешки, давления и случайных компромиссов.
+                Пока обстоятельства не давят, у семьи есть возможность выбрать осмысленно: по локации, среде, планировке и долгому горизонту использования.
+              </p>
+              <p class="hero745__offer-line">Решение не на сезон, а на несколько жизненных этапов вперёд.</p>
+              <div class="hero745__actions hero745__actions--stacked">
+                <a class="button745 button745--primary" href="#contact">Посмотреть, как этот сценарий упаковать для проекта</a>
+              </div>
+            </div>
+
+            <aside class="hero745__card hero745__card--floating">
+              <div class="hero745__card-body">
+                <h2>Семейное решение, которое лучше принять заранее — пока у вас есть пространство выбора</h2>
+                <p class="hero745__meta">Сегмент «Квартира ребёнку» · Заблаговременная покупка · Семейная опора</p>
+                <p>
+                  Важные семейные решения лучше принимать не в аврале. Спокойный старт для ребёнка начинается
+                  задолго до самого переезда — когда семья ещё может выбирать без внешнего давления.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight triggers745-wrap triggers745-wrap--hero-continued">
+        <div class="hero745__backdrop hero745__backdrop--continued" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="triggers745__tone"></div>
+        <div class="container triggers745__container">
+          <div class="triggers745">
+            {triggerPoints.map((item) => <p>{item}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="immersive745 immersive745--hero" style={`--immersive-bg: url(${images.aha1})`}>
+        <div class="container immersive745__inner">
+          <div class="immersive745__card">
+            <p class="immersive745__eyebrow">Сегмент «Квартира ребёнку» · Заблаговременное решение</p>
+            <h2>Когда продукт перестаёт продаваться как набор характеристик и начинает собираться вокруг подлинной семейной задачи</h2>
+            <p>
+              В этом сегменте важна не только цена и метраж. Важна точность попадания в семейный сценарий:
+              не срочная покупка под давлением, а осмысленное решение, принятое в тот момент, когда у семьи ещё есть пространство выбора.
+            </p>
+            <div class="immersive745__facts">
+              <span>Семейный сценарий</span>
+              <span>Заблаговременная покупка</span>
+              <span>Долгий горизонт</span>
+              <span>Опора для ребёнка</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section responses745 section--photo-soft" style={`--section-bg: url(${images.aha2})`}>
+        <div class="responses745__veil"></div>
+        <div class="container responses745__container">
+          <div class="section745-heading center745 section745-heading--light">
+            <h2>Как сегментная упаковка отвечает на то, что останавливает семью</h2>
+          </div>
+          <div class="responses745__stack">
+            {responseCards.map((card) => (
+              <article class="response745-card">
+                <div class="response745-card__media">
+                  <img src={card.image} alt={card.alt} loading="lazy" />
+                </div>
+                <div class="response745-card__body">
+                  <div class="response745-card__number">{card.number}</div>
+                  <h3>{card.title}</h3>
+                  <p class="response745-card__problem">{card.problem}</p>
+                  <p>{card.answer}</p>
+                  <p class="response745-card__detail">{card.detail}</p>
+                  {card.cta && (
+                    <a class="inline-link745" href="#contact">{card.cta}</a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="split-photo745">
+        <div class="split-photo745__image" style={`--split-bg: url(${images.qualifier})`}></div>
+        <div class="split-photo745__content-wrap">
+          <div class="container split-photo745__container">
+            <div class="split-photo745__content">
+              <p class="immersive745__eyebrow">Сегмент «Квартира ребёнку» · Узнайте себя</p>
+              <h2>Этот сценарий — для семей, которые думают о будущем ребёнка заранее</h2>
+              <div class="self745 self745--transparent">
+                {selfSelection.map((item) => <p>{item}</p>)}
+              </div>
+              <blockquote class="quote745 quote745--light">
+                <p>
+                  «Иногда самое своевременное решение выглядит как "слишком рано" только потому, что мы привыкли
+                  решать важное в последний момент. Заблаговременно — это не про спешку. Это про право выбрать лучшее без внешнего давления».
+                </p>
+                <footer>Из логики сегмента «Квартира ребёнку»</footer>
+              </blockquote>
+              <a class="inline-link745 inline-link745--light" href="#contact">Если ваш проект подходит под этот сценарий — обсудим переупаковку</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.aha3})`}>
+        <div class="container immersive745__inner immersive745__inner--right">
+          <div class="immersive745__card immersive745__card--single-story">
+            <div class="story745-card">
+              <div class="story745-card__number">03</div>
+              <h2>Семейная опора, а не инвестиция</h2>
+              <p class="story745-card__problem">«Мы не инвесторы. Мы просто хотим, чтобы у ребёнка было жильё — достойное, в нормальной среде, без того, чтобы потом решать это в панике».</p>
+              <p>Квартира для ребёнка — это заранее созданная опора для его будущего старта. Семья снижает будущую неопределённость и даёт ребёнку более уверенное начало. Это не финансовая задача — это семейное решение.</p>
+              <a class="inline-link745" href="#contact">Если у вашего проекта есть ценность для этого сегмента — давайте это разберём</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process745 section--photo-band" style={`--section-bg: url(${images.footer})`}>
+        <div class="section-band745__overlay section-band745__overlay--dark"></div>
+        <div class="container process745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max">
+            <h2>Как проходит путь к переупаковке девелоперского продукта</h2>
+          </div>
+          <div class="process745__grid process745__grid--stacked">
+            {processSteps.map((step) => (
+              <article class="process745-card process745-card--light process745-card--stacked">
+                <div class="process745-card__number">{step.number}</div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section final745 final745--photo">
+        <div class="final745__backdrop" style={`--final-bg: url(${images.footer})`}></div>
+        <div class="container final745__container">
+          <div class="final745__layout">
+            <div class="final745__media-copy">
+              <p class="final745__eyebrow">Ваше текущее позиционирование vs. сегментная переупаковка</p>
+              <h2>Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу, где расскажем про наш подход</h2>
+              <p class="final745__lead final745__lead--light">
+                Покажем, как сейчас выглядит подача проекта — и как её можно переупаковать под семейный сценарий «квартира ребёнку» с точным попаданием в логику заблаговременного семейного решения.
+              </p>
+              <div class="final745__positioning-shot">
+                <img src={images.currentPositioning} alt="Пример текущего позиционирования проекта девелопера" loading="lazy" />
+              </div>
+            </div>
+            <div class="final745__card">
+              <p class="final745__eyebrow">Стратегическая встреча по переупаковке</p>
+              <h3 class="final745__form-title">Оставьте контакты — проведём встречу и расскажем про наш подход</h3>
+              <p class="final745__lead">
+                Разберём текущее позиционирование проекта, посмотрим, насколько он подходит под сценарий «квартира ребёнку»,
+                и покажем, как может выглядеть новая упаковка лендинга и оффера.
+              </p>
+              <form
+                name={formName}
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="/thank-you"
+                class="final745__form"
+              >
+                <input type="hidden" name="form-name" value={formName} />
+                <input type="hidden" name="landing_slug" value={slug} />
+                <input type="hidden" name="utm_source" value="" />
+                <input type="hidden" name="utm_medium" value="" />
+                <input type="hidden" name="utm_campaign" value="" />
+                <input type="hidden" name="utm_content" value="" />
+                <input type="hidden" name="utm_term" value="" />
+
+                <p class="sr-only">
+                  <label>
+                    Не заполняйте это поле, если вы человек:
+                    <input name="bot-field" />
+                  </label>
+                </p>
+
+                <div class="final745__form-grid">
+                  <div class="final745__field-block">
+                    <label for="name" class="field-label745">Имя</label>
+                    <input type="text" id="name" name="name" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="phone" class="field-label745">Телефон / Telegram</label>
+                    <input type="tel" id="phone" name="phone" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="email" class="field-label745">Email</label>
+                    <input type="email" id="email" name="email" required class="field-input745" />
+                  </div>
+                </div>
+
+                <button type="submit" class="button745 button745--primary final745__submit">
+                  Записаться на встречу
+                </button>
+                <p class="final745__submit-note">Если текущее позиционирование не приводит к продажам, оставьте контакты — проведём встречу.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script define:vars={{ slug }}>
+      import { populateUTMFields, trackFormSubmission } from '../utils/analytics.ts';
+
+      const form = document.querySelector('#contact form');
+
+      if (form instanceof HTMLFormElement) {
+        populateUTMFields(form);
+        form.addEventListener('submit', () => {
+          populateUTMFields(form);
+          trackFormSubmission(slug);
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  :global(body.landing-745) {
+    background: #130f0d;
+    color: #241b16;
+  }
+
+  .landing-745 main {
+    overflow-x: hidden;
+    background: #f6efe8;
+  }
+</style>
