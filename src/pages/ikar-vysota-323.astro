@@ -2,97 +2,142 @@
 import Analytics from '../components/Analytics.astro';
 import '../styles/global.css';
 
-// ─── ЖК-специфичные данные ───────────────────────────────────────────────────
-const developerName = 'ГК ИКАР';
-const projectName = 'Высота 323';
-const city = 'Челябинск';
-const projectTagline = 'Бизнес-класс · Сдача 4 кв. 2028';
 const slug = 'ikar-vysota-323';
 const formName = `landing-${slug}`;
 
-// ─── Картинки: сегментные (stay-but-grow) + уникальный скриншот ЖК ──────────
 const images = {
   hero: '/assets/stay-but-grow/original/hero_hero.jpg',
   aha1: '/assets/stay-but-grow/original/aha1_lobby.jpg',
   aha2: '/assets/stay-but-grow/original/aha2_view.jpg',
   aha3: '/assets/stay-but-grow/original/aha3_space.jpg',
   qualifier: '/assets/stay-but-grow/original/qualifier_who.jpg',
+  compare: '/assets/stay-but-grow/original/aha1_lobby.jpg',
+  evolution: '/assets/stay-but-grow/original/aha2_view.jpg',
   footer: '/assets/stay-but-grow/original/footer_cta.jpg',
-  currentPositioning: '/assets/ikar-vysota-323/original/current_positioning.webp',
+  currentPositioning: '/assets/ikar-vysota-323/current_positioning.webp',
 };
 
-// ─── Тексты сегмента (stay-and-grow) — не меняются ──────────────────────────
 const triggerPoints = [
-  'Вы давно живёте в Челябинске и не хотите его менять — но чувствуете, что выросли из текущего жилья.',
-  'Вы не ищете новый старт и не переезжаете ради перемен. Вы просто хотите, чтобы дом наконец совпал с тем, кем вы стали.',
-  'Вам важно остаться в своём городе, в своём ритме — но жить в среде, которая соответствует вашему реальному уровню жизни.',
+  'Есть этап, когда человеку больше не нужно доказывать себе, что он может расти. Работа, доход, круг общения и внутренний масштаб уже изменились.',
+  'Но среда повседневной жизни по-прежнему остаётся на уровне прошлого этапа: случайный дом, устаревший формат, пространство без ощущения зрелости.',
+  'Город стал по-настоящему своим, но дом внутри него всё ещё не отражает того, кем человек уже стал.',
 ];
 
 const responseCards = [
   {
     number: '01',
-    title: 'Остаться в Челябинске — и наконец выдохнуть',
-    problem: '«Я не хочу никуда переезжать. Я люблю этот город, здесь мои связи, мой бизнес, мой ритм. Но текущее жильё перестало соответствовать тому, кем я стал».',
+    title: 'Адрес, который соответствует уровню',
+    problem: '«Я давно вырос из этого района, но всё откладываю переезд — кажется, что это сложно и требует начинать всё заново».',
     answer:
-      'Переезд не обязательно означает смену города. Иногда это просто переход в среду, которая наконец совпадает с тем, как вы живёте сейчас. Тот же Челябинск, та же жизнь — но дом, в котором больше не нужно ничего терпеть.',
+      'Высота 323 — это не переезд в другой город и не разрыв с привычным. Это переход на более высокий уровень жизни внутри Челябинска, который уже стал своим.',
     detail:
-      'Не эмиграция, не побег, не новый старт. Просто апгрейд среды внутри привычного города — без потери всего, что здесь важно. Высота 323 — это именно такой переход.',
-    cta: 'Посмотреть, как этот сценарий работает для Высоты 323',
+      'Центральная локация, бизнес-класс, 30 этажей с видовыми квартирами. Адрес, который читается без объяснений.',
+    cta: 'Посмотреть, как это решение может быть упаковано для вашего ЖК',
     image: images.aha1,
-    alt: 'Статусное лобби Высоты 323 — первое ощущение нового уровня',
+    alt: 'Статусное лобби с приглушённым светом и взрослым характером',
   },
   {
     number: '02',
-    title: 'Среда, которая соответствует реальному уровню жизни',
-    problem: '«Я вырос из текущего жилья. Но переезжать из Челябинска не хочу — здесь всё моё. Просто хочу жить в среде, которая соответствует тому, кем я стал».',
+    title: 'Среда, которая усиливает',
+    problem: '«Я возвращаюсь домой и чувствую, что пространство вокруг не соответствует тому, кем я стал. Это незаметно, но давит».',
     answer:
-      'Есть момент, когда человек понимает: дом больше не совпадает с его реальным образом жизни. Не потому что плохой — а потому что он сам стал другим. Это не кризис, это рост. И решение здесь — не переезд в другой город, а переход в другую среду внутри своего.',
+      'Лобби, общие пространства, архитектура фасада и качество среды внутри — всё это работает как ежедневное подтверждение уровня. Не декор, а ощущение.',
     detail:
-      'Вид на центр Челябинска с 30 этажей, атриум с дизайнерским интерьером, трёхуровневый паркинг — всё это формирует ощущение своего уровня. Когда среда совпадает с человеком, он перестаёт тратить энергию на внутреннее несоответствие.',
-    cta: 'Обсудить, как Высота 323 попадает в этот сценарий',
+      'Атриум, продуманные общие зоны, современная инженерия. Среда, которая не требует объяснений — она просто считывается.',
+    cta: 'Обсудить, как среда проекта работает как аргумент продажи',
     image: images.aha2,
-    alt: 'Панорамный вид из окна Высоты 323 — знакомый Челябинск, новый уровень',
+    alt: 'Вид из панорамного окна на ночной Челябинск с высоты',
   },
   {
     number: '03',
-    title: 'Апгрейд без потери себя',
-    problem: '«Я не хочу ничего менять в своей жизни. Я просто хочу, чтобы дом наконец совпал с тем, кем я стал. Без переезда в другой город, без потери связей, без нового старта с нуля».',
+    title: 'Рост без разрыва',
+    problem:
+      '«Я не хочу терять свой город, маршруты, связи и привычный ритм. Но хочу жить иначе — лучше, взрослее, точнее».',
     answer:
-      'Это не про то, чтобы стать кем-то другим. Это про то, чтобы жить в среде, которая честно отражает, кем вы уже являетесь. Тот же Челябинск, те же люди, тот же ритм — но пространство, которое наконец перестало тебя сдерживать.',
+      'Не нужно уезжать в другой город или менять всё разом. Высота 323 — это способ вырасти внутри своей городской биографии, не отказываясь от неё.',
     detail:
-      'Высота 323: бизнес-класс в центре города, чистая геометрия неомодернизма, панорамные виды с высоты 30 этажей. Апгрейд среды без потери идентичности.',
-    cta: 'Если Высота 323 — это про вас, давайте разберём переупаковку',
+      'Челябинск, ул. Братьев Каширины / Каслинская. Центр. Сдача — IV квартал 2028. Всё, что уже стало своим — остаётся.',
+    cta: 'Если в вашем проекте есть ценность, которую рынок не считывает — обсудим переупаковку',
     image: images.aha3,
-    alt: 'Просторная квартира Высоты 323 с большими окнами — пространство, которое не сдерживает',
+    alt: 'Просторная квартира с панорамным видом на город вечером',
   },
 ];
 
 const selfSelection = [
-  'Когда вы понимаете, что выросли из текущего жилья — но не хотите менять Челябинск и привычный ритм жизни.',
-  'Когда вам важно остаться в своём городе, сохранить связи и бизнес, но жить в среде, которая наконец совпадает с вашим реальным уровнем.',
-  'Когда «переехать» для вас означает не новый старт, а просто апгрейд среды — из типовой квартиры в бизнес-класс в центре.',
+  'Когда уровень жизни вырос, а пространство вокруг — ещё нет.',
+  'Когда хочется жить иначе, но не уезжать из своего города.',
+  'Когда компромисс с жильём стал ощущаться как тихая потеря качества.',
+];
+
+const comparisons = [
+  {
+    overline: 'Против «статусных» ЖК',
+    title: 'Взрослый уровень без кричащей роскоши',
+    text: 'Высота 323 — не про демонстрацию. Про среду, архитектуру и ощущение собранности, которое не нужно объяснять.',
+  },
+  {
+    overline: 'Против старого фонда',
+    title: 'Городская биография — без устаревшей инфраструктуры',
+    text: 'Привычный Челябинск, знакомые маршруты и связи — но на качественно другом уровне повседневного опыта.',
+  },
+  {
+    overline: 'Против массовой застройки',
+    title: 'Бизнес-класс как норма, а не исключение',
+    text: 'Продуманная архитектура, достойные общие пространства и приватность — не как бонус, а как базовый стандарт.',
+  },
+];
+
+const lifeStages = [
+  {
+    stage: 'Первый переход',
+    price: 'Бизнес-класс',
+    who: 'Вы живёте в привычном районе, но уровень жизни уже вырос. Пора привести среду в соответствие.',
+    hire: 'Пространство, которое усиливает самоощущение — без переезда в другой город.',
+    format: '1- и 2-комнатные с видовыми характеристиками. Вход в новый уровень.',
+  },
+  {
+    stage: 'Взрослый адрес',
+    price: 'Бизнес-класс',
+    who: 'Вы хотите жить в центре, в доме с характером — без компромиссов с инфраструктурой и окружением.',
+    hire: 'Адрес, который считывается. Среда, которая соответствует.',
+    format: '2- и 3-комнатные. Центральная локация. Собранный образ жизни.',
+  },
+  {
+    stage: 'Городская зрелость',
+    price: 'Бизнес-класс',
+    who: 'Вы всё доказали. Хотите дом, в котором уровень жизни виден без слов — через архитектуру, вид и среду.',
+    hire: 'Пространство над городом. Приватность. Ощущение, что жизнь наконец собрана.',
+    format: 'Видовые квартиры верхних этажей. Высота 323 — Челябинск.',
+  },
+  {
+    stage: 'Личная территория',
+    price: 'Бизнес-класс',
+    who: 'Вы цените абсолютную приватность и хотите, чтобы дом был вашей крепостью — видовой, закрытой, неповторимой.',
+    hire: 'Собственное пространство над городом, где никто не смотрит в ваши окна.',
+    format: 'Видовые квартиры верхних этажей. Только для тех, кто уже дома.',
+  },
 ];
 
 const processSteps = [
   {
     number: '01',
-    title: 'Вы оставляете контакты',
-    text: 'Мы смотрим на текущее позиционирование Высоты 323 и находим, где именно теряется ценность в подаче.',
+    title: 'Вы оставляете контакты и ссылку на проект',
+    text: 'Показываете текущий ЖК, лендинг или рекламную коммуникацию, которая не даёт нужной конверсии.',
   },
   {
     number: '02',
     title: 'Мы собираем гипотезу переупаковки',
-    text: 'Смотрим, как сценарий «остаться, но вырасти» работает для бизнес-класса в центре Челябинска.',
+    text: 'Смотрим сегмент, JTBD-напряжение, текущий оффер и архитектуру страницы, чтобы найти, где именно теряются продажи.',
   },
   {
     number: '03',
     title: 'Проводим встречу по проекту',
-    text: 'Показываем, как может выглядеть более точное позиционирование Высоты 323 под сценарий апгрейда среды.',
+    text: 'Показываем, как может выглядеть более точное позиционирование, структура лендинга и конверсионная логика без банальных штампов.',
   },
   {
     number: '04',
     title: 'Фиксируем следующий шаг',
-    text: 'Определяем, что именно нужно делать дальше: корректировать сегмент, перепрошивать оффер или полностью пересобирать упаковку.',
+    text: 'Определяем, что именно нужно делать дальше: корректировать сегмент, перепрошивать оффер или полностью пересобирать упаковку проекта.',
   },
 ];
 ---
@@ -102,10 +147,10 @@ const processSteps = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{projectName} — {developerName} · {city}</title>
+    <title>ЖК «Высота 323» — Жить на новом уровне в своём городе</title>
     <meta
       name="description"
-      content={`${projectName} от ${developerName} в ${city}. ${projectTagline}. Позиционирование под сегмент «Остаться, но вырасти» — апгрейд среды без смены города.`}
+      content="ЖК Высота 323 от ГК ИКАР — бизнес-класс в центре Челябинска для тех, кто хочет вырасти внутри своего города."
     />
   </head>
   <body class="landing-745">
@@ -115,28 +160,27 @@ const processSteps = [
       <section class="hero745 section section--photo-hero">
         <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
         <div class="container hero745__container">
-          <div class="hero745__label">{developerName} · {projectName} · {city} · {projectTagline}</div>
+          <div class="hero745__label">ЖК «Высота 323» · Челябинск · Центр · ГК ИКАР</div>
           <div class="hero745__grid">
             <div class="hero745__content hero745__content--glass">
-              <h1>Вы выросли из текущего жилья. <em>Но не из Челябинска.</em></h1>
+              <h1>Жить на новом уровне — <em>не уезжая из своего города.</em></h1>
               <p class="hero745__lead">
-                Есть момент, когда человек понимает: дом больше не совпадает с его реальным образом жизни.
-                Не потому что плохой — а потому что он сам стал другим. Решение здесь — не переезд в другой город,
-                а переход в другую среду внутри своего.
+                Когда жизнь уже выросла, особенно важно, чтобы ей соответствовали дом, адрес, ритм и среда вокруг.
+                Высота 323 — это способ перейти в более высокий класс городской жизни, сохранив всё, что уже стало своим.
               </p>
-              <p class="hero745__offer-line">Тот же Челябинск. Тот же ритм. Другая среда.</p>
+              <p class="hero745__offer-line">Бизнес-класс · 30 этажей · Центр Челябинска · Сдача — IV квартал 2028</p>
               <div class="hero745__actions hero745__actions--stacked">
-                <a class="button745 button745--primary" href="#contact">Посмотреть предложение</a>
+                <a class="button745 button745--primary" href="#contact">Ознакомиться с предложением</a>
               </div>
             </div>
 
             <aside class="hero745__card hero745__card--floating">
               <div class="hero745__card-body">
-                <h2>{projectName} — бизнес-класс в центре Челябинска для тех, кто хочет остаться в своём городе и наконец жить в среде, которая совпадает с тем, кем они стали</h2>
-                <p class="hero745__meta">{developerName} · {projectTagline} · Сегмент «Остаться, но вырасти»</p>
+                <h2>Бизнес-класс в центре Челябинска для тех, кто хочет вырасти внутри своего города</h2>
+                <p class="hero745__meta">Центр · Бизнес-класс · 30 этажей · IV квартал 2028</p>
                 <p>
-                  Два 30-этажных корпуса на пересечении улиц Братьев Каширины и Каслинской. Атриум с дизайнерским интерьером,
-                  трёхуровневый паркинг, панорамные виды на центр города. Не эмиграция — апгрейд среды внутри привычного Челябинска.
+                  Архитектура, приватность, локация и качество общих пространств делают городской рост
+                  естественным продолжением жизни, а не вынужденным разрывом с привычным.
                 </p>
               </div>
             </aside>
@@ -157,17 +201,17 @@ const processSteps = [
       <section class="immersive745 immersive745--hero" style={`--immersive-bg: url(${images.aha1})`}>
         <div class="container immersive745__inner">
           <div class="immersive745__card">
-            <p class="immersive745__eyebrow">{projectName} · {developerName} · Апгрейд без потери себя</p>
-            <h2>Когда жилой комплекс перестаёт продаваться как набор характеристик и начинает отвечать на подлинную задачу человека</h2>
+            <p class="immersive745__eyebrow">Высота 323 · ГК ИКАР · Челябинск</p>
+            <h2>Чтобы вырасти, не обязательно начинать жизнь заново</h2>
             <p>
-              В сегменте «остаться, но вырасти» важна не только цена и метраж. Важна точность попадания в напряжение:
-              человек вырос, но не хочет терять привычный Челябинск и ритм жизни. {projectName} — это именно такой ответ.
+              Есть другой сценарий. Не переезжать ради перемены как таковой, а перейти в более высокий класс городской жизни,
+              сохранив всё, что уже стало своим: город, привычные маршруты, связи, ритм и ощущение принадлежности.
             </p>
             <div class="immersive745__facts">
               <span>Бизнес-класс</span>
               <span>Центр Челябинска</span>
               <span>30 этажей</span>
-              <span>Сдача 4 кв. 2028</span>
+              <span>Сдача — IV квартал 2028</span>
             </div>
           </div>
         </div>
@@ -177,7 +221,7 @@ const processSteps = [
         <div class="responses745__veil"></div>
         <div class="container responses745__container">
           <div class="section745-heading center745 section745-heading--light">
-            <h2>Как {projectName} отвечает на то, что останавливает человека перед покупкой</h2>
+            <h2>Как Высота 323 отвечает на то, что вас останавливало</h2>
           </div>
           <div class="responses745__stack">
             {responseCards.map((card) => (
@@ -206,19 +250,19 @@ const processSteps = [
         <div class="split-photo745__content-wrap">
           <div class="container split-photo745__container">
             <div class="split-photo745__content">
-              <p class="immersive745__eyebrow">{projectName} · Узнайте себя в этом сценарии</p>
-              <h2>Этот проект — для тех, кто вырос из текущего жилья, но не хочет уезжать из Челябинска</h2>
+              <p class="immersive745__eyebrow">Высота 323 · Узнайте себя</p>
+              <h2>Этот дом — для тех, кто готов занять более взрослое место в своём городе</h2>
               <div class="self745 self745--transparent">
                 {selfSelection.map((item) => <p>{item}</p>)}
               </div>
-              <blockquote class="quote745 quote745--light">
+                <blockquote class="quote745 quote745--light">
                 <p>
-                  «Иногда самое правильное решение — это не переезд в другой город, а переход в другую среду внутри своего.
-                  Тот же Челябинск, те же люди, тот же ритм — но пространство, которое наконец перестало тебя сдерживать».
+                  «Высота 323 — это редкий пример проекта, где архитектура и среда работают как аргумент сами по себе.
+                  Не нужно объяснять уровень — он считывается с первого взгляда».
                 </p>
-                <footer>{projectName} · {developerName}</footer>
+                <footer>ГК ИКАР · Челябинск</footer>
               </blockquote>
-              <a class="inline-link745 inline-link745--light" href="#contact">Если {projectName} — это про вас, давайте обсудим</a>
+              <a class="inline-link745 inline-link745--light" href="#contact">Если ваш продукт сильнее, чем его текущая упаковка — обсудим это на встрече</a>
             </div>
           </div>
         </div>
@@ -229,11 +273,49 @@ const processSteps = [
           <div class="immersive745__card immersive745__card--single-story">
             <div class="story745-card">
               <div class="story745-card__number">03</div>
-              <h2>Апгрейд без потери себя</h2>
-              <p class="story745-card__problem">«Я не хочу ничего менять в своей жизни. Я просто хочу, чтобы дом наконец совпал с тем, кем я стал. Без переезда из Челябинска, без потери связей, без нового старта с нуля».</p>
-              <p>Это не про то, чтобы стать кем-то другим. Это про то, чтобы жить в среде, которая честно отражает, кем вы уже являетесь. Тот же Челябинск, те же люди, тот же ритм — но {projectName}: пространство, которое наконец перестало тебя сдерживать.</p>
-              <a class="inline-link745" href="#contact">Если {projectName} — это про вас, давайте разберём</a>
+              <h2>Рост без разрыва</h2>
+              <p class="story745-card__problem">«Я не хочу терять свой город, маршруты, связи и привычный ритм. Но хочу жить иначе — лучше, взрослее, точнее».</p>
+              <p>Высота 323 — это не переезд в другой город. Это способ вырасти внутри своей городской биографии, не отказываясь от неё. Новый дом, центральная локация, бизнес-класс — и всё, что уже стало своим, остаётся.</p>
+              <a class="inline-link745" href="#contact">Если у вашего проекта есть ценность, которую рынок пока не считывает — давайте это разберём</a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section life745 section--photo-soft" style={`--section-bg: url(${images.evolution})`}>
+        <div class="responses745__veil responses745__veil--warm"></div>
+        <div class="container life745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max">
+            <h2>На каком этапе своей эволюции клиент выбирает Высоту 323?</h2>
+            <p>Эта таблица показывает не ассортимент, а логику того, как сегмент, жизненная ситуация и Core Job соединяются в осмысленное позиционирование.</p>
+          </div>
+          <div class="life745-table-wrap">
+            <table class="life745-table">
+              <thead>
+                <tr>
+                  <th>Этап</th>
+                  <th>Кто вы сейчас</th>
+                  <th>Что вы нанимаете</th>
+                  <th>Формат в Высоте 323</th>
+                </tr>
+              </thead>
+              <tbody>
+                {lifeStages.map((item) => (
+                  <tr>
+                    <td>
+                      <strong>{item.stage}</strong>
+                      <span>{item.price}</span>
+                    </td>
+                    <td>{item.who}</td>
+                    <td>{item.hire}</td>
+                    <td>{item.format}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div class="center745 action745-wrap">
+            <a class="button745 button745--ghost" href="#contact">Обсудить, как упаковать ваш ЖК под сценарий жизни клиента</a>
           </div>
         </div>
       </section>
@@ -242,7 +324,7 @@ const processSteps = [
         <div class="section-band745__overlay section-band745__overlay--dark"></div>
         <div class="container process745__container">
           <div class="section745-heading center745 section745-heading--light section745-heading--max">
-            <h2>Как проходит путь от первого контакта до встречи по проекту</h2>
+            <h2>Как проходит путь к переупаковке девелоперского продукта</h2>
           </div>
           <div class="process745__grid process745__grid--stacked">
             {processSteps.map((step) => (
@@ -261,22 +343,20 @@ const processSteps = [
         <div class="container final745__container">
           <div class="final745__layout">
             <div class="final745__media-copy">
-              <p class="final745__eyebrow">Текущее позиционирование {projectName} vs. сегментная переупаковка</p>
+              <p class="final745__eyebrow">Текущее позиционирование ЖК «Высота 323»</p>
               <h2>Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу, где расскажем про наш подход</h2>
               <p class="final745__lead final745__lead--light">
-                Покажем, как сейчас выглядит подача {projectName} — и как её можно переупаковать под сценарий «остаться, но вырасти»
-                с точным попаданием в логику апгрейда среды без смены города.
+                Покажем, как можно переупаковать ваш ЖК через сегмент, JTBD и структуру страницы, которая помогает продавать, а не просто нравиться.
               </p>
               <div class="final745__positioning-shot">
-                <img src={images.currentPositioning} alt={`Текущее позиционирование ${projectName} на сайте ${developerName}`} loading="lazy" />
+                <img src={images.currentPositioning} alt="Пример текущего позиционирования проекта девелопера" loading="lazy" />
               </div>
             </div>
             <div class="final745__card">
               <p class="final745__eyebrow">Стратегическая встреча по переупаковке</p>
               <h3 class="final745__form-title">Оставьте контакты — проведём встречу и расскажем про наш подход</h3>
               <p class="final745__lead">
-                Разберём текущее позиционирование {projectName}, посмотрим, как сценарий «остаться, но вырасти»
-                работает для бизнес-класса в центре Челябинска, и покажем, как может выглядеть новая упаковка.
+                Разберём текущее позиционирование проекта и покажем, как может выглядеть новая упаковка лендинга и оффера.
               </p>
               <form
                 name={formName}
@@ -288,8 +368,6 @@ const processSteps = [
               >
                 <input type="hidden" name="form-name" value={formName} />
                 <input type="hidden" name="landing_slug" value={slug} />
-                <input type="hidden" name="developer" value={developerName} />
-                <input type="hidden" name="project" value={projectName} />
                 <input type="hidden" name="utm_source" value="" />
                 <input type="hidden" name="utm_medium" value="" />
                 <input type="hidden" name="utm_campaign" value="" />
@@ -318,12 +396,23 @@ const processSteps = [
                     <label for="email" class="field-label745">Email</label>
                     <input type="email" id="email" name="email" required class="field-input745" />
                   </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="message" class="field-label745">Что сейчас не работает в позиционировании</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="5"
+                      class="field-input745 field-textarea745"
+                      placeholder="Например: много трафика, но слабая конверсия; текущий оффер не работает; неясно, какой сегмент реально ведём"
+                    ></textarea>
+                  </div>
                 </div>
 
                 <button type="submit" class="button745 button745--primary final745__submit">
                   Записаться на встречу
                 </button>
-                <p class="final745__submit-note">Если текущее позиционирование не приводит к продажам, оставьте контакты — проведём встречу.</p>
+                <p class="final745__submit-note">Если текущее позиционирование не приводит к продажам — оставьте контакты, мы проведём встречу.</p>
               </form>
             </div>
           </div>
@@ -356,5 +445,933 @@ const processSteps = [
   .landing-745 main {
     overflow-x: hidden;
     background: #f6efe8;
+  }
+
+  .section {
+    position: relative;
+  }
+
+  .hero745,
+  .life745,
+  .final745,
+  .responses745,
+  .process745 {
+    position: relative;
+  }
+
+  .hero745__container,
+  .responses745__container,
+  .life745__container,
+  .process745__container,
+  .final745__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .section--photo-hero,
+  .section--photo-band,
+  .section--photo-soft,
+  .final745--photo {
+    background-image: var(--section-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero745 {
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    padding: 48px 0;
+    overflow: hidden;
+  }
+
+  .hero745__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: var(--section-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero745__backdrop::after,
+  .section-band745__overlay,
+  .responses745__veil,
+  .immersive745::before,
+  .split-photo745__image::after,
+  .split-photo745__content-wrap::before,
+  .final745__backdrop::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hero745__backdrop::after {
+    background:
+      linear-gradient(90deg, rgba(16, 12, 10, 0.62) 0%, rgba(16, 12, 10, 0.34) 38%, rgba(16, 12, 10, 0.56) 100%),
+      linear-gradient(180deg, rgba(16, 12, 10, 0.14) 0%, rgba(16, 12, 10, 0.42) 100%);
+  }
+
+  .hero745__label,
+  .final745__eyebrow,
+  .comparison745-card__overline,
+  .immersive745__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #f2d6c6;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    backdrop-filter: none;
+    border: none;
+  }
+  .hero745__grid,
+  .final745__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.72fr);
+    gap: 28px;
+    align-items: end;
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - 96px);
+  }
+
+  .hero745 h1 {
+    font-size: clamp(2.8rem, 5vw, 4.4rem);
+    line-height: 0.98;
+    max-width: 12ch;
+  }
+
+  .hero745__content--glass,
+  .hero745__card--floating,
+  .response745-card,
+  .comparison745-card,
+  .process745-card,
+  .final745__card,
+  .quote745,
+  .immersive745__card,
+  .triggers745 p {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .hero745__content--glass {
+    align-self: start;
+    max-width: 780px;
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(19, 14, 12, 0.38);
+    border: 1px solid rgba(255, 247, 240, 0.14);
+    box-shadow: 0 18px 42px rgba(12, 9, 8, 0.24);
+  }
+
+  .hero745__content h1 {
+    font-size: clamp(46px, 6vw, 90px);
+    line-height: 0.95;
+    margin: 18px 0 24px;
+    color: #fff8f2;
+  }
+
+  .hero745__content h1 em {
+    display: inline-block;
+    font-style: italic;
+    color: #e9c8b6;
+  }
+
+  .hero745__lead {
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.45;
+    color: rgba(255, 248, 242, 0.92);
+    margin-bottom: 0;
+  }
+
+  .hero745__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .hero745__card--floating,
+  .response745-card,
+  .comparison745-card,
+  .process745-card,
+  .final745__card,
+  .quote745,
+  .immersive745__card {
+    background: rgba(255, 248, 242, 0.84);
+    border: 1px solid rgba(255, 247, 240, 0.22);
+    border-radius: 28px;
+    box-shadow: 0 18px 42px rgba(16, 12, 10, 0.16);
+  }
+
+  .hero745__card--floating {
+    align-self: end;
+  }
+
+  .hero745__card-body {
+    padding: 30px;
+  }
+
+  .hero745__card h2 {
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: #201713;
+  }
+
+  .hero745__meta {
+    font-weight: 700;
+    color: #6b4b3e;
+  }
+
+  .section--tight {
+    padding: 32px 0;
+  }
+
+  .section--photo-band,
+  .section--photo-soft,
+  .process745 {
+    overflow: hidden;
+  }
+
+  .section-band745__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(17, 13, 11, 0.48) 0%, rgba(17, 13, 11, 0.72) 100%);
+    z-index: 1;
+  }
+
+  .triggers745-wrap {
+    overflow: hidden;
+  }
+
+  .triggers745-wrap--hero-continued {
+    margin-top: -1px;
+    background: #2a201c;
+  }
+
+  .hero745__backdrop--continued {
+    inset: 0;
+  }
+
+  .hero745__backdrop--continued::after {
+    background: linear-gradient(180deg, rgba(16, 12, 10, 0.36) 0%, rgba(16, 12, 10, 0.54) 100%);
+  }
+
+  .triggers745__tone {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(42, 32, 28, 0.72) 0%, rgba(63, 47, 40, 0.86) 100%);
+    z-index: 1;
+  }
+
+  .section-band745__overlay--dark {
+    background: linear-gradient(180deg, rgba(17, 13, 11, 0.62) 0%, rgba(17, 13, 11, 0.78) 100%);
+  }
+
+  .triggers745__container {
+    position: relative;
+    z-index: 2;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .triggers745 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .triggers745 p,
+  .self745 p {
+    margin: 0;
+    padding: 22px 24px;
+    border-radius: 24px;
+    background: rgba(255, 248, 242, 0.14);
+    border: 1px solid rgba(255, 248, 242, 0.16);
+    color: #fff8f2;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .immersive745 {
+    position: relative;
+    min-height: 84vh;
+    display: flex;
+    align-items: center;
+    background-image: var(--immersive-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .immersive745::before {
+    background:
+      linear-gradient(90deg, rgba(24, 18, 15, 0.78) 0%, rgba(24, 18, 15, 0.42) 42%, rgba(24, 18, 15, 0.18) 100%),
+      linear-gradient(180deg, rgba(24, 18, 15, 0.08) 0%, rgba(24, 18, 15, 0.46) 100%);
+  }
+
+  .immersive745__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 72px 0;
+  }
+
+  .immersive745__inner--right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .immersive745__card {
+    max-width: 640px;
+    padding: 32px;
+  }
+
+  .immersive745__card--wide {
+    max-width: 780px;
+  }
+
+  .immersive745__card--single-story {
+    max-width: 760px;
+    padding: 24px;
+  }
+
+  .story745-card {
+    background: rgba(255, 248, 242, 0.96);
+    border-radius: 28px;
+    padding: 34px 36px;
+    color: #241b16;
+  }
+
+  .story745-card__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    background: #f5ede6;
+    color: #2b211c;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 22px;
+  }
+
+  .story745-card h2 {
+    margin: 0 0 18px;
+    font-size: clamp(36px, 4vw, 58px);
+    line-height: 1.02;
+    color: #201713;
+  }
+
+  .story745-card p {
+    margin: 0 0 22px;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #544137;
+  }
+
+  .story745-card__problem {
+    font-size: 22px;
+    line-height: 1.55;
+    color: #4c3930;
+  }
+
+  .immersive745__card h2 {
+    margin: 14px 0 16px;
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1.02;
+    color: #201713;
+  }
+
+  .immersive745__card p:last-child {
+    margin-bottom: 0;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #44332a;
+  }
+
+  .responses745 {
+    padding: 84px 0;
+  }
+
+  .responses745__veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18, 14, 12, 0.78) 0%, rgba(18, 14, 12, 0.64) 100%);
+    z-index: 1;
+  }
+
+  .responses745__veil--warm {
+    background: linear-gradient(180deg, rgba(20, 15, 12, 0.58) 0%, rgba(20, 15, 12, 0.72) 100%);
+  }
+
+  .section745-heading {
+    margin-bottom: 28px;
+  }
+
+  .section745-heading h2 {
+    margin: 0 0 14px;
+    font-size: clamp(34px, 4vw, 58px);
+    line-height: 1.02;
+    color: #201713;
+  }
+
+  .section745-heading p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #5a453b;
+  }
+
+  .section745-heading--light h2,
+  .section745-heading--light p {
+    color: #fff8f2;
+  }
+
+  .section745-heading--max {
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .center745 {
+    text-align: center;
+  }
+
+  .responses745__stack,
+  .comparisons745__grid,
+  .self745 {
+    display: grid;
+    gap: 24px;
+  }
+
+  .response745-card {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+    overflow: hidden;
+  }
+
+  .response745-card:nth-child(even) {
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  }
+
+  .response745-card:nth-child(even) .response745-card__media {
+    order: 2;
+  }
+
+  .response745-card:nth-child(even) .response745-card__body {
+    order: 1;
+  }
+
+  .response745-card__media,
+  .card745-media {
+    overflow: hidden;
+    background: #e9e0d6;
+  }
+
+  .response745-card__media {
+    min-height: 420px;
+  }
+
+  .response745-card__media img,
+  .card745-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .response745-card__body {
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .response745-card__number,
+  .process745-card__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: #f0e2d6;
+    color: #6b4b3e;
+    font-weight: 800;
+  }
+
+  .response745-card h3,
+  .comparison745-card h3,
+  .process745-card h3,
+  .final745__form-title {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.18;
+    color: #241b16;
+  }
+
+  .response745-card__problem {
+    font-size: 20px;
+    line-height: 1.55;
+    color: #5b463d;
+    margin: 0;
+  }
+
+  .inline-link745 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b4b3e;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 4px;
+  }
+
+  .inline-link745:hover {
+    text-decoration: underline;
+  }
+
+  .split-photo745 {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    min-height: 88vh;
+    background: #1a1411;
+  }
+
+  .split-photo745__image {
+    position: relative;
+    min-height: 520px;
+    background-image: var(--split-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .split-photo745__image::after {
+    background: linear-gradient(180deg, rgba(17, 13, 11, 0.18) 0%, rgba(17, 13, 11, 0.38) 100%);
+  }
+
+  .split-photo745__content-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(180deg, rgba(22, 17, 14, 0.9) 0%, rgba(22, 17, 14, 0.96) 100%);
+  }
+
+  .split-photo745__content-wrap::before {
+    background-image: url('/assets/745-kvartal/original/aha3_soul.webp');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    mix-blend-mode: screen;
+  }
+
+  .split-photo745__container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .split-photo745__content {
+    max-width: 720px;
+    padding: 64px 0 64px 48px;
+    color: #fff8f2;
+  }
+
+  .split-photo745__content h2 {
+    margin: 18px 0 24px;
+    font-size: clamp(36px, 4.4vw, 62px);
+    line-height: 1.02;
+    color: #fff8f2;
+  }
+
+  .self745--transparent p {
+    background: rgba(255, 248, 242, 0.08);
+  }
+
+  .quote745 {
+    padding: 28px;
+  }
+
+  .quote745 p {
+    margin: 0 0 14px;
+    font-size: 22px;
+    line-height: 1.6;
+    color: #342620;
+  }
+
+  .quote745 footer {
+    color: #6b4b3e;
+    font-weight: 700;
+  }
+
+  .quote745--light {
+    background: rgba(255, 248, 242, 0.1);
+    border: 1px solid rgba(255, 248, 242, 0.12);
+  }
+
+  .quote745--light p,
+  .quote745--light footer {
+    color: #fff8f2;
+  }
+
+  .comparison745-card {
+    padding: 24px;
+  }
+
+  .comparison745-card--overlay {
+    background: rgba(255, 248, 242, 0.9);
+  }
+
+  .comparison745-card__overline {
+    margin-bottom: 14px;
+    background: rgba(111, 75, 63, 0.08);
+    color: #6b4b3e;
+    border: none;
+    backdrop-filter: none;
+  }
+
+  .life745 {
+    padding: 88px 0;
+  }
+
+  .life745-table-wrap {
+    overflow-x: auto;
+    border-radius: 28px;
+    box-shadow: 0 18px 42px rgba(60, 39, 29, 0.18);
+    position: relative;
+    z-index: 2;
+  }
+
+  .life745-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 250, 245, 0.9);
+    min-width: 860px;
+  }
+
+  .life745-table th,
+  .life745-table td {
+    padding: 20px 22px;
+    border-bottom: 1px solid rgba(111, 75, 63, 0.1);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .life745-table th {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b4b3e;
+    background: rgba(240, 226, 214, 0.8);
+  }
+
+  .life745-table td strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #241b16;
+  }
+
+  .life745-table td span {
+    color: #6b4b3e;
+    font-weight: 700;
+  }
+
+  .action745-wrap {
+    margin-top: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .process745 {
+    padding: 84px 0;
+  }
+
+  .process745__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .process745__grid--stacked {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .process745-card {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .process745-card--stacked {
+    display: block;
+    padding: 28px;
+  }
+
+  .process745-card--stacked .process745-card__number {
+    margin-bottom: 18px;
+  }
+
+  .process745-card--stacked h3,
+  .process745-card--stacked p {
+    max-width: none;
+  }
+
+  .process745-card--light {
+    background: rgba(255, 248, 242, 0.14);
+    border: 1px solid rgba(255, 248, 242, 0.14);
+    color: #fff8f2;
+  }
+
+  .process745-card--light h3,
+  .process745-card--light p {
+    color: #fff8f2;
+  }
+
+  .final745 {
+    color: #fff8f2;
+    overflow: hidden;
+    padding: 88px 0;
+  }
+
+  .final745__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: var(--final-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .final745__backdrop::after {
+    background:
+      linear-gradient(90deg, rgba(18, 14, 12, 0.84) 0%, rgba(18, 14, 12, 0.62) 40%, rgba(18, 14, 12, 0.48) 100%),
+      linear-gradient(180deg, rgba(18, 14, 12, 0.24) 0%, rgba(18, 14, 12, 0.62) 100%);
+  }
+
+  .final745__media-copy {
+    align-self: center;
+    max-width: 720px;
+  }
+
+  .final745__media-copy h2 {
+    margin: 18px 0;
+    font-size: clamp(38px, 4.3vw, 64px);
+    line-height: 1.02;
+    color: #fff8f2;
+  }
+
+  .final745__lead {
+    font-size: 20px;
+    line-height: 1.55;
+    color: #5a453b;
+    margin-bottom: 24px;
+  }
+
+  .final745__lead--light {
+    color: rgba(255, 248, 242, 0.9);
+    max-width: 640px;
+    margin-bottom: 0;
+  }
+
+  .final745__card {
+    padding: 32px;
+    background: rgba(255, 247, 240, 0.92);
+    color: #241b16;
+  }
+
+  .final745__form {
+    display: grid;
+    row-gap: 18px;
+    align-items: start;
+  }
+
+  .final745__form-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .final745__form-grid--single {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .final745__field-block,
+  .final745__form-grid > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .final745__form-full {
+    grid-column: 1 / -1;
+  }
+
+  .field-label745 {
+    display: block;
+    min-height: auto;
+    margin-bottom: 10px;
+    color: #4f3a31;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .field-input745 {
+    width: 100%;
+    min-height: 54px;
+    border-radius: 16px;
+    border: 1px solid rgba(111, 75, 63, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 14px 16px;
+    font: inherit;
+    line-height: 1.4;
+    color: #241b16;
+    box-sizing: border-box;
+  }
+
+  .field-textarea745 {
+    min-height: 148px;
+    padding-top: 16px;
+    resize: vertical;
+  }
+
+  .button745 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 56px;
+    padding: 0 24px;
+    border-radius: 999px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .button745:hover {
+    transform: translateY(-1px);
+  }
+
+  .button745--primary {
+    background: linear-gradient(135deg, #6f4b3f 0%, #8b6455 100%);
+    color: #fffaf6;
+    box-shadow: 0 12px 30px rgba(107, 75, 62, 0.25);
+  }
+
+  .button745--ghost {
+    background: rgba(255, 248, 242, 0.14);
+    color: #fff8f2;
+    border: 1px solid rgba(255, 248, 242, 0.2);
+    backdrop-filter: blur(8px);
+  }
+
+  .final745__submit {
+    margin-top: 22px;
+    width: 100%;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 1100px) {
+    .hero745__grid,
+    .final745__layout,
+    .response745-card,
+    .response745-card:nth-child(even),
+    .process745__grid,
+    .split-photo745 {
+      grid-template-columns: 1fr;
+    }
+
+    .response745-card:nth-child(even) .response745-card__media,
+    .response745-card:nth-child(even) .response745-card__body {
+      order: initial;
+    }
+
+    .triggers745 {
+      grid-template-columns: 1fr;
+    }
+
+    .immersive745 {
+      min-height: 62vh;
+    }
+
+    .immersive745__inner--right {
+      justify-content: flex-start;
+    }
+
+    .split-photo745__content {
+      padding: 40px 0;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .hero745,
+    .responses745,
+    .life745,
+    .process745,
+    .final745 {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    .hero745__grid {
+      min-height: auto;
+    }
+
+    .hero745__content--glass,
+    .hero745__card-body,
+    .response745-card__body,
+    .comparison745-card,
+    .process745-card,
+    .quote745,
+    .final745__card,
+    .immersive745__card {
+      padding: 22px;
+    }
+
+    .response745-card__media {
+      min-height: 260px;
+    }
+
+    .final745__form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .life745-table {
+      min-width: 720px;
+    }
+
+    .immersive745,
+    .split-photo745 {
+      min-height: auto;
+    }
   }
 </style>
