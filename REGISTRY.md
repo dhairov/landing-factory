@@ -1,32 +1,68 @@
-# Реестр лендингов Landing Factory
+# Реестр лендингов DevPartners
 
-Актуально на: март 2026
-
-| # | Компания | ЖК / Проект | Шаблон | Ссылка |
-|---|---|---|---|---|
-| 1 | СЗ ГРАДСТРОЙПРОЕКТ / ГК НВМ | ЖК «Народные кварталы», Краснодар | offer801 | [staging.devpartners.ru/gradstroy-narodnye-kvartaly](https://staging.devpartners.ru/gradstroy-narodnye-kvartaly/) |
-| 2 | ГК ИКАР | ЖК «Высота 323», Челябинск | stay-but-grow | [staging.devpartners.ru/ikar-vysota-323](https://staging.devpartners.ru/ikar-vysota-323/) |
-| 3 | ИНСИТИ девелопмент | ЖК «Образцово», Краснодар | offer801 | [staging.devpartners.ru/insity-obrazcovo](https://staging.devpartners.ru/insity-obrazcovo/) |
-| 4 | ИнтерСтрой | ЖК «Листория» | offer801 | [staging.devpartners.ru/interstroy-listoriya](https://staging.devpartners.ru/interstroy-listoriya/) |
-| 5 | ГК Капитал | ЖК «Крылья», Рязань | aesthetes | [staging.devpartners.ru/kapital-krylya](https://staging.devpartners.ru/kapital-krylya/) |
-| 6 | КОМОССТРОЙ | ЖК «Покровский» | stay-but-grow | [staging.devpartners.ru/komosstroy-pokrovskiy](https://staging.devpartners.ru/komosstroy-pokrovskiy/) |
-| 7 | Группа Мета | ЖК «Ясный берег», Новосибирск | offer801 | [staging.devpartners.ru/meta-yasniy-bereg](https://staging.devpartners.ru/meta-yasniy-bereg/) |
-| 8 | ГК Первоград | «Дом у Ротонды», Воронеж | aesthetes | [staging.devpartners.ru/pervograd-dom-u-rotondy](https://staging.devpartners.ru/pervograd-dom-u-rotondy/) |
-| 9 | ГК Первый строительный фонд | ЖК «Первый на Титова», Новосибирск | offer801 | [staging.devpartners.ru/psf-perviy-na-titova](https://staging.devpartners.ru/psf-perviy-na-titova/) |
-| 10 | ПЗСП | ЖК Танцорова, 96, Пермь | offer801 | [staging.devpartners.ru/pzsp-tancorova-96](https://staging.devpartners.ru/pzsp-tancorova-96/) |
-| 11 | Сибирь Девелопмент | ЖК «Тайм Сквер», Новосибирск | offer801 | [staging.devpartners.ru/sibdev-taym-skver](https://staging.devpartners.ru/sibdev-taym-skver/) |
-| 12 | Синара-Девелопмент | Квартал «Тихий центр», Екатеринбург | aesthetes | [staging.devpartners.ru/sinara-tikhiy-tsentr](https://staging.devpartners.ru/sinara-tikhiy-tsentr/) |
-| 13 | Северная Компания | Жилой дом «Кипарис», Рязань | stay-but-grow | [staging.devpartners.ru/sk-kiparis](https://staging.devpartners.ru/sk-kiparis/) |
-| 14 | СПК Зелёный сад | ЖК iTower, Рязань | stay-but-grow | [staging.devpartners.ru/spk-itower](https://staging.devpartners.ru/spk-itower/) |
-| 15 | ДК ТСИ | Квартал «Притяжение» | aesthetes | [staging.devpartners.ru/tsi-prityazhenie](https://staging.devpartners.ru/tsi-prityazhenie/) |
-| 16 | ВКБ-Новостройки | МКР «Горгиппия», Анапа | offer801 | [staging.devpartners.ru/vkb-gorgippiya](https://staging.devpartners.ru/vkb-gorgippiya/) |
-| 17 | Жилищная инициатива | ЖК «Родные берега 2» | offer801 | [staging.devpartners.ru/zhilinit-rodnye-berega-2](https://staging.devpartners.ru/zhilinit-rodnye-berega-2/) |
+Всего лендингов: **47**
 
 ---
 
-**Итого:** 17 лендингов
+## Первая рассылка (17 лендингов)
 
-**Шаблоны:**
-- `offer801` — зрелый семейный сценарий (второй цикл): 9 лендингов
-- `stay-but-grow` — остаться в городе, но вырасти: 4 лендинга
-- `aesthetes` — эстеты и средофилы: 4 лендинга
+| Компания | ЖК | Ссылка |
+|---|---|---|
+| ГК 745 | ЖК 745 Квартал | [https://staging.devpartners.ru/745-kvartal/](https://staging.devpartners.ru/745-kvartal/) |
+| Эндемик | Established | [https://staging.devpartners.ru/endemik-established/](https://staging.devpartners.ru/endemik-established/) |
+| СЗ Градстройпроект | ЖК Народные кварталы | [https://staging.devpartners.ru/gradstroy-narodnye-kvartaly/](https://staging.devpartners.ru/gradstroy-narodnye-kvartaly/) |
+| Икар | Высота 323 | [https://staging.devpartners.ru/ikar-vysota-323/](https://staging.devpartners.ru/ikar-vysota-323/) |
+| Инситы | Образцово | [https://staging.devpartners.ru/insity-obrazcovo/](https://staging.devpartners.ru/insity-obrazcovo/) |
+| Интерстрой | Листория | [https://staging.devpartners.ru/interstroy-listoriya/](https://staging.devpartners.ru/interstroy-listoriya/) |
+| Капитал | Крылья | [https://staging.devpartners.ru/kapital-krylya/](https://staging.devpartners.ru/kapital-krylya/) |
+| КомосСтрой | Покровский | [https://staging.devpartners.ru/komosstroy-pokrovskiy/](https://staging.devpartners.ru/komosstroy-pokrovskiy/) |
+| Мета | Ясный берег | [https://staging.devpartners.ru/meta-yasniy-bereg/](https://staging.devpartners.ru/meta-yasniy-bereg/) |
+| Первоград | Дом у ротонды | [https://staging.devpartners.ru/pervograd-dom-u-rotondy/](https://staging.devpartners.ru/pervograd-dom-u-rotondy/) |
+| ПСФ | Первый на Титова | [https://staging.devpartners.ru/psf-perviy-na-titova/](https://staging.devpartners.ru/psf-perviy-na-titova/) |
+| ПЗСП | Танцорова 96 | [https://staging.devpartners.ru/pzsp-tancorova-96/](https://staging.devpartners.ru/pzsp-tancorova-96/) |
+| Сибирь Девелопмент | ЖК Тайм Сквер | [https://staging.devpartners.ru/sibdev-taym-skver/](https://staging.devpartners.ru/sibdev-taym-skver/) |
+| Синара-Девелопмент | Квартал Тихий центр | [https://staging.devpartners.ru/sinara-tikhiy-tsentr/](https://staging.devpartners.ru/sinara-tikhiy-tsentr/) |
+| Северная Компания | Жилой дом Кипарис | [https://staging.devpartners.ru/sk-kiparis/](https://staging.devpartners.ru/sk-kiparis/) |
+| СПК Зелёный сад | ЖК iTower | [https://staging.devpartners.ru/spk-itower/](https://staging.devpartners.ru/spk-itower/) |
+| ТСИ | Притяжение | [https://staging.devpartners.ru/tsi-prityazhenie/](https://staging.devpartners.ru/tsi-prityazhenie/) |
+| ВКБ | Горгиппия | [https://staging.devpartners.ru/vkb-gorgippiya/](https://staging.devpartners.ru/vkb-gorgippiya/) |
+| ЖилИнит | Родные берега 2 | [https://staging.devpartners.ru/zhilinit-rodnye-berega-2/](https://staging.devpartners.ru/zhilinit-rodnye-berega-2/) |
+
+---
+
+## Вторая рассылка (28 лендингов)
+
+| Компания | ЖК | Оффер | Ссылка |
+|---|---|---|---|
+| AVA Group | ЖК Кислород | [/offer20/](https://staging.devpartners.ru/offer20/) | [https://staging.devpartners.ru/ava-group-kislorod-sochi/](https://staging.devpartners.ru/ava-group-kislorod-sochi/) |
+| ГК Монолит | ЖК Ирис | [/offer21/](https://staging.devpartners.ru/offer21/) | [https://staging.devpartners.ru/gk-monolit-zhk-iris/](https://staging.devpartners.ru/gk-monolit-zhk-iris/) |
+| ГК СМК | ЖК Горизонты | [/offer22/](https://staging.devpartners.ru/offer22/) | [https://staging.devpartners.ru/gk-smk-gorizonty/](https://staging.devpartners.ru/gk-smk-gorizonty/) |
+| ГК ПМД | Квартал Эволюция | [/offer23/](https://staging.devpartners.ru/offer23/) | [https://staging.devpartners.ru/gk-pmd-kvartal-evolyutsiya/](https://staging.devpartners.ru/gk-pmd-kvartal-evolyutsiya/) |
+| Характер Девелопмент | ЖК Чемпионский | [/offer24/](https://staging.devpartners.ru/offer24/) | [https://staging.devpartners.ru/harakter-development-chempionskiy/](https://staging.devpartners.ru/harakter-development-chempionskiy/) |
+| ГК Федерация | ЖК Талисман | [/offer25/](https://staging.devpartners.ru/offer25/) | [https://staging.devpartners.ru/gk-federacia-zhk-talisman/](https://staging.devpartners.ru/gk-federacia-zhk-talisman/) |
+| ГК Вектор | ЖК Филатов луг | [/offer26/](https://staging.devpartners.ru/offer26/) | [https://staging.devpartners.ru/gk-vektor-filatov-lug/](https://staging.devpartners.ru/gk-vektor-filatov-lug/) |
+| УГМК-Застройщик | Изумрудный бор 2.0 | [/offer27/](https://staging.devpartners.ru/offer27/) | [https://staging.devpartners.ru/ugmk-zastroyschik-izumrudnyy-bor-2-0/](https://staging.devpartners.ru/ugmk-zastroyschik-izumrudnyy-bor-2-0/) |
+| Холдинг Форум-групп | FORUM CITY | [/offer28/](https://staging.devpartners.ru/offer28/) | [https://staging.devpartners.ru/forum-grupp-forum-city/](https://staging.devpartners.ru/forum-grupp-forum-city/) |
+| ГК Метрикс Development | ЖК Nova Vita | [/offer29/](https://staging.devpartners.ru/offer29/) | [https://staging.devpartners.ru/metriks-development-nova-vita/](https://staging.devpartners.ru/metriks-development-nova-vita/) |
+| УЭЗ | ЖК Инноватор | [/offer31/](https://staging.devpartners.ru/offer31/) | [https://staging.devpartners.ru/uez-innovator/](https://staging.devpartners.ru/uez-innovator/) |
+| ИСГ МАВИС | ЖК Фотограф | [/offer32/](https://staging.devpartners.ru/offer32/) | [https://staging.devpartners.ru/mavis-fotograf-murino/](https://staging.devpartners.ru/mavis-fotograf-murino/) |
+| ГК Главстрой-Регионы | ЖК Героев | [/offer33/](https://staging.devpartners.ru/offer33/) | [https://staging.devpartners.ru/glavstroy-regiony-zhk-geroev/](https://staging.devpartners.ru/glavstroy-regiony-zhk-geroev/) |
+| ДСК | ЖК 1-й Саларьевский | [/offer34/](https://staging.devpartners.ru/offer34/) | [https://staging.devpartners.ru/dsk-1-salarevskiy/](https://staging.devpartners.ru/dsk-1-salarevskiy/) |
+| ГК АРХСТРОЙ ГРУПП | ЖК Цветы Башкирии | [/offer35/](https://staging.devpartners.ru/offer35/) | [https://staging.devpartners.ru/arhstroi-grupp-tsvety-bashkirii/](https://staging.devpartners.ru/arhstroi-grupp-tsvety-bashkirii/) |
+| ЖилСтройИндустрия | Ул. Архангельская, д.12 | [/offer36/](https://staging.devpartners.ru/offer36/) | [https://staging.devpartners.ru/zhilstroyindustriya-arhangelskaya-12/](https://staging.devpartners.ru/zhilstroyindustriya-arhangelskaya-12/) |
+| ГК Главстрой | ЖК Береговой | [/offer37/](https://staging.devpartners.ru/offer37/) | [https://staging.devpartners.ru/glavstroy-beregovoy/](https://staging.devpartners.ru/glavstroy-beregovoy/) |
+| ИСК г. Уфы | ЖК Новаленд | [/offer38/](https://staging.devpartners.ru/offer38/) | [https://staging.devpartners.ru/isk-ufa-novalend/](https://staging.devpartners.ru/isk-ufa-novalend/) |
+| Неометрия | Элитный дом Моретта | [/offer40/](https://staging.devpartners.ru/offer40/) | [https://staging.devpartners.ru/neometriya-elitnyy-dom-moretta/](https://staging.devpartners.ru/neometriya-elitnyy-dom-moretta/) |
+| ГК Пионер | ЖК SHIFT | [/offer41/](https://staging.devpartners.ru/offer41/) | [https://staging.devpartners.ru/gk-pioner-shift/](https://staging.devpartners.ru/gk-pioner-shift/) |
+| Группа Астон | ЖК А зори здесь тихие | [/offer42/](https://staging.devpartners.ru/offer42/) | [https://staging.devpartners.ru/gruppa-aston-a-zori-zdes-tihie/](https://staging.devpartners.ru/gruppa-aston-a-zori-zdes-tihie/) |
+| Холдинг Партнер | ЖК Среда | [/offer43/](https://staging.devpartners.ru/offer43/) | [https://staging.devpartners.ru/holding-partner-jk-sreda/](https://staging.devpartners.ru/holding-partner-jk-sreda/) |
+| ГК Садовое кольцо | ЖК Базаева 11 | [/offer44/](https://staging.devpartners.ru/offer44/) | [https://staging.devpartners.ru/gk-sadovoe-koltso-bazaeva-11/](https://staging.devpartners.ru/gk-sadovoe-koltso-bazaeva-11/) |
+| Лидер Групп | ЖК Дефанс Премиум | [/offer45/](https://staging.devpartners.ru/offer45/) | [https://staging.devpartners.ru/lider-grupp-defans-premium/](https://staging.devpartners.ru/lider-grupp-defans-premium/) |
+| ЮгСпецСтрой | ЖК Труда 12/3 | [/offer46/](https://staging.devpartners.ru/offer46/) | [https://staging.devpartners.ru/yugspecstroy-truda-12-3/](https://staging.devpartners.ru/yugspecstroy-truda-12-3/) |
+| ГК Ташир | Stellar City | [/offer47/](https://staging.devpartners.ru/offer47/) | [https://staging.devpartners.ru/gk-tashir-stellar-city/](https://staging.devpartners.ru/gk-tashir-stellar-city/) |
+| Астра | ЖК Белый парус | [/offer48/](https://staging.devpartners.ru/offer48/) | [https://staging.devpartners.ru/astra-belyy-parus/](https://staging.devpartners.ru/astra-belyy-parus/) |
+| ГК КПД-ДЕВЕЛОПМЕНТ | ЖК Нью-Йорт | [/offer49/](https://staging.devpartners.ru/offer49/) | [https://staging.devpartners.ru/kpd-development-nyu-yort/](https://staging.devpartners.ru/kpd-development-nyu-yort/) |
+
+---
+
+*Обновлено: 20 марта 2026*
