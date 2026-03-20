@@ -1,0 +1,346 @@
+---
+import Analytics from '../components/Analytics.astro';
+import '../styles/global.css';
+
+interface Props {
+  slug: string;
+  formName: string;
+  meta: { title: string; description: string };
+  images: {
+    hero: string;
+    aha1: string;
+    aha2: string;
+    aha3: string;
+    qualifier: string;
+    footer: string;
+    currentPositioning: string;
+  };
+  hero: {
+    label?: string;
+    h1: string;
+    lead: string;
+    offerLine: string;
+    ctaText?: string;
+    cardH2: string;
+    cardMeta: string;
+    cardBody: string;
+  };
+  triggerPoints: string[];
+  selfSelection: string[];
+  responseCards: Array<{
+    number: string;
+    title: string;
+    problem: string;
+    answer: string;
+    detail: string;
+    cta?: string;
+    image: string;
+    alt: string;
+  }>;
+  comparisons: Array<{
+    overline: string;
+    title: string;
+    text: string;
+  }>;
+  processSteps: Array<{
+    number: string;
+    title: string;
+    text: string;
+  }>;
+  sections: {
+    immersive1?: {
+      eyebrow?: string;
+      h2?: string;
+      bodies?: string[];
+      facts?: string[];
+      bridge?: string;
+    };
+    responses?: { h2?: string };
+    splitPhoto?: {
+      eyebrow?: string;
+      h2?: string;
+      quoteText?: string;
+      quoteFooter?: string;
+      link?: string;
+    };
+    story?: {
+      number?: string;
+      h2?: string;
+      problem?: string;
+      body?: string;
+      link?: string;
+    };
+    process?: { h2?: string; lead?: string };
+    final?: {
+      eyebrow?: string;
+      h2?: string;
+      lead?: string;
+      formEyebrow?: string;
+      formTitle?: string;
+      formLead?: string;
+    };
+  };
+}
+
+const {
+  slug,
+  formName,
+  meta,
+  images,
+  hero,
+  triggerPoints,
+  selfSelection,
+  responseCards,
+  comparisons,
+  processSteps,
+  sections: s,
+} = Astro.props;
+---
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+  </head>
+  <body class="landing-745">
+    <Analytics landingSlug={slug} />
+    <main>
+      <!-- HERO -->
+      <section class="hero745 section section--photo-hero">
+        <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="container hero745__container">
+          {hero.label && <div class="hero745__label" set:html={hero.label}></div>}
+          <div class="hero745__grid">
+            <div class="hero745__content hero745__content--glass">
+              <h1 set:html={hero.h1}></h1>
+              <p class="hero745__lead" set:html={hero.lead}></p>
+              <p class="hero745__offer-line" set:html={hero.offerLine}></p>
+              <div class="hero745__actions hero745__actions--stacked">
+                <a class="button745 button745--primary" href="#contact" set:html={hero.ctaText || 'Посмотреть, как этот сценарий упаковать для проекта'}></a>
+              </div>
+            </div>
+            <aside class="hero745__card hero745__card--floating">
+              <div class="hero745__card-body">
+                <h2 set:html={hero.cardH2}></h2>
+                <p class="hero745__meta" set:html={hero.cardMeta}></p>
+                <p set:html={hero.cardBody}></p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+      <!-- TRIGGERS -->
+      <section class="section section--tight triggers745-wrap triggers745-wrap--hero-continued">
+        <div class="hero745__backdrop hero745__backdrop--continued" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="triggers745__tone"></div>
+        <div class="container triggers745__container">
+          {s.triggers?.h2 && <h2 set:html={s.triggers.h2}></h2>}
+          <div class="triggers745">
+            {(triggerPoints ?? []).map((item: string) => <p set:html={item}></p>)}
+          </div>
+        </div>
+      </section>
+      <!-- IMMERSIVE 1 -->
+      <section class="immersive745 immersive745--hero" style={`--immersive-bg: url(${images.aha1})`}>
+        <div class="container immersive745__inner">
+          <div class="immersive745__card">
+            {s.immersive1?.eyebrow && <p class="immersive745__eyebrow" set:html={s.immersive1.eyebrow}></p>}
+            {s.immersive1?.h2 && <h2 set:html={s.immersive1.h2}></h2>}
+            {s.immersive1?.bodies?.map((b: string) => (
+              <p set:html={b}></p>
+            ))}
+            {s.immersive1?.facts && s.immersive1.facts.length > 0 && (
+              <div class="immersive745__facts">
+                {s.immersive1.facts.map((f: string) => <span set:html={f}></span>)}
+              </div>
+            )}
+            {s.immersive1?.bridge && (
+              <p class="immersive745__bridge immersive745__bridge--light" set:html={s.immersive1.bridge}></p>
+            )}
+          </div>
+        </div>
+      </section>
+      <!-- RESPONSE CARDS -->
+      <section class="section responses745 section--photo-soft" style={`--section-bg: url(${images.aha2})`}>
+        <div class="responses745__veil"></div>
+        <div class="container responses745__container">
+          <div class="section745-heading center745 section745-heading--light">
+            {s.responses?.h2 && <h2 set:html={s.responses.h2}></h2>}
+          </div>
+          <div class="responses745__stack">
+            {(responseCards ?? []).map((card) => (
+              <article class="response745-card">
+                <div class="response745-card__media">
+                  <img src={card.image} alt={card.alt} loading="lazy" />
+                </div>
+                <div class="response745-card__body">
+                  <div class="response745-card__number">{card.number}</div>
+                  <h3>{card.title}</h3>
+                  <p class="response745-card__problem">{card.problem}</p>
+                  <p>{card.answer}</p>
+                  <p class="response745-card__detail">{card.detail}</p>
+                  {card.cta && (
+                    <a class="inline-link745" href="#contact">{card.cta}</a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <!-- SPLIT PHOTO / SELF-SELECTION -->
+      <section class="split-photo745">
+        <div class="split-photo745__image" style={`--split-bg: url(${images.qualifier})`}></div>
+        <div class="split-photo745__content-wrap">
+          <div class="container split-photo745__container">
+            <div class="split-photo745__content">
+              {s.splitPhoto?.eyebrow && <p class="immersive745__eyebrow" set:html={s.splitPhoto.eyebrow}></p>}
+              {s.splitPhoto?.h2 && <h2 set:html={s.splitPhoto.h2}></h2>}
+              <div class="self745 self745--transparent">
+                {(selfSelection ?? []).map((item: string) => <p set:html={item}></p>)}
+              </div>
+              {s.splitPhoto?.quoteText && (
+                <blockquote class="quote745 quote745--light">
+                  <p set:html={s.splitPhoto.quoteText}></p>
+                  {s.splitPhoto?.quoteFooter && <footer set:html={s.splitPhoto.quoteFooter}></footer>}
+                </blockquote>
+              )}
+              {s.splitPhoto?.link && (
+                <a class="inline-link745 inline-link745--light" href="#contact" set:html={s.splitPhoto.link}></a>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- STORY / IMMERSIVE 2 -->
+      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.aha3})`}>
+        <div class="container immersive745__inner immersive745__inner--right">
+          <div class="immersive745__card immersive745__card--single-story">
+            <div class="story745-card">
+              {s.story?.number && <div class="story745-card__number">{s.story.number}</div>}
+              {s.story?.h2 && <h2 set:html={s.story.h2}></h2>}
+              {s.story?.problem && <p class="story745-card__problem" set:html={s.story.problem}></p>}
+              {s.story?.body && <p set:html={s.story.body}></p>}
+              {s.story?.link && (
+                <a class="inline-link745" href="#contact" set:html={s.story.link}></a>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- PROCESS STEPS -->
+      <section class="section process745 section--photo-band" style={`--section-bg: url(${images.footer})`}>
+        <div class="section-band745__overlay section-band745__overlay--dark"></div>
+        <div class="container process745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max">
+            {s.process?.h2 && <h2 set:html={s.process.h2}></h2>}
+            {s.process?.lead && <p set:html={s.process.lead}></p>}
+          </div>
+          <div class="process745__grid process745__grid--stacked">
+            {(processSteps ?? []).map((step) => (
+              <article class="process745-card process745-card--light process745-card--stacked">
+                <div class="process745-card__number">{step.number}</div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <!-- FINAL / CTA -->
+      <section id="contact" class="section final745 final745--photo">
+        <div class="final745__backdrop" style={`--final-bg: url(${images.footer})`}></div>
+        <div class="container final745__container">
+          <div class="final745__layout">
+            <div class="final745__media-copy">
+              {s.final?.eyebrow && <p class="final745__eyebrow" set:html={s.final.eyebrow}></p>}
+              {s.final?.h2 && <h2 set:html={s.final.h2}></h2>}
+              {s.final?.lead && (
+                <p class="final745__lead final745__lead--light" set:html={s.final.lead}></p>
+              )}
+              <div class="final745__positioning-shot">
+                <img src={images.currentPositioning} alt={`Текущее позиционирование — ${meta.title}`} loading="lazy" />
+              </div>
+            </div>
+            <div class="final745__card">
+              {s.final?.formEyebrow && (
+                <p class="final745__eyebrow" set:html={s.final.formEyebrow}></p>
+              )}
+              {s.final?.formTitle && (
+                <h3 class="final745__form-title" set:html={s.final.formTitle}></h3>
+              )}
+              {s.final?.formLead && (
+                <p class="final745__lead" set:html={s.final.formLead}></p>
+              )}
+              <form
+                name={formName}
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="/thank-you"
+                class="final745__form"
+              >
+                <input type="hidden" name="form-name" value={formName} />
+                <input type="hidden" name="landing_slug" value={slug} />
+                <input type="hidden" name="utm_source" value="" />
+                <input type="hidden" name="utm_medium" value="" />
+                <input type="hidden" name="utm_campaign" value="" />
+                <input type="hidden" name="utm_content" value="" />
+                <input type="hidden" name="utm_term" value="" />
+                <p class="sr-only">
+                  <label>
+                    Не заполняйте это поле, если вы человек:
+                    <input name="bot-field" />
+                  </label>
+                </p>
+                <div class="final745__form-grid">
+                  <div class="final745__field-block">
+                    <label for="name" class="field-label745">Имя</label>
+                    <input type="text" id="name" name="name" required class="field-input745" />
+                  </div>
+                  <div class="final745__field-block final745__form-full">
+                    <label for="phone" class="field-label745">Телефон / Telegram</label>
+                    <input type="tel" id="phone" name="phone" required class="field-input745" />
+                  </div>
+                  <div class="final745__field-block final745__form-full">
+                    <label for="email" class="field-label745">Email</label>
+                    <input type="email" id="email" name="email" required class="field-input745" />
+                  </div>
+                </div>
+                <button type="submit" class="button745 button745--primary final745__submit">
+                  Записаться на встречу
+                </button>
+                {s.final?.submitNote && (
+                  <p class="final745__submit-note" set:html={s.final.submitNote}></p>
+                )}
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script define:vars={{ slug }}>
+      import { populateUTMFields, trackFormSubmission } from '../utils/analytics.ts';
+      const form = document.querySelector('#contact form');
+      if (form instanceof HTMLFormElement) {
+        populateUTMFields(form);
+        form.addEventListener('submit', () => {
+          populateUTMFields(form);
+          trackFormSubmission(slug);
+        });
+      }
+    </script>
+  </body>
+</html>
+<style>
+  :global(body.landing-745) {
+    background: #130f0d;
+    color: #241b16;
+  }
+  .landing-745 main {
+    overflow-x: hidden;
+    background: #f6efe8;
+  }
+</style>

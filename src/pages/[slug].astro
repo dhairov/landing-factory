@@ -2,6 +2,7 @@
 import Offer801Template from '../templates/Offer801Template.astro';
 import AesthetesTemplate from '../templates/AesthetesTemplate.astro';
 import StayButGrowTemplate from '../templates/StayButGrowTemplate.astro';
+import ParentalCapitalTemplate from '../templates/ParentalCapitalTemplate.astro';
 import { readFileSync, readdirSync } from 'fs';
 import { resolve } from 'path';
 
@@ -71,6 +72,22 @@ const templateType = data.template || 'offer801';
     selfSelection={data.selfSelection}
     responseCards={data.responseCards}
     lifeStages={data.lifeStages}
+    processSteps={data.processSteps}
+    sections={data.sections}
+  />
+)}
+
+{templateType === 'parental-capital' && (
+  <ParentalCapitalTemplate
+    slug={slug}
+    formName={formName}
+    meta={data.meta}
+    images={data.images}
+    hero={data.hero}
+    triggerPoints={data.triggerPoints}
+    selfSelection={data.selfSelection}
+    responseCards={data.responseCards}
+    comparisons={data.comparisons}
     processSteps={data.processSteps}
     sections={data.sections}
   />

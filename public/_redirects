@@ -7,8 +7,37 @@
 #
 # Add new landing aliases above the catch-all rule.
 /offer-745 /745-kvartal/ 200
-
 /offer1 /endemik-established/ 200
+
+# === Second mailing batch (offer20-offer49) ===
+/offer20 /ava-group-kislorod-sochi/ 200
+/offer21 /gk-monolit-zhk-iris/ 200
+/offer22 /gk-smk-gorizonty/ 200
+/offer23 /gk-pmd-kvartal-evolyutsiya/ 200
+/offer24 /harakter-development-chempionskiy/ 200
+/offer25 /gk-federacia-zhk-talisman/ 200
+/offer26 /gk-vektor-filatov-lug/ 200
+/offer27 /ugmk-zastroyschik-izumrudnyy-bor-2-0/ 200
+/offer28 /forum-grupp-forum-city/ 200
+/offer29 /metriks-development-nova-vita/ 200
+/offer31 /uez-innovator/ 200
+/offer32 /mavis-fotograf-murino/ 200
+/offer33 /glavstroy-regiony-zhk-geroev/ 200
+/offer34 /dsk-1-salarevskiy/ 200
+/offer35 /arhstroi-grupp-tsvety-bashkirii/ 200
+/offer36 /zhilstroyindustriya-arhangelskaya-12/ 200
+/offer37 /glavstroy-beregovoy/ 200
+/offer38 /isk-ufa-novalend/ 200
+/offer40 /neometriya-elitnyy-dom-moretta/ 200
+/offer41 /gk-pioner-shift/ 200
+/offer42 /gruppa-aston-a-zori-zdes-tihie/ 200
+/offer43 /holding-partner-jk-sreda/ 200
+/offer44 /gk-sadovoe-koltso-bazaeva-11/ 200
+/offer45 /lider-grupp-defans-premium/ 200
+/offer46 /yugspecstroy-truda-12-3/ 200
+/offer47 /gk-tashir-stellar-city/ 200
+/offer48 /astra-belyy-parus/ 200
+/offer49 /kpd-development-nyu-yort/ 200
 
 # Catch-all redirect for SPA/runtime routing
 /offer801 /offer801 200
