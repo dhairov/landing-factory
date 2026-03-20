@@ -1,0 +1,1369 @@
+---
+import Analytics from '../components/Analytics.astro';
+import '../styles/global.css';
+
+const slug = 'zhilinit-rodnye-berega-2';
+const formName = 'zhilinit-rodnye-berega-2-request';
+
+const images = {
+  hero: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-hero-clean-Lqy3vDEe5JDxTYL6dn5xSm.webp',
+  aha1: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-courtyard-clean-KqDL6AqqXYREWP6gYVxE9T.webp',
+  aha2: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-interior-clean-iWWvJJ96yaYAh4KrVnVRRa.webp',
+  aha3: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-green-life-clean-dUMd5Atin3umGzTBnPyXSV.webp',
+  qualifier: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-courtyard-clean-KqDL6AqqXYREWP6gYVxE9T.webp',
+  compare: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-green-life-clean-dUMd5Atin3umGzTBnPyXSV.webp',
+  evolution: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-interior-clean-iWWvJJ96yaYAh4KrVnVRRa.webp',
+  footer: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/AXotyppPfFeghR67Uzfaab/offer801-strategy-clean-E5MfcWKwwZcEvkEZgCTEGq.webp',
+  currentPositioning: '/assets/zhilinit-rodnye-berega-2/original/current_positioning.webp',
+};
+
+const triggerPoints = [
+  'Семья уже выросла, а дом ещё нет. Даже если квартира формально «нормальная», в ней всё чаще не хватает не метров, а границ: детям, взрослым, тишине, работе и отдыху.',
+  'Дом всё ещё временный, хотя жизнь уже давно нет. Пространство продолжает ощущаться как промежуточное решение, хотя маршруты, школа, ритм семьи и сам образ жизни давно стали постоянными.',
+  'Слишком много быта держится на постоянной подстройке. Когда дом не поддерживает уклад, семье приходится всё время договариваться, делить, терпеть и компенсировать.',
+  'В какой-то момент становится ясно: дело не в том, чтобы «улучшить условия», а в том, чтобы перестать жить ниже собственного этапа жизни.',
+];
+
+const responseCards = [
+  {
+    number: '01',
+    title: 'У каждого появляется своё место',
+    problem:
+      'Это не просто больше пространства, а меньше трения в повседневной жизни: детям легче расти, взрослым легче сохранять границы, семье легче быть вместе без постоянной тесноты.',
+    answer:
+      'В «Родных берегах 2» это можно раскрывать через приватные сценарии, воздух, спокойный ритм и пространство, которое помогает быту, а не усложняет его.',
+    detail:
+      'Тогда проект читается не как формальный семейный ЖК, а как дом, в котором семье действительно становится легче жить на следующем этапе.',
+    cta: '',
+    image: images.aha1,
+    alt: 'У каждого появляется своё место в зрелом семейном сценарии',
+  },
+  {
+    number: '02',
+    title: 'Жизнь остаётся в своём районе, но становится качественно другой',
+    problem:
+      'Можно не ломать уже сложившуюся экосистему семьи: привычные маршруты, школу, близких, секции, ритм района и всё то, что уже стало частью жизни.',
+    answer:
+      'Поэтому «Родные берега 2» важно показывать не как отрыв от привычного уклада, а как более зрелую версию того же жизненного контура — спокойнее, мягче и собраннее.',
+    detail:
+      'Так проект снимает страх переезда как разрушения привычной жизни и превращается в естественный следующий шаг семьи.',
+    cta: '',
+    image: images.aha2,
+    alt: 'Семейная жизнь сохраняет районную связность, но становится качественно другой',
+  },
+  {
+    number: '03',
+    title: 'Дом выдерживает длинный горизонт',
+    problem:
+      'Это не временная развилка и не компромисс на пару лет, а пространство, которое может поддерживать семью долго и без быстрого морального устаревани    answer:
+      'Именно так «Родные берега 2» может читаться как выбор не ради переезда самого по себе, а ради более спокойной, логичной и устойчивой жизни семьи на годы вперёд.',  detail:
+      'Особенно важно, чтобы переезд не просто менял адрес, а действительно переводил жизнь на более зрелый уровень.',
+    cta: '',
+    image: images.aha3,
+    alt: 'Дом как долгосрочная база для зрелой семьи',
+  },
+];
+
+const selfSelection = [
+  '«Родные берега 2» имеют смысл переупаковывать именно для тех, кто не ищет срочный апгрейд ради галочки и не выбирает жильё как демонстрацию статуса.',
+  'Это выбор для семей, которым важно, чтобы у каждого было своё место, чтобы привычная жизнь не разрушалась переездом и чтобы новый дом действительно выдерживал длинный горизонт.',
+  'Если семья больше не хочет жить по инерции, а хочет жить в соответствии с тем, кем она стала, этот сегмент узнаёт себя почти сразу.',
+  'Не «ещё одна квартира для семьи», а более зрелая база для следующего этапа жизни.',
+];
+
+const comparisons = [];
+
+const lifeStages = [
+  {
+    stage: 'Стадия 01 · сначала семье важно просто иметь своё',
+    price: 'JTBD / B2B view',
+    who: 'На первом цикле жильё решает базовую задачу закрепления: своё пространство, понятная опора и старт семейной жизни.',
+    hire: 'На этом этапе семья выбирает не зрелый сценарий, а факт собственного дома как основы нового этапа.',
+    format: 'Для девелопера это базовый рынок семейного жилья, где ещё работает общий язык про метры, планировки и понятный комфорт.',
+  },
+  {
+    stage: 'Стадия 02 · потом жизнь семьи становится сложнее и устойчивее',
+    price: 'JTBD / B2B view',
+    who: 'Появляются дети, школа, секции, маршруты, связи с районом и более сложная организация повседневности.',
+    hire: 'С этого момента выбор жилья перестаёт быть только квартирным и становится жизненно-логистическим.',
+    format: 'Именно здесь сегмент начинает отличаться от общей аудитории семей с детьми и требует более точного позиционирования.',
+  },
+  {
+    stage: 'Стадия 03 · пространство перестаёт соответствовать этой жизни',
+    price: 'JTBD / B2B view',
+    who: 'Дом начинает требовать от семьи слишком много компенсации: подстройки, терпения, логистических и бытовых компромиссов.',
+    hire: 'На языке продукта это означает: текущая упаковка должна продавать не улучшение условий вообще, а снятие накопленного трения зрелой семьи.',
+    format: 'Именно здесь открывается настоящий JTBD-сегмент, а не просто широкая категория семейной аудитории.',
+  },
+  {
+    stage: 'Стадия 04 · выбор смещается с метров на способ жизни',
+    price: 'JTBD / B2B view',
+    who: 'Семья начинает выбирать не просто квартиру побольше, а пространство, которое способно поддерживать её уклад на долгий срок.',
+    hire: 'Здесь офферу уже недостаточно говорить языком метража: он должен собирать более зрелый жизненный переход.',
+    format: 'Для CEO это точка, где продукт нужно переупаковывать вокруг новой семейной задачи, а не вокруг набора характеристик.',
+  },
+  {
+    stage: 'Стадия 05 · дом становится не сделкой, а долгосрочной базой',
+    price: 'JTBD / B2B view',
+    who: 'Именно здесь продукт можно переупаковать точнее: как физическую и психологическую опору зрелой семьи.',
+    hire: 'Этот сдвиг и превращает «семьи с детьми» в отдельный, более глубокий JTBD-сегмент.',
+    format: 'Дальше задача девелопера — перевести эту логику в оффер, страницу, креативы и аргументацию отдела продаж.',
+  },
+];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Вы оставляете контакты и ссылку на проект',
+    text: 'Показываете текущий ЖК, лендинг или рекламную коммуникацию, которая не даёт нужной конверсии.',
+  },
+  {
+    number: '02',
+    title: 'Мы собираем гипотезу переупаковки',
+    text: 'Смотрим, как проект позиционируется сейчас, и находим, где сильные стороны ЖК остаются слишком общими или недосказанными.',
+  },
+  {
+    number: '03',
+    title: 'Проводим встречу по проекту',
+        text: 'Показываем, как можно пересобрать оффер, структуру страницы, визуальные акценты и аргументацию под зрелый семейный сегмент.',
+  },
+  {
+    number: '04',
+    title: 'Фиксируем следующий шаг',
+    text: 'После этого определяем, что делать дальше: корректировать сегмент, перепрошивать оффер или полностью пересобирать упаковку проекта.',
+  },
+];
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>ЖК «Родные берега 2» — Жилищная инициатива | дом для семьи, которая уже выросла</title>
+    <meta
+      name="description"
+      content="Показываем, как ЖК «Родные берега 2» от Жилищной инициативы можно раскрыть как зрелый семейный сценарий: с местом для каждого, спокойным ритмом и ощущением дома надолго."
+    />
+  </head>
+  <body class="landing-745">
+    <Analytics landingSlug={slug} />
+
+    <main>
+      <section class="hero745 section section--photo-hero">
+        <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="container hero745__container">
+          <div class="hero745__label">Жилищная инициатива · зрелый семейный сценарий</div>
+          <div class="hero745__grid">
+            <div class="hero745__content hero745__content--glass">
+              <h1>«Родные берега 2» — дом для семьи, которая уже выросла из прежнего формата жизни</h1>
+              <p class="hero745__lead">
+                Когда жизнь семьи стала сложнее, глубже и устойчивее, пространство тоже должно начать ей соответствовать: с местом для каждого,
+                спокойным ритмом и ощущением, что это дом не на время, а надолго.
+              </p>
+              <p class="hero745__offer-line">Природное окружение · семейный двор · планировки, которые выдерживают следующий этап жизни</p>
+              <div class="hero745__actions hero745__actions--stacked">
+                <a class="button745 button745--primary" href="#contact">запросить консультацию</a>
+              </div>
+            </div>
+
+            <aside class="hero745__card hero745__card--floating">
+              <div class="hero745__card-body">
+                <h2>«Родные берега 2» — жилой сценарий для тех, кто не хочет ещё 10–15 лет жить в компромиссе между теснотой, привычкой и инерцией</h2>
+                <p class="hero745__meta">Природное окружение · семейный двор · планировки, которые выдерживают следующий этап жизни</p>
+                <p>
+                  Этот проект можно показывать не как ещё один общий семейный ЖК, а как пространство, которое начинает соответствовать
+                  реальному уровню семьи и поддерживать её повседневную жизнь без лишнего трения.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight triggers745-wrap triggers745-wrap--hero-continued">
+        <div class="hero745__backdrop hero745__backdrop--continued" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="triggers745__tone"></div>
+        <div class="container triggers745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max triggers745__heading">
+            <h2>Иногда проблема не в том, что квартиры мало. А в том, что семья уже стала больше этого сценария.</h2>
+          </div>
+          <div class="triggers745">
+            {triggerPoints.map((item) => <p>{item}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="immersive745 immersive745--hero" style={`--immersive-bg: url(${images.aha1})`}>
+        <div class="container immersive745__inner">
+          <div class="immersive745__card">
+              <p class="immersive745__eyebrow">ЖК «Родные берега 2» · Жилищная инициатива · зрелый семейный сценарий</p>
+              <h2>«Родные берега 2» можно подать не как «ещё один семейный ЖК», а как дом, в котором семье больше не нужно бороться с бытом</h2>
+              <p class="immersive745__body immersive745__body--light">
+                Если посмотреть на «Дома у сада» не через общий рынок, а через задачу зрелой семьи, в нём можно увидеть
+                не просто квадратные метры, а более зрелую организацию повседневной жизни.
+              </p>
+              <p class="immersive745__body immersive745__body--light">
+                Здесь ценность создают не абстрактные преимущества, а конкретные условия, которые снимают накопившееся напряжение:
+                природное окружение, семейный двор, связность с Казанью и планировки, поддерживающие более спокойный ритм жизни.
+              </p>
+              <p class="immersive745__body immersive745__body--light">
+                Поэтому «Дома у сада» может читаться как выбор не ради переезда самого по себе, а ради более спокойной, логичной и устойчивой жизни семьи на годы вперёд.
+              </p>
+              <div class="immersive745__facts">
+                <span>Природное окружение и тишина как часть нормального семейного режима</span>
+                <span>Дворы, где ребёнок и взрослые получают больше спокойствия и предсказуемости</span>
+                <span>Связность с городом без ощущения, что семья выпадает из привычной жизни</span>
+                <span>Формат проекта, который можно читать как дом надолго, а не как временный апгрейд</span>
+              </div>
+              <p class="immersive745__bridge immersive745__bridge--light">Это и есть главный поворот: семья покупает не просто новую квартиру, а более правильную организацию собственной жизни.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section responses745 section--photo-soft" style={`--section-bg: url(${images.aha2})`}>
+        <div class="responses745__veil"></div>
+        <div class="container responses745__container">
+          <div class="section745-heading center745 section745-heading--light">
+            <h2>Три причины, почему зрелая семья может узнать себя в этом проекте</h2>
+          </div>
+          <div class="responses745__stack">
+            {responseCards.map((card) => (
+              <article class="response745-card">
+                <div class="response745-card__media">
+                  <img src={card.image} alt={card.alt} loading="lazy" />
+                </div>
+                <div class="response745-card__body">
+                  <div class="response745-card__number">{card.number}</div>
+                  <h3>{card.title}</h3>
+                  <p class="response745-card__problem">{card.problem}</p>
+                  <p>{card.answer}</p>
+                  <p class="response745-card__detail">{card.detail}</p>
+                  {card.cta && (
+                    <a class="inline-link745" href="#contact">{card.cta}</a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="split-photo745">
+        <div class="split-photo745__image" style={`--split-bg: url(${images.qualifier})`}></div>
+        <div class="split-photo745__content-wrap">
+          <div class="container split-photo745__container">
+            <div class="split-photo745__content">
+              <p class="immersive745__eyebrow">ЖК «Родные берега 2» · самоотбор зрелой семьи</p>
+              <h2>Этот сценарий узнают не все семьи — а те, кто уже вырос из жизни «как получается»</h2>
+              <div class="self745 self745--transparent self745--light">
+                {selfSelection.map((item) => <p>{item}</p>)}
+              </div>
+              <blockquote class="quote745 quote745--light">
+                <p>
+                  «Не “ещё одна квартира для семьи”, а более зрелая база для следующего этапа жизни».
+                </p>
+                <footer>Зрелый семейный сегмент</footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.aha3})`}>
+        <div class="container immersive745__inner immersive745__inner--right">
+          <div class="immersive745__card immersive745__card--single-story">
+              <div class="story745-card story745-card--light-copy">
+              <div class="story745-card__number">05</div>
+              <h2>Переезд должен не просто изменить адрес, а действительно перевести жизнь семьи на более зрелый уровень.</h2>
+              <p class="story745-card__problem">Именно здесь девелопер может перейти от общей категории семейного жилья к более точному позиционированию, которое совпадает с реальным следующим этапом жизни семьи.</p>
+              <a class="inline-link745 inline-link745--light" href="#contact">Посмотреть, как этот переход собирается в сегментную логику и новую подачу</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="section compare745 section--contrast">
+        <div class="compare745__backdrop" style={`--compare-bg: url(${images.compare})`}></div>
+        <div class="container compare745__container">
+          <div class="section745-heading section745-heading--light section745-heading--max">
+            <p class="section745-heading__eyebrow">Как этот сегмент превращается в управленческое решение</p>
+            <h2>Как общий язык про семейный ЖК можно превратить в точное попадание в зрелый сегмент</h2>
+          </div>
+          <div class="compare745__grid">
+            {comparisons.map((item) => (
+              <article class="compare745-card">
+                <p class="compare745-card__eyebrow">{item.overline}</p>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section process745 section--photo-band" style={`--section-bg: url(${images.footer})`}>
+        <div class="section-band745__overlay section-band745__overlay--dark"></div>
+        <div class="container process745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max">
+            <h2>Как превратить общий язык про семейный ЖК в точное попадание в зрелый сегмент</h2>
+            <p>Вместо того чтобы описывать «Родные берега 2» через общий набор атрибутов семейного жилья, можно переупаковать его вокруг более точной задачи: помочь семье второго цикла перейти из пространства прошлого этапа в дом, соответствующий её нынешней жизни.</p>
+          </div>
+          <div class="process745__grid process745__grid--stacked">
+            {processSteps.map((step) => (
+              <article class="process745-card process745-card--light process745-card--stacked">
+                <div class="process745-card__number">{step.number}</div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section final745 final745--photo">
+        <div class="final745__backdrop" style={`--final-bg: url(${images.footer})`}></div>
+        <div class="container final745__container">
+          <div class="final745__layout">
+            <div class="final745__media-copy">
+              <p class="final745__eyebrow">Текущий пример позиционирования проекта</p>
+              <h2>Покажем, как может выглядеть переупаковка ЖК «Родные берега 2» под зрелый семейный сегмент</h2>
+
+              <div class="final745__positioning-shot">
+                <img src={images.currentPositioning} alt="Текущее позиционирование ЖК «Родные берега 2» от Жилищной инициативы" loading="lazy" />
+              </div>
+            </div>
+            <div class="final745__card">
+              <p class="final745__eyebrow final745__eyebrow--dark">Стратегическая встреча по переупаковке</p>
+              <form
+                name={formName}
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="/thank-you"
+                class="final745__form"
+              >
+                <input type="hidden" name="form-name" value={formName} />
+                <input type="hidden" name="landing_slug" value={slug} />
+                <input type="hidden" name="utm_source" value="" />
+                <input type="hidden" name="utm_medium" value="" />
+                <input type="hidden" name="utm_campaign" value="" />
+                <input type="hidden" name="utm_content" value="" />
+                <input type="hidden" name="utm_term" value="" />
+
+                <p class="sr-only">
+                  <label>
+                    Не заполняйте это поле, если вы человек:
+                    <input name="bot-field" />
+                  </label>
+                </p>
+
+                <div class="final745__form-grid">
+                  <div class="final745__field-block">
+                    <label for="name" class="field-label745">Имя</label>
+                    <input type="text" id="name" name="name" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="phone" class="field-label745">Телефон / Telegram</label>
+                    <input type="tel" id="phone" name="phone" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="email" class="field-label745">Email</label>
+                    <input type="email" id="email" name="email" required class="field-input745" />
+                  </div>
+
+
+                </div>
+
+                <button type="submit" class="button745 button745--primary final745__submit">
+                  запросить консультацию
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script define:vars={{ slug }}>
+      import { populateUTMFields, trackFormSubmission } from '../utils/analytics.ts';
+
+      const form = document.querySelector('#contact form');
+
+      if (form instanceof HTMLFormElement) {
+        populateUTMFields(form);
+        form.addEventListener('submit', () => {
+          populateUTMFields(form);
+          trackFormSubmission(slug);
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  :global(body.landing-745) {
+    background: #130f0d;
+    color: #241b16;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+
+  .landing-745 main {
+    overflow-x: hidden;
+    background: #f6efe8;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    color: #fff8f2;
+  }
+
+  .landing-745 h1,
+  .landing-745 h2,
+  .landing-745 h3,
+  .landing-745 h4,
+  .landing-745 h5,
+  .landing-745 h6,
+  .landing-745 p,
+  .landing-745 a,
+  .landing-745 span,
+  .landing-745 label,
+  .landing-745 input,
+  .landing-745 textarea,
+  .landing-745 button,
+  .landing-745 th,
+  .landing-745 td,
+  .landing-745 blockquote,
+  .landing-745 li {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+
+  .section {
+    position: relative;
+  }
+
+  .hero745,
+  .life745,
+  .final745,
+  .responses745,
+  .process745 {
+    position: relative;
+  }
+
+  .hero745__container,
+  .responses745__container,
+  .life745__container,
+  .process745__container,
+  .final745__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .section--photo-hero,
+  .section--photo-band,
+  .section--photo-soft,
+  .final745--photo {
+    background-image: var(--section-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero745 {
+    min-height: clamp(760px, 92vh, 980px);
+    display: flex;
+    align-items: stretch;
+    padding: 36px 0 28px;
+    overflow: hidden;
+  }
+
+  .hero745__backdrop,
+  .compare745__backdrop,
+  .final745__backdrop,
+  .split-photo745__image,
+  .immersive745,
+  .section--photo-band,
+  .section--photo-soft {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero745__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(120deg, rgba(17, 12, 9, 0.82), rgba(17, 12, 9, 0.38)), var(--section-bg);
+    transform: scale(1.04);
+  }
+
+  .hero745__backdrop--continued {
+    background-image: linear-gradient(180deg, rgba(17, 12, 9, 0.3), rgba(17, 12, 9, 0.72)), var(--section-bg);
+  }
+
+  .hero745__container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    justify-content: center;
+    padding-top: clamp(88px, 10vh, 120px);
+    min-height: clamp(700px, calc(92vh - 64px), 900px);
+  }
+
+  .hero745__label,
+  .hero745__offer-line,
+  .section745-heading__eyebrow,
+  .immersive745__eyebrow,
+  .compare745-card__eyebrow,
+  .final745__eyebrow,
+  .hero745__meta {
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 244, 232, 0.9);
+    text-shadow: 0 1px 10px rgba(7, 5, 4, 0.3);
+    color: rgba(255, 244, 236, 0.9);
+  }
+
+  .hero745__label {
+    color: rgba(255, 247, 240, 0.92);
+  }
+
+  .hero745__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.28fr) minmax(280px, 0.72fr);
+    gap: 28px;
+    align-items: start;
+  }
+
+  .hero745__content {
+    display: grid;
+    gap: 20px;
+    max-width: 820px;
+  }
+
+  .hero745__content--glass {
+    padding: clamp(28px, 4vw, 42px);
+    border-radius: 32px;
+    background: linear-gradient(135deg, rgba(18, 14, 12, 0.78), rgba(18, 14, 12, 0.52));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 30px 80px rgba(9, 7, 6, 0.34);
+    backdrop-filter: blur(18px);
+  }
+
+  .hero745__content h1 {
+    margin: 0;
+    color: #fff7f0;
+    font-size: clamp(3rem, 6vw, 5.8rem);
+    line-height: 1.01;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    max-width: 13ch;
+    text-wrap: balance;
+  }
+
+  .hero745__content h1 em {
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .hero745__lead,
+  .hero745__offer-line,
+  .hero745__content p,
+  .final745__lead,
+  .compare745-card p,
+  .process745-card p,
+  .response745-card p,
+  .life745-table td,
+  .life745-table th,
+  .story745-card p,
+  .self745 p,
+  .quote745 p {
+    font-size: 1.08rem;
+    line-height: 1.8;
+  }
+
+  .hero745__lead,
+  .hero745__offer-line,
+  .hero745__content p {
+    color: rgba(255, 246, 237, 0.98);
+    text-shadow: 0 2px 18px rgba(8, 6, 5, 0.42);
+    max-width: 62ch;
+  }
+
+  .hero745__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .hero745__actions--stacked {
+    align-items: flex-start;
+  }
+
+  .button745 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 26px;
+    border-radius: 999px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+  }
+
+  .button745:hover {
+    transform: translateY(-2px);
+  }
+
+  .button745--primary {
+    color: #231610;
+    background: linear-gradient(135deg, #f4d9c5, #f9ece1);
+    box-shadow: 0 18px 35px rgba(12, 8, 6, 0.18);
+  }
+
+  .button745--ghost {
+    color: #fff8f2;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
+  }
+
+  .hero745__card {
+    background: rgba(252, 245, 239, 0.94);
+    border-radius: 28px;
+    box-shadow: 0 24px 54px rgba(12, 8, 6, 0.22);
+  }
+
+  .hero745__card--floating {
+    transform: translateY(20px);
+  }
+
+  .hero745__card-body {
+    padding: 28px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .hero745__card h2,
+  .section745-heading h2,
+  .immersive745__card h2,
+  .compare745-card h3,
+  .response745-card h3,
+  .story745-card h2,
+  .final745__form-title,
+  .final745__media-copy h2,
+  .process745-card h3 {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  .hero745__card h2,
+  .section745-heading h2,
+  .immersive745__card h2,
+  .final745__media-copy h2,
+  .story745-card h2 {
+    font-size: clamp(2rem, 4vw, 4rem);
+  }
+
+  .hero745__card p,
+  .hero745__meta {
+    margin: 0;
+    color: rgba(44, 30, 24, 0.88);
+  }
+
+  .hero745__card h2 {
+    color: rgba(34, 24, 19, 0.96);
+    font-size: clamp(1.42rem, 2vw, 1.86rem);
+    line-height: 1.28;
+    max-width: 18ch;
+  }
+
+  .hero745__meta {
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: rgba(66, 46, 37, 0.72);
+  }
+
+  .section--tight {
+    padding: 0 0 88px;
+  }
+
+  .triggers745-wrap {
+    position: relative;
+    margin-top: -8px;
+    overflow: hidden;
+  }
+
+  .triggers745__tone {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(16, 11, 9, 0.3), rgba(16, 11, 9, 0.72));
+  }
+
+  .triggers745__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .triggers745 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    max-width: 980px;
+    color: rgba(255, 247, 241, 0.98);
+    text-shadow: none;
+  }
+
+  .triggers745 p {
+    margin: 0;
+    min-height: 100%;
+    padding: 22px 24px;
+    border-radius: 24px;
+    background: rgba(255, 248, 242, 0.14);
+    border: 1px solid rgba(255, 248, 242, 0.2);
+    box-shadow: 0 18px 48px rgba(6, 4, 3, 0.18);
+    backdrop-filter: blur(12px);
+    font-size: clamp(0.98rem, 1.35vw, 1.12rem);
+    line-height: 1.58;
+    font-weight: 500;
+    max-width: none;
+    color: rgba(255, 248, 242, 0.98);
+    text-shadow: none;
+  }
+
+  .immersive745 {
+    position: relative;
+    padding: 120px 0;
+    background-image: linear-gradient(120deg, rgba(17, 12, 9, 0.72), rgba(17, 12, 9, 0.28)), var(--immersive-bg);
+  }
+
+  .immersive745--contrast {
+    background-image: linear-gradient(120deg, rgba(17, 12, 9, 0.38), rgba(17, 12, 9, 0.78)), var(--immersive-bg);
+  }
+
+  .immersive745__inner {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .immersive745__inner--right {
+    justify-content: flex-end;
+  }
+
+  .immersive745__card {
+    width: min(680px, 100%);
+    display: grid;
+    gap: 18px;
+    padding: clamp(28px, 3vw, 44px);
+    border-radius: 28px;
+    background: rgba(20, 15, 12, 0.82);
+    color: #fff8f2;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 24px 64px rgba(10, 7, 6, 0.28);
+    backdrop-filter: blur(14px);
+  }
+
+  .immersive745__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .immersive745__facts span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 0.86rem;
+    color: rgba(255, 248, 242, 0.92);
+  }
+
+  .responses745 {
+    padding: 120px 0;
+  }
+
+  .responses745__veil,
+  .responses745__veil--warm {
+    position: absolute;
+    inset: 0;
+  }
+
+  .responses745__veil {
+    background: linear-gradient(180deg, rgba(20, 15, 12, 0.74), rgba(20, 15, 12, 0.58));
+  }
+
+  .responses745__veil--warm {
+    background: linear-gradient(180deg, rgba(36, 24, 18, 0.84), rgba(36, 24, 18, 0.62));
+  }
+
+  .section745-heading {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 42px;
+  }
+
+  .section745-heading--light,
+  .section745-heading--light p,
+  .section745-heading--light h2 {
+    color: #fff8f2;
+  }
+
+  .section745-heading--max {
+    max-width: 860px;
+  }
+
+  .center745 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .responses745__stack {
+    display: grid;
+    gap: 24px;
+  }
+
+  .response745-card {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.92fr) minmax(0, 1.08fr);
+    gap: 0;
+    border-radius: 30px;
+    overflow: hidden;
+    background: rgba(250, 244, 238, 0.96);
+    box-shadow: 0 28px 70px rgba(12, 8, 6, 0.22);
+  }
+
+  .response745-card__media img,
+  .final745__positioning-shot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    border-radius: 22px;
+    background: #fffaf6;
+  }
+  .response745-card__media img {
+    object-fit: cover;
+  }
+  .final745__positioning-shot img {
+    object-fit: contain;
+    width: 100%;
+    max-width: 680px;
+    height: auto;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 18px;
+  }
+
+  .response745-card__media {
+    min-height: 100%;
+  }
+
+  .response745-card__body {
+    padding: clamp(26px, 3vw, 40px);
+    display: grid;
+    gap: 16px;
+  }
+
+  .response745-card__number,
+  .process745-card__number,
+  .story745-card__number {
+    font-size: 0.82rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(255, 244, 232, 0.9);
+    text-shadow: 0 1px 10px rgba(7, 5, 4, 0.3);
+    color: rgba(87, 59, 46, 0.68);
+  }
+
+  .story745-card__problem {
+    color: rgba(255, 244, 236, 0.72);
+  }
+
+  .immersive745__body--light,
+  .immersive745__bridge--light,
+  .self745--light p,
+  .story745-card--light-copy h2,
+  .story745-card--light-copy .story745-card__problem,
+  .inline-link745--light {
+    color: rgba(255, 247, 240, 0.96);
+  }
+
+  .final745__eyebrow--dark,
+  .final745__form-title--dark,
+  .final745__lead--dark {
+    color: #2f211a;
+  }
+
+  .response745-card h3,
+  .response745-card__detail {
+    color: rgba(32, 22, 17, 0.96);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .quote745--light p {
+    color: rgba(255, 247, 240, 0.98);
+  }
+
+  .compare745-card {
+    position: relative;
+    padding: 30px;
+    border-radius: 30px;
+    background: rgba(20, 14, 11, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 20px 48px rgba(9, 6, 5, 0.24);
+    backdrop-filter: blur(18px);
+    min-height: 100%;
+  }
+  .compare745-card__eyebrow {
+    margin: 0 0 18px;
+    color: rgba(255, 246, 238, 0.94);
+    text-shadow: 0 1px 10px rgba(7, 5, 4, 0.22);
+  }
+  .compare745-card h3 {
+    color: #fff8f3;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 18px rgba(7, 5, 4, 0.34);
+  }
+  .compare745-card p:last-child {
+    color: rgba(255, 246, 238, 0.96);
+    text-shadow: 0 2px 16px rgba(6, 4, 3, 0.32);
+    margin: 0;
+  }
+
+  .response745-card__detail {
+    color: rgba(34, 24, 19, 0.92);
+    font-weight: 500;
+  }
+
+  .inline-link745 {
+    color: #5c3926;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(92, 57, 38, 0.26);
+    width: fit-content;
+  }
+
+  .inline-link745--light {
+    color: #fff5ed;
+    border-bottom-color: rgba(255, 245, 237, 0.34);
+  }
+
+  .split-photo745 {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    min-height: 720px;
+  }
+
+  .split-photo745__image {
+    background-image: linear-gradient(180deg, rgba(15, 11, 9, 0.12), rgba(15, 11, 9, 0.36)), var(--split-bg);
+    min-height: 520px;
+  }
+
+  .split-photo745__content-wrap {
+    background: linear-gradient(180deg, #231914, #17100d);
+    color: #fff5ed;
+    display: flex;
+    align-items: center;
+  }
+
+  .split-photo745__container {
+    width: 100%;
+  }
+
+  .split-photo745__content {
+    display: grid;
+    gap: 20px;
+    max-width: 560px;
+    padding: 80px 0;
+  }
+
+  .self745 {
+    display: grid;
+    gap: 16px;
+  }
+
+  .self745 p,
+  .quote745 {
+    margin: 0;
+  }
+
+  .quote745 {
+    padding: 24px 26px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 18px 40px rgba(9, 7, 6, 0.22);
+  }
+
+  .quote745 footer {
+    margin-top: 10px;
+    font-size: 0.88rem;
+    color: rgba(255, 245, 237, 0.9);
+  }
+
+  .story745-card {
+    display: grid;
+    gap: 16px;
+  }
+
+  .life745 {
+    padding: 120px 0;
+  }
+
+  .life745-table-wrap {
+    overflow-x: auto;
+    border-radius: 28px;
+    background: rgba(250, 244, 238, 0.92);
+    box-shadow: 0 24px 64px rgba(12, 8, 6, 0.2);
+  }
+
+  .life745-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+  }
+
+  .life745-table th,
+  .life745-table td {
+    padding: 22px 24px;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(74, 50, 39, 0.12);
+    color: #2f211a;
+    text-align: left;
+  }
+
+  .life745-table th {
+    background: rgba(247, 233, 223, 0.92);
+    font-size: 0.84rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .life745-table td strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .life745-table td span {
+    display: block;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(87, 59, 46, 0.68);
+  }
+
+  .action745-wrap {
+    margin-top: 28px;
+  }
+
+  .compare745 {
+    position: relative;
+    padding: 120px 0;
+    overflow: hidden;
+  }
+
+  .section--contrast {
+    background: #120d0b;
+    color: #fff8f2;
+  }
+
+  .compare745__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(120deg, rgba(14, 10, 8, 0.9), rgba(14, 10, 8, 0.54)), var(--compare-bg);
+    transform: scale(1.04);
+  }
+
+  .compare745__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .compare745__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .compare745-card {
+    display: grid;
+    gap: 14px;
+    padding: 28px;
+    border-radius: 26px;
+    background: rgba(17, 12, 10, 0.84);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(12px);
+  }
+
+  .process745 {
+    padding: 120px 0;
+  }
+
+  .section-band745__overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .section-band745__overlay--dark {
+    background: linear-gradient(180deg, rgba(18, 13, 11, 0.82), rgba(18, 13, 11, 0.72));
+  }
+
+  .process745__grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .process745__grid--stacked {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .process745-card {
+    display: grid;
+    gap: 14px;
+    padding: 26px;
+    border-radius: 24px;
+  }
+
+  .process745-card--light {
+    background: rgba(18, 13, 11, 0.78);
+    color: #fff8f2;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(12px);
+  }
+  .process745-card h3 {
+    color: #fff8f2;
+    text-shadow: 0 2px 14px rgba(6, 4, 3, 0.32);
+  }
+  .process745-card p {
+    margin: 0;
+    color: rgba(255, 247, 240, 0.98);
+    text-shadow: 0 2px 14px rgba(6, 4, 3, 0.24);
+  }
+
+  .final745 {
+    overflow: hidden;
+    padding: 120px 0;
+  }
+
+  .final745__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(120deg, rgba(17, 12, 9, 0.78), rgba(17, 12, 9, 0.46)), var(--final-bg);
+    transform: scale(1.04);
+  }
+
+  .final745__layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+    gap: 28px;
+    align-items: start;
+  }
+
+  .final745__media-copy {
+    display: grid;
+    gap: 18px;
+    color: #fff8f2;
+  }
+  .final745__lead,
+  .final745__media-copy p,
+  .final745__media-copy h2,
+  .final745__eyebrow {
+    color: #fff8f2;
+    text-shadow: 0 2px 16px rgba(8, 6, 5, 0.34);
+  }
+
+  .final745__positioning-shot {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 26px;
+    min-height: 320px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 24px 64px rgba(10, 7, 6, 0.28);
+    background: rgba(255, 250, 246, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: grid;
+    place-items: center;
+    padding: 14px;
+  }
+
+  .final745__card {
+    display: grid;
+    gap: 18px;
+    padding: clamp(26px, 3vw, 38px);
+    border-radius: 30px;
+    background: rgba(249, 242, 236, 0.98);
+    color: #2f211a;
+    box-shadow: 0 28px 72px rgba(10, 7, 6, 0.24);
+  }
+
+  .final745__form {
+    display: grid;
+    gap: 18px;
+  }
+
+  .final745__form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .final745__form-full {
+    grid-column: 1 / -1;
+  }
+
+  .final745__field-block {
+    display: grid;
+    gap: 8px;
+  }
+
+  .field-label745 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(56, 37, 29, 0.72);
+  }
+
+  .field-input745 {
+    min-height: 52px;
+    border-radius: 18px;
+    border: 1px solid rgba(88, 60, 46, 0.16);
+    background: #fffaf6;
+    padding: 0 16px;
+    font: inherit;
+    color: #261b15;
+    -webkit-text-fill-color: #261b15;
+  }
+
+  .field-textarea745 {
+    min-height: 136px;
+    resize: vertical;
+    padding: 14px 16px;
+  }
+
+  .final745__submit {
+    width: 100%;
+  }
+
+  .final745__submit-note {
+    margin: 0;
+    color: rgba(56, 37, 29, 0.68);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  @media (max-width: 1080px) {
+    .hero745__grid,
+    .final745__layout,
+    .split-photo745,
+    .compare745__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero745__card--floating {
+      transform: none;
+    }
+
+    .split-photo745__image {
+      min-height: 360px;
+    }
+  }
+
+  @media (max-width: 820px) {
+    .hero745,
+    .responses745,
+    .life745,
+    .process745,
+    .final745,
+    .immersive745 {
+      padding: 80px 0;
+    }
+
+    .response745-card,
+    .process745__grid--stacked,
+    .final745__form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero745__content h1,
+    .hero745__card h2,
+    .section745-heading h2,
+    .immersive745__card h2,
+    .final745__media-copy h2,
+    .story745-card h2 {
+      max-width: none;
+    }
+
+    .hero745__container {
+      min-height: auto;
+    }
+
+    .hero745__content h1 {
+      font-size: clamp(2.6rem, 11vw, 4.6rem);
+      max-width: 11ch;
+    }
+  }
+
+    @media (max-width: 560px) {
+    .hero745 {
+      min-height: auto;
+      padding: 24px 0 56px;
+    }
+    .hero745__content--glass,
+    .hero745__card-body,
+    .immersive745__card,
+    .response745-card__body,
+    .process745-card,
+    .final745__card {
+      padding: 22px;
+    }
+    .button745 {
+      width: 100%;
+    }
+    .hero745__lead,
+    .hero745__offer-line,
+    .hero745__content p,
+    .triggers745,
+    .quote745,
+    .quote745 p,
+    .quote745 footer,
+    .process745-card p,
+    .compare745-card p,
+    .story745-card p {
+      color: rgba(255, 246, 237, 0.98);
+    }
+
+    .triggers745 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
