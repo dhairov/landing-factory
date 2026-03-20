@@ -1,0 +1,1356 @@
+---
+import Analytics from '../components/Analytics.astro';
+import '../styles/global.css';
+
+const slug = 'komosstroy-pokrovskiy';
+const formName = `landing-${slug}`;
+
+const images = {
+  hero: '/assets/komosstroy-pokrovskiy/original/hero_hero.jpg',
+  aha1: '/assets/komosstroy-pokrovskiy/original/aha1_lobby.jpg',
+  aha2: '/assets/komosstroy-pokrovskiy/original/aha2_view.jpg',
+  aha3: '/assets/komosstroy-pokrovskiy/original/aha3_space.jpg',
+  qualifier: '/assets/komosstroy-pokrovskiy/original/qualifier_who.jpg',
+  evolution: '/assets/komosstroy-pokrovskiy/original/aha2_view.jpg',
+  footer: '/assets/komosstroy-pokrovskiy/original/footer_cta.jpg',
+  currentPositioning: '/assets/komosstroy-pokrovskiy/original/current_positioning.webp',
+};
+
+const triggerPoints = [
+  'Вы давно живёте в этом городе и не хотите его менять — но чувствуете, что выросли из текущего жилья.',
+  'Вы не ищете новый старт и не переезжаете ради перемен. Вы просто хотите, чтобы дом наконец совпал с тем, кем вы стали.',
+  'Вам важно остаться в своём городе, в своём ритме — но жить в среде, которая соответствует вашему реальному уровню жизни.',
+];
+
+const responseCards = [
+  {
+    number: '01',
+    title: 'Остаться в своём городе — и наконец выдохнуть',
+    problem: '«Я не хочу никуда переезжать. Здесь мои связи, мой ритм, мой привычный уклад. Но текущее жильё перестало соответствовать тому, кем я стал».',
+    answer:
+      '«Покровский» — это не переезд в другой город. Это переход в среду, которая наконец совпадает с тем, как вы живёте сейчас. Тот же район, та же жизнь — но дом, в котором больше не нужно ничего терпеть.',
+    detail:
+      'Не побег, не новый старт. Просто апгрейд среды внутри привычного города — КОМОССТРОЙ, Индустриальный район.',
+    cta: 'Посмотреть квартиры в «Покровском»',
+    image: images.aha1,
+    alt: 'Статусное лобби с приглушённым светом — первое ощущение нового уровня',
+  },
+  {
+    number: '02',
+    title: 'Среда, которая соответствует реальному уровню жизни',
+    problem: '«Я вырос из текущего жилья. Но переезжать в другой город не хочу — здесь всё моё. Просто хочу жить в среде, которая соответствует тому, кем я стал. В своём районе».',
+    answer:
+      'В «Покровском» двор спроектирован как пространство для жизни, а не для парковки. Зелень, дорожки, места для отдыха — всё это формирует ощущение своего уровня. Когда среда совпадает с человеком, он перестаёт тратить энергию на внутреннее несоответствие.',
+    detail:
+      'КОМОССТРОЙ, Индустриальный район. 165 квартир, от 3,8 млн руб. Сдача 4 квартал 2026. Среда, которая честно отражает, кем вы уже являетесь.',
+    cta: 'Посмотреть планировки «Покровского»',
+    image: images.aha2,
+    alt: 'Панорамный вид из окна нового ЖК — знакомый город, новый уровень',
+  },
+  {
+    number: '03',
+    title: 'Апгрейд без потери себя',
+    problem: '«Я не хочу ничего менять в своей жизни. Я просто хочу, чтобы дом наконец совпал с тем, кем я стал. Без переезда в другой город, без потери связей».',
+    answer:
+      '«Покровский» — это не про то, чтобы стать кем-то другим. Это про то, чтобы жить в среде, которая честно отражает, кем вы уже являетесь. Тот же город, те же люди, тот же ритм — но пространство, которое наконец перестало сдерживать.',
+    detail:
+      'КОМОССТРОЙ, Индустриальный район. Апгрейд среды без потери идентичности. Переход на новый уровень без смены всего, что важно.',
+    cta: 'Узнать подробнее о «Покровском»',
+    image: images.aha3,
+    alt: 'Просторная квартира с большими окнами — пространство, которое не сдерживает',
+  },
+];
+
+const selfSelection = [
+  'Когда вы понимаете, что выросли из текущего жилья — но не хотите менять привычный район и ритм жизни.',
+  'Когда вам важно остаться в своём городе, сохранить связи, но жить в среде, которая наконец совпадает с вашим реальным уровнем.',
+  'Когда «переехать» для вас означает не новый старт, а просто апгрейд среды внутри привычного района.',
+];
+
+const lifeStages = [
+  {
+    stage: 'Первое жильё',
+    price: 'Стартовый этап',
+    who: 'Вы только начинаете самостоятельную жизнь. Главное — своё пространство, пусть и небольшое.',
+    hire: 'Независимость и собственный старт. Жильё как точка опоры.',
+    format: 'Студии и 1-комнатные. Важна цена входа и локация.',
+  },
+  {
+    stage: 'Жильё под задачу',
+    price: 'Функциональный этап',
+    who: 'Жизнь усложнилась: семья, работа, ритм. Нужно пространство, которое поддерживает, а не мешает.',
+    hire: 'Практичность и соответствие текущему укладу. Дом как инструмент.',
+    format: '2-3 комнатные. Район, планировка, инфраструктура.',
+  },
+  {
+    stage: 'Апгрейд среды',
+    price: 'Сегмент «Остаться, но вырасти»',
+    who: 'Вы выросли из текущего жилья, но не хотите менять город. Нужна среда, которая совпадает с тем, кем вы стали.',
+    hire: 'Соответствие среды реальному уровню жизни. Апгрейд без потери идентичности.',
+    format: 'Бизнес-класс в своём городе. Тот же ритм — другая среда.',
+  },
+  {
+    stage: 'Среда как статус',
+    price: 'Премиум-этап',
+    who: 'Дом — это не просто жильё, а отражение достигнутого. Важно всё: адрес, соседи, детали.',
+    hire: 'Подтверждение уровня и принадлежности. Среда как часть идентичности.',
+    format: 'Премиум и элит. Адрес, вид, эксклюзивность.',
+  },
+];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Вы оставляете контакты',
+    text: 'Мы свяжемся с вами и расскажем о квартирах в «Покровском», которые подходят под ваш запрос.',
+  },
+  {
+    number: '02',
+    title: 'Подбираем подходящие варианты',
+    text: 'Исходя из вашего бюджета и предпочтений, предлагаем конкретные планировки из 165 доступных квартир.',
+  },
+  {
+    number: '03',
+    title: 'Проводим показ',
+    text: 'Приглашаем на просмотр квартиры и знакомство с двором и инфраструктурой «Покровского».',
+  },
+  {
+    number: '04',
+    title: 'Фиксируем условия сделки',
+    text: 'Помогаем выбрать удобный формат покупки: ипотека, рассрочка или 100% оплата. Сдача 4 квартал 2026.',
+  },
+];
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>ЖК «Покровский» — КОМОССТРОЙ | остаться в своём городе, вырасти в среде</title>
+    <meta
+      name="description"
+      content="ЖК «Покровский» от КОМОССТРОЙ — для тех, кто вырос из текущего жилья, но не хочет менять привычный город. Индустриальный район, от 3,8 млн руб., сдача 4 квартал 2026."
+    />
+  </head>
+  <body class="landing-745">
+    <Analytics landingSlug={slug} />
+
+    <main>
+      <section class="hero745 section section--photo-hero">
+        <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="container hero745__container">
+          <div class="hero745__label">КОМОССТРОЙ · ЖК «Покровский» · Индустриальный район</div>
+          <div class="hero745__grid">
+            <div class="hero745__content hero745__content--glass">
+              <h1>«Покровский» — для тех, кто вырос из текущего жилья. <em>Но не из своего города.</em></h1>
+              <p class="hero745__lead">
+                Есть момент, когда понимаешь: дом больше не совпадает с тем, кем ты стал.
+                Не потому что плохой — а потому что ты сам вырос. «Покровский» — это переход в среду,
+                которая наконец совпадает. Тот же город, тот же ритм.
+              </p>
+              <p class="hero745__offer-line">Индустриальный район · 165 квартир · от 3,8 млн руб. · сдача 4 кв. 2026</p>
+              <div class="hero745__actions hero745__actions--stacked">
+                <a class="button745 button745--primary" href="#contact">Посмотреть предложение</a>
+              </div>
+            </div>
+
+            <aside class="hero745__card hero745__card--floating">
+              <div class="hero745__card-body">
+                <h2>«Покровский» — для тех, кто хочет остаться в своём городе, но жить в среде, которая наконец совпадает с тем, кем они стали</h2>
+                <p class="hero745__meta">КОМОССТРОЙ · Индустриальный район · 165 квартир · от 3,8 млн руб.</p>
+                <p>
+                  Не побег, не новый старт. Просто переход в среду, которая соответствует тому, кем вы уже являетесь.
+                  Те же связи, тот же ритм — но двор без машин, продуманные планировки и дом, который наконец совпадает.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight triggers745-wrap triggers745-wrap--hero-continued">
+        <div class="hero745__backdrop hero745__backdrop--continued" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="triggers745__tone"></div>
+        <div class="container triggers745__container">
+          <div class="triggers745">
+            {triggerPoints.map((item) => <p>{item}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="immersive745 immersive745--hero" style={`--immersive-bg: url(${images.aha1})`}>
+        <div class="container immersive745__inner">
+          <div class="immersive745__card">
+            <p class="immersive745__eyebrow">ЖК «Покровский» · КОМОССТРОЙ · Апгрейд без потери себя</p>
+            <h2>«Покровский» — когда дом перестаёт быть компромиссом и начинает совпадать с тем, как вы живёте</h2>
+            <p>
+              В Индустриальном районе уже сложилась своя жизнь. Здесь не нужно ничего менять — только перейти
+              в среду, которая соответствует тому, кем вы стали. «Покровский» — это апгрейд без потери идентичности.
+            </p>
+            <div class="immersive745__facts">
+              <span>Индустриальный район</span>
+              <span>165 квартир</span>
+              <span>От 3,8 млн руб.</span>
+              <span>Сдача 4 кв. 2026</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section responses745 section--photo-soft" style={`--section-bg: url(${images.aha2})`}>
+        <div class="responses745__veil"></div>
+        <div class="container responses745__container">
+          <div class="section745-heading center745 section745-heading--light">
+            <h2>Как «Покровский» отвечает на то, что останавливает человека</h2>
+          </div>
+          <div class="responses745__stack">
+            {responseCards.map((card) => (
+              <article class="response745-card">
+                <div class="response745-card__media">
+                  <img src={card.image} alt={card.alt} loading="lazy" />
+                </div>
+                <div class="response745-card__body">
+                  <div class="response745-card__number">{card.number}</div>
+                  <h3>{card.title}</h3>
+                  <p class="response745-card__problem">{card.problem}</p>
+                  <p>{card.answer}</p>
+                  <p class="response745-card__detail">{card.detail}</p>
+                  {card.cta && (
+                    <a class="inline-link745" href="#contact">{card.cta}</a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="split-photo745">
+        <div class="split-photo745__image" style={`--split-bg: url(${images.qualifier})`}></div>
+        <div class="split-photo745__content-wrap">
+          <div class="container split-photo745__container">
+            <div class="split-photo745__content">
+              <p class="immersive745__eyebrow">Сегмент «Остаться, но вырасти» · Узнайте себя</p>
+              <h2>Этот сценарий — для тех, кто вырос из текущего жилья, но не хочет менять город</h2>
+              <div class="self745 self745--transparent">
+                {selfSelection.map((item) => <p>{item}</p>)}
+              </div>
+              <blockquote class="quote745 quote745--light">
+                <p>
+                  «Иногда самое правильное решение — это не переезд в другой город, а переход в другую среду внутри своего.
+                  Тот же город, те же люди, тот же ритм — но пространство, которое наконец перестало тебя сдерживать».
+                </p>
+                <footer>Из логики сегмента «Остаться, но вырасти»</footer>
+              </blockquote>
+              <a class="inline-link745 inline-link745--light" href="#contact">Если ваш проект подходит под этот сценарий — обсудим переупаковку</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.aha3})`}>
+        <div class="container immersive745__inner immersive745__inner--right">
+          <div class="immersive745__card immersive745__card--single-story">
+            <div class="story745-card">
+              <div class="story745-card__number">03</div>
+              <h2>Апгрейд без потери себя</h2>
+              <p class="story745-card__problem">«Я не хочу ничего менять в своей жизни. Я просто хочу, чтобы дом наконец совпал с тем, кем я стал. Без переезда в другой город, без потери связей».</p>
+              <p>«Покровский» — это не про то, чтобы стать кем-то другим. Это про то, чтобы жить в среде, которая честно отражает, кем вы уже являетесь. Тот же город, те же люди, тот же ритм — но пространство, которое наконец перестало сдерживать.</p>
+              <a class="inline-link745" href="#contact">Узнать подробнее о «Покровском»</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section life745 section--photo-soft" style={`--section-bg: url(${images.evolution})`}>
+        <div class="responses745__veil responses745__veil--warm"></div>
+        <div class="container life745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max">
+            <h2>На каком этапе своей эволюции клиент выбирает ваш продукт?</h2>
+            <p>Эта таблица показывает не ассортимент, а логику того, как сегмент, жизненная ситуация и Core Job соединяются в осмысленное позиционирование.</p>
+          </div>
+          <div class="life745-table-wrap">
+            <table class="life745-table">
+              <thead>
+                <tr>
+                  <th>Этап</th>
+                  <th>Кто вы сейчас</th>
+                  <th>Что вы нанимаете</th>
+                  <th>Формат проекта</th>
+                </tr>
+              </thead>
+              <tbody>
+                {lifeStages.map((item) => (
+                  <tr>
+                    <td>
+                      <strong>{item.stage}</strong>
+                      <span>{item.price}</span>
+                    </td>
+                    <td>{item.who}</td>
+                    <td>{item.hire}</td>
+                    <td>{item.format}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div class="center745 action745-wrap">
+            <a class="button745 button745--ghost" href="#contact">Обсудить, как упаковать ваш ЖК под сценарий «остаться, но вырасти»</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process745 section--photo-band" style={`--section-bg: url(${images.footer})`}>
+        <div class="section-band745__overlay section-band745__overlay--dark"></div>
+        <div class="container process745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max">
+            <h2>Как проходит путь к переупаковке девелоперского продукта</h2>
+          </div>
+          <div class="process745__grid process745__grid--stacked">
+            {processSteps.map((step) => (
+              <article class="process745-card process745-card--light process745-card--stacked">
+                <div class="process745-card__number">{step.number}</div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section final745 final745--photo">
+        <div class="final745__backdrop" style={`--final-bg: url(${images.footer})`}></div>
+        <div class="container final745__container">
+          <div class="final745__layout">
+            <div class="final745__media-copy">
+              <p class="final745__eyebrow">Ваше текущее позиционирование vs. сегментная переупаковка</p>
+              <h2>Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу, где расскажем про наш подход</h2>
+              <p class="final745__lead final745__lead--light">
+                Покажем, как сейчас выглядит подача проекта — и как её можно переупаковать под сценарий «остаться, но вырасти» с точным попаданием в логику апгрейда среды без смены города.
+              </p>
+              <div class="final745__positioning-shot">
+                <img src={images.currentPositioning} alt="Пример текущего позиционирования проекта девелопера" loading="lazy" />
+              </div>
+            </div>
+            <div class="final745__card">
+              <p class="final745__eyebrow">Стратегическая встреча по переупаковке</p>
+              <h3 class="final745__form-title">Оставьте контакты — проведём встречу и расскажем про наш подход</h3>
+              <p class="final745__lead">
+                Разберём текущее позиционирование проекта, посмотрим, насколько он подходит для сегмента «остаться, но вырасти»,
+                и покажем, как может выглядеть новая упаковка лендинга и оффера.
+              </p>
+              <form
+                name={formName}
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="/thank-you"
+                class="final745__form"
+              >
+                <input type="hidden" name="form-name" value={formName} />
+                <input type="hidden" name="landing_slug" value={slug} />
+                <input type="hidden" name="utm_source" value="" />
+                <input type="hidden" name="utm_medium" value="" />
+                <input type="hidden" name="utm_campaign" value="" />
+                <input type="hidden" name="utm_content" value="" />
+                <input type="hidden" name="utm_term" value="" />
+
+                <p class="sr-only">
+                  <label>
+                    Не заполняйте это поле, если вы человек:
+                    <input name="bot-field" />
+                  </label>
+                </p>
+
+                <div class="final745__form-grid">
+                  <div class="final745__field-block">
+                    <label for="name" class="field-label745">Имя</label>
+                    <input type="text" id="name" name="name" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="phone" class="field-label745">Телефон / Telegram</label>
+                    <input type="tel" id="phone" name="phone" required class="field-input745" />
+                  </div>
+
+                  <div class="final745__field-block final745__form-full">
+                    <label for="email" class="field-label745">Email</label>
+                    <input type="email" id="email" name="email" required class="field-input745" />
+                  </div>
+                </div>
+
+                <button type="submit" class="button745 button745--primary final745__submit">
+                  Записаться на встречу
+                </button>
+                <p class="final745__submit-note">Если текущее позиционирование не приводит к продажам, оставьте контакты — проведём встречу.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script define:vars={{ slug }}>
+      import { populateUTMFields, trackFormSubmission } from '../utils/analytics.ts';
+
+      const form = document.querySelector('#contact form');
+
+      if (form instanceof HTMLFormElement) {
+        populateUTMFields(form);
+        form.addEventListener('submit', () => {
+          populateUTMFields(form);
+          trackFormSubmission(slug);
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  :global(body.landing-745) {
+    background: #130f0d;
+    color: #241b16;
+  }
+
+  .landing-745 main {
+    overflow-x: hidden;
+    background: #f6efe8;
+  }
+
+  .section {
+    position: relative;
+  }
+
+  .hero745,
+  .life745,
+  .final745,
+  .responses745,
+  .process745 {
+    position: relative;
+  }
+
+  .hero745__container,
+  .responses745__container,
+  .life745__container,
+  .process745__container,
+  .final745__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .section--photo-hero,
+  .section--photo-band,
+  .section--photo-soft,
+  .final745--photo {
+    background-image: var(--section-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero745 {
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    padding: 48px 0;
+    overflow: hidden;
+  }
+
+  .hero745__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: var(--section-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero745__backdrop::after,
+  .section-band745__overlay,
+  .responses745__veil,
+  .immersive745::before,
+  .split-photo745__image::after,
+  .split-photo745__content-wrap::before,
+  .final745__backdrop::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hero745__backdrop::after {
+    background:
+      linear-gradient(90deg, rgba(16, 12, 10, 0.62) 0%, rgba(16, 12, 10, 0.34) 38%, rgba(16, 12, 10, 0.56) 100%),
+      linear-gradient(180deg, rgba(16, 12, 10, 0.14) 0%, rgba(16, 12, 10, 0.42) 100%);
+  }
+
+  .hero745__label,
+  .final745__eyebrow,
+  .immersive745__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #f2d6c6;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    backdrop-filter: none;
+    border: none;
+  }
+
+  .hero745__grid,
+  .final745__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.72fr);
+    gap: 28px;
+    align-items: end;
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - 96px);
+  }
+
+  .hero745__content--glass,
+  .hero745__card--floating,
+  .response745-card,
+  .process745-card,
+  .final745__card,
+  .quote745,
+  .immersive745__card,
+  .triggers745 p {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .hero745__content--glass {
+    align-self: start;
+    max-width: 780px;
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(19, 14, 12, 0.38);
+    border: 1px solid rgba(255, 247, 240, 0.14);
+    box-shadow: 0 18px 42px rgba(12, 9, 8, 0.24);
+  }
+
+  .hero745__content h1 {
+    font-size: clamp(46px, 6vw, 90px);
+    line-height: 0.95;
+    margin: 18px 0 24px;
+    color: #fff8f2;
+  }
+
+  .hero745__content h1 em {
+    display: inline-block;
+    font-style: italic;
+    color: #e9c8b6;
+  }
+
+  .hero745__lead {
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.45;
+    color: rgba(255, 248, 242, 0.92);
+    margin-bottom: 0;
+  }
+
+  .hero745__offer-line {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #f2d6c6;
+    margin: 0;
+  }
+
+  .hero745__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .hero745__card--floating,
+  .response745-card,
+  .process745-card,
+  .final745__card,
+  .quote745,
+  .immersive745__card {
+    background: rgba(255, 248, 242, 0.84);
+    border: 1px solid rgba(255, 247, 240, 0.22);
+    border-radius: 28px;
+    box-shadow: 0 18px 42px rgba(16, 12, 10, 0.16);
+  }
+
+  .hero745__card--floating {
+    align-self: end;
+  }
+
+  .hero745__card-body {
+    padding: 30px;
+  }
+
+  .hero745__card h2 {
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: #201713;
+  }
+
+  .hero745__meta {
+    font-weight: 700;
+    color: #6b4b3e;
+  }
+
+  .section--tight {
+    padding: 32px 0;
+  }
+
+  .section--photo-band,
+  .section--photo-soft,
+  .process745 {
+    overflow: hidden;
+  }
+
+  .section-band745__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(17, 13, 11, 0.48) 0%, rgba(17, 13, 11, 0.72) 100%);
+    z-index: 1;
+  }
+
+  .triggers745-wrap {
+    overflow: hidden;
+  }
+
+  .triggers745-wrap--hero-continued {
+    margin-top: -1px;
+    background: #2a201c;
+  }
+
+  .hero745__backdrop--continued {
+    inset: 0;
+  }
+
+  .hero745__backdrop--continued::after {
+    background: linear-gradient(180deg, rgba(16, 12, 10, 0.36) 0%, rgba(16, 12, 10, 0.54) 100%);
+  }
+
+  .triggers745__tone {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(42, 32, 28, 0.72) 0%, rgba(63, 47, 40, 0.86) 100%);
+    z-index: 1;
+  }
+
+  .section-band745__overlay--dark {
+    background: linear-gradient(180deg, rgba(17, 13, 11, 0.62) 0%, rgba(17, 13, 11, 0.78) 100%);
+  }
+
+  .triggers745__container {
+    position: relative;
+    z-index: 2;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .triggers745 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .triggers745 p,
+  .self745 p {
+    margin: 0;
+    padding: 22px 24px;
+    border-radius: 24px;
+    background: rgba(255, 248, 242, 0.14);
+    border: 1px solid rgba(255, 248, 242, 0.16);
+    color: #fff8f2;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .immersive745 {
+    position: relative;
+    min-height: 84vh;
+    display: flex;
+    align-items: center;
+    background-image: var(--immersive-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .immersive745::before {
+    background:
+      linear-gradient(90deg, rgba(24, 18, 15, 0.78) 0%, rgba(24, 18, 15, 0.42) 42%, rgba(24, 18, 15, 0.18) 100%),
+      linear-gradient(180deg, rgba(24, 18, 15, 0.08) 0%, rgba(24, 18, 15, 0.46) 100%);
+  }
+
+  .immersive745__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 72px 0;
+  }
+
+  .immersive745__inner--right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .immersive745__card {
+    max-width: 640px;
+    padding: 32px;
+  }
+
+  .immersive745__card--single-story {
+    max-width: 760px;
+    padding: 24px;
+  }
+
+  .story745-card {
+    background: rgba(255, 248, 242, 0.96);
+    border-radius: 28px;
+    padding: 34px 36px;
+    color: #241b16;
+  }
+
+  .story745-card__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    background: #f5ede6;
+    color: #2b211c;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 22px;
+  }
+
+  .story745-card h2 {
+    margin: 0 0 18px;
+    font-size: clamp(36px, 4vw, 58px);
+    line-height: 1.02;
+    color: #201713;
+  }
+
+  .story745-card p {
+    margin: 0 0 22px;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #544137;
+  }
+
+  .story745-card__problem {
+    font-size: 22px;
+    line-height: 1.55;
+    color: #4c3930;
+  }
+
+  .immersive745__card h2 {
+    margin: 14px 0 16px;
+    font-size: clamp(36px, 4.4vw, 62px);
+    line-height: 1.02;
+    color: #201713;
+  }
+
+  .immersive745__card p:last-child {
+    margin-bottom: 0;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #44332a;
+  }
+
+  .immersive745__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .immersive745__facts span {
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(255, 248, 242, 0.18);
+    border: 1px solid rgba(255, 248, 242, 0.22);
+    color: #fff8f2;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .responses745 {
+    padding: 84px 0;
+  }
+
+  .responses745__veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18, 14, 12, 0.78) 0%, rgba(18, 14, 12, 0.64) 100%);
+    z-index: 1;
+  }
+
+  .responses745__veil--warm {
+    background: linear-gradient(180deg, rgba(20, 15, 12, 0.58) 0%, rgba(20, 15, 12, 0.72) 100%);
+  }
+
+  .section745-heading {
+    margin-bottom: 28px;
+  }
+
+  .section745-heading h2 {
+    margin: 0 0 14px;
+    font-size: clamp(34px, 4vw, 58px);
+    line-height: 1.02;
+    color: #201713;
+  }
+
+  .section745-heading p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #5a453b;
+  }
+
+  .section745-heading--light h2,
+  .section745-heading--light p {
+    color: #fff8f2;
+  }
+
+  .section745-heading--max {
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .center745 {
+    text-align: center;
+  }
+
+  .responses745__stack,
+  .self745 {
+    display: grid;
+    gap: 24px;
+  }
+
+  .response745-card {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+    overflow: hidden;
+  }
+
+  .response745-card:nth-child(even) {
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  }
+
+  .response745-card:nth-child(even) .response745-card__media {
+    order: 2;
+  }
+
+  .response745-card:nth-child(even) .response745-card__body {
+    order: 1;
+  }
+
+  .response745-card__media {
+    overflow: hidden;
+    background: #e9e0d6;
+    min-height: 420px;
+  }
+
+  .response745-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .response745-card__body {
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .response745-card__number,
+  .process745-card__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: #f0e2d6;
+    color: #6b4b3e;
+    font-weight: 800;
+  }
+
+  .response745-card h3,
+  .process745-card h3,
+  .final745__form-title {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.18;
+    color: #241b16;
+  }
+
+  .response745-card__problem {
+    font-size: 20px;
+    line-height: 1.55;
+    color: #5b463d;
+    margin: 0;
+  }
+
+  .response745-card__detail {
+    font-size: 17px;
+    line-height: 1.55;
+    color: #6b5248;
+    margin: 0;
+  }
+
+  .inline-link745 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b4b3e;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 4px;
+  }
+
+  .inline-link745:hover {
+    text-decoration: underline;
+  }
+
+  .inline-link745--light {
+    color: #f2d6c6;
+  }
+
+  .split-photo745 {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    min-height: 88vh;
+    background: #1a1411;
+  }
+
+  .split-photo745__image {
+    position: relative;
+    min-height: 520px;
+    background-image: var(--split-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .split-photo745__image::after {
+    background: linear-gradient(180deg, rgba(17, 13, 11, 0.18) 0%, rgba(17, 13, 11, 0.38) 100%);
+  }
+
+  .split-photo745__content-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(180deg, rgba(22, 17, 14, 0.9) 0%, rgba(22, 17, 14, 0.96) 100%);
+  }
+
+  .split-photo745__content-wrap::before {
+    background-image: url('/assets/komosstroy-pokrovskiy/original/aha3_space.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    mix-blend-mode: screen;
+  }
+
+  .split-photo745__container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .split-photo745__content {
+    max-width: 720px;
+    padding: 64px 0 64px 48px;
+    color: #fff8f2;
+  }
+
+  .split-photo745__content h2 {
+    margin: 18px 0 24px;
+    font-size: clamp(36px, 4.4vw, 62px);
+    line-height: 1.02;
+    color: #fff8f2;
+  }
+
+  .self745--transparent p {
+    background: rgba(255, 248, 242, 0.08);
+  }
+
+  .quote745 {
+    padding: 28px;
+  }
+
+  .quote745 p {
+    margin: 0 0 14px;
+    font-size: 22px;
+    line-height: 1.6;
+    color: #342620;
+  }
+
+  .quote745 footer {
+    color: #6b4b3e;
+    font-weight: 700;
+  }
+
+  .quote745--light {
+    background: rgba(255, 248, 242, 0.1);
+    border: 1px solid rgba(255, 248, 242, 0.12);
+  }
+
+  .quote745--light p,
+  .quote745--light footer {
+    color: #fff8f2;
+  }
+
+  .life745 {
+    padding: 88px 0;
+  }
+
+  .life745-table-wrap {
+    overflow-x: auto;
+    border-radius: 28px;
+    box-shadow: 0 18px 42px rgba(60, 39, 29, 0.18);
+    position: relative;
+    z-index: 2;
+  }
+
+  .life745-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 250, 245, 0.9);
+    min-width: 860px;
+  }
+
+  .life745-table th,
+  .life745-table td {
+    padding: 20px 22px;
+    border-bottom: 1px solid rgba(111, 75, 63, 0.1);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .life745-table th {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b4b3e;
+    background: rgba(240, 226, 214, 0.8);
+  }
+
+  .life745-table td strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #241b16;
+  }
+
+  .life745-table td span {
+    color: #6b4b3e;
+    font-weight: 700;
+  }
+
+  .action745-wrap {
+    margin-top: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .process745 {
+    padding: 84px 0;
+  }
+
+  .process745__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .process745__grid--stacked {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .process745-card {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .process745-card--stacked {
+    display: block;
+    padding: 28px;
+  }
+
+  .process745-card--stacked .process745-card__number {
+    margin-bottom: 18px;
+  }
+
+  .process745-card--stacked h3,
+  .process745-card--stacked p {
+    max-width: none;
+  }
+
+  .process745-card--light {
+    background: rgba(255, 248, 242, 0.14);
+    border: 1px solid rgba(255, 248, 242, 0.14);
+    color: #fff8f2;
+  }
+
+  .process745-card--light h3,
+  .process745-card--light p {
+    color: #fff8f2;
+  }
+
+  .final745 {
+    color: #fff8f2;
+    overflow: hidden;
+    padding: 88px 0;
+  }
+
+  .final745__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: var(--final-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .final745__backdrop::after {
+    background:
+      linear-gradient(90deg, rgba(18, 14, 12, 0.84) 0%, rgba(18, 14, 12, 0.62) 40%, rgba(18, 14, 12, 0.48) 100%),
+      linear-gradient(180deg, rgba(18, 14, 12, 0.24) 0%, rgba(18, 14, 12, 0.62) 100%);
+  }
+
+  .final745__media-copy {
+    align-self: center;
+    max-width: 720px;
+  }
+
+  .final745__media-copy h2 {
+    margin: 18px 0;
+    font-size: clamp(38px, 4.3vw, 64px);
+    line-height: 1.02;
+    color: #fff8f2;
+  }
+
+  .final745__lead {
+    font-size: 20px;
+    line-height: 1.55;
+    color: #5a453b;
+    margin-bottom: 24px;
+  }
+
+  .final745__lead--light {
+    color: rgba(255, 248, 242, 0.9);
+    max-width: 640px;
+    margin-bottom: 0;
+  }
+
+  .final745__card {
+    padding: 32px;
+    background: rgba(255, 247, 240, 0.92);
+    color: #241b16;
+  }
+
+  .final745__positioning-shot {
+    margin-top: 28px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(12, 9, 8, 0.32);
+  }
+
+  .final745__positioning-shot img {
+    width: 100%;
+    display: block;
+  }
+
+  .final745__form {
+    display: grid;
+    row-gap: 18px;
+    align-items: start;
+  }
+
+  .final745__form-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .final745__field-block,
+  .final745__form-grid > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .final745__form-full {
+    grid-column: 1 / -1;
+  }
+
+  .field-label745 {
+    display: block;
+    margin-bottom: 10px;
+    color: #4f3a31;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .field-input745 {
+    width: 100%;
+    min-height: 54px;
+    border-radius: 16px;
+    border: 1px solid rgba(111, 75, 63, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 14px 16px;
+    font: inherit;
+    line-height: 1.4;
+    color: #241b16;
+    box-sizing: border-box;
+  }
+
+  .button745 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 56px;
+    padding: 0 24px;
+    border-radius: 999px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .button745:hover {
+    transform: translateY(-1px);
+  }
+
+  .button745--primary {
+    background: linear-gradient(135deg, #6f4b3f 0%, #8b6455 100%);
+    color: #fffaf6;
+    box-shadow: 0 12px 30px rgba(107, 75, 62, 0.25);
+  }
+
+  .button745--ghost {
+    background: rgba(255, 248, 242, 0.14);
+    color: #fff8f2;
+    border: 1px solid rgba(255, 248, 242, 0.2);
+    backdrop-filter: blur(8px);
+  }
+
+  .final745__submit {
+    margin-top: 22px;
+    width: 100%;
+  }
+
+  .final745__submit-note {
+    font-size: 15px;
+    color: #7a5c52;
+    margin: 0;
+    text-align: center;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 1100px) {
+    .hero745__grid,
+    .final745__layout,
+    .response745-card,
+    .response745-card:nth-child(even),
+    .process745__grid,
+    .split-photo745 {
+      grid-template-columns: 1fr;
+    }
+
+    .response745-card:nth-child(even) .response745-card__media,
+    .response745-card:nth-child(even) .response745-card__body {
+      order: initial;
+    }
+
+    .triggers745 {
+      grid-template-columns: 1fr;
+    }
+
+    .immersive745 {
+      min-height: 62vh;
+    }
+
+    .immersive745__inner--right {
+      justify-content: flex-start;
+    }
+
+    .split-photo745__content {
+      padding: 40px 0;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .hero745,
+    .responses745,
+    .life745,
+    .process745,
+    .final745 {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    .hero745__grid {
+      min-height: auto;
+    }
+
+    .hero745__content--glass,
+    .hero745__card-body,
+    .response745-card__body,
+    .process745-card,
+    .quote745,
+    .final745__card,
+    .immersive745__card {
+      padding: 22px;
+    }
+
+    .response745-card__media {
+      min-height: 260px;
+    }
+
+    .final745__form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .life745-table {
+      min-width: 720px;
+    }
+
+    .immersive745,
+    .split-photo745 {
+      min-height: auto;
+    }
+  }
+</style>
