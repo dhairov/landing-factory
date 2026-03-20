@@ -6,13 +6,14 @@
     "description": "ГК СМК, ЖК Горизонты в Северодвинске. Переупаковка под сегмент «остаться, но вырасти»: панорамные виды на Белое море, новый уровень жизни в своём городе."
   },
   "images": {
-    "hero": "/assets/smk-gorizonty/hero.jpg",
-    "aha1": "/assets/smk-gorizonty/aha1.jpg",
-    "aha2": "/assets/smk-gorizonty/aha2.jpg",
-    "aha3": "/assets/smk-gorizonty/aha3.jpg",
-    "qualifier": "/assets/smk-gorizonty/qualifier.jpg",
-    "footer": "/assets/smk-gorizonty/footer.jpg",
-    "currentPositioning": "/assets/smk-gorizonty/original/current_positioning.webp"
+    "hero": "/assets/stay-but-grow/original/hero_hero.jpg",
+    "aha1": "/assets/stay-but-grow/original/aha1_lobby.jpg",
+    "aha2": "/assets/stay-but-grow/original/aha2_view.jpg",
+    "aha3": "/assets/stay-but-grow/original/aha3_space.jpg",
+    "qualifier": "/assets/stay-but-grow/original/qualifier_who.jpg",
+    "footer": "/assets/stay-but-grow/original/footer_cta.jpg",
+    "currentPositioning": "/assets/smk-gorizonty/original/current_positioning.webp",
+    "evolution": "/assets/stay-but-grow/original/evolution_levels.webp"
   },
   "hero": {
     "label": "ГК СМК · ЖК Горизонты · Северодвинск",

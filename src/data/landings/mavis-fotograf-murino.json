@@ -8,13 +8,14 @@
     "description": "ИСГ МАВИС, ЖК Фотограф в Мурино. Переупаковка под сегмент семьи второго цикла: первое жильё рядом с Петербургом по доступной цене."
   },
   "images": {
-    "hero": "/assets/mavis-fotograf-murino/hero.jpg",
-    "aha1": "/assets/mavis-fotograf-murino/aha1.jpg",
-    "aha2": "/assets/mavis-fotograf-murino/aha2.jpg",
-    "aha3": "/assets/mavis-fotograf-murino/aha3.jpg",
-    "qualifier": "/assets/mavis-fotograf-murino/qualifier.jpg",
-    "footer": "/assets/mavis-fotograf-murino/footer.jpg",
-    "currentPositioning": "/assets/mavis-fotograf-murino/current_positioning.webp"
+    "hero": "/assets/745-kvartal/original/hero_hero.webp",
+    "aha1": "/assets/745-kvartal/original/aha1_silence.webp",
+    "aha2": "/assets/745-kvartal/original/aha2_community.webp",
+    "aha3": "/assets/745-kvartal/original/aha3_soul.webp",
+    "qualifier": "/assets/745-kvartal/original/qualifier_who.webp",
+    "footer": "/assets/745-kvartal/original/footer_cta.webp",
+    "currentPositioning": "/assets/mavis-fotograf-murino/current_positioning.webp",
+    "compare": "/assets/745-kvartal/original/advantages_compare.webp"
   },
   "hero": {
     "label": "ИСГ МАВИС · ЖК Фотограф · Мурино",
@@ -117,6 +118,9 @@
       "eyebrow": "Текущее позиционирование ЖК «Фотограф»",
       "h2": "Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу",
       "formEyebrow": "Запись на встречу"
+    },
+    "triggers": {
+      "h2": "Почему покупатели выбирают ЖК Фотограф"
     }
   }
 }

@@ -8,13 +8,14 @@
     "description": "ГК Садовое кольцо, ЖК Базаева 11 в Шаховской. Переупаковка под сегмент семьи второго цикла: современный дом в тихом поселке."
   },
   "images": {
-    "hero": "/assets/gk-sadovoe-koltso-bazaeva-11/hero.jpg",
-    "aha1": "/assets/gk-sadovoe-koltso-bazaeva-11/aha1.jpg",
-    "aha2": "/assets/gk-sadovoe-koltso-bazaeva-11/aha2.jpg",
-    "aha3": "/assets/gk-sadovoe-koltso-bazaeva-11/aha3.jpg",
-    "qualifier": "/assets/gk-sadovoe-koltso-bazaeva-11/qualifier.jpg",
-    "footer": "/assets/gk-sadovoe-koltso-bazaeva-11/footer.jpg",
-    "currentPositioning": "/assets/gk-sadovoe-koltso-bazaeva-11/current_positioning.png"
+    "hero": "/assets/745-kvartal/original/hero_hero.webp",
+    "aha1": "/assets/745-kvartal/original/aha1_silence.webp",
+    "aha2": "/assets/745-kvartal/original/aha2_community.webp",
+    "aha3": "/assets/745-kvartal/original/aha3_soul.webp",
+    "qualifier": "/assets/745-kvartal/original/qualifier_who.webp",
+    "footer": "/assets/745-kvartal/original/footer_cta.webp",
+    "currentPositioning": "/assets/gk-sadovoe-koltso-bazaeva-11/current_positioning.png",
+    "compare": "/assets/745-kvartal/original/advantages_compare.webp"
   },
   "hero": {
     "label": "ГК Садовое кольцо · Базаева 11 · Шаховская",
@@ -117,6 +118,9 @@
       "eyebrow": "Текущее позиционирование «Базаева 11»",
       "h2": "Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу",
       "formEyebrow": "Запись на встречу"
+    },
+    "triggers": {
+      "h2": "Почему покупатели выбирают Базаева 11"
     }
   }
 }

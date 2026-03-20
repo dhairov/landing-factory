@@ -8,13 +8,14 @@
     "description": "ГК Метрикс Development, ЖК Nova Vita в Краснодаре. Переупаковка под сегмент «остаться, но вырасти»: новый уровень жизни в Краснодаре без переезда."
   },
   "images": {
-    "hero": "/assets/metriks-nova-vita/hero.jpg",
-    "aha1": "/assets/metriks-nova-vita/aha1.jpg",
-    "aha2": "/assets/metriks-nova-vita/aha2.jpg",
-    "aha3": "/assets/metriks-nova-vita/aha3.jpg",
-    "qualifier": "/assets/metriks-nova-vita/qualifier.jpg",
-    "footer": "/assets/metriks-nova-vita/footer.jpg",
-    "currentPositioning": "/assets/metriks-nova-vita/current_positioning.webp"
+    "hero": "/assets/stay-but-grow/original/hero_hero.jpg",
+    "aha1": "/assets/stay-but-grow/original/aha1_lobby.jpg",
+    "aha2": "/assets/stay-but-grow/original/aha2_view.jpg",
+    "aha3": "/assets/stay-but-grow/original/aha3_space.jpg",
+    "qualifier": "/assets/stay-but-grow/original/qualifier_who.jpg",
+    "footer": "/assets/stay-but-grow/original/footer_cta.jpg",
+    "currentPositioning": "/assets/metriks-development-nova-vita/current_positioning.webp",
+    "evolution": "/assets/stay-but-grow/original/evolution_levels.webp"
   },
   "hero": {
     "label": "ГК Метрикс Development · ЖК Nova Vita · Краснодар",

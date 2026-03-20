@@ -8,13 +8,14 @@
     "description": "Астра, ЖК Белый парус в Екатеринбурге. Квартал на берегу водоёма с набережной, парком и развитой инфраструктурой."
   },
   "images": {
-    "hero": "/assets/astra-bely-parus/hero.jpg",
-    "aha1": "/assets/astra-bely-parus/aha1.jpg",
-    "aha2": "/assets/astra-bely-parus/aha2.jpg",
-    "aha3": "/assets/astra-bely-parus/aha3.jpg",
-    "qualifier": "/assets/astra-bely-parus/qualifier.jpg",
-    "footer": "/assets/astra-bely-parus/footer.jpg",
-    "currentPositioning": "/assets/astra-bely-parus/current_positioning.png"
+    "hero": "/assets/745-kvartal/original/hero_hero.webp",
+    "aha1": "/assets/745-kvartal/original/aha1_silence.webp",
+    "aha2": "/assets/745-kvartal/original/aha2_community.webp",
+    "aha3": "/assets/745-kvartal/original/aha3_soul.webp",
+    "qualifier": "/assets/745-kvartal/original/qualifier_who.webp",
+    "footer": "/assets/745-kvartal/original/footer_cta.webp",
+    "currentPositioning": "/assets/astra-belyy-parus/current_positioning.png",
+    "compare": "/assets/745-kvartal/original/advantages_compare.webp"
   },
   "hero": {
     "label": "Астра · ЖК Белый парус · Екатеринбург",
@@ -117,6 +118,9 @@
       "eyebrow": "Текущее позиционирование ЖК «Белый парус»",
       "h2": "Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу",
       "formEyebrow": "Запись на встречу"
+    },
+    "triggers": {
+      "h2": "Почему покупатели выбирают ЖК Белый парус"
     }
   }
 }

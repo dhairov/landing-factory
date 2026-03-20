@@ -6,12 +6,12 @@
     "description": "Характер Девелопмент, ЖК Чемпионский в Тюмени. Переупаковка под сегмент «квартира ребёнку»: первое жильё для детей в активном квартале."
   },
   "images": {
-    "hero": "/assets/kharakter-chempionskiy/hero.jpg",
-    "aha1": "/assets/kharakter-chempionskiy/aha1.jpg",
-    "aha2": "/assets/kharakter-chempionskiy/aha2.jpg",
-    "aha3": "/assets/kharakter-chempionskiy/aha3.jpg",
-    "qualifier": "/assets/kharakter-chempionskiy/qualifier.jpg",
-    "footer": "/assets/kharakter-chempionskiy/footer.jpg",
+    "hero": "/assets/parental-capital/original/hero_hero.jpg",
+    "aha1": "/assets/parental-capital/original/aha1_timing.jpg",
+    "aha2": "/assets/parental-capital/original/aha2_choice.jpg",
+    "aha3": "/assets/parental-capital/original/aha3_investment.jpg",
+    "qualifier": "/assets/parental-capital/original/qualifier_who.jpg",
+    "footer": "/assets/parental-capital/original/footer_cta.jpg",
     "currentPositioning": "/assets/kharakter-chempionskiy/original/current_positioning.webp"
   },
   "hero": {

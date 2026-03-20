@@ -6,12 +6,12 @@
     "description": "ГК Монолит, ЖК Ирис в Симферополе. Переупаковка под сегмент «квартира ребёнку»: первое жильё в Крыму с использованием материнского капитала."
   },
   "images": {
-    "hero": "/assets/monolit-iris/hero.jpg",
-    "aha1": "/assets/monolit-iris/aha1.jpg",
-    "aha2": "/assets/monolit-iris/aha2.jpg",
-    "aha3": "/assets/monolit-iris/aha3.jpg",
-    "qualifier": "/assets/monolit-iris/qualifier.jpg",
-    "footer": "/assets/monolit-iris/footer.jpg",
+    "hero": "/assets/parental-capital/original/hero_hero.jpg",
+    "aha1": "/assets/parental-capital/original/aha1_timing.jpg",
+    "aha2": "/assets/parental-capital/original/aha2_choice.jpg",
+    "aha3": "/assets/parental-capital/original/aha3_investment.jpg",
+    "qualifier": "/assets/parental-capital/original/qualifier_who.jpg",
+    "footer": "/assets/parental-capital/original/footer_cta.jpg",
     "currentPositioning": "/assets/monolit-iris/original/current_positioning.webp"
   },
   "hero": {

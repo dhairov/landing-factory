@@ -8,13 +8,14 @@
     "description": "Холдинг Партнер, ЖК Среда в Тюмени. Переупаковка под сегмент семьи второго цикла: стильный квартал рядом с лесом и парком."
   },
   "images": {
-    "hero": "/assets/holding-partner-jk-sreda/hero.jpg",
-    "aha1": "/assets/holding-partner-jk-sreda/aha1.jpg",
-    "aha2": "/assets/holding-partner-jk-sreda/aha2.jpg",
-    "aha3": "/assets/holding-partner-jk-sreda/aha3.jpg",
-    "qualifier": "/assets/holding-partner-jk-sreda/qualifier.jpg",
-    "footer": "/assets/holding-partner-jk-sreda/footer.jpg",
-    "currentPositioning": "/assets/holding-partner-jk-sreda/current_positioning.webp"
+    "hero": "/assets/745-kvartal/original/hero_hero.webp",
+    "aha1": "/assets/745-kvartal/original/aha1_silence.webp",
+    "aha2": "/assets/745-kvartal/original/aha2_community.webp",
+    "aha3": "/assets/745-kvartal/original/aha3_soul.webp",
+    "qualifier": "/assets/745-kvartal/original/qualifier_who.webp",
+    "footer": "/assets/745-kvartal/original/footer_cta.webp",
+    "currentPositioning": "/assets/holding-partner-jk-sreda/current_positioning.webp",
+    "compare": "/assets/745-kvartal/original/advantages_compare.webp"
   },
   "hero": {
     "label": "Холдинг Партнер · ЖК Среда · Тюмень",
@@ -117,6 +118,9 @@
       "eyebrow": "Текущее позиционирование ЖК «Среда»",
       "h2": "Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу",
       "formEyebrow": "Запись на встречу"
+    },
+    "triggers": {
+      "h2": "Почему покупатели выбирают ЖК Среда"
     }
   }
 }

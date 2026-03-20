@@ -6,12 +6,12 @@
     "description": "AVA Group, ЖК Кислород в Сочи. Переупаковка под сегмент «квартира ребёнку»: первое жильё у моря как инвестиция в будущее."
   },
   "images": {
-    "hero": "/assets/ava-kislorod/hero.jpg",
-    "aha1": "/assets/ava-kislorod/aha1.jpg",
-    "aha2": "/assets/ava-kislorod/aha2.jpg",
-    "aha3": "/assets/ava-kislorod/aha3.jpg",
-    "qualifier": "/assets/ava-kislorod/qualifier.jpg",
-    "footer": "/assets/ava-kislorod/footer.jpg",
+    "hero": "/assets/parental-capital/original/hero_hero.jpg",
+    "aha1": "/assets/parental-capital/original/aha1_timing.jpg",
+    "aha2": "/assets/parental-capital/original/aha2_choice.jpg",
+    "aha3": "/assets/parental-capital/original/aha3_investment.jpg",
+    "qualifier": "/assets/parental-capital/original/qualifier_who.jpg",
+    "footer": "/assets/parental-capital/original/footer_cta.jpg",
     "currentPositioning": "/assets/ava-kislorod/original/current_positioning.webp"
   },
   "hero": {

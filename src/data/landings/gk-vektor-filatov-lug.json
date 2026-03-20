@@ -6,13 +6,14 @@
     "description": "ГК Вектор, ЖК Филатов луг в Москве. Переупаковка под сегмент «семья, второй цикл»: квартиры с ключами в 2026, 2,6 тыс. га зелени, метро Филатов Луг."
   },
   "images": {
-    "hero": "/assets/vektor-filatov-lug/hero.jpg",
-    "aha1": "/assets/vektor-filatov-lug/aha1.jpg",
-    "aha2": "/assets/vektor-filatov-lug/aha2.jpg",
-    "aha3": "/assets/vektor-filatov-lug/aha3.jpg",
-    "qualifier": "/assets/vektor-filatov-lug/qualifier.jpg",
-    "footer": "/assets/vektor-filatov-lug/footer.jpg",
-    "currentPositioning": "/assets/vektor-filatov-lug/original/current_positioning.webp"
+    "hero": "/assets/745-kvartal/original/hero_hero.webp",
+    "aha1": "/assets/745-kvartal/original/aha1_silence.webp",
+    "aha2": "/assets/745-kvartal/original/aha2_community.webp",
+    "aha3": "/assets/745-kvartal/original/aha3_soul.webp",
+    "qualifier": "/assets/745-kvartal/original/qualifier_who.webp",
+    "footer": "/assets/745-kvartal/original/footer_cta.webp",
+    "currentPositioning": "/assets/vektor-filatov-lug/original/current_positioning.webp",
+    "compare": "/assets/745-kvartal/original/advantages_compare.webp"
   },
   "hero": {
     "label": "ГК Вектор · ЖК Филатов луг · Москва",
@@ -115,6 +116,9 @@
       "eyebrow": "Текущее позиционирование ЖК «Филатов луг»",
       "h2": "Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу",
       "formEyebrow": "Запись на встречу"
+    },
+    "triggers": {
+      "h2": "Почему покупатели выбирают ЖК Филатов луг"
     }
   },
   "slug": "gk-vektor-filatov-lug"

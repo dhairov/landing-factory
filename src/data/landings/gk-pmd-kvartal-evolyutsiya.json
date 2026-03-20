@@ -6,13 +6,14 @@
     "description": "ГК ПМД, Квартал Эволюция в Перми. Переупаковка под сегмент «остаться, но вырасти»: бизнес-класс в центре Перми, сдача в III квартале 2026."
   },
   "images": {
-    "hero": "/assets/pmd-evolyutsiya/hero.jpg",
-    "aha1": "/assets/pmd-evolyutsiya/aha1.jpg",
-    "aha2": "/assets/pmd-evolyutsiya/aha2.jpg",
-    "aha3": "/assets/pmd-evolyutsiya/aha3.jpg",
-    "qualifier": "/assets/pmd-evolyutsiya/qualifier.jpg",
-    "footer": "/assets/pmd-evolyutsiya/footer.jpg",
-    "currentPositioning": "/assets/pmd-evolyutsiya/original/current_positioning.webp"
+    "hero": "/assets/stay-but-grow/original/hero_hero.jpg",
+    "aha1": "/assets/stay-but-grow/original/aha1_lobby.jpg",
+    "aha2": "/assets/stay-but-grow/original/aha2_view.jpg",
+    "aha3": "/assets/stay-but-grow/original/aha3_space.jpg",
+    "qualifier": "/assets/stay-but-grow/original/qualifier_who.jpg",
+    "footer": "/assets/stay-but-grow/original/footer_cta.jpg",
+    "currentPositioning": "/assets/pmd-evolyutsiya/original/current_positioning.webp",
+    "evolution": "/assets/stay-but-grow/original/evolution_levels.webp"
   },
   "hero": {
     "label": "ГК ПМД · Квартал Эволюция · Пермь",

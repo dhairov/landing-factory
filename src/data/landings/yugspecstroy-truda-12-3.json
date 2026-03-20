@@ -8,13 +8,14 @@
     "description": "ЮгСпецСтрой, ЖК Труда 12/3 в Ростове-на-Дону. Клубный дом на Ленина: отделка в подарок, квартиры от 135 000 ₽/м², комфорт-класс."
   },
   "images": {
-    "hero": "/assets/yugspetsstroy-truda-12-3/hero.jpg",
-    "aha1": "/assets/yugspetsstroy-truda-12-3/aha1.jpg",
-    "aha2": "/assets/yugspetsstroy-truda-12-3/aha2.jpg",
-    "aha3": "/assets/yugspetsstroy-truda-12-3/aha3.jpg",
-    "qualifier": "/assets/yugspetsstroy-truda-12-3/qualifier.jpg",
-    "footer": "/assets/yugspetsstroy-truda-12-3/footer.jpg",
-    "currentPositioning": "/assets/yugspetsstroy-truda-12-3/current_positioning.png"
+    "hero": "/assets/745-kvartal/original/hero_hero.webp",
+    "aha1": "/assets/745-kvartal/original/aha1_silence.webp",
+    "aha2": "/assets/745-kvartal/original/aha2_community.webp",
+    "aha3": "/assets/745-kvartal/original/aha3_soul.webp",
+    "qualifier": "/assets/745-kvartal/original/qualifier_who.webp",
+    "footer": "/assets/745-kvartal/original/footer_cta.webp",
+    "currentPositioning": "/assets/yugspecstroy-truda-12-3/current_positioning.png",
+    "compare": "/assets/745-kvartal/original/advantages_compare.webp"
   },
   "hero": {
     "label": "ЮгСпецСтрой · Клубный дом на Ленина · Ростов-на-Дону",
@@ -117,6 +118,9 @@
       "eyebrow": "Текущее позиционирование клубного дома на Ленина",
       "h2": "Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу",
       "formEyebrow": "Запись на встречу"
+    },
+    "triggers": {
+      "h2": "Почему покупатели выбирают Клубный дом на Ленина"
     }
   }
 }

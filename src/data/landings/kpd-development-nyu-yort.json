@@ -8,13 +8,14 @@
     "description": "ГК КПД-ДЕВЕЛОПМЕНТ, ЖК Нью-Йорт в Уфе. Старт продаж дома №4, сдача II кв. 2026. Квартиры от 37 до 83 кв.м."
   },
   "images": {
-    "hero": "/assets/kpd-nyu-yort/hero.jpg",
-    "aha1": "/assets/kpd-nyu-yort/aha1.jpg",
-    "aha2": "/assets/kpd-nyu-yort/aha2.jpg",
-    "aha3": "/assets/kpd-nyu-yort/aha3.jpg",
-    "qualifier": "/assets/kpd-nyu-yort/qualifier.jpg",
-    "footer": "/assets/kpd-nyu-yort/footer.jpg",
-    "currentPositioning": "/assets/kpd-nyu-yort/current_positioning.png"
+    "hero": "/assets/745-kvartal/original/hero_hero.webp",
+    "aha1": "/assets/745-kvartal/original/aha1_silence.webp",
+    "aha2": "/assets/745-kvartal/original/aha2_community.webp",
+    "aha3": "/assets/745-kvartal/original/aha3_soul.webp",
+    "qualifier": "/assets/745-kvartal/original/qualifier_who.webp",
+    "footer": "/assets/745-kvartal/original/footer_cta.webp",
+    "currentPositioning": "/assets/kpd-development-nyu-yort/current_positioning.png",
+    "compare": "/assets/745-kvartal/original/advantages_compare.webp"
   },
   "hero": {
     "label": "ГК КПД-ДЕВЕЛОПМЕНТ · ЖК Нью-Йорт · Уфа",
@@ -117,6 +118,9 @@
       "eyebrow": "Текущее позиционирование ЖК «Нью-Йорт»",
       "h2": "Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу",
       "formEyebrow": "Запись на встречу"
+    },
+    "triggers": {
+      "h2": "Почему покупатели выбирают ЖК Нью-Йорт"
     }
   }
 }

@@ -8,13 +8,14 @@
     "description": "ГК Главстрой-Регионы, ЖК Героев в Краснодаре. Переупаковка под сегмент семьи второго цикла: просторные квартиры в развитом районе."
   },
   "images": {
-    "hero": "/assets/glavstroy-regiony-zhk-geroev/hero.jpg",
-    "aha1": "/assets/glavstroy-regiony-zhk-geroev/aha1.jpg",
-    "aha2": "/assets/glavstroy-regiony-zhk-geroev/aha2.jpg",
-    "aha3": "/assets/glavstroy-regiony-zhk-geroev/aha3.jpg",
-    "qualifier": "/assets/glavstroy-regiony-zhk-geroev/qualifier.jpg",
-    "footer": "/assets/glavstroy-regiony-zhk-geroev/footer.jpg",
-    "currentPositioning": "/assets/glavstroy-regiony-zhk-geroev/current_positioning.webp"
+    "hero": "/assets/745-kvartal/original/hero_hero.webp",
+    "aha1": "/assets/745-kvartal/original/aha1_silence.webp",
+    "aha2": "/assets/745-kvartal/original/aha2_community.webp",
+    "aha3": "/assets/745-kvartal/original/aha3_soul.webp",
+    "qualifier": "/assets/745-kvartal/original/qualifier_who.webp",
+    "footer": "/assets/745-kvartal/original/footer_cta.webp",
+    "currentPositioning": "/assets/glavstroy-regiony-zhk-geroev/current_positioning.webp",
+    "compare": "/assets/745-kvartal/original/advantages_compare.webp"
   },
   "hero": {
     "label": "ГК Главстрой-Регионы · ЖК Героев · Краснодар",
@@ -117,6 +118,9 @@
       "eyebrow": "Текущее позиционирование ЖК «Героев»",
       "h2": "Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу",
       "formEyebrow": "Запись на встречу"
+    },
+    "triggers": {
+      "h2": "Почему покупатели выбирают ЖК Героев"
     }
   }
 }

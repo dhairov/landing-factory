@@ -6,13 +6,14 @@
     "description": "УГМК-Застройщик, ЖК Изумрудный бор 2.0 в Екатеринбурге. Переупаковка под сегмент «семья, второй цикл»: комфорт+, экология, школа рядом."
   },
   "images": {
-    "hero": "/assets/ugmk-izumrudny-bor/hero.jpg",
-    "aha1": "/assets/ugmk-izumrudny-bor/aha1.jpg",
-    "aha2": "/assets/ugmk-izumrudny-bor/aha2.jpg",
-    "aha3": "/assets/ugmk-izumrudny-bor/aha3.jpg",
-    "qualifier": "/assets/ugmk-izumrudny-bor/qualifier.jpg",
-    "footer": "/assets/ugmk-izumrudny-bor/footer.jpg",
-    "currentPositioning": "/assets/ugmk-izumrudny-bor/original/current_positioning.webp"
+    "hero": "/assets/745-kvartal/original/hero_hero.webp",
+    "aha1": "/assets/745-kvartal/original/aha1_silence.webp",
+    "aha2": "/assets/745-kvartal/original/aha2_community.webp",
+    "aha3": "/assets/745-kvartal/original/aha3_soul.webp",
+    "qualifier": "/assets/745-kvartal/original/qualifier_who.webp",
+    "footer": "/assets/745-kvartal/original/footer_cta.webp",
+    "currentPositioning": "/assets/ugmk-izumrudny-bor/original/current_positioning.webp",
+    "compare": "/assets/745-kvartal/original/advantages_compare.webp"
   },
   "hero": {
     "label": "УГМК-Застройщик · ЖК Изумрудный бор 2.0 · Екатеринбург",
@@ -115,6 +116,9 @@
       "eyebrow": "Текущее позиционирование ЖК «Изумрудный бор 2.0»",
       "h2": "Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу",
       "formEyebrow": "Запись на встречу"
+    },
+    "triggers": {
+      "h2": "Почему покупатели выбирают ЖК Изумрудный бор 2.0"
     }
   },
   "slug": "ugmk-zastroyschik-izumrudnyy-bor-2-0"

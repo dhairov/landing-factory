@@ -8,13 +8,14 @@
     "description": "ЖилСтройИндустрия, ЖК на ул. Архангельская, д.12 в Вологде. 16 этажей, 236 квартир, кирпич. Новый уровень жизни в своём городе."
   },
   "images": {
-    "hero": "/assets/zhilstroy-arkhangelskaya/hero.jpg",
-    "aha1": "/assets/zhilstroy-arkhangelskaya/aha1.jpg",
-    "aha2": "/assets/zhilstroy-arkhangelskaya/aha2.jpg",
-    "aha3": "/assets/zhilstroy-arkhangelskaya/aha3.jpg",
-    "qualifier": "/assets/zhilstroy-arkhangelskaya/qualifier.jpg",
-    "footer": "/assets/zhilstroy-arkhangelskaya/footer.jpg",
-    "currentPositioning": "/assets/zhilstroy-arkhangelskaya/current_positioning.png"
+    "hero": "/assets/stay-but-grow/original/hero_hero.jpg",
+    "aha1": "/assets/stay-but-grow/original/aha1_lobby.jpg",
+    "aha2": "/assets/stay-but-grow/original/aha2_view.jpg",
+    "aha3": "/assets/stay-but-grow/original/aha3_space.jpg",
+    "qualifier": "/assets/stay-but-grow/original/qualifier_who.jpg",
+    "footer": "/assets/stay-but-grow/original/footer_cta.jpg",
+    "currentPositioning": "/assets/zhilstroyindustriya-arhangelskaya-12/current_positioning.png",
+    "evolution": "/assets/stay-but-grow/original/evolution_levels.webp"
   },
   "hero": {
     "label": "ЖилСтройИндустрия · Ул. Архангельская, д.12 · Вологда",
