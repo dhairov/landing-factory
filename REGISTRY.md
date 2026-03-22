@@ -1,6 +1,6 @@
 # Реестр лендингов DevPartners
 
-Всего лендингов: **47**
+Всего лендингов: **48**
 
 ---
 
@@ -63,6 +63,13 @@
 | Астра | ЖК Белый парус | [/offer48/](https://staging.devpartners.ru/offer48/) | [https://staging.devpartners.ru/astra-belyy-parus/](https://staging.devpartners.ru/astra-belyy-parus/) |
 | ГК КПД-ДЕВЕЛОПМЕНТ | ЖК Нью-Йорт | [/offer49/](https://staging.devpartners.ru/offer49/) | [https://staging.devpartners.ru/kpd-development-nyu-yort/](https://staging.devpartners.ru/kpd-development-nyu-yort/) |
 
+
+## Продуктовые лендинги DevPartners (B2B)
+
+| Продукт | Описание | Ссылка |
+|---|---|---|
+| DevPartners | Китайская архитектура для КРТ и Light Industrial | [https://devpartners.ru/china-arch/](https://devpartners.ru/china-arch/) |
+
 ---
 
-*Обновлено: 20 марта 2026*
+*Обновлено: 22 марта 2026*
