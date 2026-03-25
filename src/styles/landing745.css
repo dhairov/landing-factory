@@ -1080,3 +1080,53 @@
   .social-proof745__partners-grid { grid-template-columns: 1fr; }
   .social-proof745 { padding: 56px 0; }
 }
+
+/* DTBD HERO VARIANT */
+.hero745--dtbd { min-height: 100vh; }
+.hero745__container--dtbd {
+  display: flex; flex-direction: column; justify-content: center;
+  gap: clamp(18px, 2.5vh, 28px);
+  padding-top: clamp(40px, 5vh, 64px); padding-bottom: clamp(40px, 5vh, 64px);
+  min-height: 100vh;
+}
+.hero745__toprow { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.hero745__label--large {
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem); font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,247,240,0.95); text-shadow: 0 1px 8px rgba(7,5,4,0.5);
+}
+.hero745__meta--toprow {
+  font-size: clamp(0.82rem, 1vw, 0.98rem); font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,220,180,0.85); text-shadow: 0 1px 8px rgba(7,5,4,0.5);
+  padding-left: 20px; border-left: 2px solid rgba(255,200,140,0.35);
+}
+.hero745__h1--dtbd {
+  font-size: clamp(2.4rem, 5vw, 5rem); line-height: 0.97;
+  color: #fff8f2; max-width: 16ch; margin: 0; font-weight: 900;
+}
+.hero745__h1--dtbd em { display: inline-block; font-style: italic; color: #e9c8b6; }
+.hero745__triggers {
+  display: flex; flex-direction: column; gap: clamp(8px, 1.2vh, 14px);
+  max-width: 760px; padding: clamp(16px,2vh,22px) clamp(18px,2.5vw,26px);
+  background: rgba(18,12,9,0.58); border: 1px solid rgba(255,247,240,0.14);
+  border-radius: 18px; backdrop-filter: blur(14px);
+}
+.hero745__trigger {
+  font-size: clamp(0.9rem, 1.2vw, 1.08rem); line-height: 1.55;
+  color: rgba(255,247,240,0.9); margin: 0;
+  padding-left: 16px; border-left: 3px solid rgba(233,200,182,0.55);
+}
+.hero745__actions--dtbd { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
+@media (max-width: 820px) {
+  .hero745__toprow { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .hero745__meta--toprow { padding-left: 0; border-left: none; border-top: 1px solid rgba(255,200,140,0.3); padding-top: 6px; }
+  .hero745__h1--dtbd { font-size: clamp(2rem, 8vw, 3.4rem); }
+}
+@media (max-width: 560px) {
+  .hero745--dtbd { min-height: 100svh; }
+  .hero745__container--dtbd { min-height: 100svh; }
+  .hero745__h1--dtbd { font-size: clamp(1.8rem, 9vw, 2.8rem); }
+  .hero745__trigger { font-size: 0.88rem; }
+  .hero745__actions--dtbd { flex-direction: column; }
+}

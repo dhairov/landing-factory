@@ -94,6 +94,7 @@ const {
   comparisons,
   processSteps,
   sections: s,
+  heroVariant = 'default',
 } = Astro.props;
 ---
 <html lang="ru">
@@ -111,40 +112,65 @@ const {
     <Analytics landingSlug={slug} />
     <main>
       <!-- HERO -->
-      <section class="hero745 section section--photo-hero">
-        <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
-        <div class="container hero745__container">
-          {hero.label && <div class="hero745__label" set:html={hero.label}></div>}
-          <div class="hero745__grid">
-            <div class="hero745__content hero745__content--glass">
-              <h1 set:html={hero.h1}></h1>
-              <p class="hero745__lead" set:html={hero.lead}></p>
-              <p class="hero745__offer-line" set:html={hero.offerLine}></p>
-              <div class="hero745__actions hero745__actions--stacked">
-                <a class="button745 button745--primary" href="#contact" set:html={hero.ctaText || 'Посмотреть, как этот сценарий упаковать для проекта'}></a>
-              </div>
+      {heroVariant === 'dtbd' ? (
+        <section class="hero745 section section--photo-hero hero745--dtbd">
+          <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
+          <div class="container hero745__container hero745__container--dtbd">
+            <div class="hero745__toprow">
+              <span class="hero745__label hero745__label--large" set:html={hero.label}></span>
+              {hero.cardMeta && <span class="hero745__meta hero745__meta--toprow" set:html={hero.cardMeta}></span>}
             </div>
-            <aside class="hero745__card hero745__card--floating">
-              <div class="hero745__card-body">
-                <h2 set:html={hero.cardH2}></h2>
-                <p class="hero745__meta" set:html={hero.cardMeta}></p>
-                <p set:html={hero.cardBody}></p>
+            <h1 class="hero745__h1--dtbd" set:html={hero.h1}></h1>
+            {(triggerPoints ?? []).length > 0 && (
+              <div class="hero745__triggers">
+                {(triggerPoints ?? []).map((item: string) => (
+                  <p class="hero745__trigger" set:html={item}></p>
+                ))}
               </div>
-            </aside>
+            )}
+            <div class="hero745__actions hero745__actions--dtbd">
+              <a class="button745 button745--primary" href="#contact" set:html={hero.ctaText || 'Получить планировки и расчёт ипотеки'}></a>
+              {hero.ctaSecondary && <a class="button745 button745--ghost" href="#contact" set:html={hero.ctaSecondary}></a>}
+            </div>
           </div>
-        </div>
-      </section>
-      <!-- TRIGGERS -->
-      <section class="section section--tight triggers745-wrap triggers745-wrap--hero-continued">
-        <div class="hero745__backdrop hero745__backdrop--continued" style={`--section-bg: url(${images.hero})`}></div>
-        <div class="triggers745__tone"></div>
-        <div class="container triggers745__container">
-          {s.triggers?.h2 && <h2 set:html={s.triggers.h2}></h2>}
-          <div class="triggers745">
-            {(triggerPoints ?? []).map((item: string) => <p set:html={item}></p>)}
+        </section>
+      ) : (
+        <>
+        <section class="hero745 section section--photo-hero">
+          <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
+          <div class="container hero745__container">
+            {hero.label && <div class="hero745__label" set:html={hero.label}></div>}
+            <div class="hero745__grid">
+              <div class="hero745__content hero745__content--glass">
+                <h1 set:html={hero.h1}></h1>
+                <p class="hero745__lead" set:html={hero.lead}></p>
+                <p class="hero745__offer-line" set:html={hero.offerLine}></p>
+                <div class="hero745__actions hero745__actions--stacked">
+                  <a class="button745 button745--primary" href="#contact" set:html={hero.ctaText || 'Посмотреть, как этот сценарий упаковать для проекта'}></a>
+                </div>
+              </div>
+              <aside class="hero745__card hero745__card--floating">
+                <div class="hero745__card-body">
+                  <h2 set:html={hero.cardH2}></h2>
+                  <p class="hero745__meta" set:html={hero.cardMeta}></p>
+                  <p set:html={hero.cardBody}></p>
+                </div>
+              </aside>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+        <section class="section section--tight triggers745-wrap triggers745-wrap--hero-continued">
+          <div class="hero745__backdrop hero745__backdrop--continued" style={`--section-bg: url(${images.hero})`}></div>
+          <div class="triggers745__tone"></div>
+          <div class="container triggers745__container">
+            {s.triggers?.h2 && <h2 set:html={s.triggers.h2}></h2>}
+            <div class="triggers745">
+              {(triggerPoints ?? []).map((item: string) => <p set:html={item}></p>)}
+            </div>
+          </div>
+        </section>
+        </>
+      )}
       <!-- IMMERSIVE 1 -->
       <section class="immersive745 immersive745--hero" style={`--immersive-bg: url(${images.aha1})`}>
         <div class="container immersive745__inner">
@@ -346,5 +372,86 @@ const {
   .landing-745 main {
     overflow-x: hidden;
     background: #f6efe8;
+  }
+
+  /* ===== HERO DTBD VARIANT ===== */
+  .hero745--dtbd { min-height: 100vh; }
+  .hero745__container--dtbd {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(18px, 2.5vh, 28px);
+    padding-top: clamp(40px, 5vh, 64px);
+    padding-bottom: clamp(40px, 5vh, 64px);
+    min-height: 100vh;
+  }
+  .hero745__toprow {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero745__label--large {
+    font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,247,240,0.95);
+    text-shadow: 0 1px 8px rgba(7,5,4,0.5);
+  }
+  .hero745__meta--toprow {
+    font-size: clamp(0.82rem, 1vw, 0.98rem);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,220,180,0.85);
+    text-shadow: 0 1px 8px rgba(7,5,4,0.5);
+    padding-left: 20px;
+    border-left: 2px solid rgba(255,200,140,0.35);
+  }
+  .hero745__h1--dtbd {
+    font-size: clamp(2.4rem, 5vw, 5rem);
+    line-height: 0.97;
+    color: #fff8f2;
+    max-width: 16ch;
+    margin: 0;
+    font-weight: 900;
+  }
+  .hero745__h1--dtbd em { display: inline-block; font-style: italic; color: #e9c8b6; }
+  .hero745__triggers {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1.2vh, 14px);
+    max-width: 760px;
+    padding: clamp(16px, 2vh, 22px) clamp(18px, 2.5vw, 26px);
+    background: rgba(18,12,9,0.58);
+    border: 1px solid rgba(255,247,240,0.14);
+    border-radius: 18px;
+    backdrop-filter: blur(14px);
+  }
+  .hero745__trigger {
+    font-size: clamp(0.9rem, 1.2vw, 1.08rem);
+    line-height: 1.55;
+    color: rgba(255,247,240,0.9);
+    margin: 0;
+    padding-left: 16px;
+    border-left: 3px solid rgba(233,200,182,0.55);
+  }
+  .hero745__actions--dtbd {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  @media (max-width: 820px) {
+    .hero745__toprow { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .hero745__meta--toprow { padding-left: 0; border-left: none; border-top: 1px solid rgba(255,200,140,0.3); padding-top: 6px; }
+    .hero745__h1--dtbd { font-size: clamp(2rem, 8vw, 3.4rem); }
+  }
+  @media (max-width: 560px) {
+    .hero745--dtbd, .hero745__container--dtbd { min-height: 100svh; }
+    .hero745__h1--dtbd { font-size: clamp(1.8rem, 9vw, 2.8rem); }
+    .hero745__trigger { font-size: 0.88rem; }
+    .hero745__actions--dtbd { flex-direction: column; }
   }
 </style>

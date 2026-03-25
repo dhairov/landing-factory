@@ -157,43 +157,19 @@ const processSteps = [
     <Analytics landingSlug={slug} />
 
     <main>
-      <section class="hero745 section section--photo-hero">
+      <section class="hero745 section section--photo-hero hero745--dtbd">
         <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
-        <div class="container hero745__container">
-          <div class="hero745__label">ЖК «745 квартал» · Пермь · Тихий центр</div>
-          <div class="hero745__grid">
-            <div class="hero745__content hero745__content--glass">
-              <h1>Дом для тех, кто уже всё доказал — <em>и теперь выбирает жить в тишине, в своём масштабе, без чужих сценариев.</em></h1>
-              <p class="hero745__lead">
-                745 квартал — это 47 квартир бизнес-класса в тихом центре Перми для тех, кто не ищет демонстративный статус,
-                а выбирает совпадение дома со своим внутренним ритмом, приватностью и достоинством.
-              </p>
-              <p class="hero745__offer-line">Сдача — IV квартал 2025. Закрытая презентация проекта — по приглашению.</p>
-              <div class="hero745__actions hero745__actions--stacked">
-                <a class="button745 button745--primary" href="#contact">Ознакомиться с предложением</a>
-              </div>
-            </div>
-
-            <aside class="hero745__card hero745__card--floating">
-              <div class="hero745__card-body">
-                <h2>47 квартир бизнес-класса в тихом центре Перми для тех, кто выбирает не шум, а внутреннее совпадение с местом</h2>
-                <p class="hero745__meta">Тихий центр · Камерный формат · IV квартал 2025</p>
-                <p>
-                  Малый дом. Сдержанная архитектура. Правильная интонация. Здесь дом не спорит с человеком,
-                  а поддерживает тот образ жизни, в котором не нужно ничего демонстрировать.
-                </p>
-              </div>
-            </aside>
+        <div class="container hero745__container hero745__container--dtbd">
+          <div class="hero745__toprow">
+            <span class="hero745__label hero745__label--large">ЖК «745 квартал» · Пермь · Тихий центр</span>
+            <span class="hero745__meta hero745__meta--toprow">Тихий центр · Камерный формат · IV квартал 2025</span>
           </div>
-        </div>
-      </section>
-
-      <section class="section section--tight triggers745-wrap triggers745-wrap--hero-continued">
-        <div class="hero745__backdrop hero745__backdrop--continued" style={`--section-bg: url(${images.hero})`}></div>
-        <div class="triggers745__tone"></div>
-        <div class="container triggers745__container">
-          <div class="triggers745">
-            {triggerPoints.map((item) => <p>{item}</p>)}
+          <h1 class="hero745__h1--dtbd">Дом для тех, кто уже всё доказал — <em>и теперь выбирает жить в тишине.</em></h1>
+          <div class="hero745__triggers">
+            {triggerPoints.map((item) => <p class="hero745__trigger">{item}</p>)}
+          </div>
+          <div class="hero745__actions hero745__actions--dtbd">
+            <a class="button745 button745--primary" href="#contact">Ознакомиться с предложением</a>
           </div>
         </div>
       </section>
