@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Китайская архитектура для КРТ в Москве — DevPartners</title>
+  <meta name="description" content="Альтернативная архитектурная концепция для сложных участков КРТ до 10 Га в Москве. Региональный девелопер получает концепцию, которую одобрит мэр и под которую банк даст финансирование." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f3ef;
+      --accent: #c8a96e;
+      --accent-dim: rgba(200,169,110,0.15);
+      --gray: #888;
+      --gray-light: #2a2a2a;
+      --font-display: 'Unbounded', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); }
+
+    /* ─── LOADER ─── */
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.6s var(--ease-out), visibility 0.6s;
+    }
+    #loader.hidden { opacity: 0; visibility: hidden; }
+    .loader-line {
+      width: 200px; height: 1px;
+      background: var(--gray-light);
+      position: relative; overflow: hidden;
+    }
+    .loader-line::after {
+      content: '';
+      position: absolute; left: -100%; top: 0;
+      width: 100%; height: 100%;
+      background: var(--accent);
+      animation: load 1.2s var(--ease-out) forwards;
+    }
+    @keyframes load { to { left: 0; } }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 24px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      mix-blend-mode: normal;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      padding: 16px 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 12px 28px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      transition: background 0.3s, color 0.3s;
+      cursor: pointer;
+    }
+    .nav-cta:hover { background: var(--accent); color: var(--black); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      height: 100vh; min-height: 700px;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #0f0c0a 0%, #1a1208 40%, #0a0a0a 100%);
+    }
+    /* Architectural grid overlay */
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    }
+    /* Animated geometric shape */
+    .hero-shape {
+      position: absolute;
+      top: 10%; right: 5%;
+      width: min(45vw, 600px);
+      height: min(45vw, 600px);
+      opacity: 0.06;
+      animation: rotate-shape 40s linear infinite;
+    }
+    .hero-shape svg { width: 100%; height: 100%; }
+    @keyframes rotate-shape { to { transform: rotate(360deg); } }
+
+    .hero-noise {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-gradient {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 50%;
+      background: linear-gradient(transparent, var(--black));
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 48px 80px;
+      max-width: 1200px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 32px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5.5vw, 80px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      max-width: 900px;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .hero-h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-lead {
+      margin-top: 32px;
+      font-size: 16px; font-weight: 300;
+      color: rgba(245,243,239,0.6);
+      max-width: 560px;
+      line-height: 1.7;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .hero-actions {
+      margin-top: 48px;
+      display: flex; gap: 20px; align-items: center;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .btn-primary {
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 18px 40px;
+      background: var(--accent);
+      color: var(--black);
+      cursor: pointer;
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+      border: none;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 60px rgba(200,169,110,0.3);
+    }
+    .btn-ghost {
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(245,243,239,0.5);
+      display: flex; align-items: center; gap: 12px;
+      cursor: pointer;
+      transition: color 0.3s;
+      border: none; background: none;
+    }
+    .btn-ghost:hover { color: var(--white); }
+    .btn-ghost::after {
+      content: '↓';
+      font-size: 18px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* Hero stats */
+    .hero-stats {
+      position: absolute; right: 48px; bottom: 80px; z-index: 2;
+      display: flex; flex-direction: column; gap: 32px;
+      opacity: 0;
+    }
+    .hero-stat {
+      text-align: right;
+    }
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 32px; font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 10px; font-weight: 300;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 4px;
+    }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 120px 48px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-eyebrow {
+      font-family: var(--font-display);
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .section-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 52px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .section-lead {
+      font-size: 17px; font-weight: 300;
+      color: rgba(245,243,239,0.6);
+      line-height: 1.7;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+
+    /* ─── TRIGGERS ─── */
+    #triggers {
+      padding: 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .triggers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .trigger-item {
+      padding: 48px;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s;
+    }
+    .trigger-item:last-child { border-right: none; }
+    .trigger-item::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--accent);
+      transition: width 0.6s var(--ease-out);
+    }
+    .trigger-item:hover::before { width: 100%; }
+    .trigger-item:hover { background: rgba(200,169,110,0.03); }
+    .trigger-num {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .trigger-text {
+      font-size: 15px; font-weight: 300;
+      line-height: 1.65;
+      color: rgba(245,243,239,0.75);
+    }
+
+    /* ─── PROBLEM STATEMENT ─── */
+    #problem {
+      background: var(--gray-light);
+      position: relative;
+      overflow: hidden;
+    }
+    #problem::before {
+      content: 'КРТ';
+      position: absolute;
+      font-family: var(--font-display);
+      font-size: clamp(120px, 20vw, 280px);
+      font-weight: 900;
+      color: rgba(200,169,110,0.04);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: -0.05em;
+    }
+    .problem-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .problem-quote {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.8vw, 38px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .problem-quote::before {
+      content: '«';
+      color: var(--accent);
+    }
+    .problem-quote::after {
+      content: '»';
+      color: var(--accent);
+    }
+    .problem-body {
+      font-size: 16px; font-weight: 300;
+      color: rgba(245,243,239,0.65);
+      line-height: 1.75;
+    }
+    .problem-body p + p { margin-top: 20px; }
+
+    /* ─── AHA MOMENTS ─── */
+    #aha { background: var(--black); }
+    .aha-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 80px;
+      align-items: end;
+    }
+    .aha-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .aha-card {
+      background: var(--gray-light);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s var(--ease-out);
+      cursor: default;
+    }
+    .aha-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--accent-dim), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .aha-card:hover { transform: translateY(-6px); }
+    .aha-card:hover::after { opacity: 1; }
+    .aha-card-num {
+      font-family: var(--font-display);
+      font-size: 64px; font-weight: 900;
+      color: rgba(200,169,110,0.12);
+      line-height: 1;
+      margin-bottom: 24px;
+      letter-spacing: -0.04em;
+    }
+    .aha-card-title {
+      font-family: var(--font-display);
+      font-size: 17px; font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .aha-card-problem {
+      font-size: 13px; font-weight: 300;
+      color: rgba(245,243,239,0.45);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 20px;
+      padding-left: 12px;
+      border-left: 2px solid rgba(200,169,110,0.3);
+    }
+    .aha-card-answer {
+      font-size: 14px; font-weight: 300;
+      color: rgba(245,243,239,0.7);
+      line-height: 1.65;
+    }
+    .aha-card-bureau {
+      margin-top: 24px;
+      font-family: var(--font-display);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* ─── WHEN TO HIRE ─── */
+    #when { background: var(--gray-light); }
+    .when-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+    .when-card {
+      background: var(--black);
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .when-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 3px; height: 0;
+      background: var(--accent);
+      transition: height 0.5s var(--ease-out);
+    }
+    .when-card:hover::before { height: 100%; }
+    .when-stage {
+      font-family: var(--font-display);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .when-title {
+      font-family: var(--font-display);
+      font-size: 20px; font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .when-body {
+      font-size: 14px; font-weight: 300;
+      color: rgba(245,243,239,0.6);
+      line-height: 1.65;
+    }
+
+    /* ─── PROCESS ─── */
+    #process { background: var(--black); }
+    .process-steps {
+      margin-top: 80px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute; left: 32px; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(var(--accent), transparent);
+    }
+    .process-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 40px;
+      padding: 48px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      align-items: start;
+    }
+    .process-step:last-child { border-bottom: none; }
+    .process-step-num {
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      padding-top: 4px;
+      text-align: center;
+    }
+    .process-step-title {
+      font-family: var(--font-display);
+      font-size: 22px; font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .process-step-body {
+      font-size: 15px; font-weight: 300;
+      color: rgba(245,243,239,0.6);
+      line-height: 1.7;
+    }
+
+    /* ─── COMPARISONS ─── */
+    #compare {
+      background: #0f0c08;
+      position: relative;
+      overflow: hidden;
+    }
+    #compare::before {
+      content: '';
+      position: absolute; top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,169,110,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+    .compare-card {
+      padding: 48px 40px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: border-color 0.4s, background 0.4s;
+    }
+    .compare-card:hover {
+      border-color: rgba(200,169,110,0.3);
+      background: rgba(200,169,110,0.03);
+    }
+    .compare-overline {
+      font-family: var(--font-display);
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,169,110,0.5);
+      margin-bottom: 16px;
+    }
+    .compare-title {
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .compare-body {
+      font-size: 14px; font-weight: 300;
+      color: rgba(245,243,239,0.6);
+      line-height: 1.65;
+    }
+
+    /* ─── QUOTE ─── */
+    #quote {
+      background: var(--gray-light);
+      padding: 100px 48px;
+    }
+    .quote-inner {
+      max-width: 900px; margin: 0 auto;
+      text-align: center;
+    }
+    .quote-mark {
+      font-family: var(--font-display);
+      font-size: 80px; font-weight: 900;
+      color: var(--accent);
+      line-height: 0.7;
+      margin-bottom: 32px;
+      display: block;
+    }
+    .quote-text {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.5vw, 32px);
+      font-weight: 300;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: rgba(245,243,239,0.9);
+    }
+    .quote-author {
+      margin-top: 40px;
+      font-size: 13px; font-weight: 300;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+    }
+    .quote-author strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    /* ─── FORM / CTA ─── */
+    #contact {
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute; bottom: -300px; left: -300px;
+      width: 800px; height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,169,110,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+    .contact-left .section-h2 { max-width: 480px; }
+    .contact-promise {
+      margin-top: 40px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .contact-promise-item {
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .contact-promise-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 8px; flex-shrink: 0;
+    }
+    .contact-promise-text {
+      font-size: 15px; font-weight: 300;
+      color: rgba(245,243,239,0.65);
+      line-height: 1.6;
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 15px; font-weight: 300;
+      padding: 16px 20px;
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+      -webkit-appearance: none;
+    }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--accent);
+      background: rgba(200,169,110,0.05);
+    }
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: rgba(245,243,239,0.25);
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%;
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 20px;
+      background: var(--accent);
+      color: var(--black);
+      border: none; cursor: pointer;
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+      margin-top: 8px;
+    }
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 60px rgba(200,169,110,0.3);
+    }
+    .form-note {
+      margin-top: 16px;
+      font-size: 12px; font-weight: 300;
+      color: rgba(245,243,239,0.3);
+      text-align: center;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 40px 48px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy {
+      font-size: 12px; font-weight: 300;
+      color: rgba(245,243,239,0.3);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      nav { padding: 20px 32px; }
+      nav.scrolled { padding: 14px 32px; }
+      section { padding: 80px 32px; }
+      .hero-content { padding: 0 32px 60px; }
+      .hero-stats { right: 32px; bottom: 60px; }
+      .triggers-grid { grid-template-columns: 1fr; }
+      .trigger-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .problem-layout { grid-template-columns: 1fr; gap: 40px; }
+      .aha-cards { grid-template-columns: 1fr; }
+      .when-grid { grid-template-columns: 1fr; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; gap: 60px; }
+      .aha-intro { grid-template-columns: 1fr; gap: 40px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      section { padding: 64px 24px; }
+      .hero-content { padding: 0 24px 48px; }
+      .hero-stats { display: none; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .process-step { grid-template-columns: 60px 1fr; gap: 24px; }
+      .process-steps::before { left: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-line"></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">Dev<span>Partners</span></div>
+  <a href="#contact" class="nav-cta">Разобрать участок</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-shape">
+    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="50" y="50" width="300" height="300" stroke="rgba(200,169,110,0.6)" stroke-width="1"/>
+      <rect x="100" y="100" width="200" height="200" stroke="rgba(200,169,110,0.4)" stroke-width="1"/>
+      <rect x="150" y="150" width="100" height="100" stroke="rgba(200,169,110,0.2)" stroke-width="1"/>
+      <line x1="50" y1="50" x2="350" y2="350" stroke="rgba(200,169,110,0.2)" stroke-width="0.5"/>
+      <line x1="350" y1="50" x2="50" y2="350" stroke="rgba(200,169,110,0.2)" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="150" stroke="rgba(200,169,110,0.15)" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="100" stroke="rgba(200,169,110,0.1)" stroke-width="0.5"/>
+    </svg>
+  </div>
+  <div class="hero-noise"></div>
+  <div class="hero-gradient"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow" id="hero-eyebrow">DevPartners · Китайская архитектура · КРТ до 10 Га · Москва</p>
+    <h1 class="hero-h1" id="hero-h1">
+      Сложный участок КРТ<br/>
+      в Москве — это не тупик.<br/>
+      Это <em>возможность</em><br/>
+      для тех, кто умеет<br/>
+      находить скрытую маржинальность
+    </h1>
+    <p class="hero-lead" id="hero-lead">
+      Московские девелоперы отказались от вашего участка. Мы знаем, как вытянуть его экономику — через архитектуру, которую одобрит мэр и под которую банк даст финансирование.
+    </p>
+    <div class="hero-actions" id="hero-actions">
+      <a href="#contact" class="btn-primary">Заказать разбор участка</a>
+      <button class="btn-ghost" onclick="document.getElementById('triggers').scrollIntoView({behavior:'smooth'})">Узнать как это работает</button>
+    </div>
+  </div>
+
+  <div class="hero-stats" id="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">10 Га</div>
+      <div class="hero-stat-label">Участки КРТ</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">3+</div>
+      <div class="hero-stat-label">Топ бюро Китая</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">ATP</div>
+      <div class="hero-stat-label">Адаптация под РФ</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIGGERS -->
+<div id="triggers">
+  <div class="triggers-grid">
+    <div class="trigger-item reveal">
+      <div class="trigger-num">01 / Ситуация</div>
+      <p class="trigger-text">Вы взяли участок КРТ в Москве, от которого отказались местные игроки из-за сложных обременений. Экономика не сходится — и каждый месяц простоя это прямые потери.</p>
+    </div>
+    <div class="trigger-item reveal reveal-delay-1">
+      <div class="trigger-num">02 / Проблема</div>
+      <p class="trigger-text">Текущая концепция буксует на согласовании у мэра. Банк режет финансирование, потому что стандартная архитектура не обосновывает цену продажи выше рынка.</p>
+    </div>
+    <div class="trigger-item reveal reveal-delay-2">
+      <div class="trigger-num">03 / Тупик</div>
+      <p class="trigger-text">Местные бюро предлагают типовые решения — те самые, которые уже не проходят согласование. Нужна принципиально другая концепция, которая вытянет проект.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM STATEMENT -->
+<section id="problem">
+  <div class="container">
+    <div class="problem-layout">
+      <div class="reveal">
+        <p class="section-eyebrow">Реальная ситуация</p>
+        <blockquote class="problem-quote">
+          Мы взяли сложный участок в Москве, от которого отказались все. Нам нужна концепция, которая вытянет проект
+        </blockquote>
+      </div>
+      <div class="problem-body reveal reveal-delay-2">
+        <p>Региональный девелопер, впервые заходящий в Москву, часто получает именно такой актив: участок с историей, обременениями, сложной функцией. Московские игроки прошли мимо — не потому что участок плохой, а потому что не умеют работать с нестандартными задачами.</p>
+        <p>Китайская архитектурная школа специализируется именно на таких проектах. Плотность, многофункциональность, интеграция сложных функций в городскую ткань — это их ежедневная практика, а не эксперимент.</p>
+        <p>DevPartners — интегратор, который соединяет китайский архитектурный опыт с российской нормативной базой и финансовой логикой девелоперского проекта.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AHA MOMENTS -->
+<section id="aha">
+  <div class="container">
+    <div class="aha-intro">
+      <div class="reveal">
+        <p class="section-eyebrow">Три барьера регионального девелопера</p>
+        <h2 class="section-h2">Как DevPartners закрывает каждый из них</h2>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <p class="section-lead">Мы не просто подбираем архитекторов. Мы решаем конкретные задачи: согласование у мэра, финансовая модель для банка, адаптация под нормы РФ.</p>
+      </div>
+    </div>
+    <div class="aha-cards">
+      <div class="aha-card reveal">
+        <div class="aha-card-num">01</div>
+        <h3 class="aha-card-title">Мэр заворачивает концепцию</h3>
+        <p class="aha-card-problem">«Москомархитектура требует знаковое решение для городской среды, а у нас нет опыта, как это делать правильно в Москве»</p>
+        <p class="aha-card-answer">CLOU Architects специализируется на создании живых общественных пространств в плотной городской ткани. Это именно то, что требует Москомархитектура. Инновационная среда становится вашим главным рычагом при согласовании.</p>
+        <div class="aha-card-bureau">CLOU Architects · Пекин / Шанхай</div>
+      </div>
+      <div class="aha-card reveal reveal-delay-1">
+        <div class="aha-card-num">02</div>
+        <h3 class="aha-card-title">Банк режет финансирование</h3>
+        <p class="aha-card-problem">«Банк не видит обоснования для высокой цены продажи. Финансовая модель не сходится, кредит под угрозой»</p>
+        <p class="aha-card-answer">DevPartners переводит архитектурные решения в язык финансовой модели. People's Architecture Office создаёт пространства, которые создают добавочную стоимость квадратного метра. Мы защищаем финансово-архитектурный бриф перед кредитным комитетом.</p>
+        <div class="aha-card-bureau">People's Architecture Office · Пекин</div>
+      </div>
+      <div class="aha-card reveal reveal-delay-2">
+        <div class="aha-card-num">03</div>
+        <h3 class="aha-card-title">Нельзя построить по нормам РФ</h3>
+        <p class="aha-card-problem">«Иностранцы нарисуют то, что невозможно построить по нашим нормам. Кто будет адаптировать под СНиП и ПЗЗ?»</p>
+        <p class="aha-card-answer">Российский партнёр ATP-TLP работает параллельно с китайским бюро с первого дня — не после. Адаптация под СНиП, ПЗЗ и ВРИ встроена в процесс разработки, а не является отдельным этапом, который всё ломает.</p>
+        <div class="aha-card-bureau">ATP-TLP · Адаптация под нормы РФ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHEN TO HIRE -->
+<section id="when">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-eyebrow">Когда нанимают этот продукт</p>
+      <h2 class="section-h2">Четыре ситуации, в которых<br/>стандартный подход перестаёт работать</h2>
+    </div>
+    <div class="when-grid">
+      <div class="when-card reveal reveal-delay-1">
+        <div class="when-stage">Участок куплен, концепции нет</div>
+        <h3 class="when-title">Земля заморожена. Каждый месяц без концепции — прямые потери</h3>
+        <p class="when-body">Местные бюро предлагают типовые решения, которые не вытянут экономику сложного участка. Нужна альтернативная концепция, которая найдёт скрытую маржинальность и пройдёт все согласования с первого захода.</p>
+      </div>
+      <div class="when-card reveal reveal-delay-2">
+        <div class="when-stage">Концепция не проходит согласование</div>
+        <h3 class="when-title">Москомархитектура отклонила проект. Требуют знаковое решение</h3>
+        <p class="when-body">Нужна концепция мирового уровня, которую мэрия одобрит как образец для города. Полный цикл: новое ТЗ → китайское бюро → адаптация → АГР/КГА.</p>
+      </div>
+      <div class="when-card reveal reveal-delay-1">
+        <div class="when-stage">Банк режет финансирование</div>
+        <h3 class="when-title">Финансовая модель не сходится. Банк требует пересмотра концепции</h3>
+        <p class="when-body">Нужен архитектурно-финансовый бриф, который убедит кредитный комитет в маржинальности проекта. Архитектура, создающая добавочную стоимость квадратного метра, напрямую улучшает показатели финансовой модели.</p>
+      </div>
+      <div class="when-card reveal reveal-delay-2">
+        <div class="when-stage">Стратегический выбор</div>
+        <h3 class="when-title">Первый проект в Москве должен стать заявкой на федеральный уровень</h3>
+        <p class="when-body">Китайская архитектурная школа в Москве — PR-событие само по себе. Архитектурный образ, который создаёт медийный резонанс ещё до старта продаж и формирует репутацию девелопера федерального уровня.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-eyebrow">Как это работает</p>
+      <h2 class="section-h2">От сложного участка до готового пакета<br/>для банка и мэрии</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="process-step-num">01</div>
+        <div>
+          <h3 class="process-step-title">Вы описываете участок и текущую ситуацию</h3>
+          <p class="process-step-body">Рассказываете о проекте: локация, площадь, текущий статус согласований, требования банка и ключевые ограничения участка. Мы слушаем и задаём правильные вопросы.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step-num">02</div>
+        <div>
+          <h3 class="process-step-title">Диагностика участка и шортлист бюро</h3>
+          <p class="process-step-body">Анализируем участок, требования мэрии и банка. Находим точки скрытой маржинальности. Отбираем 2–3 бюро с релевантным портфолио — CLOU Architects, People's Architecture Office или Lacime Architects в зависимости от задачи.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step-num">03</div>
+        <div>
+          <h3 class="process-step-title">Китайское бюро разрабатывает концепцию</h3>
+          <p class="process-step-body">Параллельно ATP-TLP начинает нормативную адаптацию. Концепция создаётся сразу под требования Москомархитектуры и банковской финансовой модели — не «потом адаптируем», а с первого дня.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step-num">04</div>
+        <div>
+          <h3 class="process-step-title">Передаём готовый пакет: АГР + финансово-архитектурный бриф</h3>
+          <p class="process-step-body">Итог — не просто красивые визуализации, а полный пакет для защиты перед кредитным комитетом и прохождения АГР/КГА в Москомархитектуре. Концепция, прошедшая стадию П и готовая к государственной экспертизе.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISONS -->
+<section id="compare">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-eyebrow">Почему стандартный подход не работает</p>
+      <h2 class="section-h2">Три принципиальных отличия DevPartners</h2>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card reveal reveal-delay-1">
+        <div class="compare-overline">Против «поиска скрытой маржинальности»</div>
+        <h3 class="compare-title">Находим экономическую целесообразность там, где другие видят только ограничения</h3>
+        <p class="compare-body">Московские девелоперы отказались от вашего участка — не потому что он плохой, а потому что не умеют работать со сложными обременениями. Китайская архитектурная школа специализируется именно на таких проектах.</p>
+      </div>
+      <div class="compare-card reveal reveal-delay-2">
+        <div class="compare-overline">Против «красивых картинок»</div>
+        <h3 class="compare-title">Концепция, которая говорит на языке банка</h3>
+        <p class="compare-body">Большинство архитектурных продуктов заканчиваются на визуализациях. DevPartners переводит концепцию в финансово-архитектурный бриф, который напрямую влияет на условия проектного финансирования.</p>
+      </div>
+      <div class="compare-card reveal reveal-delay-3">
+        <div class="compare-overline">Против «нормы потом»</div>
+        <h3 class="compare-title">Нормативная адаптация встроена в процесс с первого дня</h3>
+        <p class="compare-body">Российский генпроектировщик ATP-TLP работает параллельно с китайским бюро — не после. Концепция создаётся сразу совместимой с СНиП, ПЗЗ и требованиями Москомархитектуры.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section id="quote">
+  <div class="quote-inner reveal">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">Китайские бюро сегодня работают с плотностью и многофункциональностью на уровне, к которому российский рынок только приходит. Они умеют превращать сложные, обременённые участки в точки притяжения — и делают это с пониманием финансовой модели девелопера.</p>
+    <div class="quote-author">
+      <strong>Алексей Расходчиков</strong>
+      Директор по развитию, Институт Генплана Москвы
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-layout">
+      <div class="reveal">
+        <p class="section-eyebrow">Бесплатная диагностика участка</p>
+        <h2 class="section-h2">Получите экспресс-оценку скрытой маржинальности вашего участка КРТ</h2>
+        <div class="contact-promise">
+          <div class="contact-promise-item">
+            <div class="contact-promise-dot"></div>
+            <p class="contact-promise-text">Анализируем участок и находим точки скрытой маржинальности, которые не видят местные бюро</p>
+          </div>
+          <div class="contact-promise-item">
+            <div class="contact-promise-dot"></div>
+            <p class="contact-promise-text">Подбираем 2–3 релевантных китайских бюро из нашего пула под конкретную задачу</p>
+          </div>
+          <div class="contact-promise-item">
+            <div class="contact-promise-dot"></div>
+            <p class="contact-promise-text">Объясняем, как архитектурные решения повлияют на финансовую модель и согласование</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <form name="contact-china-arch-krt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact-china-arch-krt" />
+          <p style="display:none"><label>Не заполняйте: <input name="bot-field" /></label></p>
+          <div class="form-group">
+            <label class="form-label" for="name">Ваше имя</label>
+            <input class="form-input" type="text" id="name" name="name" placeholder="Иван Петров" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">Телефон или Telegram</label>
+            <input class="form-input" type="text" id="phone" name="phone" placeholder="+7 900 000 00 00 или @username" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="ivan@company.ru" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="project">Кратко об участке</label>
+            <textarea class="form-textarea" id="project" name="project" placeholder="Локация, площадь, текущий статус, ключевые сложности..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Заказать разбор участка →</button>
+          <p class="form-note">Свяжемся в течение 24 часов. Без спама и навязчивых звонков.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Dev<span>Partners</span></div>
+  <p class="footer-copy">© 2025 DevPartners. Китайская архитектура для КРТ в Москве.</p>
+</footer>
+
+<script>
+  // LOADER
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hidden');
+      // Hero animations
+      setTimeout(() => {
+        document.getElementById('hero-eyebrow').style.cssText = 'opacity:1;transform:translateY(0);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)';
+      }, 100);
+      setTimeout(() => {
+        document.getElementById('hero-h1').style.cssText = 'opacity:1;transform:translateY(0);transition:opacity 1s cubic-bezier(0.16,1,0.3,1),transform 1s cubic-bezier(0.16,1,0.3,1)';
+      }, 300);
+      setTimeout(() => {
+        document.getElementById('hero-lead').style.cssText = 'opacity:1;transform:translateY(0);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)';
+      }, 600);
+      setTimeout(() => {
+        document.getElementById('hero-actions').style.cssText = 'opacity:1;transform:translateY(0);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)';
+        document.getElementById('hero-stats').style.cssText = 'opacity:1;transition:opacity 1s cubic-bezier(0.16,1,0.3,1) 0.2s';
+      }, 800);
+    }, 1400);
+  });
+
+  // NAV SCROLL
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // SCROLL REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // PARALLAX on hero shape
+  window.addEventListener('scroll', () => {
+    const shape = document.querySelector('.hero-shape');
+    if (shape) {
+      shape.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+    }
+  });
+
+  // FORM SUBMIT
+  const form = document.querySelector('form[name="contact-china-arch-krt"]');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Отправляем...';
+      btn.disabled = true;
+      try {
+        const data = new FormData(form);
+        await fetch('/', { method: 'POST', body: data });
+        btn.textContent = '✓ Заявка отправлена';
+        btn.style.background = '#2a5a2a';
+        btn.style.color = '#fff';
+        form.querySelectorAll('input, textarea').forEach(el => el.value = '');
+      } catch {
+        btn.textContent = 'Ошибка. Попробуйте ещё раз';
+        btn.disabled = false;
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
