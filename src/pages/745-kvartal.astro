@@ -482,8 +482,13 @@ const processSteps = [
     min-height: 100vh;
     display: flex;
     align-items: stretch;
-    padding: 48px 0;
+    padding: 0;
     overflow: hidden;
+  }
+  .hero745 > .container {
+    padding-top: clamp(40px, 5vh, 64px);
+    padding-bottom: clamp(32px, 4vh, 52px);
+    min-height: 100vh;
   }
 
   .hero745__backdrop {
