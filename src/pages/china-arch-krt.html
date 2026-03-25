@@ -208,7 +208,8 @@
        BLOCK 3: SOLUTION (Готовое решение)
     ═══════════════════════════════════════ */
     .solution { background: var(--off-white); }
-    .solution-header { text-align: center; max-width: 700px; margin: 0 auto 64px; }
+    .solution-header { text-align: left; max-width: 900px; margin: 0 auto 64px; }
+    .solution-header h2 { font-size: clamp(26px, 3vw, 42px); line-height: 1.15; }
     .solution-header .eyebrow { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
     .solution-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
     .solution-step {
@@ -416,6 +417,66 @@
       .bureaus-grid { grid-template-columns: 1fr; }
     }
 
+    /* ═══════════════════════════════════════
+       BLOCK 6.8: TEAM (Команда)
+    ═══════════════════════════════════════ */
+    .team { background: var(--off-white); }
+    .team-header { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .team-header h2 { margin-bottom: 12px; }
+    .team-header p { font-size: clamp(15px, 1.2vw, 17px); color: var(--text-mid); }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .team-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+    }
+    .team-photo {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .team-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center top;
+    }
+    .team-info {
+      padding: 20px 24px 28px;
+    }
+    .team-role {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .team-name {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .team-desc {
+      font-size: clamp(13px, 1vw, 14px);
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
     /* ═══════════════════════════════════════
        BLOCK 7: PROCESS (AI-трекинг / Как работаем)
     ═══════════════════════════════════════ */
@@ -661,7 +722,7 @@
   <section class="solution">
     <div class="container">
       <div class="solution-header reveal">
-        <h2>Архитектурная концепция КРТ, которая пройдёт согласование в городе, получит финансирование в банке и даст маржинальность за 3–4 месяца</h2>
+        <h2>Архитектурная концепция КРТ, которая пройдёт согласование в городе, получит финансирование в банке и обеспечит высокую цену продажи за 3–4 месяца</h2>
       </div>
       <div class="solution-steps">
         <div class="solution-step reveal">
@@ -871,6 +932,57 @@
     </div>
   </section>
 
+  <!-- ═══ BLOCK 6.8: КОМАНДА ═══ -->
+  <section class="team">
+    <div class="container">
+      <div class="team-header reveal">
+        <h2>Команда</h2>
+        <p>Люди, которые ведут проект с первого звонка до защиты перед городом и банком</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-photo">
+            <img src="/assets/china-arch-krt/team-damir.jpg" alt="Дамир Хайров" loading="lazy">
+          </div>
+          <div class="team-info">
+            <div class="team-role">СЕО</div>
+            <div class="team-name">Дамир Хайров</div>
+            <p class="team-desc">Структурирует сделку: вход в проект, условия работы, зона ответственности. Отвечает за результат в целом.</p>
+          </div>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-photo">
+            <img src="/assets/china-arch-krt/team-almaz.jpg" alt="Алмаз Шакиров" loading="lazy">
+          </div>
+          <div class="team-info">
+            <div class="team-role">СПО</div>
+            <div class="team-name">Алмаз Шакиров</div>
+            <p class="team-desc">Формирует техническое задание для бюро, контролирует содержание концепции и соответствие результата требованиям города и банка.</p>
+          </div>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-photo">
+            <img src="/assets/china-arch-krt/team-andrey.jpg" alt="Андрей Пахоменков" loading="lazy">
+          </div>
+          <div class="team-info">
+            <div class="team-role">СФО</div>
+            <div class="team-name">Андрей Пахоменков</div>
+            <p class="team-desc">Проверяет финансовую модель и обосновывает LLCR. Готовит пакет для кредитного комитета: архитектура переводится в язык цифр.</p>
+          </div>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-photo">
+            <img src="/assets/china-arch-krt/team-ramzia.jpg" alt="Рамзия Фаздалова" loading="lazy">
+          </div>
+          <div class="team-info">
+            <div class="team-role">Китаистка</div>
+            <div class="team-name">Рамзия Фаздалова</div>
+            <p class="team-desc">Обеспечивает прямую коммуникацию с китайскими бюро. Переводит ТЗ, протоколы встреч и техническую документацию без потерь смысла.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- ═══ BLOCK 7: PROCESS ═══ -->
   <section class="process">
     <div class="container">
