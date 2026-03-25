@@ -160,43 +160,19 @@ const processSteps = [
     <Analytics landingSlug={slug} />
 
     <main>
-      <section class="hero745 section section--photo-hero">
+      <section class="hero745 section section--photo-hero hero745--dtbd">
         <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
-        <div class="container hero745__container">
-          <div class="hero745__label">ЖК «Эндемик» · Бизнес-класс в центре Краснодара</div>
-          <div class="hero745__grid">
-            <div class="hero745__content hero745__content--glass">
-              <h1>Дом для тех, кто выбирает <em>тишину, приватность и спокойную архитектуру в центре города.</em></h1>
-              <p class="hero745__lead">
-                Эндемик — камерный бизнес-класс в центре Краснодара для тех, кому важно жить в спокойной атмосфере,
-                без лишнего шума, суеты и ощущения проходного двора.
-              </p>
-              <p class="hero745__offer-line">Малоэтажный дом для спокойной и комфортной жизни в центре.</p>
-              <div class="hero745__actions hero745__actions--stacked">
-                <a class="button745 button745--primary" href="#contact">Ознакомиться с предложением</a>
-              </div>
-            </div>
-
-            <aside class="hero745__card hero745__card--floating">
-              <div class="hero745__card-body">
-                <h2>Редкий формат для тех, кому важен спокойный центр и личный комфорт</h2>
-                <p class="hero745__meta">Камерный масштаб · Спокойная эстетика · Приватная атмосфера</p>
-                <p>
-                  Сдержанная архитектура, продуманное пространство и приватная атмосфера делают Эндемик домом,
-                  в котором легко почувствовать себя на своём месте.
-                </p>
-              </div>
-            </aside>
+        <div class="container hero745__container hero745__container--dtbd">
+          <div class="hero745__toprow">
+            <span class="hero745__label hero745__label--large">ЖК «Эндемик» · Краснодар · Бизнес-класс</span>
+            <span class="hero745__meta hero745__meta--toprow">Камерный масштаб · Спокойная эстетика · Приватная атмосфера</span>
           </div>
-        </div>
-      </section>
-
-      <section class="section section--tight triggers745-wrap triggers745-wrap--hero-continued">
-        <div class="hero745__backdrop hero745__backdrop--continued" style={`--section-bg: url(${images.hero})`}></div>
-        <div class="triggers745__tone"></div>
-        <div class="container triggers745__container">
-          <div class="triggers745">
-            {triggerPoints.map((item) => <p>{item}</p>)}
+          <h1 class="hero745__h1--dtbd">Дом для тех, кто выбирает <em>тишину, приватность и спокойную архитектуру в центре города.</em></h1>
+          <div class="hero745__triggers">
+            {triggerPoints.map((item) => <p class="hero745__trigger">{item}</p>)}
+          </div>
+          <div class="hero745__actions hero745__actions--dtbd">
+            <a class="button745 button745--primary" href="#contact">Ознакомиться с предложением</a>
           </div>
         </div>
       </section>
