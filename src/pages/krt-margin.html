@@ -160,11 +160,43 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 0 1.5rem 4rem;
-      max-width: 1100px;
+      padding: 0 1.5rem 3rem;
+      width: 100%;
     }
-    @media (min-width: 768px) { .hero__content { padding: 0 3rem 5rem; } }
-    @media (min-width: 1024px) { .hero__content { padding: 0 5rem 6rem; } }
+    @media (min-width: 768px) { .hero__content { padding: 0 3rem 4rem; } }
+    @media (min-width: 1024px) { .hero__content { padding: 0 5rem 5rem; } }
+    .hero__text { max-width: 1100px; }
+    .hero__metrics {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    @media (min-width: 768px) {
+      .hero__metrics {
+        grid-template-columns: repeat(3, auto);
+        gap: 3rem;
+        justify-content: flex-start;
+      }
+    }
+    .hero__metric-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(40px, 4.5vw, 64px);
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .hero__metric-value--gold { color: var(--gold); }
+    .hero__metric-value--white { color: var(--warm-white); }
+    .hero__metric-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,235,0.45);
+    }
     .hero__tag {
       color: var(--gold);
       font-size: 0.8rem;
@@ -197,7 +229,7 @@
     @keyframes float { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 
     /* Hero entrance animations */
-    .hero__tag, .hero__title, .hero__subtitle {
+    .hero__tag, .hero__title, .hero__subtitle, .hero__metrics {
       opacity: 0;
       transform: translateY(40px);
       animation: heroEnter 1s ease-out forwards;
@@ -205,6 +237,7 @@
     .hero__tag { animation-delay: 0.3s; }
     .hero__title { animation-delay: 0.5s; }
     .hero__subtitle { animation-delay: 0.7s; }
+    .hero__metrics { animation-delay: 0.9s; }
     @keyframes heroEnter { to { opacity: 1; transform: translateY(0); } }
 
     /* ═══════════════════════════════════════════
@@ -710,33 +743,29 @@
     </div>
 
     <div class="hero__content">
-      <p class="hero__tag">Полный цикл для КРТ в Москве</p>
-      <h1 class="hero__title">LLCR вашего проекта:<br><span class="gold-text">1.15 → 1.40</span></h1>
-      <p class="hero__subtitle">Архитектурная концепция, которая одновременно проходит Москомархитектуру, обосновывает банку высокую маржинальность и создаёт продукт, продающийся на 15–20% выше рынка.</p>
+      <div class="hero__text">
+        <p class="hero__tag">Полный цикл для КРТ в Москве</p>
+        <h1 class="hero__title">LLCR вашего проекта:<br><span class="gold-text">1.15 → 1.40</span></h1>
+        <p class="hero__subtitle">Архитектурная концепция, которая одновременно проходит Москомархитектуру, обосновывает банку высокую маржинальность и создаёт продукт, продающийся на 15–20% выше рынка.</p>
+      </div>
+      <div class="hero__metrics">
+        <div>
+          <div class="hero__metric-value hero__metric-value--gold" data-target="1.40" data-decimals="2">1.40</div>
+          <div class="hero__metric-label">Целевой LLCR</div>
+        </div>
+        <div>
+          <div class="hero__metric-value hero__metric-value--white">0/100</div>
+          <div class="hero__metric-label">Схема финансирования</div>
+        </div>
+        <div>
+          <div class="hero__metric-value hero__metric-value--gold" data-target="18" data-decimals="0" data-prefix="+" data-suffix="%">+18%</div>
+          <div class="hero__metric-label">К маржинальности проекта</div>
+        </div>
+      </div>
     </div>
 
     <div class="hero__scroll">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-    </div>
-  </section>
-
-  <!-- ═══ METRICS BAR ═══ -->
-  <section class="metrics">
-    <div class="container">
-      <div class="metrics__grid reveal">
-        <div class="metrics__item">
-          <div class="metrics__number metrics__number--gold" data-target="1.40" data-decimals="2">0</div>
-          <div class="metrics__label">Целевой LLCR</div>
-        </div>
-        <div class="metrics__item">
-          <div class="metrics__number metrics__number--white">0/100</div>
-          <div class="metrics__label">Схема финансирования</div>
-        </div>
-        <div class="metrics__item">
-          <div class="metrics__number metrics__number--gold" data-target="18" data-decimals="0" data-prefix="+" data-suffix="%">0</div>
-          <div class="metrics__label">К маржинальности проекта</div>
-        </div>
-      </div>
     </div>
   </section>
 
