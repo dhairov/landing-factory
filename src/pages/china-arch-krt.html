@@ -73,25 +73,42 @@
        BLOCK 0: TRIGGER BAR
     ═══════════════════════════════════════ */
     .trigger-bar {
-      background: var(--text-dark);
-      padding: 20px 0;
+      background: #f0ede8;
+      border-bottom: 1px solid #ddd9d2;
+      padding: 0;
     }
     .trigger-track {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
     }
     .trigger-item {
-      display: inline-flex; align-items: center; gap: 14px;
-      padding: 10px 28px;
-      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.8);
-      letter-spacing: 0.01em;
-      border-right: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 20px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #6b6560;
+      letter-spacing: 0.02em;
+      border-right: 1px solid #ddd9d2;
+      line-height: 1.4;
     }
     .trigger-item:last-child { border-right: none; }
-    .trigger-item .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-    .trigger-item strong { color: white; font-weight: 700; }
+    .trigger-item .trigger-icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+    .trigger-item .trigger-text strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1714;
+      margin-bottom: 4px;
+    }
+    @media (max-width: 768px) {
+      .trigger-track { grid-template-columns: repeat(2, 1fr); }
+      .trigger-item { border-bottom: 1px solid #ddd9d2; }
+    }
 
     /* ═══════════════════════════════════════
        BLOCK 1: NAV
@@ -304,6 +321,78 @@
     }
 
     /* ═══════════════════════════════════════
+       BLOCK 6.5: BUREAUS
+    ═══════════════════════════════════════ */
+    .bureaus {
+      background: #fff;
+      padding: 80px 0;
+    }
+    .bureaus-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .bureaus-header h2 { font-size: clamp(28px, 3.5vw, 42px); }
+    .bureaus-header p { margin-top: 16px; color: #6b6560; font-size: 17px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .bureaus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .bureau-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e8e4de;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .bureau-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.12);
+    }
+    .bureau-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .bureau-body {
+      padding: 28px;
+    }
+    .bureau-tag {
+      display: inline-block;
+      background: #f0ede8;
+      color: #8a7e74;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .bureau-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: #1a1714;
+      margin-bottom: 10px;
+    }
+    .bureau-desc {
+      font-size: 14px;
+      color: #6b6560;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .bureau-fact {
+      font-size: 13px;
+      font-weight: 600;
+      color: #c8a96e;
+      border-top: 1px solid #e8e4de;
+      padding-top: 14px;
+    }
+    @media (max-width: 768px) {
+      .bureaus-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ═══════════════════════════════════════
        BLOCK 7: PROCESS (AI-трекинг / Как работаем)
     ═══════════════════════════════════════ */
     .process { background: var(--off-white); }
@@ -495,11 +584,25 @@
 
   <!-- ═══ TRIGGER BAR ═══ -->
   <div class="trigger-bar">
-    <div class="trigger-track" id="triggerTrack">
-      <span class="trigger-item"><span class="dot"></span>Взяли сложный участок КРТ в Москве, от которого отказались местные — <strong>экономика не сходится</strong></span>
-      <span class="trigger-item"><span class="dot"></span>Банк режет финансирование: <strong>LLCR ниже порога</strong>, типовая архитектура не обосновывает цену</span>
-      <span class="trigger-item"><span class="dot"></span>Город заворачивает концепцию: <strong>нет интеграции функций</strong>, нет 15-минутной среды</span>
-      <span class="trigger-item"><span class="dot"></span>Московские бюро предлагают то же, что уже не работает — <strong>сроки горят</strong></span>
+    <div class="container">
+      <div class="trigger-track" id="triggerTrack">
+        <div class="trigger-item">
+          <span class="trigger-icon">🏗️</span>
+          <div class="trigger-text"><strong>Экономика не сходится</strong>Взяли участок КРТ в Москве, от которого отказались местные</div>
+        </div>
+        <div class="trigger-item">
+          <span class="trigger-icon">🏦</span>
+          <div class="trigger-text"><strong>Банк режет финансирование</strong>LLCR ниже порога — типовая архитектура не обосновывает цену</div>
+        </div>
+        <div class="trigger-item">
+          <span class="trigger-icon">🏛️</span>
+          <div class="trigger-text"><strong>Город заворачивает концепцию</strong>Нет интеграции функций, нет 15-минутной среды</div>
+        </div>
+        <div class="trigger-item">
+          <span class="trigger-icon">⏱️</span>
+          <div class="trigger-text"><strong>Сроки горят</strong>Московские бюро предлагают то же, что уже не работает</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -731,6 +834,45 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BLOCK 6.5: BUREAUS ═══ -->
+  <section class="bureaus">
+    <div class="container">
+      <div class="bureaus-header reveal">
+        <h2>Три бюро, с которыми мы работаем</h2>
+        <p>Каждое — специалист в своёй подзадаче. Вместе они закрывают все три барьера для вашего проекта.</p>
+      </div>
+      <div class="bureaus-grid">
+        <div class="bureau-card reveal">
+          <img src="/assets/china-arch-krt/bureau-clou.jpg" alt="CLOU Architects" class="bureau-img">
+          <div class="bureau-body">
+            <span class="bureau-tag">Согласование города</span>
+            <div class="bureau-name">CLOU Architects</div>
+            <p class="bureau-desc">Копенгаген / Пекин. Специализация — mixed-use кварталы с активными первыми этажами и зелёными дворами. Проектируют среду, в которой люди хотят жить — а не просто жильё.</p>
+            <div class="bureau-fact">→ Более 60 реализованных проектов в Китае, Северной Европе и Азии</div>
+          </div>
+        </div>
+        <div class="bureau-card reveal">
+          <img src="/assets/china-arch-krt/bureau-pao.jpg" alt="People's Architecture Office" class="bureau-img">
+          <div class="bureau-body">
+            <span class="bureau-tag">Финансовая модель</span>
+            <div class="bureau-name">People's Architecture Office</div>
+            <p class="bureau-desc">Пекин. Пионеры модульной архитектуры для урбан-регенерации. Создают среду, где уникальность архитектуры напрямую влияет на цену продажи метра.</p>
+            <div class="bureau-fact">→ Проекты PAO повышают стоимость жилья на 25–40% выше рынка</div>
+          </div>
+        </div>
+        <div class="bureau-card reveal">
+          <img src="/assets/china-arch-krt/bureau-lacime.jpg" alt="Lacime Architects" class="bureau-img">
+          <div class="bureau-body">
+            <span class="bureau-tag">Масштабные КРТ</span>
+            <div class="bureau-name">Lacime Architects</div>
+            <p class="bureau-desc">Шанхай. Одно из крупнейших бюро Китая с опытом в масштабных КРТ-проектах от 5 до 50 Га. Создают среду с полным набором функций для жизни, работы и отдыха.</p>
+            <div class="bureau-fact">→ Более 200 реализованных проектов суммарной площадью более 30 млн м²</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
