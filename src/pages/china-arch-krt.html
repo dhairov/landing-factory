@@ -1,1130 +1,963 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Китайская архитектура для КРТ в Москве — DevPartners</title>
-  <meta name="description" content="Альтернативная архитектурная концепция для сложных участков КРТ до 10 Га в Москве. Региональный девелопер получает концепцию, которую одобрит мэр и под которую банк даст финансирование." />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta name="description" content="Разработаем высокомаржинальную архитектурную концепцию для сложного участка КРТ до 10 Га в Москве. Проходит согласование у мэра, получает финансирование в банке.">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ─── RESET & BASE ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --black: #0a0a0a;
-      --white: #f5f3ef;
-      --accent: #c8a96e;
-      --accent-dim: rgba(200,169,110,0.15);
-      --gray: #888;
-      --gray-light: #2a2a2a;
-      --font-display: 'Unbounded', sans-serif;
-      --font-body: 'Inter', sans-serif;
-      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --white: #ffffff;
+      --off-white: #f7f5f2;
+      --light-gray: #f0ede8;
+      --mid-gray: #e2ddd6;
+      --text-dark: #1a1814;
+      --text-mid: #4a4540;
+      --text-light: #8a8480;
+      --accent: #2b5ce6;
+      --accent-dark: #1a3fa0;
+      --danger: #c0392b;
+      --success: #1a7a4a;
+      --border: rgba(0,0,0,0.08);
+      --radius: 16px;
+      --radius-sm: 8px;
     }
+
     html { scroll-behavior: smooth; }
+
     body {
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
       line-height: 1.6;
       overflow-x: hidden;
     }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
 
-    /* ─── SCROLLBAR ─── */
-    ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--black); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); }
+    /* ─── TYPOGRAPHY ─── */
+    h1, h2, h3 { font-family: 'Unbounded', sans-serif; line-height: 1.1; }
+    h1 { font-size: clamp(32px, 4.5vw, 68px); font-weight: 900; }
+    h2 { font-size: clamp(24px, 3vw, 44px); font-weight: 700; }
+    h3 { font-size: clamp(16px, 1.8vw, 22px); font-weight: 700; }
+    p { font-size: clamp(14px, 1.1vw, 17px); color: var(--text-mid); }
 
-    /* ─── LOADER ─── */
-    #loader {
-      position: fixed; inset: 0; z-index: 9999;
-      background: var(--black);
-      display: flex; align-items: center; justify-content: center;
-      transition: opacity 0.6s var(--ease-out), visibility 0.6s;
-    }
-    #loader.hidden { opacity: 0; visibility: hidden; }
-    .loader-line {
-      width: 200px; height: 1px;
-      background: var(--gray-light);
-      position: relative; overflow: hidden;
-    }
-    .loader-line::after {
-      content: '';
-      position: absolute; left: -100%; top: 0;
-      width: 100%; height: 100%;
-      background: var(--accent);
-      animation: load 1.2s var(--ease-out) forwards;
-    }
-    @keyframes load { to { left: 0; } }
+    /* ─── LAYOUT ─── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    section { padding: 80px 0; }
 
-    /* ─── NAV ─── */
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 32px; border-radius: 50px;
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px;
+      cursor: pointer; transition: all 0.25s ease; text-decoration: none; border: none;
+    }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(43,92,230,0.3); }
+    .btn-outline { background: transparent; color: var(--text-dark); border: 2px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-white { background: white; color: var(--text-dark); }
+    .btn-white:hover { background: var(--off-white); transform: translateY(-2px); }
+
+    /* ─── REVEAL ANIMATION ─── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ═══════════════════════════════════════
+       BLOCK 0: TRIGGER BAR
+    ═══════════════════════════════════════ */
+    .trigger-bar {
+      background: var(--text-dark);
+      padding: 0;
+      overflow: hidden;
+    }
+    .trigger-track {
+      display: flex;
+      animation: marquee 30s linear infinite;
+      white-space: nowrap;
+    }
+    .trigger-track:hover { animation-play-state: paused; }
+    .trigger-item {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 14px 32px;
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7);
+      letter-spacing: 0.02em; flex-shrink: 0;
+    }
+    .trigger-item .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .trigger-item strong { color: white; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ═══════════════════════════════════════
+       BLOCK 1: NAV
+    ═══════════════════════════════════════ */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 24px 48px;
-      display: flex; align-items: center; justify-content: space-between;
-      mix-blend-mode: normal;
-      transition: background 0.4s, padding 0.4s;
-    }
-    nav.scrolled {
-      background: rgba(10,10,10,0.92);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(12px);
-      padding: 16px 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
     }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
     .nav-logo {
-      font-family: var(--font-display);
-      font-size: 13px; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--white);
+      font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 16px;
+      color: var(--text-dark); text-decoration: none; letter-spacing: -0.02em;
     }
     .nav-logo span { color: var(--accent); }
-    .nav-cta {
-      font-family: var(--font-display);
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 12px 28px;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      transition: background 0.3s, color 0.3s;
-      cursor: pointer;
-    }
-    .nav-cta:hover { background: var(--accent); color: var(--black); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-link { font-size: 14px; color: var(--text-mid); text-decoration: none; }
+    .nav-link:hover { color: var(--accent); }
 
-    /* ─── HERO ─── */
-    #hero {
-      position: relative;
-      height: 100vh; min-height: 700px;
-      display: flex; flex-direction: column;
-      justify-content: flex-end;
-      overflow: hidden;
+    /* ═══════════════════════════════════════
+       BLOCK 2: HERO
+    ═══════════════════════════════════════ */
+    .hero {
+      position: relative; min-height: 92vh;
+      display: flex; align-items: flex-end;
+      overflow: hidden; background: var(--text-dark);
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background: linear-gradient(135deg, #0f0c0a 0%, #1a1208 40%, #0a0a0a 100%);
+      background-image: url('/assets/china-arch-krt/hero.jpg');
+      background-size: cover; background-position: center top;
+      transform: scale(1.05);
+      transition: transform 8s ease;
     }
-    /* Architectural grid overlay */
-    .hero-grid {
+    .hero-bg.loaded { transform: scale(1); }
+    .hero-overlay {
       position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
-      background-size: 80px 80px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+      background: linear-gradient(
+        to top,
+        rgba(10,8,6,0.92) 0%,
+        rgba(10,8,6,0.55) 40%,
+        rgba(10,8,6,0.15) 70%,
+        transparent 100%
+      );
     }
-    /* Animated geometric shape */
-    .hero-shape {
-      position: absolute;
-      top: 10%; right: 5%;
-      width: min(45vw, 600px);
-      height: min(45vw, 600px);
-      opacity: 0.06;
-      animation: rotate-shape 40s linear infinite;
-    }
-    .hero-shape svg { width: 100%; height: 100%; }
-    @keyframes rotate-shape { to { transform: rotate(360deg); } }
-
-    .hero-noise {
-      position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-    }
-    .hero-gradient {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      height: 50%;
-      background: linear-gradient(transparent, var(--black));
-    }
-
     .hero-content {
       position: relative; z-index: 2;
-      padding: 0 48px 80px;
-      max-width: 1200px;
+      padding: 80px 0; width: 100%;
     }
     .hero-eyebrow {
-      font-family: var(--font-display);
-      font-size: 10px; font-weight: 400;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 32px;
-      opacity: 0;
-      transform: translateY(20px);
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 16px; border-radius: 50px;
+      font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.8);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 28px;
     }
-    .hero-h1 {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 5.5vw, 80px);
-      font-weight: 900;
-      line-height: 1.0;
-      letter-spacing: -0.02em;
-      max-width: 900px;
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    .hero-h1 em {
-      font-style: normal;
-      color: var(--accent);
-    }
+    .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; }
+    .hero h1 { color: white; max-width: 820px; margin-bottom: 24px; }
+    .hero h1 em { font-style: normal; color: #93c5fd; }
     .hero-lead {
-      margin-top: 32px;
-      font-size: 16px; font-weight: 300;
-      color: rgba(245,243,239,0.6);
-      max-width: 560px;
-      line-height: 1.7;
-      opacity: 0;
-      transform: translateY(20px);
+      font-size: clamp(15px, 1.3vw, 18px); color: rgba(255,255,255,0.75);
+      max-width: 560px; margin-bottom: 40px; line-height: 1.65;
     }
-    .hero-actions {
-      margin-top: 48px;
-      display: flex; gap: 20px; align-items: center;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .btn-primary {
-      font-family: var(--font-display);
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 18px 40px;
-      background: var(--accent);
-      color: var(--black);
-      cursor: pointer;
-      transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
-      border: none;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 60px rgba(200,169,110,0.3);
-    }
-    .btn-ghost {
-      font-family: var(--font-display);
-      font-size: 12px; font-weight: 400;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(245,243,239,0.5);
-      display: flex; align-items: center; gap: 12px;
-      cursor: pointer;
-      transition: color 0.3s;
-      border: none; background: none;
-    }
-    .btn-ghost:hover { color: var(--white); }
-    .btn-ghost::after {
-      content: '↓';
-      font-size: 18px;
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
-    }
-
-    /* Hero stats */
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
     .hero-stats {
-      position: absolute; right: 48px; bottom: 80px; z-index: 2;
-      display: flex; flex-direction: column; gap: 32px;
-      opacity: 0;
-    }
-    .hero-stat {
-      text-align: right;
+      display: flex; gap: 40px; margin-top: 60px;
+      padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.15);
     }
     .hero-stat-num {
-      font-family: var(--font-display);
-      font-size: 32px; font-weight: 900;
-      color: var(--accent);
-      line-height: 1;
+      font-family: 'Unbounded', sans-serif; font-size: 28px; font-weight: 900;
+      color: white; line-height: 1;
     }
-    .hero-stat-label {
-      font-size: 10px; font-weight: 300;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--gray);
-      margin-top: 4px;
-    }
+    .hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
 
-    /* ─── SECTION BASE ─── */
-    section { padding: 120px 48px; }
-    .container { max-width: 1200px; margin: 0 auto; }
-    .section-eyebrow {
-      font-family: var(--font-display);
-      font-size: 10px; font-weight: 400;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 24px;
+    /* ═══════════════════════════════════════
+       BLOCK 3: SOLUTION (Готовое решение)
+    ═══════════════════════════════════════ */
+    .solution { background: var(--off-white); }
+    .solution-header { text-align: center; max-width: 700px; margin: 0 auto 64px; }
+    .solution-header .eyebrow { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+    .solution-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .solution-step {
+      background: white; padding: 40px 32px;
+      position: relative; overflow: hidden;
     }
-    .section-h2 {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 3.5vw, 52px);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+    .solution-step:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .solution-step:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+    .step-num {
+      font-family: 'Unbounded', sans-serif; font-size: 56px; font-weight: 900;
+      color: var(--light-gray); line-height: 1; margin-bottom: 20px;
     }
-    .section-lead {
-      font-size: 17px; font-weight: 300;
-      color: rgba(245,243,239,0.6);
-      line-height: 1.7;
-      max-width: 600px;
-      margin-top: 20px;
+    .step-title { font-family: 'Unbounded', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+    .step-desc { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+    .step-tag {
+      display: inline-block; margin-top: 20px;
+      padding: 6px 14px; border-radius: 50px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
     }
+    .tag-blue { background: #dbeafe; color: #1d4ed8; }
+    .tag-green { background: #dcfce7; color: #15803d; }
+    .tag-purple { background: #ede9fe; color: #6d28d9; }
 
-    /* ─── TRIGGERS ─── */
-    #triggers {
-      padding: 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
+    /* ═══════════════════════════════════════
+       BLOCK 4: WHEN (Когда нужен продукт)
+    ═══════════════════════════════════════ */
+    .when { background: white; }
+    .when-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .when-image { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; }
+    .when-image img { width: 100%; height: 100%; object-fit: cover; }
+    .when-content h2 { margin-bottom: 12px; }
+    .when-lead { font-size: 16px; color: var(--text-mid); margin-bottom: 32px; line-height: 1.6; }
+    .when-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .when-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 20px; border-radius: var(--radius-sm);
+      background: var(--off-white); border-left: 3px solid var(--accent);
     }
-    .triggers-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .trigger-item {
-      padding: 48px;
-      border-right: 1px solid rgba(255,255,255,0.06);
-      position: relative;
-      overflow: hidden;
-      transition: background 0.4s;
-    }
-    .trigger-item:last-child { border-right: none; }
-    .trigger-item::before {
-      content: '';
-      position: absolute; bottom: 0; left: 0;
-      width: 0; height: 2px;
-      background: var(--accent);
-      transition: width 0.6s var(--ease-out);
-    }
-    .trigger-item:hover::before { width: 100%; }
-    .trigger-item:hover { background: rgba(200,169,110,0.03); }
-    .trigger-num {
-      font-family: var(--font-display);
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
-    .trigger-text {
-      font-size: 15px; font-weight: 300;
-      line-height: 1.65;
-      color: rgba(245,243,239,0.75);
-    }
+    .when-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .when-text { font-size: 14px; color: var(--text-mid); line-height: 1.55; }
+    .when-text strong { color: var(--text-dark); display: block; margin-bottom: 4px; font-size: 15px; }
 
-    /* ─── PROBLEM STATEMENT ─── */
-    #problem {
-      background: var(--gray-light);
-      position: relative;
-      overflow: hidden;
-    }
-    #problem::before {
-      content: 'КРТ';
-      position: absolute;
-      font-family: var(--font-display);
-      font-size: clamp(120px, 20vw, 280px);
-      font-weight: 900;
-      color: rgba(200,169,110,0.04);
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      white-space: nowrap;
-      pointer-events: none;
-      letter-spacing: -0.05em;
-    }
-    .problem-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .problem-quote {
-      font-family: var(--font-display);
-      font-size: clamp(22px, 2.8vw, 38px);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-    .problem-quote::before {
-      content: '«';
-      color: var(--accent);
-    }
-    .problem-quote::after {
-      content: '»';
-      color: var(--accent);
-    }
-    .problem-body {
-      font-size: 16px; font-weight: 300;
-      color: rgba(245,243,239,0.65);
-      line-height: 1.75;
-    }
-    .problem-body p + p { margin-top: 20px; }
-
-    /* ─── AHA MOMENTS ─── */
-    #aha { background: var(--black); }
-    .aha-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      margin-bottom: 80px;
-      align-items: end;
-    }
-    .aha-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-    .aha-card {
-      background: var(--gray-light);
-      padding: 48px 40px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.4s var(--ease-out);
-      cursor: default;
-    }
-    .aha-card::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, var(--accent-dim), transparent);
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-    .aha-card:hover { transform: translateY(-6px); }
-    .aha-card:hover::after { opacity: 1; }
-    .aha-card-num {
-      font-family: var(--font-display);
-      font-size: 64px; font-weight: 900;
-      color: rgba(200,169,110,0.12);
-      line-height: 1;
-      margin-bottom: 24px;
-      letter-spacing: -0.04em;
-    }
-    .aha-card-title {
-      font-family: var(--font-display);
-      font-size: 17px; font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 16px;
-      letter-spacing: -0.01em;
-    }
-    .aha-card-problem {
-      font-size: 13px; font-weight: 300;
-      color: rgba(245,243,239,0.45);
-      line-height: 1.6;
-      font-style: italic;
-      margin-bottom: 20px;
-      padding-left: 12px;
-      border-left: 2px solid rgba(200,169,110,0.3);
-    }
-    .aha-card-answer {
-      font-size: 14px; font-weight: 300;
-      color: rgba(245,243,239,0.7);
-      line-height: 1.65;
-    }
-    .aha-card-bureau {
-      margin-top: 24px;
-      font-family: var(--font-display);
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    /* ─── WHEN TO HIRE ─── */
-    #when { background: var(--gray-light); }
-    .when-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      margin-top: 64px;
-    }
-    .when-card {
-      background: var(--black);
-      padding: 48px;
-      position: relative;
-      overflow: hidden;
-    }
-    .when-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 3px; height: 0;
-      background: var(--accent);
-      transition: height 0.5s var(--ease-out);
-    }
-    .when-card:hover::before { height: 100%; }
-    .when-stage {
-      font-family: var(--font-display);
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-    .when-title {
-      font-family: var(--font-display);
-      font-size: 20px; font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 16px;
-      letter-spacing: -0.01em;
-    }
-    .when-body {
-      font-size: 14px; font-weight: 300;
-      color: rgba(245,243,239,0.6);
-      line-height: 1.65;
-    }
-
-    /* ─── PROCESS ─── */
-    #process { background: var(--black); }
-    .process-steps {
-      margin-top: 80px;
-      position: relative;
-    }
-    .process-steps::before {
-      content: '';
-      position: absolute; left: 32px; top: 0; bottom: 0;
-      width: 1px;
-      background: linear-gradient(var(--accent), transparent);
-    }
-    .process-step {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 40px;
-      padding: 48px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      align-items: start;
-    }
-    .process-step:last-child { border-bottom: none; }
-    .process-step-num {
-      font-family: var(--font-display);
-      font-size: 13px; font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      padding-top: 4px;
-      text-align: center;
-    }
-    .process-step-title {
-      font-family: var(--font-display);
-      font-size: 22px; font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
-    }
-    .process-step-body {
-      font-size: 15px; font-weight: 300;
-      color: rgba(245,243,239,0.6);
-      line-height: 1.7;
-    }
-
-    /* ─── COMPARISONS ─── */
-    #compare {
-      background: #0f0c08;
-      position: relative;
-      overflow: hidden;
-    }
-    #compare::before {
-      content: '';
-      position: absolute; top: -200px; right: -200px;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(200,169,110,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .compare-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 64px;
-    }
-    .compare-card {
-      padding: 48px 40px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: border-color 0.4s, background 0.4s;
-    }
-    .compare-card:hover {
-      border-color: rgba(200,169,110,0.3);
-      background: rgba(200,169,110,0.03);
-    }
-    .compare-overline {
-      font-family: var(--font-display);
-      font-size: 9px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(200,169,110,0.5);
-      margin-bottom: 16px;
-    }
-    .compare-title {
-      font-family: var(--font-display);
-      font-size: 18px; font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 16px;
-      letter-spacing: -0.01em;
-    }
-    .compare-body {
-      font-size: 14px; font-weight: 300;
-      color: rgba(245,243,239,0.6);
-      line-height: 1.65;
-    }
-
-    /* ─── QUOTE ─── */
-    #quote {
-      background: var(--gray-light);
-      padding: 100px 48px;
-    }
-    .quote-inner {
-      max-width: 900px; margin: 0 auto;
-      text-align: center;
-    }
-    .quote-mark {
-      font-family: var(--font-display);
-      font-size: 80px; font-weight: 900;
-      color: var(--accent);
-      line-height: 0.7;
-      margin-bottom: 32px;
-      display: block;
+    /* ═══════════════════════════════════════
+       BLOCK 5: SOCIAL PROOF
+    ═══════════════════════════════════════ */
+    .proof { background: var(--off-white); }
+    .proof-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    .proof-quote {
+      background: white; border-radius: var(--radius); padding: 40px;
+      border-left: 4px solid var(--accent);
     }
     .quote-text {
-      font-family: var(--font-display);
-      font-size: clamp(20px, 2.5vw, 32px);
-      font-weight: 300;
-      line-height: 1.4;
-      letter-spacing: -0.01em;
-      color: rgba(245,243,239,0.9);
+      font-size: clamp(16px, 1.4vw, 20px); font-style: italic;
+      color: var(--text-dark); line-height: 1.6; margin-bottom: 24px;
     }
-    .quote-author {
-      margin-top: 40px;
-      font-size: 13px; font-weight: 300;
-      color: var(--gray);
-      letter-spacing: 0.05em;
+    .quote-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--accent); display: flex; align-items: center; justify-content: center;
+      font-family: 'Unbounded', sans-serif; font-weight: 900; color: white; font-size: 16px;
     }
-    .quote-author strong {
-      display: block;
-      font-family: var(--font-display);
-      font-size: 13px; font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      margin-bottom: 4px;
+    .author-name { font-weight: 600; font-size: 15px; }
+    .author-role { font-size: 13px; color: var(--text-light); }
+    .proof-stats { display: flex; flex-direction: column; gap: 16px; }
+    .proof-stat {
+      background: white; border-radius: var(--radius-sm); padding: 28px 32px;
+      display: flex; align-items: center; gap: 20px;
+    }
+    .stat-num {
+      font-family: 'Unbounded', sans-serif; font-size: 36px; font-weight: 900;
+      color: var(--accent); line-height: 1; flex-shrink: 0;
+    }
+    .stat-label { font-size: 14px; color: var(--text-mid); line-height: 1.4; }
+    .stat-label strong { color: var(--text-dark); display: block; }
+
+    /* ═══════════════════════════════════════
+       BLOCK 6: AHA-MOMENTS (Четыре силы)
+    ═══════════════════════════════════════ */
+    .aha { background: white; }
+    .aha-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+    .aha-cards { display: flex; flex-direction: column; gap: 4px; }
+    .aha-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-radius: var(--radius); overflow: hidden;
+      min-height: 400px;
+    }
+    .aha-card:nth-child(even) { direction: rtl; }
+    .aha-card:nth-child(even) > * { direction: ltr; }
+    .aha-side {
+      padding: 56px 48px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .aha-side-left { background: var(--off-white); }
+    .aha-side-right { background: var(--text-dark); color: white; }
+    .aha-side-image {
+      position: relative; overflow: hidden;
+    }
+    .aha-side-image img { width: 100%; height: 100%; object-fit: cover; }
+    .aha-side-image .img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, transparent 60%);
+    }
+    .aha-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .label-red { color: var(--danger); }
+    .label-green { color: var(--success); }
+    .aha-title { font-family: 'Unbounded', sans-serif; font-size: clamp(18px, 1.8vw, 24px); font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
+    .aha-side-right .aha-title { color: white; }
+    .aha-quote {
+      font-size: 15px; font-style: italic; color: var(--text-mid);
+      border-left: 3px solid var(--danger); padding-left: 16px; line-height: 1.6;
+    }
+    .aha-bullets { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .aha-bullet {
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.5;
+    }
+    .aha-bullet::before { content: '→'; color: #4ade80; flex-shrink: 0; font-weight: 700; }
+    .aha-insight {
+      margin-top: 24px; padding: 16px 20px;
+      background: rgba(74,222,128,0.1); border-radius: var(--radius-sm);
+      border: 1px solid rgba(74,222,128,0.2);
+      font-size: 13px; color: #4ade80; font-weight: 600;
     }
 
-    /* ─── FORM / CTA ─── */
-    #contact {
-      background: var(--black);
+    /* ═══════════════════════════════════════
+       BLOCK 7: PROCESS (AI-трекинг / Как работаем)
+    ═══════════════════════════════════════ */
+    .process { background: var(--off-white); }
+    .process-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .process-step {
+      background: white; padding: 36px 28px;
       position: relative;
-      overflow: hidden;
     }
-    #contact::before {
-      content: '';
-      position: absolute; bottom: -300px; left: -300px;
-      width: 800px; height: 800px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(200,169,110,0.06) 0%, transparent 70%);
-      pointer-events: none;
+    .process-step:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .process-step:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+    .process-step::after {
+      content: '→';
+      position: absolute; right: -14px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px; color: var(--accent); z-index: 1;
     }
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 100px;
-      align-items: start;
+    .process-step:last-child::after { display: none; }
+    .process-num {
+      font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700;
+      color: var(--accent); margin-bottom: 16px;
     }
-    .contact-left .section-h2 { max-width: 480px; }
+    .process-title { font-family: 'Unbounded', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+    .process-desc { font-size: 13px; color: var(--text-mid); line-height: 1.55; }
+    .process-duration {
+      display: inline-block; margin-top: 16px;
+      padding: 4px 12px; border-radius: 50px;
+      background: var(--light-gray); font-size: 11px; font-weight: 600; color: var(--text-mid);
+    }
+
+    /* ═══════════════════════════════════════
+       BLOCK 8: COMPARE (Преимущества)
+    ═══════════════════════════════════════ */
+    .compare { background: white; }
+    .compare-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+    .compare-table { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+    .compare-row {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-row.header { background: var(--text-dark); }
+    .compare-cell {
+      padding: 20px 24px;
+      font-size: 14px; color: var(--text-mid);
+      display: flex; align-items: center;
+    }
+    .compare-row.header .compare-cell { color: rgba(255,255,255,0.6); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .compare-row.header .compare-cell.highlight { color: white; font-size: 14px; font-weight: 700; text-transform: none; letter-spacing: 0; }
+    .compare-cell.criterion { color: var(--text-dark); font-weight: 500; }
+    .compare-cell.highlight { background: #eff6ff; }
+    .compare-row.header .compare-cell.highlight { background: var(--accent); }
+    .check { color: var(--success); font-size: 18px; font-weight: 700; }
+    .cross { color: var(--danger); font-size: 18px; }
+    .partial { color: #d97706; font-size: 14px; }
+
+    /* ═══════════════════════════════════════
+       BLOCK 9: PRICING
+    ═══════════════════════════════════════ */
+    .pricing { background: var(--off-white); }
+    .pricing-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+    .pricing-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pricing-card {
+      background: white; border-radius: var(--radius); padding: 40px 32px;
+      border: 1px solid var(--border); position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pricing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.1); }
+    .pricing-card.featured {
+      background: var(--text-dark); border-color: var(--text-dark);
+    }
+    .featured-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: white;
+      padding: 4px 16px; border-radius: 50px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .plan-name {
+      font-family: 'Unbounded', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--text-light); text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+    .pricing-card.featured .plan-name { color: rgba(255,255,255,0.5); }
+    .plan-title { font-family: 'Unbounded', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .pricing-card.featured .plan-title { color: white; }
+    .plan-desc { font-size: 13px; color: var(--text-light); margin-bottom: 28px; line-height: 1.5; }
+    .pricing-card.featured .plan-desc { color: rgba(255,255,255,0.5); }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+    .plan-feature {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 13px; color: var(--text-mid); line-height: 1.4;
+    }
+    .pricing-card.featured .plan-feature { color: rgba(255,255,255,0.75); }
+    .plan-feature::before { content: '✓'; color: var(--success); font-weight: 700; flex-shrink: 0; }
+    .pricing-card.featured .plan-feature::before { color: #4ade80; }
+    .plan-cta { width: 100%; justify-content: center; }
+
+    /* ═══════════════════════════════════════
+       BLOCK 10: CONTACT FORM
+    ═══════════════════════════════════════ */
+    .contact {
+      background: var(--text-dark);
+      position: relative; overflow: hidden;
+    }
+    .contact-bg {
+      position: absolute; inset: 0;
+      background-image: url('/assets/china-arch-krt/hero.jpg');
+      background-size: cover; background-position: center;
+      opacity: 0.08;
+    }
+    .contact-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .contact-left h2 { color: white; margin-bottom: 20px; }
+    .contact-lead { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 40px; }
+    .contact-promises { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .contact-promise {
-      margin-top: 40px;
-      display: flex; flex-direction: column; gap: 20px;
+      display: flex; gap: 12px; align-items: center;
+      font-size: 14px; color: rgba(255,255,255,0.75);
     }
-    .contact-promise-item {
-      display: flex; gap: 16px; align-items: flex-start;
+    .contact-promise::before { content: '✓'; color: #4ade80; font-weight: 700; flex-shrink: 0; }
+    .contact-form {
+      background: white; border-radius: var(--radius); padding: 48px;
     }
-    .contact-promise-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-top: 8px; flex-shrink: 0;
-    }
-    .contact-promise-text {
-      font-size: 15px; font-weight: 300;
-      color: rgba(245,243,239,0.65);
-      line-height: 1.6;
-    }
-    .form-group {
-      margin-bottom: 24px;
-    }
-    .form-label {
-      display: block;
-      font-family: var(--font-display);
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 10px;
-    }
-    .form-input, .form-textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 15px; font-weight: 300;
-      padding: 16px 20px;
+    .form-title { font-family: 'Unbounded', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .form-subtitle { font-size: 14px; color: var(--text-light); margin-bottom: 32px; }
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 12px; font-weight: 600; color: var(--text-mid); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .form-input {
+      width: 100%; padding: 14px 16px;
+      border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-dark);
+      background: var(--off-white); transition: border-color 0.2s;
       outline: none;
-      transition: border-color 0.3s, background 0.3s;
-      -webkit-appearance: none;
     }
-    .form-input:focus, .form-textarea:focus {
-      border-color: var(--accent);
-      background: rgba(200,169,110,0.05);
-    }
-    .form-input::placeholder, .form-textarea::placeholder {
-      color: rgba(245,243,239,0.25);
-    }
-    .form-textarea { resize: vertical; min-height: 120px; }
-    .form-submit {
-      width: 100%;
-      font-family: var(--font-display);
-      font-size: 13px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 20px;
-      background: var(--accent);
-      color: var(--black);
-      border: none; cursor: pointer;
-      transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
-      margin-top: 8px;
-    }
-    .form-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 60px rgba(200,169,110,0.3);
-    }
-    .form-note {
-      margin-top: 16px;
-      font-size: 12px; font-weight: 300;
-      color: rgba(245,243,239,0.3);
-      text-align: center;
-    }
+    .form-input:focus { border-color: var(--accent); background: white; }
+    .form-input::placeholder { color: var(--text-light); }
+    .form-submit { width: 100%; justify-content: center; margin-top: 8px; padding: 18px; font-size: 16px; }
+    .form-note { font-size: 12px; color: var(--text-light); text-align: center; margin-top: 12px; }
 
     /* ─── FOOTER ─── */
     footer {
-      padding: 40px 48px;
+      background: #0d0b09; padding: 32px 0;
       border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-inner {
       display: flex; align-items: center; justify-content: space-between;
     }
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-    }
+    .footer-logo { font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 14px; color: rgba(255,255,255,0.4); }
     .footer-logo span { color: var(--accent); }
-    .footer-copy {
-      font-size: 12px; font-weight: 300;
-      color: rgba(245,243,239,0.3);
-    }
-
-    /* ─── ANIMATIONS ─── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
-      nav { padding: 20px 32px; }
-      nav.scrolled { padding: 14px 32px; }
-      section { padding: 80px 32px; }
-      .hero-content { padding: 0 32px 60px; }
-      .hero-stats { right: 32px; bottom: 60px; }
-      .triggers-grid { grid-template-columns: 1fr; }
-      .trigger-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      .problem-layout { grid-template-columns: 1fr; gap: 40px; }
-      .aha-cards { grid-template-columns: 1fr; }
-      .when-grid { grid-template-columns: 1fr; }
-      .compare-grid { grid-template-columns: 1fr; }
-      .contact-layout { grid-template-columns: 1fr; gap: 60px; }
-      .aha-intro { grid-template-columns: 1fr; gap: 40px; }
-      footer { flex-direction: column; gap: 16px; text-align: center; }
+      .solution-steps { grid-template-columns: 1fr; gap: 2px; }
+      .solution-step:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+      .solution-step:last-child { border-radius: 0 0 var(--radius) var(--radius); }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-step:nth-child(2) { border-radius: 0 var(--radius) 0 0; }
+      .process-step:nth-child(3) { border-radius: 0 0 0 var(--radius); }
+      .process-step:nth-child(2)::after, .process-step:nth-child(4)::after { display: none; }
     }
+
     @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
-      section { padding: 64px 24px; }
-      .hero-content { padding: 0 24px 48px; }
-      .hero-stats { display: none; }
-      .hero-actions { flex-direction: column; align-items: flex-start; }
-      .process-step { grid-template-columns: 60px 1fr; gap: 24px; }
-      .process-steps::before { left: 22px; }
+      section { padding: 56px 0; }
+      .container { padding: 0 20px; }
+      .when-grid { grid-template-columns: 1fr; }
+      .when-image { display: none; }
+      .proof-inner { grid-template-columns: 1fr; }
+      .aha-card { grid-template-columns: 1fr; min-height: auto; }
+      .aha-card:nth-child(even) { direction: ltr; }
+      .aha-side-image { min-height: 240px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .pricing-cards { grid-template-columns: 1fr; }
+      .compare-row { grid-template-columns: 1fr; }
+      .compare-cell { border-bottom: 1px solid var(--border); }
+      .compare-row.header .compare-cell:not(.highlight) { display: none; }
+      .process-steps { grid-template-columns: 1fr; }
+      .process-step { border-radius: 0 !important; }
+      .process-step::after { display: none; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+      .nav-link { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-line"></div>
-</div>
-
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-logo">Dev<span>Partners</span></div>
-  <a href="#contact" class="nav-cta">Разобрать участок</a>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-shape">
-    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="50" y="50" width="300" height="300" stroke="rgba(200,169,110,0.6)" stroke-width="1"/>
-      <rect x="100" y="100" width="200" height="200" stroke="rgba(200,169,110,0.4)" stroke-width="1"/>
-      <rect x="150" y="150" width="100" height="100" stroke="rgba(200,169,110,0.2)" stroke-width="1"/>
-      <line x1="50" y1="50" x2="350" y2="350" stroke="rgba(200,169,110,0.2)" stroke-width="0.5"/>
-      <line x1="350" y1="50" x2="50" y2="350" stroke="rgba(200,169,110,0.2)" stroke-width="0.5"/>
-      <circle cx="200" cy="200" r="150" stroke="rgba(200,169,110,0.15)" stroke-width="0.5"/>
-      <circle cx="200" cy="200" r="100" stroke="rgba(200,169,110,0.1)" stroke-width="0.5"/>
-    </svg>
-  </div>
-  <div class="hero-noise"></div>
-  <div class="hero-gradient"></div>
-
-  <div class="hero-content">
-    <p class="hero-eyebrow" id="hero-eyebrow">DevPartners · Китайская архитектура · КРТ до 10 Га · Москва</p>
-    <h1 class="hero-h1" id="hero-h1">
-      Сложный участок КРТ<br/>
-      в Москве — это не тупик.<br/>
-      Это <em>возможность</em><br/>
-      для тех, кто умеет<br/>
-      находить скрытую маржинальность
-    </h1>
-    <p class="hero-lead" id="hero-lead">
-      Московские девелоперы отказались от вашего участка. Мы знаем, как вытянуть его экономику — через архитектуру, которую одобрит мэр и под которую банк даст финансирование.
-    </p>
-    <div class="hero-actions" id="hero-actions">
-      <a href="#contact" class="btn-primary">Заказать разбор участка</a>
-      <button class="btn-ghost" onclick="document.getElementById('triggers').scrollIntoView({behavior:'smooth'})">Узнать как это работает</button>
+  <!-- ═══ TRIGGER BAR ═══ -->
+  <div class="trigger-bar">
+    <div class="trigger-track" id="triggerTrack">
+      <span class="trigger-item"><span class="dot"></span>Взяли сложный участок КРТ в Москве, от которого отказались местные — <strong>экономика не сходится</strong></span>
+      <span class="trigger-item"><span class="dot"></span>Банк режет финансирование: <strong>LLCR ниже порога</strong>, типовая архитектура не обосновывает цену</span>
+      <span class="trigger-item"><span class="dot"></span>Город заворачивает концепцию: <strong>нет интеграции функций</strong>, нет 15-минутной среды</span>
+      <span class="trigger-item"><span class="dot"></span>Московские бюро предлагают то же, что уже не работает — <strong>сроки горят</strong></span>
+      <span class="trigger-item"><span class="dot"></span>Взяли сложный участок КРТ в Москве, от которого отказались местные — <strong>экономика не сходится</strong></span>
+      <span class="trigger-item"><span class="dot"></span>Банк режет финансирование: <strong>LLCR ниже порога</strong>, типовая архитектура не обосновывает цену</span>
+      <span class="trigger-item"><span class="dot"></span>Город заворачивает концепцию: <strong>нет интеграции функций</strong>, нет 15-минутной среды</span>
+      <span class="trigger-item"><span class="dot"></span>Московские бюро предлагают то же, что уже не работает — <strong>сроки горят</strong></span>
     </div>
   </div>
 
-  <div class="hero-stats" id="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-num">10 Га</div>
-      <div class="hero-stat-label">Участки КРТ</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">3+</div>
-      <div class="hero-stat-label">Топ бюро Китая</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">ATP</div>
-      <div class="hero-stat-label">Адаптация под РФ</div>
-    </div>
-  </div>
-</section>
-
-<!-- TRIGGERS -->
-<div id="triggers">
-  <div class="triggers-grid">
-    <div class="trigger-item reveal">
-      <div class="trigger-num">01 / Ситуация</div>
-      <p class="trigger-text">Вы взяли участок КРТ в Москве, от которого отказались местные игроки из-за сложных обременений. Экономика не сходится — и каждый месяц простоя это прямые потери.</p>
-    </div>
-    <div class="trigger-item reveal reveal-delay-1">
-      <div class="trigger-num">02 / Проблема</div>
-      <p class="trigger-text">Текущая концепция буксует на согласовании у мэра. Банк режет финансирование, потому что стандартная архитектура не обосновывает цену продажи выше рынка.</p>
-    </div>
-    <div class="trigger-item reveal reveal-delay-2">
-      <div class="trigger-num">03 / Тупик</div>
-      <p class="trigger-text">Местные бюро предлагают типовые решения — те самые, которые уже не проходят согласование. Нужна принципиально другая концепция, которая вытянет проект.</p>
-    </div>
-  </div>
-</div>
-
-<!-- PROBLEM STATEMENT -->
-<section id="problem">
-  <div class="container">
-    <div class="problem-layout">
-      <div class="reveal">
-        <p class="section-eyebrow">Реальная ситуация</p>
-        <blockquote class="problem-quote">
-          Мы взяли сложный участок в Москве, от которого отказались все. Нам нужна концепция, которая вытянет проект
-        </blockquote>
-      </div>
-      <div class="problem-body reveal reveal-delay-2">
-        <p>Региональный девелопер, впервые заходящий в Москву, часто получает именно такой актив: участок с историей, обременениями, сложной функцией. Московские игроки прошли мимо — не потому что участок плохой, а потому что не умеют работать с нестандартными задачами.</p>
-        <p>Китайская архитектурная школа специализируется именно на таких проектах. Плотность, многофункциональность, интеграция сложных функций в городскую ткань — это их ежедневная практика, а не эксперимент.</p>
-        <p>DevPartners — интегратор, который соединяет китайский архитектурный опыт с российской нормативной базой и финансовой логикой девелоперского проекта.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AHA MOMENTS -->
-<section id="aha">
-  <div class="container">
-    <div class="aha-intro">
-      <div class="reveal">
-        <p class="section-eyebrow">Три барьера регионального девелопера</p>
-        <h2 class="section-h2">Как DevPartners закрывает каждый из них</h2>
-      </div>
-      <div class="reveal reveal-delay-1">
-        <p class="section-lead">Мы не просто подбираем архитекторов. Мы решаем конкретные задачи: согласование у мэра, финансовая модель для банка, адаптация под нормы РФ.</p>
-      </div>
-    </div>
-    <div class="aha-cards">
-      <div class="aha-card reveal">
-        <div class="aha-card-num">01</div>
-        <h3 class="aha-card-title">Мэр заворачивает концепцию</h3>
-        <p class="aha-card-problem">«Москомархитектура требует знаковое решение для городской среды, а у нас нет опыта, как это делать правильно в Москве»</p>
-        <p class="aha-card-answer">CLOU Architects специализируется на создании живых общественных пространств в плотной городской ткани. Это именно то, что требует Москомархитектура. Инновационная среда становится вашим главным рычагом при согласовании.</p>
-        <div class="aha-card-bureau">CLOU Architects · Пекин / Шанхай</div>
-      </div>
-      <div class="aha-card reveal reveal-delay-1">
-        <div class="aha-card-num">02</div>
-        <h3 class="aha-card-title">Банк режет финансирование</h3>
-        <p class="aha-card-problem">«Банк не видит обоснования для высокой цены продажи. Финансовая модель не сходится, кредит под угрозой»</p>
-        <p class="aha-card-answer">DevPartners переводит архитектурные решения в язык финансовой модели. People's Architecture Office создаёт пространства, которые создают добавочную стоимость квадратного метра. Мы защищаем финансово-архитектурный бриф перед кредитным комитетом.</p>
-        <div class="aha-card-bureau">People's Architecture Office · Пекин</div>
-      </div>
-      <div class="aha-card reveal reveal-delay-2">
-        <div class="aha-card-num">03</div>
-        <h3 class="aha-card-title">Нельзя построить по нормам РФ</h3>
-        <p class="aha-card-problem">«Иностранцы нарисуют то, что невозможно построить по нашим нормам. Кто будет адаптировать под СНиП и ПЗЗ?»</p>
-        <p class="aha-card-answer">Российский партнёр ATP-TLP работает параллельно с китайским бюро с первого дня — не после. Адаптация под СНиП, ПЗЗ и ВРИ встроена в процесс разработки, а не является отдельным этапом, который всё ломает.</p>
-        <div class="aha-card-bureau">ATP-TLP · Адаптация под нормы РФ</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHEN TO HIRE -->
-<section id="when">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-eyebrow">Когда нанимают этот продукт</p>
-      <h2 class="section-h2">Четыре ситуации, в которых<br/>стандартный подход перестаёт работать</h2>
-    </div>
-    <div class="when-grid">
-      <div class="when-card reveal reveal-delay-1">
-        <div class="when-stage">Участок куплен, концепции нет</div>
-        <h3 class="when-title">Земля заморожена. Каждый месяц без концепции — прямые потери</h3>
-        <p class="when-body">Местные бюро предлагают типовые решения, которые не вытянут экономику сложного участка. Нужна альтернативная концепция, которая найдёт скрытую маржинальность и пройдёт все согласования с первого захода.</p>
-      </div>
-      <div class="when-card reveal reveal-delay-2">
-        <div class="when-stage">Концепция не проходит согласование</div>
-        <h3 class="when-title">Москомархитектура отклонила проект. Требуют знаковое решение</h3>
-        <p class="when-body">Нужна концепция мирового уровня, которую мэрия одобрит как образец для города. Полный цикл: новое ТЗ → китайское бюро → адаптация → АГР/КГА.</p>
-      </div>
-      <div class="when-card reveal reveal-delay-1">
-        <div class="when-stage">Банк режет финансирование</div>
-        <h3 class="when-title">Финансовая модель не сходится. Банк требует пересмотра концепции</h3>
-        <p class="when-body">Нужен архитектурно-финансовый бриф, который убедит кредитный комитет в маржинальности проекта. Архитектура, создающая добавочную стоимость квадратного метра, напрямую улучшает показатели финансовой модели.</p>
-      </div>
-      <div class="when-card reveal reveal-delay-2">
-        <div class="when-stage">Стратегический выбор</div>
-        <h3 class="when-title">Первый проект в Москве должен стать заявкой на федеральный уровень</h3>
-        <p class="when-body">Китайская архитектурная школа в Москве — PR-событие само по себе. Архитектурный образ, который создаёт медийный резонанс ещё до старта продаж и формирует репутацию девелопера федерального уровня.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-eyebrow">Как это работает</p>
-      <h2 class="section-h2">От сложного участка до готового пакета<br/>для банка и мэрии</h2>
-    </div>
-    <div class="process-steps">
-      <div class="process-step reveal">
-        <div class="process-step-num">01</div>
-        <div>
-          <h3 class="process-step-title">Вы описываете участок и текущую ситуацию</h3>
-          <p class="process-step-body">Рассказываете о проекте: локация, площадь, текущий статус согласований, требования банка и ключевые ограничения участка. Мы слушаем и задаём правильные вопросы.</p>
-        </div>
-      </div>
-      <div class="process-step reveal">
-        <div class="process-step-num">02</div>
-        <div>
-          <h3 class="process-step-title">Диагностика участка и шортлист бюро</h3>
-          <p class="process-step-body">Анализируем участок, требования мэрии и банка. Находим точки скрытой маржинальности. Отбираем 2–3 бюро с релевантным портфолио — CLOU Architects, People's Architecture Office или Lacime Architects в зависимости от задачи.</p>
-        </div>
-      </div>
-      <div class="process-step reveal">
-        <div class="process-step-num">03</div>
-        <div>
-          <h3 class="process-step-title">Китайское бюро разрабатывает концепцию</h3>
-          <p class="process-step-body">Параллельно ATP-TLP начинает нормативную адаптацию. Концепция создаётся сразу под требования Москомархитектуры и банковской финансовой модели — не «потом адаптируем», а с первого дня.</p>
-        </div>
-      </div>
-      <div class="process-step reveal">
-        <div class="process-step-num">04</div>
-        <div>
-          <h3 class="process-step-title">Передаём готовый пакет: АГР + финансово-архитектурный бриф</h3>
-          <p class="process-step-body">Итог — не просто красивые визуализации, а полный пакет для защиты перед кредитным комитетом и прохождения АГР/КГА в Москомархитектуре. Концепция, прошедшая стадию П и готовая к государственной экспертизе.</p>
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">DEV<span>PARTNERS</span></a>
+        <div class="nav-cta">
+          <a href="#contact" class="nav-link">Контакты</a>
+          <a href="#contact" class="btn btn-primary" style="padding:12px 24px;font-size:13px;">Разобрать участок</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- COMPARISONS -->
-<section id="compare">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-eyebrow">Почему стандартный подход не работает</p>
-      <h2 class="section-h2">Три принципиальных отличия DevPartners</h2>
-    </div>
-    <div class="compare-grid">
-      <div class="compare-card reveal reveal-delay-1">
-        <div class="compare-overline">Против «поиска скрытой маржинальности»</div>
-        <h3 class="compare-title">Находим экономическую целесообразность там, где другие видят только ограничения</h3>
-        <p class="compare-body">Московские девелоперы отказались от вашего участка — не потому что он плохой, а потому что не умеют работать со сложными обременениями. Китайская архитектурная школа специализируется именно на таких проектах.</p>
-      </div>
-      <div class="compare-card reveal reveal-delay-2">
-        <div class="compare-overline">Против «красивых картинок»</div>
-        <h3 class="compare-title">Концепция, которая говорит на языке банка</h3>
-        <p class="compare-body">Большинство архитектурных продуктов заканчиваются на визуализациях. DevPartners переводит концепцию в финансово-архитектурный бриф, который напрямую влияет на условия проектного финансирования.</p>
-      </div>
-      <div class="compare-card reveal reveal-delay-3">
-        <div class="compare-overline">Против «нормы потом»</div>
-        <h3 class="compare-title">Нормативная адаптация встроена в процесс с первого дня</h3>
-        <p class="compare-body">Российский генпроектировщик ATP-TLP работает параллельно с китайским бюро — не после. Концепция создаётся сразу совместимой с СНиП, ПЗЗ и требованиями Москомархитектуры.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- QUOTE -->
-<section id="quote">
-  <div class="quote-inner reveal">
-    <span class="quote-mark">"</span>
-    <p class="quote-text">Китайские бюро сегодня работают с плотностью и многофункциональностью на уровне, к которому российский рынок только приходит. Они умеют превращать сложные, обременённые участки в точки притяжения — и делают это с пониманием финансовой модели девелопера.</p>
-    <div class="quote-author">
-      <strong>Алексей Расходчиков</strong>
-      Директор по развитию, Институт Генплана Москвы
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT FORM -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-layout">
-      <div class="reveal">
-        <p class="section-eyebrow">Бесплатная диагностика участка</p>
-        <h2 class="section-h2">Получите экспресс-оценку скрытой маржинальности вашего участка КРТ</h2>
-        <div class="contact-promise">
-          <div class="contact-promise-item">
-            <div class="contact-promise-dot"></div>
-            <p class="contact-promise-text">Анализируем участок и находим точки скрытой маржинальности, которые не видят местные бюро</p>
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" style="padding:0;">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-eyebrow reveal">
+          <span class="dot"></span>
+          КРТ до 10 Га · Москва · Региональный девелопер
+        </div>
+        <h1 class="reveal">
+          Сложный участок КРТ — <em>это не проблема.</em><br>
+          Это возможность для тех, кто умеет её читать
+        </h1>
+        <p class="hero-lead reveal">
+          Московские игроки отказались от вашего участка не потому что он плохой —
+          а потому что не умеют работать со сложными обременениями.
+          Китайская архитектурная школа находит маржинальность там, где другие видят только риски.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#contact" class="btn btn-white">Заказать разбор участка</a>
+          <a href="#when" class="btn btn-outline" style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.25);">Узнать как это работает ↓</a>
+        </div>
+        <div class="hero-stats reveal">
+          <div>
+            <div class="hero-stat-num">10 Га</div>
+            <div class="hero-stat-label">Участки КРТ</div>
           </div>
-          <div class="contact-promise-item">
-            <div class="contact-promise-dot"></div>
-            <p class="contact-promise-text">Подбираем 2–3 релевантных китайских бюро из нашего пула под конкретную задачу</p>
+          <div>
+            <div class="hero-stat-num">3+</div>
+            <div class="hero-stat-label">Топ бюро Китая</div>
           </div>
-          <div class="contact-promise-item">
-            <div class="contact-promise-dot"></div>
-            <p class="contact-promise-text">Объясняем, как архитектурные решения повлияют на финансовую модель и согласование</p>
+          <div>
+            <div class="hero-stat-num">ATP</div>
+            <div class="hero-stat-label">Адаптация под РФ</div>
           </div>
         </div>
       </div>
-      <div class="reveal reveal-delay-1">
-        <form name="contact-china-arch-krt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact-china-arch-krt" />
-          <p style="display:none"><label>Не заполняйте: <input name="bot-field" /></label></p>
-          <div class="form-group">
-            <label class="form-label" for="name">Ваше имя</label>
-            <input class="form-input" type="text" id="name" name="name" placeholder="Иван Петров" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="phone">Телефон или Telegram</label>
-            <input class="form-input" type="text" id="phone" name="phone" placeholder="+7 900 000 00 00 или @username" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-input" type="email" id="email" name="email" placeholder="ivan@company.ru" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="project">Кратко об участке</label>
-            <textarea class="form-textarea" id="project" name="project" placeholder="Локация, площадь, текущий статус, ключевые сложности..."></textarea>
-          </div>
-          <button type="submit" class="form-submit">Заказать разбор участка →</button>
-          <p class="form-note">Свяжемся в течение 24 часов. Без спама и навязчивых звонков.</p>
-        </form>
+    </div>
+  </section>
+
+  <!-- ═══ BLOCK 2: ГОТОВОЕ РЕШЕНИЕ ═══ -->
+  <section class="solution">
+    <div class="container">
+      <div class="solution-header reveal">
+        <div class="eyebrow">Готовое решение</div>
+        <h2>Стратегическая интеграция китайской архитектуры для сложных КРТ</h2>
+        <p style="margin-top:16px;">Полный цикл: от аудита участка до защиты концепции перед городом и банком</p>
+      </div>
+      <div class="solution-steps">
+        <div class="solution-step reveal">
+          <div class="step-num">01</div>
+          <div class="step-title">Подготовка</div>
+          <p class="step-desc">Аудит участка: ограничения, ПЗЗ, требования города. Формирование технического задания. Подбор 2–3 релевантных китайских бюро из нашей сети с опытом в аналогичных проектах.</p>
+          <span class="step-tag tag-blue">2–3 недели</span>
+        </div>
+        <div class="solution-step reveal">
+          <div class="step-num">02</div>
+          <div class="step-title">Исполнение</div>
+          <p class="step-desc">Разработка архитектурной концепции с интеграцией жилья, сервисных и производственных функций. Параллельная адаптация под СНиП и ПЗЗ силами ATP-TLP. Финансовое обоснование LLCR.</p>
+          <span class="step-tag tag-purple">6–10 недель</span>
+        </div>
+        <div class="solution-step reveal">
+          <div class="step-num">03</div>
+          <div class="step-title">Защита результата</div>
+          <p class="step-desc">Подготовка материалов для Москомархитектуры и кредитного комитета банка. Сопровождение на всех этапах согласования. Доработка по замечаниям.</p>
+          <span class="step-tag tag-green">До получения АГР</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">Dev<span>Partners</span></div>
-  <p class="footer-copy">© 2025 DevPartners. Китайская архитектура для КРТ в Москве.</p>
-</footer>
+  <!-- ═══ BLOCK 4: КОГДА НУЖЕН ПРОДУКТ ═══ -->
+  <section class="when" id="when">
+    <div class="container">
+      <div class="when-grid">
+        <div class="when-image reveal">
+          <img src="/assets/china-arch-krt/aha1-chaos.jpg" alt="Ситуация когда нужен продукт" loading="lazy">
+        </div>
+        <div class="when-content reveal">
+          <h2>Когда нужен этот продукт?</h2>
+          <p class="when-lead">Четыре ситуации, в которых стандартные подходы перестают работать и нужна альтернативная концепция.</p>
+          <ul class="when-list">
+            <li class="when-item">
+              <span class="when-icon">🏗️</span>
+              <div class="when-text">
+                <strong>Участок достался со сложными обременениями</strong>
+                Московские девелоперы отказались от него — вы взяли. Типовые бюро не понимают, как совместить функции и вытянуть экономику.
+              </div>
+            </li>
+            <li class="when-item">
+              <span class="when-icon">🏛️</span>
+              <div class="when-text">
+                <strong>Город заворачивает концепцию</strong>
+                Москомархитектура требует 15-минутную среду, интеграцию функций, связь с городской тканью — стандартный ЖК не проходит.
+              </div>
+            </li>
+            <li class="when-item">
+              <span class="when-icon">🏦</span>
+              <div class="when-text">
+                <strong>Банк отказывает в финансировании</strong>
+                LLCR не дотягивает до порога. Финансовая модель не сходится, потому что архитектура не обосновывает высокую цену продажи.
+              </div>
+            </li>
+            <li class="when-item">
+              <span class="when-icon">⏰</span>
+              <div class="when-text">
+                <strong>Сроки реализации КРТ горят</strong>
+                По договору с городом есть дедлайн. Нужна концепция, которая пройдёт согласование быстро, а не после трёх итераций.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  // LOADER
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('loader').classList.add('hidden');
-      // Hero animations
-      setTimeout(() => {
-        document.getElementById('hero-eyebrow').style.cssText = 'opacity:1;transform:translateY(0);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)';
-      }, 100);
-      setTimeout(() => {
-        document.getElementById('hero-h1').style.cssText = 'opacity:1;transform:translateY(0);transition:opacity 1s cubic-bezier(0.16,1,0.3,1),transform 1s cubic-bezier(0.16,1,0.3,1)';
-      }, 300);
-      setTimeout(() => {
-        document.getElementById('hero-lead').style.cssText = 'opacity:1;transform:translateY(0);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)';
-      }, 600);
-      setTimeout(() => {
-        document.getElementById('hero-actions').style.cssText = 'opacity:1;transform:translateY(0);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)';
-        document.getElementById('hero-stats').style.cssText = 'opacity:1;transition:opacity 1s cubic-bezier(0.16,1,0.3,1) 0.2s';
-      }, 800);
-    }, 1400);
-  });
+  <!-- ═══ BLOCK 5: СОЦИАЛЬНЫЕ ДОКАЗАТЕЛЬСТВА ═══ -->
+  <section class="proof">
+    <div class="container">
+      <div class="proof-inner">
+        <div class="proof-quote reveal">
+          <p class="quote-text">«Китайская архитектурная школа сегодня — это передовой опыт интеграции сложных функций в ткань мегаполиса. Они делают то, к чему мы только приходим, и делают это принципиально иначе — не через типологию, а через сценарий жизни.»</p>
+          <div class="quote-author">
+            <div class="author-avatar">АР</div>
+            <div>
+              <div class="author-name">Алексей Расходчиков</div>
+              <div class="author-role">Директор, Институт Генплана Москвы</div>
+            </div>
+          </div>
+        </div>
+        <div class="proof-stats">
+          <div class="proof-stat reveal">
+            <div class="stat-num">+35%</div>
+            <div class="stat-label"><strong>Рост цены продажи</strong>Уникальная архитектурная концепция обосновывает более высокую стоимость метра</div>
+          </div>
+          <div class="proof-stat reveal">
+            <div class="stat-num">2×</div>
+            <div class="stat-label"><strong>Быстрее согласование</strong>Концепция, адаптированная под требования города с первого дня, проходит АГР без переделок</div>
+          </div>
+          <div class="proof-stat reveal">
+            <div class="stat-num">100%</div>
+            <div class="stat-label"><strong>Соответствие СНиП</strong>Адаптация под российские нормы идёт параллельно с разработкой, а не после</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  // NAV SCROLL
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  <!-- ═══ BLOCK 6: AHA-MOMENTS ═══ -->
+  <section class="aha">
+    <div class="container">
+      <div class="aha-header reveal">
+        <h2>Три барьера, которые мы закрываем</h2>
+        <p style="margin-top:16px;">Каждый из них — критическая подзадача, от которой зависит судьба проекта</p>
+      </div>
+      <div class="aha-cards">
 
-  // SCROLL REVEAL
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+        <!-- AHA 1 -->
+        <div class="aha-card reveal">
+          <div class="aha-side aha-side-left">
+            <div class="aha-label label-red">Барьер 01 · Согласование</div>
+            <h3 class="aha-title">«Концепция красивая, но город её не примет»</h3>
+            <p class="aha-quote">«Мы уже потратили полгода на проект, который Москомархитектура завернула с формулировкой "не соответствует концепции 15-минутного города". Начинаем с нуля.»</p>
+          </div>
+          <div class="aha-side aha-side-right">
+            <div class="aha-label label-green">Решение</div>
+            <h3 class="aha-title">Концепция проектируется под требования города с первого дня</h3>
+            <ul class="aha-bullets">
+              <li>Бюро CLOU Architects специализируется на mixed-use проектах, интегрированных в городскую ткань — это их основной профиль</li>
+              <li>Требования Москомархитектуры (15-минутная среда, функциональный микс) заложены в ТЗ на этапе подготовки</li>
+              <li>Параллельная работа с ATP-TLP исключает итерации «нарисовали — не прошло нормы»</li>
+            </ul>
+            <div class="aha-insight">→ Концепция проходит АГР без переделок, потому что она изначально создана под его требования</div>
+          </div>
+        </div>
+
+        <!-- AHA 2 -->
+        <div class="aha-card reveal">
+          <div class="aha-side aha-side-right">
+            <div class="aha-label label-green">Решение</div>
+            <h3 class="aha-title">Архитектура переводится в язык финансовой модели</h3>
+            <ul class="aha-bullets">
+              <li>Каждое архитектурное решение обосновывается через его влияние на цену продажи метра и LLCR</li>
+              <li>People's Architecture Office имеет опыт проектов, где уникальная среда увеличивала стоимость жилья на 25–40%</li>
+              <li>Мы готовим пакет материалов для кредитного комитета: не просто рендеры, а финансовое обоснование концепции</li>
+            </ul>
+            <div class="aha-insight">→ Банк видит не «красивый проект», а обоснованный LLCR с архитектурным подтверждением</div>
+          </div>
+          <div class="aha-side aha-side-left">
+            <div class="aha-label label-red">Барьер 02 · Финансирование</div>
+            <h3 class="aha-title">«Банк не даст денег на нестандартный проект»</h3>
+            <p class="aha-quote">«Кредитный комитет сказал: LLCR 1.1, нам нужно 1.3. Архитектор говорит — добавим этажей. Банк говорит — это ухудшит продажи. Замкнутый круг.»</p>
+          </div>
+        </div>
+
+        <!-- AHA 3 -->
+        <div class="aha-card reveal">
+          <div class="aha-side aha-side-left">
+            <div class="aha-label label-red">Барьер 03 · Нормы РФ</div>
+            <h3 class="aha-title">«Иностранцы нарисуют то, что нельзя построить»</h3>
+            <p class="aha-quote">«Мы уже работали с иностранным бюро. Концепция была потрясающая. Но когда дошли до экспертизы — половину пришлось переделать. Деньги и время потрачены впустую.»</p>
+          </div>
+          <div class="aha-side aha-side-right">
+            <div class="aha-label label-green">Решение</div>
+            <h3 class="aha-title">Адаптация под СНиП и ПЗЗ идёт параллельно с разработкой</h3>
+            <ul class="aha-bullets">
+              <li>ATP-TLP — российское бюро, специализирующееся на адаптации иностранных концепций под нормы РФ</li>
+              <li>Они работают в паре с китайским бюро с первого дня: не «переводят» готовый проект, а участвуют в его создании</li>
+              <li>Все конструктивные решения проверяются на соответствие СНиП до финального рендера, а не после</li>
+            </ul>
+            <div class="aha-insight">→ Иностранный креатив + российская экспертиза = проект, который можно построить</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BLOCK 7: PROCESS ═══ -->
+  <section class="process">
+    <div class="container">
+      <div class="process-header reveal">
+        <h2>Как это работает</h2>
+        <p style="margin-top:16px;">Четыре этапа от первого звонка до защиты концепции</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="process-num">ШАГ 01</div>
+          <div class="process-title">Аудит участка</div>
+          <p class="process-desc">Изучаем ПЗЗ, ограничения, требования города. Оцениваем потенциал и формируем ТЗ.</p>
+          <span class="process-duration">1–2 недели</span>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">ШАГ 02</div>
+          <div class="process-title">Подбор бюро</div>
+          <p class="process-desc">Из нашей сети выбираем 2–3 китайских бюро с релевантным портфолио. Проводим питч-сессию.</p>
+          <span class="process-duration">1–2 недели</span>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">ШАГ 03</div>
+          <div class="process-title">Разработка концепции</div>
+          <p class="process-desc">Бюро разрабатывает концепцию, ATP-TLP адаптирует под нормы РФ. Параллельно — финмодель.</p>
+          <span class="process-duration">6–10 недель</span>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">ШАГ 04</div>
+          <div class="process-title">Защита</div>
+          <p class="process-desc">Готовим материалы для Москомархитектуры и банка. Сопровождаем до получения АГР.</p>
+          <span class="process-duration">До результата</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BLOCK 8: COMPARE ═══ -->
+  <section class="compare">
+    <div class="container">
+      <div class="compare-header reveal">
+        <h2>Почему стандартный подход не работает</h2>
+        <p style="margin-top:16px;">Сравнение трёх сценариев для сложного участка КРТ в Москве</p>
+      </div>
+      <div class="compare-table reveal">
+        <div class="compare-row header">
+          <div class="compare-cell criterion">Критерий</div>
+          <div class="compare-cell">Московское бюро</div>
+          <div class="compare-cell highlight">DevPartners + Китай</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell criterion">Опыт в сложных функциональных миксах</div>
+          <div class="compare-cell"><span class="cross">✗</span> Типовые ЖК</div>
+          <div class="compare-cell highlight"><span class="check">✓</span> Специализация</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell criterion">Соответствие требованиям 15-минутного города</div>
+          <div class="compare-cell"><span class="partial">~ Адаптируют</span></div>
+          <div class="compare-cell highlight"><span class="check">✓</span> В ДНК проекта</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell criterion">Финансовое обоснование LLCR</div>
+          <div class="compare-cell"><span class="cross">✗</span> Не входит в услугу</div>
+          <div class="compare-cell highlight"><span class="check">✓</span> Включено</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell criterion">Адаптация под СНиП с первого дня</div>
+          <div class="compare-cell"><span class="check">✓</span> Знают нормы</div>
+          <div class="compare-cell highlight"><span class="check">✓</span> ATP-TLP в команде</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell criterion">Уникальность концепции для обоснования цены</div>
+          <div class="compare-cell"><span class="cross">✗</span> Типовые решения</div>
+          <div class="compare-cell highlight"><span class="check">✓</span> Нет аналогов на рынке</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell criterion">Сопровождение до АГР</div>
+          <div class="compare-cell"><span class="cross">✗</span> Только проект</div>
+          <div class="compare-cell highlight"><span class="check">✓</span> До результата</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BLOCK 9: PRICING ═══ -->
+  <section class="pricing">
+    <div class="container">
+      <div class="pricing-header reveal">
+        <h2>Форматы участия</h2>
+        <p style="margin-top:16px;">Выберите уровень вовлечённости под вашу задачу</p>
+      </div>
+      <div class="pricing-cards">
+        <div class="pricing-card reveal">
+          <div class="plan-name">Базовый</div>
+          <div class="plan-title">Экспресс-аудит</div>
+          <p class="plan-desc">Для тех, кто хочет понять потенциал участка и получить шорт-лист бюро</p>
+          <ul class="plan-features">
+            <li class="plan-feature">Аудит участка: ограничения и потенциал</li>
+            <li class="plan-feature">Анализ требований Москомархитектуры</li>
+            <li class="plan-feature">Шорт-лист 3 китайских бюро с портфолио</li>
+            <li class="plan-feature">Предварительная оценка LLCR</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline plan-cta">Заказать аудит</a>
+        </div>
+        <div class="pricing-card featured reveal">
+          <div class="featured-badge">Рекомендуем</div>
+          <div class="plan-name">Продвинутый</div>
+          <div class="plan-title">Концепция + Нормы</div>
+          <p class="plan-desc">Полная разработка архитектурной концепции с адаптацией под СНиП и финансовым обоснованием</p>
+          <ul class="plan-features">
+            <li class="plan-feature">Всё из базового</li>
+            <li class="plan-feature">Разработка архитектурной концепции</li>
+            <li class="plan-feature">Адаптация под СНиП/ПЗЗ (ATP-TLP)</li>
+            <li class="plan-feature">Финансовая модель с LLCR</li>
+            <li class="plan-feature">Материалы для банка</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary plan-cta">Обсудить проект</a>
+        </div>
+        <div class="pricing-card reveal">
+          <div class="plan-name">Под ключ</div>
+          <div class="plan-title">До получения АГР</div>
+          <p class="plan-desc">Полное сопровождение от концепции до согласования в Москомархитектуре и банке</p>
+          <ul class="plan-features">
+            <li class="plan-feature">Всё из продвинутого</li>
+            <li class="plan-feature">Подготовка материалов для АГР</li>
+            <li class="plan-feature">Защита в Москомархитектуре</li>
+            <li class="plan-feature">Сопровождение кредитного комитета</li>
+            <li class="plan-feature">Доработка по замечаниям</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline plan-cta">Обсудить условия</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BLOCK 10: CONTACT ═══ -->
+  <section class="contact" id="contact">
+    <div class="contact-bg"></div>
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-left reveal">
+          <h2>Разберём потенциал вашего участка</h2>
+          <p class="contact-lead">Оставьте контакты — проведём аудит участка КРТ до 10 Га и предложим 3 релевантных китайских бюро с опытом в аналогичных проектах.</p>
+          <ul class="contact-promises">
+            <li class="contact-promise">Ответим в течение 24 часов</li>
+            <li class="contact-promise">Первичный аудит — бесплатно</li>
+            <li class="contact-promise">NDA по запросу до первой встречи</li>
+            <li class="contact-promise">Работаем с участками от 3 до 10 Га в Москве</li>
+          </ul>
+        </div>
+        <div class="contact-form reveal">
+          <div class="form-title">Стратегическая встреча</div>
+          <div class="form-subtitle">Разбор участка КРТ · 60 минут · Онлайн или офлайн</div>
+          <form name="contact-china-arch-krt" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact-china-arch-krt">
+            <div class="form-group">
+              <label class="form-label" for="name">Имя</label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="Иван Петров" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Телефон / Telegram</label>
+              <input class="form-input" type="text" id="phone" name="phone" placeholder="+7 900 000 00 00" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="ivan@company.ru">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="project">Кратко об участке</label>
+              <input class="form-input" type="text" id="project" name="project" placeholder="Площадь, район Москвы, текущий статус">
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">Записаться на встречу →</button>
+            <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">DEV<span>PARTNERS</span></div>
+        <div class="footer-copy">© 2025 DevPartners · Китайская архитектура для КРТ в Москве</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hero image load animation
+    const heroBg = document.getElementById('heroBg');
+    const img = new Image();
+    img.onload = () => heroBg.classList.add('loaded');
+    img.src = '/assets/china-arch-krt/hero.jpg';
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Duplicate trigger track for seamless loop
+    const track = document.getElementById('triggerTrack');
+    // Already duplicated in HTML for seamless marquee
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-  reveals.forEach(el => observer.observe(el));
-
-  // PARALLAX on hero shape
-  window.addEventListener('scroll', () => {
-    const shape = document.querySelector('.hero-shape');
-    if (shape) {
-      shape.style.transform = `translateY(${window.scrollY * 0.15}px)`;
-    }
-  });
-
-  // FORM SUBMIT
-  const form = document.querySelector('form[name="contact-china-arch-krt"]');
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('.form-submit');
-      btn.textContent = 'Отправляем...';
-      btn.disabled = true;
-      try {
-        const data = new FormData(form);
-        await fetch('/', { method: 'POST', body: data });
-        btn.textContent = '✓ Заявка отправлена';
-        btn.style.background = '#2a5a2a';
-        btn.style.color = '#fff';
-        form.querySelectorAll('input, textarea').forEach(el => el.value = '');
-      } catch {
-        btn.textContent = 'Ошибка. Попробуйте ещё раз';
-        btn.disabled = false;
-      }
-    });
-  }
-</script>
+  </script>
 
 </body>
 </html>
