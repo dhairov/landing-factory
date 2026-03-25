@@ -14,6 +14,7 @@ const {
   lifeStages = [],
   processSteps = [],
   comparisons = [],
+  socialProof = null,
   sections = {},
 } = Astro.props;
 
@@ -160,6 +161,34 @@ const s = sections;
           </div>
         </div>
       </section>
+
+      <!-- SOCIAL PROOF -->
+      {socialProof && (
+        <section class="section social-proof745">
+          <div class="container social-proof745__container">
+            <blockquote class="social-proof745__quote">
+              <p set:html={socialProof.quote}></p>
+              <footer>
+                <strong>{socialProof.author}</strong>
+                {socialProof.role && <span> &mdash; {socialProof.role}</span>}
+              </footer>
+            </blockquote>
+            {socialProof.partners && socialProof.partners.length > 0 && (
+              <div class="social-proof745__partners">
+                <p class="social-proof745__partners-label">Партнёры экосистемы</p>
+                <div class="social-proof745__partners-grid">
+                  {socialProof.partners.map((p: any) => (
+                    <div class="social-proof745__partner-card">
+                      <strong>{p.name}</strong>
+                      <span>{p.description}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       <!-- LIFE STAGES TABLE -->
       <section class="section life745 section--photo-soft" style={`--section-bg: url(${images.evolution})`}>
