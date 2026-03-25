@@ -1,5 +1,7 @@
 ---
 import StayButGrowTemplate from '../templates/StayButGrowTemplate.astro';
+import Analytics from '../components/Analytics.astro';
+import '../styles/global.css';
 
 const slug = 'ikar-vysota-323';
 const formName = `landing-${slug}`;
@@ -8,24 +10,361 @@ const images = {"hero": "/assets/stay-but-grow/original/hero_hero.jpg", "aha1": 
 const hero = {"label": "ЖК «Высота 323» · Челябинск · Центр · ГК ИКАР", "h1": "Жить на новом уровне — <em>не уезжая из своего города.</em>", "lead": "Когда жизнь уже выросла, особенно важно, чтобы ей соответствовали дом, адрес, ритм и среда вокруг. Высота 323 — это способ перейти в более высокий класс городской жизни, сохранив всё, что уже стало своим.", "offerLine": "Бизнес-класс · 30 этажей · Центр Челябинска · Сдача — IV квартал 2028", "cardH2": "Бизнес-класс в центре Челябинска для тех, кто хочет вырасти внутри своего города", "cardMeta": "Центр · Бизнес-класс · 30 этажей · IV квартал 2028", "cardBody": "Архитектура, приватность, локация и качество общих пространств делают городской рост естественным продолжением жизни, а не вынужденным разрывом с привычным."};
 const triggerPoints = ["Есть этап, когда человеку больше не нужно доказывать себе, что он может расти. Работа, доход, круг общения и внутренний масштаб уже изменились.", "Но среда повседневной жизни по-прежнему остаётся на уровне прошлого этапа: случайный дом, устаревший формат, пространство без ощущения зрелости.", "Город стал по-настоящему своим, но дом внутри него всё ещё не отражает того, кем человек уже стал."];
 const selfSelection = ["Когда уровень жизни вырос, а пространство вокруг — ещё нет.", "Когда хочется жить иначе, но не уезжать из своего города.", "Когда компромисс с жильём стал ощущаться как тихая потеря качества."];
-const responseCards = [{"number": "01", "title": "Адрес, который соответствует уровню", "problem": "«Я давно вырос из этого района, но всё откладываю переезд — кажется, что это сложно и требует начинать всё заново».", "answer": "Высота 323 — это не переезд в другой город и не разрыв с привычным. Это переход на более высокий уровень жизни внутри Челябинска, который уже стал своим.", "detail": "Центральная локация, бизнес-класс, 30 этажей с видовыми квартирами. Адрес, который читается без объяснений.", "cta": "Посмотреть, как это решение может быть упаковано для вашего ЖК", "alt": "Статусное лобби с приглушённым светом и взрослым характером"}, {"number": "02", "title": "Среда, которая усиливает", "problem": "«Я возвращаюсь домой и чувствую, что пространство вокруг не соответствует тому, кем я стал. Это незаметно, но давит».", "answer": "Лобби, общие пространства, архитектура фасада и качество среды внутри — всё это работает как ежедневное подтверждение уровня. Не декор, а ощущение.", "detail": "Атриум, продуманные общие зоны, современная инженерия. Среда, которая не требует объяснений — она просто считывается.", "cta": "Обсудить, как среда проекта работает как аргумент продажи", "alt": "Вид из панорамного окна на ночной Челябинск с высоты"}, {"number": "03", "title": "Рост без разрыва", "problem": "«Я не хочу терять свой город, маршруты, связи и привычный ритм. Но хочу жить иначе — лучше, взрослее, точнее».", "answer": "Не нужно уезжать в другой город или менять всё разом. Высота 323 — это способ вырасти внутри своей городской биографии, не отказываясь от неё.", "detail": "Челябинск, ул. Братьев Каширины / Каслинская. Центр. Сдача — IV квартал 2028. Всё, что уже стало своим — остаётся.", "cta": "Если в вашем проекте есть ценность, которую рынок не считывает — обсудим переупаковку", "alt": "Просторная квартира с панорамным видом на город вечером"}];
+const responseCards = [{"number": "01", "title": "Адрес, который соответствует уровню", "problem": "«Я давно вырос из этого района, но всё откладываю переезд — кажется, что это сложно и требует начинать всё заново».", "answer": "Высота 323 — это не переезд в другой город и не разрыв с привычным. Это переход на более высокий уровень жизни внутри Челябинска, который уже стал своим.", "detail": "Центральная локация, бизнес-класс, 30 этажей с видовыми квартирами. Адрес, который читается без объяснений.", "cta": "Посмотреть планировки и условия", "alt": "Статусное лобби с приглушённым светом и взрослым характером"}, {"number": "02", "title": "Среда, которая усиливает", "problem": "«Я возвращаюсь домой и чувствую, что пространство вокруг не соответствует тому, кем я стал. Это незаметно, но давит».", "answer": "Лобби, общие пространства, архитектура фасада и качество среды внутри — всё это работает как ежедневное подтверждение уровня. Не декор, а ощущение.", "detail": "Атриум, продуманные общие зоны, современная инженерия. Среда, которая не требует объяснений — она просто считывается.", "cta": "Записаться на просмотр", "alt": "Вид из панорамного окна на ночной Челябинск с высоты"}, {"number": "03", "title": "Рост без разрыва", "problem": "«Я не хочу терять свой город, маршруты, связи и привычный ритм. Но хочу жить иначе — лучше, взрослее, точнее».", "answer": "Не нужно уезжать в другой город или менять всё разом. Высота 323 — это способ вырасти внутри своей городской биографии, не отказываясь от неё.", "detail": "Челябинск, ул. Братьев Каширины / Каслинская. Центр. Сдача — IV квартал 2028. Всё, что уже стало своим — остаётся.", "cta": "Получить планировки и расчёт ипотеки", "alt": "Просторная квартира с панорамным видом на город вечером"}];
 const lifeStages = [{"stage": "Первый переход", "price": "Бизнес-класс", "who": "Вы живёте в привычном районе, но уровень жизни уже вырос. Пора привести среду в соответствие.", "hire": "Пространство, которое усиливает самоощущение — без переезда в другой город.", "format": "1- и 2-комнатные с видовыми характеристиками. Вход в новый уровень."}, {"stage": "Взрослый адрес", "price": "Бизнес-класс", "who": "Вы хотите жить в центре, в доме с характером — без компромиссов с инфраструктурой и окружением.", "hire": "Адрес, который считывается. Среда, которая соответствует.", "format": "2- и 3-комнатные. Центральная локация. Собранный образ жизни."}, {"stage": "Городская зрелость", "price": "Бизнес-класс", "who": "Вы всё доказали. Хотите дом, в котором уровень жизни виден без слов — через архитектуру, вид и среду.", "hire": "Пространство над городом. Приватность. Ощущение, что жизнь наконец собрана.", "format": "Видовые квартиры верхних этажей. Высота 323 — Челябинск."}, {"stage": "Личная территория", "price": "Бизнес-класс", "who": "Вы цените абсолютную приватность и хотите, чтобы дом был вашей крепостью — видовой, закрытой, неповторимой.", "hire": "Собственное пространство над городом, где никто не смотрит в ваши окна.", "format": "Видовые квартиры верхних этажей. Только для тех, кто уже дома."}];
-const processSteps = [{"number": "01", "title": "Вы оставляете контакты и ссылку на проект", "text": "Показываете текущий ЖК, лендинг или рекламную коммуникацию, которая не даёт нужной конверсии."}, {"number": "02", "title": "Мы собираем гипотезу переупаковки", "text": "Смотрим сегмент, JTBD-напряжение, текущий оффер и архитектуру страницы, чтобы найти, где именно теряются продажи."}, {"number": "03", "title": "Проводим встречу по проекту", "text": "Показываем, как может выглядеть более точное позиционирование, структура лендинга и конверсионная логика без банальных штампов."}, {"number": "04", "title": "Фиксируем следующий шаг", "text": "Определяем, что именно нужно делать дальше: корректировать сегмент, перепрошивать оффер или полностью пересобирать упаковку проекта."}];
+const processSteps = [{"number": "01", "title": "Оставьте заявку — мы свяжемся в течение часа", "text": "Укажите удобный способ связи. Менеджер ответит на вопросы и пришлёт актуальные планировки."}, {"number": "02", "title": "Подберём квартиру под ваш запрос", "text": "Этаж, вид, площадь, бюджет. Покажем варианты и рассчитаем ипотеку или рассрочку."}, {"number": "03", "title": "Приглашаем на просмотр", "text": "Покажем шоурум, расскажем про инфраструктуру и ответим на все вопросы на месте."}, {"number": "04", "title": "Фиксируем условия и оформляем сделку", "text": "Помогаем с документами, ипотекой и регистрацией. Сопровождаем до ключей."}];
 const comparisons = [{"overline": "Против «статусных» ЖК", "title": "Взрослый уровень без кричащей роскоши", "text": "Высота 323 — не про демонстрацию. Про среду, архитектуру и ощущение собранности, которое не нужно объяснять."}, {"overline": "Против старого фонда", "title": "Городская биография — без устаревшей инфраструктуры", "text": "Привычный Челябинск, знакомые маршруты и связи — но на качественно другом уровне повседневного опыта."}, {"overline": "Против массовой застройки", "title": "Бизнес-класс как норма, а не исключение", "text": "Продуманная архитектура, достойные общие пространства и приватность — не как бонус, а как базовый стандарт."}];
-const sections = {"immersive1": {"eyebrow": "Высота 323 · ГК ИКАР · Челябинск", "h2": "Чтобы вырасти, не обязательно начинать жизнь заново", "bodies": [], "facts": ["Бизнес-класс", "Центр Челябинска", "30 этажей", "Сдача — IV квартал 2028", "{item.price}"], "bridge": ""}, "responses": {"h2": "Как Высота 323 отвечает на то, что вас останавливало"}, "splitPhoto": {"eyebrow": "Высота 323 · Узнайте себя", "h2": "Этот дом — для тех, кто готов занять более взрослое место в своём городе", "quoteText": "«Высота 323 — это редкий пример проекта, где архитектура и среда работают как аргумент сами по себе. Не нужно объяснять уровень — он считывается с первого взгляда».", "quoteFooter": "ГК ИКАР · Челябинск"}, "story": {"h2": "Рост без разрыва", "problem": "«Я не хочу терять свой город, маршруты, связи и привычный ритм. Но хочу жить иначе — лучше, взрослее, точнее».", "link": "{card.cta}", "body": ""}, "compare": {"eyebrow": "", "h2": ""}, "process": {"h2": "Как проходит путь к переупаковке девелоперского продукта", "lead": ""}, "final": {"eyebrow": "Текущее позиционирование ЖК «Высота 323»", "h2": "Если текущее позиционирование не приводит к продажам — оставьте контакты, и мы проведём встречу, где расскажем про наш подход", "formEyebrow": ""}, "life": {"h2": "Этапы жизни семьи, которая хочет остаться, но вырасти", "lead": "Каждый этап — это новый запрос к пространству. Продукт должен отвечать на актуальный этап.", "cta": "Обсудить, как упаковать ваш ЖК под сценарий «остаться, но вырасти»"}};
+const sections = {"immersive1": {"eyebrow": "Высота 323 · ГК ИКАР · Челябинск", "h2": "Чтобы вырасти, не обязательно начинать жизнь заново", "bodies": [], "facts": ["Бизнес-класс", "Центр Челябинска", "30 этажей", "Сдача — IV квартал 2028"], "bridge": ""}, "responses": {"h2": "Как Высота 323 отвечает на то, что вас останавливало"}, "splitPhoto": {"eyebrow": "Высота 323 · Узнайте себя", "h2": "Этот дом — для тех, кто готов занять более взрослое место в своём городе", "quoteText": "«Высота 323 — это редкий пример проекта, где архитектура и среда работают как аргумент сами по себе. Не нужно объяснять уровень — он считывается с первого взгляда».", "quoteFooter": "ГК ИКАР · Челябинск"}, "story": {"h2": "Рост без разрыва", "problem": "«Я не хочу терять свой город, маршруты, связи и привычный ритм. Но хочу жить иначе — лучше, взрослее, точнее».", "link": "Получить планировки и расчёт ипотеки", "body": ""}, "compare": {"eyebrow": "", "h2": ""}, "process": {"h2": "Как проходит покупка квартиры в ЖК «Высота 323»", "lead": ""}, "final": {"eyebrow": "ЖК «Высота 323» · ГК ИКАР · Челябинск", "h2": "Оставьте контакты — мы пришлём планировки и рассчитаем ипотеку под ваш бюджет", "formEyebrow": ""}, "life": {"h2": "Для кого Высота 323 — следующий шаг", "lead": "Каждый этап жизни требует нового пространства. Найдите свой.", "cta": "Получить планировки и расчёт ипотеки"}};
 ---
 
-<StayButGrowTemplate
-  slug={slug}
-  formName={formName}
-  meta={meta}
-  images={images}
-  hero={hero}
-  triggerPoints={triggerPoints}
-  selfSelection={selfSelection}
-  responseCards={responseCards}
-  lifeStages={lifeStages}
-  processSteps={processSteps}
-  comparisons={comparisons}
-  sections={sections}
-/>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  </head>
+  <body class="landing-745">
+    <Analytics landingSlug={slug} />
+    <main>
+
+      <!-- HERO — новая структура: label+meta / h1 / triggers / CTA -->
+      <section class="hero745 section section--photo-hero ikar-hero">
+        <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="container ikar-hero__container">
+
+          <!-- Строка 1: label + meta -->
+          <div class="ikar-hero__toprow">
+            <span class="ikar-hero__label">ЖК «Высота 323» · Челябинск · Центр · ГК ИКАР</span>
+            <span class="ikar-hero__meta">Центр · Бизнес-класс · 30 этажей · IV квартал 2028</span>
+          </div>
+
+          <!-- Строка 2: h1 -->
+          <h1 class="ikar-hero__h1">Жить на новом уровне — <em>не уезжая из своего города.</em></h1>
+
+          <!-- Строка 3: DTBD-триггеры -->
+          <div class="ikar-hero__triggers">
+            {triggerPoints.map((t: string) => (
+              <p class="ikar-hero__trigger" set:html={t}></p>
+            ))}
+          </div>
+
+          <!-- Строка 4: CTA -->
+          <div class="ikar-hero__actions">
+            <a class="button745 button745--primary" href="#contact">Получить планировки и расчёт ипотеки</a>
+            <a class="button745 button745--ghost" href="#contact">Записаться на просмотр</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Остальные секции через шаблон — передаём только нужные части -->
+      <!-- IMMERSIVE 1 -->
+      <section class="immersive745 immersive745--hero" style={`--immersive-bg: url(${images.aha1})`}>
+        <div class="container immersive745__inner">
+          <div class="immersive745__card">
+            <p class="immersive745__eyebrow" set:html={sections.immersive1?.eyebrow}></p>
+            <h2 set:html={sections.immersive1?.h2}></h2>
+            <div class="immersive745__facts">
+              {sections.immersive1?.facts?.map((f: string) => <span>{f}</span>)}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESPONSES -->
+      <section class="section responses745 section--photo-soft" style={`--section-bg: url(${images.aha2})`}>
+        <div class="responses745__veil"></div>
+        <div class="container responses745__container">
+          <div class="section745-heading center745 section745-heading--light">
+            <h2 set:html={sections.responses?.h2}></h2>
+          </div>
+          <div class="responses745__stack">
+            {responseCards.map((card: any) => (
+              <div class="response745-card">
+                <div class="response745-card__media">
+                  <img src={card.image || images.aha1} alt={card.alt || ''} loading="lazy" />
+                </div>
+                <div class="response745-card__body">
+                  <div class="response745-card__number">{card.number}</div>
+                  <h3 set:html={card.title}></h3>
+                  <p class="response745-card__problem" set:html={card.problem}></p>
+                  <p class="response745-card__answer" set:html={card.answer}></p>
+                  <p class="response745-card__detail" set:html={card.detail}></p>
+                  <a class="button745 button745--outline" href="#contact" set:html={card.cta}></a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- SPLIT PHOTO / SELF-SELECTION -->
+      <section class="section split-photo745">
+        <div class="split-photo745__image" style={`--split-bg: url(${images.qualifier})`}></div>
+        <div class="split-photo745__content">
+          <p class="immersive745__eyebrow" set:html={sections.splitPhoto?.eyebrow}></p>
+          <h2 set:html={sections.splitPhoto?.h2}></h2>
+          <ul class="self-selection745">
+            {selfSelection.map((item: string) => <li set:html={item}></li>)}
+          </ul>
+          <blockquote class="quote745">
+            <p set:html={sections.splitPhoto?.quoteText}></p>
+            <footer set:html={sections.splitPhoto?.quoteFooter}></footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- IMMERSIVE 2 -->
+      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.aha3})`}>
+        <div class="container immersive745__inner">
+          <div class="immersive745__card">
+            <h2 set:html={sections.story?.h2}></h2>
+            <p set:html={sections.story?.problem}></p>
+            <a class="button745 button745--primary" href="#contact" set:html={sections.story?.link}></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIFE STAGES -->
+      <section class="section life745 section--photo-soft" style={`--section-bg: url(${images.evolution})`}>
+        <div class="life745__veil"></div>
+        <div class="container life745__container">
+          <div class="section745-heading center745 section745-heading--light">
+            <h2 set:html={sections.life?.h2}></h2>
+            {sections.life?.lead && <p set:html={sections.life.lead}></p>}
+          </div>
+          <div class="life745__grid">
+            {lifeStages.map((stage: any) => (
+              <div class="life745-card">
+                <div class="life745-card__stage" set:html={stage.stage}></div>
+                <div class="life745-card__price" set:html={stage.price}></div>
+                <p class="life745-card__who" set:html={stage.who}></p>
+                <p class="life745-card__hire" set:html={stage.hire}></p>
+                <p class="life745-card__format" set:html={stage.format}></p>
+              </div>
+            ))}
+          </div>
+          {sections.life?.cta && <div class="center745"><a class="button745 button745--primary" href="#contact" set:html={sections.life.cta}></a></div>}
+        </div>
+      </section>
+
+      <!-- COMPARE -->
+      <section class="section compare745">
+        <div class="compare745__backdrop" style={`--compare-bg: url(${images.compare})`}></div>
+        <div class="container compare745__container">
+          <div class="compare745__grid">
+            {comparisons.map((c: any) => (
+              <div class="compare745-card">
+                <p class="compare745-card__eyebrow" set:html={c.overline}></p>
+                <h3 set:html={c.title}></h3>
+                <p set:html={c.text}></p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section class="section process745 section--photo-band" style={`--section-bg: url(${images.footer})`}>
+        <div class="process745__veil"></div>
+        <div class="container process745__container">
+          <div class="section745-heading center745 section745-heading--light">
+            <h2 set:html={sections.process?.h2}></h2>
+          </div>
+          <div class="process745__grid process745__grid--stacked">
+            {processSteps.map((step: any) => (
+              <div class="process745-card">
+                <div class="process745-card__number" set:html={step.number}></div>
+                <h3 set:html={step.title}></h3>
+                <p set:html={step.text}></p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL / FORM -->
+      <section class="section final745 final745--photo" id="contact" style={`--final-bg: url(${images.footer})`}>
+        <div class="final745__backdrop" style={`--final-bg: url(${images.footer})`}></div>
+        <div class="container final745__container">
+          <div class="final745__layout">
+            <div class="final745__media-copy">
+              <p class="final745__eyebrow" set:html={sections.final?.eyebrow}></p>
+              <h2 set:html={sections.final?.h2}></h2>
+              {images.currentPositioning && (
+                <div class="final745__positioning">
+                  <img src={images.currentPositioning} alt="Текущее позиционирование" loading="lazy" />
+                </div>
+              )}
+            </div>
+            <div class="final745__form-grid">
+              <form name={formName} method="POST" data-netlify="true" class="form745" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value={formName} />
+                <input type="hidden" name="landing-slug" value={slug} />
+                <p class="form745__eyebrow">Запись на консультацию</p>
+                <div class="form745__field">
+                  <input type="text" name="name" placeholder="Ваше имя" required />
+                </div>
+                <div class="form745__field">
+                  <input type="tel" name="phone" placeholder="Телефон" required />
+                </div>
+                <div class="form745__field">
+                  <input type="text" name="utm_source" style="display:none" />
+                </div>
+                <button type="submit" class="button745 button745--primary form745__submit">Получить планировки и расчёт ипотеки</button>
+                <p class="form745__legal">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <script>
+      import { populateUTMFields, trackFormSubmission } from '../utils/analytics.ts';
+      (() => {
+        populateUTMFields();
+        const form = document.querySelector('form[data-netlify]');
+        if (form) form.addEventListener('submit', () => trackFormSubmission('ikar-vysota-323'));
+      })();
+    </script>
+  </body>
+</html>
+
+<style>
+  /* ===== IKAR HERO — новая структура ===== */
+  .ikar-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .ikar-hero__container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(20px, 3vh, 32px);
+    padding-top: clamp(40px, 5vh, 64px);
+    padding-bottom: clamp(40px, 5vh, 64px);
+    min-height: 100vh;
+  }
+
+  /* Строка label + meta */
+  .ikar-hero__toprow {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .ikar-hero__label {
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 247, 240, 0.95);
+    text-shadow: 0 1px 8px rgba(7, 5, 4, 0.5);
+  }
+
+  .ikar-hero__meta {
+    font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 220, 180, 0.85);
+    text-shadow: 0 1px 8px rgba(7, 5, 4, 0.5);
+    padding-left: 24px;
+    border-left: 2px solid rgba(255, 200, 140, 0.4);
+  }
+
+  /* H1 */
+  .ikar-hero__h1 {
+    font-size: clamp(2.6rem, 5.5vw, 5.2rem);
+    line-height: 0.97;
+    color: #fff8f2;
+    max-width: 16ch;
+    margin: 0;
+  }
+
+  .ikar-hero__h1 em {
+    display: inline-block;
+    font-style: italic;
+    color: #e9c8b6;
+  }
+
+  /* Триггеры */
+  .ikar-hero__triggers {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.5vh, 16px);
+    max-width: 780px;
+    padding: clamp(16px, 2.5vh, 24px) clamp(18px, 2.5vw, 28px);
+    background: rgba(18, 12, 9, 0.55);
+    border: 1px solid rgba(255, 247, 240, 0.14);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+  }
+
+  .ikar-hero__trigger {
+    font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+    line-height: 1.55;
+    color: rgba(255, 247, 240, 0.92);
+    margin: 0;
+    padding-left: 18px;
+    border-left: 3px solid rgba(233, 200, 182, 0.6);
+  }
+
+  /* CTA */
+  .ikar-hero__actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  /* Responsive */
+  @media (max-width: 820px) {
+    .ikar-hero__toprow {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .ikar-hero__meta {
+      padding-left: 0;
+      border-left: none;
+      border-top: 1px solid rgba(255, 200, 140, 0.3);
+      padding-top: 8px;
+    }
+    .ikar-hero__h1 {
+      font-size: clamp(2.2rem, 8vw, 3.6rem);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .ikar-hero {
+      min-height: 100svh;
+    }
+    .ikar-hero__container {
+      min-height: 100svh;
+    }
+    .ikar-hero__h1 {
+      font-size: clamp(1.9rem, 9vw, 3rem);
+    }
+    .ikar-hero__trigger {
+      font-size: 0.9rem;
+    }
+    .ikar-hero__actions {
+      flex-direction: column;
+    }
+  }
+</style>
