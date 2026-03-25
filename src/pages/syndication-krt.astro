@@ -1,184 +1,1266 @@
 ---
-import AesthetesTemplate from '../templates/AesthetesTemplate.astro';
+import Analytics from '../components/Analytics.astro';
+import '../styles/global.css';
+
 const slug = 'syndication-krt';
 const formName = `landing-syndication-krt`;
-const meta = {"title": "Структурирование КРТ под рынок — премия к земле и 0% долга — DevPartners", "description": "DevPartners помогает владельцам участков КРТ нарезать территорию на лоты под профильных застройщиков. Правильная нарезка даёт премию к земле и снижает долговую нагрузку до нуля."};
-const images = {"hero": "/assets/syndication-krt/hero_hero.jpg", "aha1": "/assets/syndication-krt/aha1_architecture.jpg", "aha2": "/assets/syndication-krt/aha2_materials.jpg", "aha3": "/assets/syndication-krt/aha3_courtyard.jpg", "qualifier": "/assets/syndication-krt/qualifier_who.jpg", "evolution": "/assets/syndication-krt/evolution_levels.jpg", "compare": "/assets/syndication-krt/advantages_compare.jpg", "footer": "/assets/syndication-krt/footer_cta.jpg", "currentPositioning": "/assets/syndication-krt/current_positioning.png"};
 
-// Увеличиваем шрифт lead через инлайн-стиль, так как CSS общий
-const hero = {
-  "label": "Для владельцев участков КРТ от 20 га", 
-  "h1": "Правильная нарезка КРТ даёт премию к земле и 0% долга", 
-  "lead": "<span style='font-size: 1.25em; line-height: 1.6; display: block;'>Структурируем территорию на лоты под профильных девелоперов. Каждый лот — готовый инвест-продукт. Каждый партнёр усиливает соседний лот. Вы получаете премию за землю без операционной стройки.</span>", 
-  "offerLine": "Аудит · Мастер-план · Упаковка лотов · Брокеридж", 
-  "ctaText": "Обсудить потенциал участка", 
-  "cardH2": "Архитектор КРТ-партнёрств", 
-  "cardMeta": "DevPartners · B2B для лендлордов", 
-  "cardBody": "От градостроительного аудита до подписания договоров с профильными застройщиками. Вы управляете капитализацией, а не стройкой."
+const meta = {
+  title: 'Структурирование КРТ под рынок — премия к земле и 0% долга — DevPartners',
+  description: 'DevPartners помогает владельцам участков КРТ нарезать территорию на лоты под профильных застройщиков. Правильная нарезка даёт премию к земле и снижает долговую нагрузку до нуля.',
 };
 
-// Триггеры теперь будут выводиться сразу под hero (блок 1 по DTBD)
+const images = {
+  hero: '/assets/syndication-krt/hero_hero.jpg',
+  aha1: '/assets/syndication-krt/aha1_architecture.jpg',
+  aha2: '/assets/syndication-krt/aha2_materials.jpg',
+  aha3: '/assets/syndication-krt/aha3_courtyard.jpg',
+  qualifier: '/assets/syndication-krt/qualifier_who.jpg',
+  compare: '/assets/syndication-krt/advantages_compare.jpg',
+  evolution: '/assets/syndication-krt/evolution_levels.jpg',
+  footer: '/assets/syndication-krt/footer_cta.jpg',
+  currentPositioning: '/assets/syndication-krt/current_positioning.png',
+};
+
 const triggerPoints = [
-  "Финансовый тупик: банк не финансирует застройку всего КРТ одним девелопером, долговая нагрузка запредельная.", 
-  "Дисконт при продаже оптом: покупатели готовы забрать весь участок, но требуют скидку 30–40% за риск освоения.", 
-  "Нехватка компетенций: на территории нужны разные типы недвижимости (жильё, коммерция, социалка), но у вас нет опыта во всех сегментах.",
-  "Стратегический выбор: вы хотите управлять проектом на уровне капитализации, а не закапываться в котлованы на 15 лет."
+  '<strong>Финансовый тупик:</strong> банк не финансирует застройку всего КРТ одним девелопером.',
+  '<strong>Дисконт при продаже оптом:</strong> покупатели требуют скидку 30–40% за риск освоения.',
+  '<strong>Нехватка компетенций:</strong> на территории нужны разные типы недвижимости, но у вас нет опыта во всех сегментах.',
+  '<strong>Стратегический выбор:</strong> вы хотите управлять капитализацией, а не стройкой на 15 лет.',
 ];
 
-// Блок 2 по DTBD: Готовое решение (4 шага процесса). В шаблоне Aesthetes он выводится ниже, 
-// но мы можем использовать блок immersive1 для вывода процесса сразу после триггеров.
-const sections = {
-  "immersive1": {
-    "eyebrow": "Как мы это делаем", 
-    "h2": "4 шага от сырого участка до портфеля закрытых сделок с профильными застройщиками", 
-    "bodies": [
-      "<strong>01. Аудит территории:</strong> Анализируем участок, ВРИ, ограничения. Определяем оптимальный набор функций.",
-      "<strong>02. Мастер-план:</strong> Нарезаем территорию на лоты с учётом синергии. Разрабатываем дизайн-код.",
-      "<strong>03. Упаковка лотов:</strong> Считаем ТЭПы, финмодель, готовим юридическую схему (SPV/субаренда).",
-      "<strong>04. Брокеридж:</strong> Находим профильных застройщиков на каждый лот и закрываем сделки."
-    ], 
-    "facts": ["Премия к стоимости земли", "0% долговой нагрузки", "Синергия лотов", "Единый дизайн-код"], 
-    "bridge": ""
-  }, 
-  "responses": {
-    "h2": "Три критических барьера, которые мы снимаем"
-  }, 
-  "splitPhoto": {
-    "eyebrow": "Для кого этот продукт", 
-    "h2": "Для владельцев крупных участков, которые хотят максимизировать стоимость земли — не закапываясь в котлованы", 
-    "quoteText": "«У нас 50 гектаров по договору КРТ. Строить самим — заморозить компанию на 15 лет. Продать целиком — потерять половину стоимости. Нужен кто-то, кто поможет нарезать, упаковать и продать по частям».", 
-    "quoteFooter": "Контекст крупного регионального девелопера · 2026"
-  }, 
-  "story": {
-    "h2": "Как это работает на практике", 
-    "problem": "«У меня есть территория КРТ. Я не хочу строить сам — хочу привлечь лучших игроков рынка на каждый тип застройки и заработать на земле максимум».", 
-    "link": "Обсудить ваш участок", 
-    "body": "В Казани на месте бывшей «Ривьеры» реализуется проект «ЯрПарк» (300 тыс. кв. м) — генподрядчиком и соинвестором выступает китайская мегакорпорация PowerChina. В Москве Unikey выкупил у ПИК 51% в проекте КРТ на Волоколамском шоссе. «Самолёт» передал «Бруснике» часть проекта «Егорово парк» в Ростове через продажу SPV.<br><br>Все эти сделки объединяет одно: владелец территории не строит сам — он структурирует проект под рынок. DevPartners помогает делать это системно: от аудита территории до закрытия сделок с профильными застройщиками."
-  }, 
-  "compare": {
-    "eyebrow": "Чем структурирование отличается от альтернатив", 
-    "h2": "Почему стандартный подход не работает для масштабных КРТ"
-  }, 
-  "process": {
-    "h2": "", 
-    "lead": ""
-  }, 
-  "final": {
-    "eyebrow": "Бесплатная диагностика участка", 
-    "h2": "Расскажите о вашем участке — покажем, как нарезка на лоты увеличит вашу прибыль", 
-    "formEyebrow": "Бесплатно · Без обязательств", 
-    "formTitle": "Обсудить структурирование", 
-    "formLead": "Опишите участок: площадь, локация, текущий статус КРТ. Мы покажем потенциал нарезки."
-  }, 
-  "life": {
-    "h2": "Когда владельцу КРТ нужен партнёр по структурированию", 
-    "lead": "Этот продукт нанимают в конкретный момент — когда строить всё самому перестаёт быть экономически рациональным.", 
-    "cta": "Обсудить мой случай"
-  }
-};
-
-const selfSelection = [
-  "Вы подписали договор КРТ на крупный участок, но не планируете застраивать его самостоятельно — ищете способ максимизировать стоимость земли.", 
-  "Вы пытались продать территорию целиком, но покупатели требуют огромный дисконт за риск освоения.", 
-  "Вы хотите создать знаковый район, но понимаете: для этого нужны лучшие профильные игроки на каждый тип застройки."
+const processSteps = [
+  { number: '01', title: 'Аудит территории', text: 'Анализируем участок, ВРИ, ограничения. Определяем оптимальный набор функций.' },
+  { number: '02', title: 'Мастер-план', text: 'Нарезаем территорию на лоты с учётом синергии. Разрабатываем дизайн-код.' },
+  { number: '03', title: 'Упаковка лотов', text: 'Считаем ТЭПы, финмодель, готовим юридическую схему (SPV/субаренда).' },
+  { number: '04', title: 'Брокеридж', text: 'Находим профильных застройщиков на каждый лот и закрываем сделки.' },
 ];
 
 const responseCards = [
   {
-    "number": "01", 
-    "title": "Мультипликативный мастер-план — лоты усиливают друг друга", 
-    "problem": "«Если просто нарезать землю на квадраты — получится спальник без синергии. Лоты не будут усиливать друг друга, и покупатели не заплатят премию».", 
-    "answer": "Мы создаём мастер-план, где лоты взаимоувязаны: школа повышает цену жилья рядом, жильё даёт трафик для коммерции, а парк увеличивает стоимость всех прилегающих лотов.", 
-    "detail": "Вы продаёте не просто землю, а часть продуманной экосистемы. Застройщики готовы платить премию за понятную концепцию и гарантированную синергию.", 
-    "cta": "Посмотреть примеры мастер-планов", 
-    "image": "/assets/syndication-krt/aha1_architecture.jpg", 
-    "alt": "Мультипликативный мастер-план территории КРТ"
-  }, 
+    number: '01',
+    title: 'Мультипликативный мастер-план',
+    problem: '«Если просто нарезать землю на квадраты — получится спальник без синергии».',
+    answer: 'Мы создаём мастер-план, где лоты взаимоувязаны: школа повышает цену жилья, жильё даёт трафик коммерции, парк увеличивает стоимость всех прилегающих лотов.',
+    detail: 'Застройщики платят премию за понятную концепцию и гарантированную синергию.',
+    cta: 'Посмотреть примеры',
+    image: images.aha1,
+    alt: 'Мультипликативный мастер-план территории КРТ',
+  },
   {
-    "number": "02", 
-    "title": "Упаковка лотов под типы девелоперов — готовый инвест-продукт", 
-    "problem": "«Мы не знаем, как нарезать территорию так, чтобы каждый кусок был интересен конкретному типу застройщика. А вдруг нарежем — и никто не купит?»", 
-    "answer": "Мы заранее знаем требования разных типов девелоперов: кто строит премиум-жильё, кто масс-маркет, кто коммерцию, кто социалку. Каждый лот упаковывается как готовый инвест-продукт именно под целевого покупателя.", 
-    "detail": "Лот продаётся с ТЭПами, финмоделью, юридической схемой передачи прав (SPV или субаренда) и понятным профилем целевого девелопера.", 
-    "cta": "Узнать, как упаковываем лоты", 
-    "image": "/assets/syndication-krt/aha2_materials.jpg", 
-    "alt": "Упаковка лотов КРТ под профильных девелоперов"
-  }, 
+    number: '02',
+    title: 'Упаковка лотов под типы девелоперов',
+    problem: '«Как нарезать территорию, чтобы каждый кусок был интересен конкретному типу застройщика?»',
+    answer: 'Мы знаем требования разных типов девелоперов: премиум-жильё, масс-маркет, коммерция, социалка. Каждый лот упаковывается как готовый инвест-продукт.',
+    detail: 'Лот продаётся с ТЭПами, финмоделью, юрсхемой (SPV/субаренда) и профилем целевого девелопера.',
+    cta: 'Узнать подробнее',
+    image: images.aha2,
+    alt: 'Упаковка лотов КРТ под профильных девелоперов',
+  },
   {
-    "number": "03", 
-    "title": "Единый дизайн-код — контроль без операционной стройки", 
-    "problem": "«Разные застройщики построят кто во что горазд. Получится лоскутное одеяло, которое обесценит всю территорию».", 
-    "answer": "Мы разрабатываем дизайн-код территории и юридически закрепляем его в договорах с каждым партнёром. Архитектурные решения проходят проверку до начала строительства.", 
-    "detail": "Вы сохраняете полный контроль над обликом района, не занимаясь операционной стройкой. Как заказчик дизайн-кода — вы визионер, а не прораб.", 
-    "cta": "Обсудить контроль над проектом", 
-    "image": "/assets/syndication-krt/aha3_courtyard.jpg", 
-    "alt": "Единый дизайн-код территории КРТ"
-  }
+    number: '03',
+    title: 'Единый дизайн-код территории',
+    problem: '«Разные застройщики построят кто во что горазд — лоскутное одеяло».',
+    answer: 'Мы разрабатываем дизайн-код и юридически закрепляем его в договорах с каждым партнёром.',
+    detail: 'Вы сохраняете контроль над обликом района, не занимаясь операционной стройкой.',
+    cta: 'Обсудить контроль',
+    image: images.aha3,
+    alt: 'Единый дизайн-код территории КРТ',
+  },
 ];
 
-// Оставляем пустым, так как процесс перенесен в immersive1 (второй экран)
-const processSteps = [];
-
-const lifeStages = [
-  {
-    "stage": "Банк не даёт денег на весь КРТ", 
-    "price": "Финансовый тупик", 
-    "who": "Долговая нагрузка на весь проект запредельная. Банк отказывает в проектном финансировании.", 
-    "hire": "Нарезку территории на лоты и продажу части нагрузки профильным девелоперам.", 
-    "format": "Аудит → Лотовая карта → Упаковка → Брокеридж."
-  }, 
-  {
-    "stage": "Оптом — только с дисконтом", 
-    "price": "Потеря прибыли", 
-    "who": "Покупатели готовы забрать весь участок, но просят скидку 30–40% за риск.", 
-    "hire": "Розничную продажу лотов с премией за готовую концепцию и синергию.", 
-    "format": "Мастер-план → Упаковка инвест-продуктов → Сделки."
-  }, 
-  {
-    "stage": "Не хватает компетенций на все сегменты", 
-    "price": "Риск качества", 
-    "who": "Вы строите жильё, но на территории нужна сложная коммерция, социалка, Light Industrial.", 
-    "hire": "Привлечение профильных игроков на непрофильные для вас лоты.", 
-    "format": "Выделение лотов → Упаковка → Подбор партнёров."
-  }, 
-  {
-    "stage": "Хотите создать лучший район в городе", 
-    "price": "Стратегический выбор", 
-    "who": "Вы хотите управлять проектом на уровне стратегии и капитализации, а не стройки.", 
-    "hire": "Мультипликативный мастер-план и единый дизайн-код территории.", 
-    "format": "Мастер-план → Дизайн-код → Юридическое структурирование."
-  }
+const selfSelection = [
+  'Вы подписали договор КРТ на крупный участок, но не планируете застраивать его самостоятельно — ищете способ максимизировать стоимость земли.',
+  'Вы пытались продать территорию целиком, но покупатели требуют огромный дисконт за риск освоения.',
+  'Вы хотите создать знаковый район, но понимаете: для этого нужны лучшие профильные игроки на каждый тип застройки.',
 ];
 
 const comparisons = [
   {
-    "overline": "Розница против опта", 
-    "title": "Продажа с премией, а не с дисконтом", 
-    "text": "Продажа участка целиком — это дисконт 30–40% за риск. Нарезка на упакованные лоты — розничная продажа с премией за готовую концепцию и синергию между лотами."
-  }, 
+    overline: 'Розница против опта',
+    title: 'Продажа с премией, а не с дисконтом',
+    text: 'Продажа участка целиком — дисконт 30–40%. Нарезка на упакованные лоты — розничная продажа с премией за концепцию и синергию.',
+  },
   {
-    "overline": "Визионер против прораба", 
-    "title": "Управление капитализацией, а не стройкой", 
-    "text": "Самостоятельная застройка 100 га — это 15 лет кассовых разрывов. Структурирование позволяет управлять стоимостью актива, делегируя стройку тем, кто в ней лучше вас."
-  }, 
+    overline: 'Визионер против прораба',
+    title: 'Управление капитализацией, а не стройкой',
+    text: 'Застройка 100 га — 15 лет кассовых разрывов. Структурирование позволяет управлять стоимостью актива, делегируя стройку профильным игрокам.',
+  },
   {
-    "overline": "Синергия против хаоса", 
-    "title": "Мультипликативный эффект вместо лоскутного одеяла", 
-    "text": "Мы не просто режем землю на куски. Мы создаём мастер-план, где каждый лот повышает ценность соседних. Школа поднимает цену жилья. Жильё даёт трафик коммерции. Парк увеличивает стоимость всего."
-  }
+    overline: 'Синергия против хаоса',
+    title: 'Мультипликативный эффект вместо лоскутного одеяла',
+    text: 'Мастер-план, где каждый лот повышает ценность соседних. Школа поднимает цену жилья. Жильё даёт трафик коммерции. Парк увеличивает стоимость всего.',
+  },
+];
+
+const lifeStages = [
+  {
+    stage: 'Банк не даёт денег на весь КРТ',
+    price: 'Финансовый тупик',
+    who: 'Долговая нагрузка на весь проект запредельная.',
+    hire: 'Нарезку территории и продажу части нагрузки профильным девелоперам.',
+    format: 'Аудит → Лотовая карта → Упаковка → Брокеридж.',
+  },
+  {
+    stage: 'Оптом — только с дисконтом',
+    price: 'Потеря прибыли',
+    who: 'Покупатели готовы забрать весь участок, но просят скидку 30–40%.',
+    hire: 'Розничную продажу лотов с премией за концепцию и синергию.',
+    format: 'Мастер-план → Упаковка → Сделки.',
+  },
+  {
+    stage: 'Не хватает компетенций',
+    price: 'Риск качества',
+    who: 'Нужна сложная коммерция, социалка, Light Industrial.',
+    hire: 'Привлечение профильных игроков на непрофильные лоты.',
+    format: 'Выделение лотов → Упаковка → Подбор партнёров.',
+  },
+  {
+    stage: 'Хотите лучший район в городе',
+    price: 'Стратегический выбор',
+    who: 'Хотите управлять проектом на уровне стратегии.',
+    hire: 'Мультипликативный мастер-план и единый дизайн-код.',
+    format: 'Мастер-план → Дизайн-код → Юрструктурирование.',
+  },
+];
+
+const teamMembers = [
+  {
+    name: 'Дамир Хайров',
+    photo: '/assets/china-arch-krt/team-damir.jpg',
+    description: 'Исследует покупательские сценарии и потребности конечных клиентов по методологии DTBD. Переводит результаты в качественное техническое задание: кто покупает, зачем, что для него важно. Отвечает за то, чтобы каждый лот КРТ решал реальную задачу рынка, а не воображаемую.',
+  },
+  {
+    name: 'Алмаз Шакиров',
+    photo: '/assets/china-arch-krt/team-almaz.jpg',
+    description: 'Отвечает за адаптацию мастер-плана и концепции лотов под российский контекст. Формирует техническое задание так, чтобы каждый партнёр понял задачу с первого дня. Контролирует, чтобы результат прошёл все согласования и соответствовал требованиям города, банка и регулятора.',
+  },
+  {
+    name: 'Андрей Пахоменков',
+    photo: '/assets/china-arch-krt/team-andrey.jpg',
+    description: 'Обосновывает финансовую модель каждого лота и готовит пакет для кредитного комитета. Формирует упаковку для управляющих компаний и материалы для инвесторов. Переводит архитектурные и продуктовые решения в язык, понятный банку и фонду.',
+  },
+  {
+    name: 'Рамзия Фаздалова',
+    photo: '/assets/china-arch-krt/team-ramzia.jpg',
+    description: 'Переговорный стратег в работе с иностранными и нестандартными партнёрами. Понимает культурный контекст и выстраивает коммуникацию так, чтобы партнёр хотел работать с нами. Переводит технические задания и протоколы без потерь смысла.',
+  },
 ];
 ---
-<AesthetesTemplate
-  slug={slug}
-  formName={formName}
-  meta={meta}
-  images={images}
-  hero={hero}
-  triggerPoints={triggerPoints}
-  selfSelection={selfSelection}
-  responseCards={responseCards}
-  lifeStages={lifeStages}
-  processSteps={processSteps}
-  comparisons={comparisons}
-  sections={sections}
-/>
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  </head>
+  <body class="landing-745">
+    <Analytics landingSlug={slug} />
+
+    <main>
+
+      <!-- ═══════════════ HERO + TRIGGERS ON SCREEN ═══════════════ -->
+      <section class="krt-hero">
+        <div class="krt-hero__backdrop" style={`--hero-bg: url(${images.hero})`}></div>
+        <div class="container krt-hero__container">
+
+          <span class="krt-hero__label">Для владельцев участков КРТ от 20 га</span>
+
+          <h1 class="krt-hero__h1">Правильная нарезка КРТ даёт премию к земле и&nbsp;0%&nbsp;долга</h1>
+
+          <p class="krt-hero__lead">Структурируем территорию на лоты под профильных девелоперов. Каждый лот — готовый инвест-продукт. Каждый партнёр усиливает соседний. Вы получаете премию за землю без операционной стройки.</p>
+
+          <div class="krt-hero__triggers">
+            {triggerPoints.map((t: string) => (
+              <p class="krt-hero__trigger" set:html={t}></p>
+            ))}
+          </div>
+
+          <div class="krt-hero__actions">
+            <a class="krt-btn krt-btn--primary" href="#contact">Обсудить потенциал участка</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ═══════════════ PROCESS — 4 STEPS ═══════════════ -->
+      <section class="krt-process">
+        <div class="krt-process__backdrop" style={`--process-bg: url(${images.aha1})`}></div>
+        <div class="container krt-process__container">
+          <div class="krt-section-heading krt-section-heading--light krt-center">
+            <p class="krt-eyebrow">Как мы это делаем</p>
+            <h2>От сырого участка — до портфеля сделок</h2>
+          </div>
+          <div class="krt-process__grid">
+            {processSteps.map((step: any) => (
+              <article class="krt-process-card">
+                <div class="krt-process-card__number">{step.number}</div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ RESPONSE CARDS ═══════════════ -->
+      <section class="krt-responses">
+        <div class="krt-responses__veil"></div>
+        <div class="container krt-responses__container" style={`--resp-bg: url(${images.aha2})`}>
+          <div class="krt-section-heading krt-section-heading--light krt-center">
+            <h2>Как мы решаем три ключевые задачи</h2>
+          </div>
+          <div class="krt-responses__stack">
+            {responseCards.map((card: any) => (
+              <article class="krt-response-card">
+                <div class="krt-response-card__media">
+                  <img src={card.image} alt={card.alt} loading="lazy" />
+                </div>
+                <div class="krt-response-card__body">
+                  <div class="krt-response-card__number">{card.number}</div>
+                  <h3>{card.title}</h3>
+                  <p class="krt-response-card__problem">{card.problem}</p>
+                  <p>{card.answer}</p>
+                  <p class="krt-response-card__detail">{card.detail}</p>
+                  <a class="krt-inline-link" href="#contact">{card.cta}</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ SELF-SELECTION / QUALIFIER ═══════════════ -->
+      <section class="krt-split">
+        <div class="krt-split__image" style={`--split-bg: url(${images.qualifier})`}></div>
+        <div class="krt-split__content-wrap">
+          <div class="container krt-split__container">
+            <div class="krt-split__content">
+              <p class="krt-eyebrow">Для кого этот продукт</p>
+              <h2>Для владельцев крупных участков, которые хотят максимизировать стоимость земли</h2>
+              <div class="krt-self">
+                {selfSelection.map((item: string) => <p>{item}</p>)}
+              </div>
+              <blockquote class="krt-quote">
+                <p>«У нас 50 гектаров по договору КРТ. Строить самим — заморозить компанию на 15 лет. Продать целиком — потерять половину стоимости. Нужен кто-то, кто поможет нарезать, упаковать и продать по частям».</p>
+                <footer>Контекст крупного регионального девелопера · 2026</footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ STORY / IMMERSIVE ═══════════════ -->
+      <section class="krt-immersive" style={`--immersive-bg: url(${images.aha3})`}>
+        <div class="container krt-immersive__inner">
+          <div class="krt-immersive__card">
+            <h2>Как это уже работает на рынке</h2>
+            <p class="krt-immersive__accent">Владелец территории не строит сам — он структурирует проект под рынок.</p>
+            <p>«ЯрПарк» в Казани (300 тыс. кв. м) — PowerChina как генподрядчик и соинвестор. Unikey выкупил у ПИК 51% в проекте КРТ в Москве. «Самолёт» передал «Бруснике» часть «Егорово парк» через SPV.</p>
+            <p>DevPartners помогает делать это системно: от аудита территории до закрытия сделок с профильными застройщиками.</p>
+            <a class="krt-btn krt-btn--ghost" href="#contact">Обсудить ваш участок</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ COMPARISONS ═══════════════ -->
+      <section class="krt-compare">
+        <div class="krt-compare__backdrop" style={`--compare-bg: url(${images.compare})`}></div>
+        <div class="container krt-compare__container">
+          <div class="krt-section-heading krt-section-heading--light krt-center">
+            <p class="krt-eyebrow krt-eyebrow--light">Чем структурирование отличается от альтернатив</p>
+            <h2>Почему стандартный подход не работает для масштабных КРТ</h2>
+          </div>
+          <div class="krt-compare__grid">
+            {comparisons.map((comp: any) => (
+              <article class="krt-compare-card">
+                <div class="krt-compare-card__overline">{comp.overline}</div>
+                <h3>{comp.title}</h3>
+                <p>{comp.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ TEAM ═══════════════ -->
+      <section class="krt-team">
+        <div class="container krt-team__container">
+          <div class="krt-section-heading krt-center">
+            <h2>Команда</h2>
+            <p class="krt-team__subtitle">Люди, которые ведут проект с первого звонка до результата</p>
+          </div>
+          <div class="krt-team__grid">
+            {teamMembers.map((member: any) => (
+              <article class="krt-team-card">
+                <div class="krt-team-card__photo-wrap">
+                  <img src={member.photo} alt={member.name} loading="lazy" />
+                </div>
+                <div class="krt-team-card__body">
+                  <h3 class="krt-team-card__name">{member.name}</h3>
+                  <p class="krt-team-card__desc">{member.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ LIFE STAGES TABLE ═══════════════ -->
+      <section class="krt-life" style={`--life-bg: url(${images.evolution})`}>
+        <div class="krt-life__veil"></div>
+        <div class="container krt-life__container">
+          <div class="krt-section-heading krt-section-heading--light krt-center">
+            <h2>Когда владельцу КРТ нужен партнёр по структурированию</h2>
+            <p>Этот продукт нанимают в конкретный момент — когда строить всё самому перестаёт быть рациональным.</p>
+          </div>
+          <div class="krt-life__table-wrap">
+            <table class="krt-life-table">
+              <thead>
+                <tr>
+                  <th>Этап</th>
+                  <th>Кто вы сейчас</th>
+                  <th>Что вы нанимаете</th>
+                  <th>Формат проекта</th>
+                </tr>
+              </thead>
+              <tbody>
+                {lifeStages.map((item: any) => (
+                  <tr>
+                    <td>
+                      <strong>{item.stage}</strong>
+                      <span>{item.price}</span>
+                    </td>
+                    <td>{item.who}</td>
+                    <td>{item.hire}</td>
+                    <td>{item.format}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div class="krt-center krt-action-wrap">
+            <a class="krt-btn krt-btn--ghost" href="#contact">Обсудить мой случай</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ FINAL / FORM ═══════════════ -->
+      <section id="contact" class="krt-final">
+        <div class="krt-final__backdrop" style={`--final-bg: url(${images.footer})`}></div>
+        <div class="container krt-final__container">
+          <div class="krt-final__layout">
+            <div class="krt-final__copy">
+              <p class="krt-eyebrow krt-eyebrow--light">Диагностика участка</p>
+              <h2>Расскажите о вашем участке — покажем, как нарезка увеличит прибыль</h2>
+              <div class="krt-final__shot">
+                <img src={images.currentPositioning} alt={`Текущее позиционирование — ${meta.title}`} loading="lazy" />
+              </div>
+            </div>
+            <div class="krt-final__card">
+              <p class="krt-eyebrow">Первый шаг</p>
+              <h3 class="krt-final__form-title">Обсудить структурирование</h3>
+              <p class="krt-final__form-lead">Опишите участок: площадь, локация, текущий статус КРТ.</p>
+              <form
+                name={formName}
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="/thank-you"
+                class="krt-final__form"
+              >
+                <input type="hidden" name="form-name" value={formName} />
+                <input type="hidden" name="landing_slug" value={slug} />
+                <input type="hidden" name="utm_source" value="" />
+                <input type="hidden" name="utm_medium" value="" />
+                <input type="hidden" name="utm_campaign" value="" />
+                <input type="hidden" name="utm_content" value="" />
+                <input type="hidden" name="utm_term" value="" />
+                <p class="sr-only">
+                  <label>Не заполняйте это поле, если вы человек: <input name="bot-field" /></label>
+                </p>
+                <div class="krt-final__fields">
+                  <div class="krt-field">
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" name="name" required />
+                  </div>
+                  <div class="krt-field krt-field--full">
+                    <label for="phone">Телефон / Telegram</label>
+                    <input type="tel" id="phone" name="phone" required />
+                  </div>
+                  <div class="krt-field krt-field--full">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required />
+                  </div>
+                </div>
+                <button type="submit" class="krt-btn krt-btn--primary krt-btn--full">Записаться на встречу</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <script>
+      import { populateUTMFields, trackFormSubmission } from '../utils/analytics.ts';
+      (() => {
+        const form = document.querySelector('#contact form') as HTMLFormElement | null;
+        if (form) {
+          populateUTMFields(form);
+          form.addEventListener('submit', () => {
+            populateUTMFields(form);
+            trackFormSubmission('syndication-krt');
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
+
+<style>
+  /* ═══════════════════════════════════════════════════
+     KRT LANDING — STANDALONE STYLES
+     Full control: no template dependency
+     ═══════════════════════════════════════════════════ */
+
+  :global(body.landing-745) {
+    background: #0e0b09;
+    color: #241b16;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+
+  .landing-745 main {
+    overflow-x: hidden;
+    background: #0e0b09;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+
+  /* ─── UTILITY ─── */
+  .krt-center { text-align: center; margin-left: auto; margin-right: auto; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+  /* ─── TYPOGRAPHY ─── */
+  .krt-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgba(233, 200, 170, 0.85);
+  }
+  .krt-eyebrow--light { color: rgba(255, 230, 200, 0.9); }
+
+  .krt-section-heading {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 48px;
+    max-width: 860px;
+  }
+  .krt-section-heading h2 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: #1a1210;
+  }
+  .krt-section-heading p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(30, 22, 17, 0.72);
+  }
+  .krt-section-heading--light h2 { color: #fff8f2; }
+  .krt-section-heading--light p { color: rgba(255, 248, 240, 0.82); }
+
+  /* ─── BUTTONS ─── */
+  .krt-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0 32px;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  }
+  .krt-btn:hover { transform: translateY(-2px); }
+  .krt-btn--primary {
+    color: #1a1210;
+    background: linear-gradient(135deg, #f4d9c5, #f9ece1);
+    box-shadow: 0 18px 35px rgba(12, 8, 6, 0.22);
+  }
+  .krt-btn--ghost {
+    color: #fff8f2;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(10px);
+  }
+  .krt-btn--full { width: 100%; }
+
+  .krt-inline-link {
+    color: #5c3926;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(92, 57, 38, 0.26);
+    width: fit-content;
+  }
+
+  /* ═══════════════ HERO ═══════════════ */
+  .krt-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .krt-hero__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(135deg, rgba(10, 7, 5, 0.88), rgba(10, 7, 5, 0.52)), var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.04);
+  }
+
+  .krt-hero__container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(18px, 2.5vh, 28px);
+    padding-top: clamp(40px, 5vh, 64px);
+    padding-bottom: clamp(40px, 5vh, 64px);
+    min-height: 100vh;
+  }
+
+  .krt-hero__label {
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(233, 200, 170, 0.9);
+    text-shadow: 0 1px 8px rgba(7, 5, 4, 0.5);
+  }
+
+  .krt-hero__h1 {
+    font-size: clamp(2.4rem, 5vw, 4.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    color: #fff8f2;
+    max-width: 18ch;
+    margin: 0;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  .krt-hero__lead {
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.65;
+    color: rgba(255, 248, 240, 0.92);
+    max-width: 64ch;
+    margin: 0;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.25);
+  }
+
+  .krt-hero__triggers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 900px;
+  }
+
+  .krt-hero__trigger {
+    margin: 0;
+    padding: 18px 22px;
+    border-radius: 18px;
+    background: rgba(255, 248, 242, 0.1);
+    border: 1px solid rgba(255, 248, 242, 0.18);
+    backdrop-filter: blur(12px);
+    font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+    line-height: 1.55;
+    font-weight: 500;
+    color: rgba(255, 248, 242, 0.95);
+  }
+
+  .krt-hero__actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  /* ═══════════════ PROCESS ═══════════════ */
+  .krt-process {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+  }
+
+  .krt-process__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(180deg, rgba(14, 11, 9, 0.88), rgba(14, 11, 9, 0.78)), var(--process-bg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .krt-process__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .krt-process__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .krt-process-card {
+    display: grid;
+    gap: 12px;
+    padding: 28px;
+    border-radius: 22px;
+    background: rgba(255, 248, 242, 0.08);
+    border: 1px solid rgba(255, 248, 242, 0.16);
+    backdrop-filter: blur(12px);
+  }
+
+  .krt-process-card__number {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(233, 200, 170, 0.8);
+  }
+
+  .krt-process-card h3 {
+    margin: 0;
+    font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff8f2;
+  }
+
+  .krt-process-card p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: rgba(255, 248, 240, 0.88);
+  }
+
+  /* ═══════════════ RESPONSES ═══════════════ */
+  .krt-responses {
+    position: relative;
+    padding: 100px 0;
+    background: #f6efe8;
+  }
+
+  .krt-responses__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .krt-responses .krt-section-heading h2 { color: #1a1210; }
+
+  .krt-responses__stack {
+    display: grid;
+    gap: 28px;
+  }
+
+  .krt-response-card {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+    gap: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 24px 64px rgba(12, 8, 6, 0.1);
+  }
+
+  .krt-response-card__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .krt-response-card__body {
+    padding: clamp(24px, 3vw, 38px);
+    display: grid;
+    gap: 14px;
+  }
+
+  .krt-response-card__number {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(87, 59, 46, 0.6);
+  }
+
+  .krt-response-card h3 {
+    margin: 0;
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1210;
+  }
+
+  .krt-response-card p {
+    margin: 0;
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: rgba(30, 22, 17, 0.82);
+  }
+
+  .krt-response-card__problem {
+    font-style: italic;
+    color: rgba(30, 22, 17, 0.6) !important;
+  }
+
+  .krt-response-card__detail {
+    font-weight: 500;
+    color: rgba(30, 22, 17, 0.92) !important;
+  }
+
+  /* ═══════════════ SPLIT / QUALIFIER ═══════════════ */
+  .krt-split {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    min-height: 680px;
+  }
+
+  .krt-split__image {
+    background-image: linear-gradient(180deg, rgba(15, 11, 9, 0.08), rgba(15, 11, 9, 0.28)), var(--split-bg);
+    background-size: cover;
+    background-position: center;
+    min-height: 480px;
+  }
+
+  .krt-split__content-wrap {
+    background: linear-gradient(180deg, #1e1510, #140e0b);
+    color: #fff5ed;
+    display: flex;
+    align-items: center;
+  }
+
+  .krt-split__container { width: 100%; }
+
+  .krt-split__content {
+    display: grid;
+    gap: 20px;
+    max-width: 540px;
+    padding: 72px 0;
+  }
+
+  .krt-split__content h2 {
+    margin: 0;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff8f2;
+  }
+
+  .krt-self {
+    display: grid;
+    gap: 14px;
+  }
+
+  .krt-self p {
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.7;
+    color: rgba(255, 248, 240, 0.88);
+  }
+
+  .krt-quote {
+    margin: 0;
+    padding: 22px 24px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .krt-quote p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 248, 240, 0.95);
+    font-style: italic;
+  }
+
+  .krt-quote footer {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: rgba(255, 245, 237, 0.65);
+  }
+
+  /* ═══════════════ IMMERSIVE / STORY ═══════════════ */
+  .krt-immersive {
+    position: relative;
+    padding: 120px 0;
+    background-image: linear-gradient(120deg, rgba(12, 9, 7, 0.82), rgba(12, 9, 7, 0.42)), var(--immersive-bg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .krt-immersive__inner {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .krt-immersive__card {
+    width: min(660px, 100%);
+    display: grid;
+    gap: 18px;
+    padding: clamp(28px, 3vw, 42px);
+    border-radius: 26px;
+    background: rgba(16, 12, 10, 0.82);
+    color: #fff8f2;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 24px 64px rgba(10, 7, 6, 0.3);
+    backdrop-filter: blur(14px);
+  }
+
+  .krt-immersive__card h2 {
+    margin: 0;
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.12;
+    color: #fff8f2;
+  }
+
+  .krt-immersive__card p {
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: rgba(255, 248, 240, 0.9);
+  }
+
+  .krt-immersive__accent {
+    font-size: 1.2rem !important;
+    font-weight: 600;
+    color: rgba(233, 200, 170, 0.95) !important;
+  }
+
+  /* ═══════════════ COMPARISONS ═══════════════ */
+  .krt-compare {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+  }
+
+  .krt-compare__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(120deg, rgba(10, 7, 5, 0.92), rgba(10, 7, 5, 0.72)), var(--compare-bg);
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.04);
+  }
+
+  .krt-compare__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .krt-compare__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .krt-compare-card {
+    display: grid;
+    gap: 14px;
+    padding: 30px;
+    border-radius: 22px;
+    background: rgba(255, 248, 242, 0.08);
+    border: 1px solid rgba(255, 248, 242, 0.16);
+    backdrop-filter: blur(14px);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+
+  .krt-compare-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+  }
+
+  .krt-compare-card__overline {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(233, 200, 170, 0.75);
+  }
+
+  .krt-compare-card h3 {
+    margin: 0;
+    font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff8f2;
+  }
+
+  .krt-compare-card p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: rgba(255, 248, 240, 0.82);
+  }
+
+  /* ═══════════════ TEAM ═══════════════ */
+  .krt-team {
+    padding: 100px 0;
+    background: #f6efe8;
+  }
+
+  .krt-team__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .krt-team .krt-section-heading h2 { color: #1a1210; }
+
+  .krt-team__subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(30, 22, 17, 0.65);
+    margin: 0;
+  }
+
+  .krt-team__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .krt-team-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(12, 8, 6, 0.06);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+
+  .krt-team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(12, 8, 6, 0.14);
+  }
+
+  .krt-team-card__photo-wrap {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .krt-team-card__photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .krt-team-card__body {
+    padding: 20px 22px 24px;
+  }
+
+  .krt-team-card__name {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1a1210;
+    font-family: 'Unbounded', Inter, -apple-system, sans-serif;
+  }
+
+  .krt-team-card__desc {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: rgba(30, 22, 17, 0.65);
+  }
+
+  /* ═══════════════ LIFE STAGES ═══════════════ */
+  .krt-life {
+    position: relative;
+    padding: 100px 0;
+    background-image: var(--life-bg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .krt-life__veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(28, 20, 15, 0.88), rgba(28, 20, 15, 0.75));
+  }
+
+  .krt-life__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .krt-life__table-wrap {
+    overflow-x: auto;
+    border-radius: 24px;
+    background: rgba(250, 244, 238, 0.94);
+    box-shadow: 0 24px 64px rgba(12, 8, 6, 0.2);
+  }
+
+  .krt-life-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+  }
+
+  .krt-life-table th,
+  .krt-life-table td {
+    padding: 20px 22px;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(74, 50, 39, 0.1);
+    color: #2f211a;
+    text-align: left;
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .krt-life-table th {
+    background: rgba(247, 233, 223, 0.92);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .krt-life-table td strong {
+    display: block;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+
+  .krt-life-table td span {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(87, 59, 46, 0.6);
+  }
+
+  .krt-action-wrap { margin-top: 32px; }
+
+  /* ═══════════════ FINAL / FORM ═══════════════ */
+  .krt-final {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+  }
+
+  .krt-final__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(120deg, rgba(12, 9, 7, 0.85), rgba(12, 9, 7, 0.55)), var(--final-bg);
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.04);
+  }
+
+  .krt-final__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .krt-final__layout {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .krt-final__copy {
+    display: grid;
+    gap: 18px;
+  }
+
+  .krt-final__copy h2 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.12;
+    color: #fff8f2;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  }
+
+  .krt-final__shot {
+    overflow: hidden;
+    border-radius: 22px;
+    background: rgba(255, 250, 246, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 24px 64px rgba(10, 7, 6, 0.28);
+    padding: 14px;
+    display: grid;
+    place-items: center;
+  }
+
+  .krt-final__shot img {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 14px;
+  }
+
+  .krt-final__card {
+    display: grid;
+    gap: 16px;
+    padding: clamp(24px, 3vw, 36px);
+    border-radius: 26px;
+    background: rgba(249, 242, 236, 0.98);
+    color: #2f211a;
+    box-shadow: 0 28px 72px rgba(10, 7, 6, 0.24);
+  }
+
+  .krt-final__form-title {
+    margin: 0;
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1210;
+  }
+
+  .krt-final__form-lead {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(30, 22, 17, 0.7);
+  }
+
+  .krt-final__form {
+    display: grid;
+    gap: 16px;
+  }
+
+  .krt-final__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .krt-field {
+    display: grid;
+    gap: 6px;
+  }
+
+  .krt-field--full { grid-column: 1 / -1; }
+
+  .krt-field label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(56, 37, 29, 0.7);
+  }
+
+  .krt-field input {
+    min-height: 50px;
+    border-radius: 16px;
+    border: 1px solid rgba(88, 60, 46, 0.14);
+    background: #fffaf6;
+    padding: 0 16px;
+    font: inherit;
+    font-size: 1rem;
+    color: #261b15;
+  }
+
+  .krt-field input:focus {
+    outline: none;
+    border-color: rgba(92, 57, 38, 0.4);
+    box-shadow: 0 0 0 3px rgba(92, 57, 38, 0.08);
+  }
+
+  /* ═══════════════ RESPONSIVE ═══════════════ */
+  @media (max-width: 1080px) {
+    .krt-hero__triggers,
+    .krt-compare__grid,
+    .krt-final__layout,
+    .krt-split {
+      grid-template-columns: 1fr;
+    }
+    .krt-team__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 820px) {
+    .krt-hero,
+    .krt-process,
+    .krt-responses,
+    .krt-compare,
+    .krt-life,
+    .krt-immersive,
+    .krt-final,
+    .krt-team {
+      padding: 72px 0;
+    }
+
+    .krt-response-card,
+    .krt-process__grid,
+    .krt-final__fields {
+      grid-template-columns: 1fr;
+    }
+
+    .krt-hero__container { min-height: auto; }
+
+    .krt-hero__h1 {
+      font-size: clamp(2.2rem, 9vw, 3.8rem);
+      max-width: none;
+    }
+
+    .krt-split__image { min-height: 360px; }
+  }
+
+  @media (max-width: 560px) {
+    .krt-hero {
+      min-height: 100svh;
+    }
+    .krt-hero__container {
+      min-height: 100svh;
+    }
+    .krt-hero__h1 {
+      font-size: clamp(1.8rem, 9vw, 2.8rem);
+    }
+    .krt-hero__trigger {
+      font-size: 0.88rem;
+      padding: 14px 18px;
+    }
+    .krt-hero__triggers {
+      grid-template-columns: 1fr;
+    }
+    .krt-btn {
+      width: 100%;
+    }
+    .krt-team__grid {
+      grid-template-columns: 1fr;
+    }
+    .krt-compare__grid {
+      grid-template-columns: 1fr;
+    }
+    .krt-process__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
