@@ -597,6 +597,52 @@
     }
 
     /* ═══════════════════════════════════════════
+       TEAM SECTION
+    ═══════════════════════════════════════════ */
+    .team { background: var(--darkest-bg); padding: 6rem 0; }
+    @media (min-width: 768px) { .team { padding: 8rem 0; } }
+    .team__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 1024px) { .team__grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; } }
+    .team-card__photo {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      margin-bottom: 1.25rem;
+      background: rgba(255,255,255,0.02);
+    }
+    .team-card__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      filter: grayscale(100%);
+      transition: filter 0.7s ease;
+    }
+    .team-card:hover .team-card__photo img { filter: grayscale(0%); }
+    .team-card__photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14,13,12,0.35), transparent);
+    }
+    .team-card__name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--warm-white);
+      margin-bottom: 0.5rem;
+    }
+    .team-card__desc {
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════
        CONTACT SECTION
     ═══════════════════════════════════════════ */
     .contact { position: relative; padding: 6rem 0; overflow: hidden; }
@@ -1094,6 +1140,48 @@
             </div>
             <div class="evolution-level__bar"></div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="line-divider"></div>
+
+  <!-- ═══ TEAM ═══ -->
+  <section class="team" id="team">
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:4rem;">
+        <p class="section-tag">Кто работает над проектом</p>
+        <h2 style="color:var(--warm-white);">Команда</h2>
+      </div>
+      <div class="team__grid">
+        <div class="team-card reveal">
+          <div class="team-card__photo">
+            <img src="/assets/krt-margin/team-damir.webp" alt="Дамир Хайров">
+          </div>
+          <div class="team-card__name">Дамир Хайров</div>
+          <p class="team-card__desc">Структурирует сделку: вход в проект, условия работы, зона ответственности. Отвечает за результат в целом.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-card__photo">
+            <img src="/assets/krt-margin/team-almaz.jpg" alt="Алмаз Шакиров">
+          </div>
+          <div class="team-card__name">Алмаз Шакиров</div>
+          <p class="team-card__desc">Формирует техническое задание для бюро, контролирует содержание концепции и соответствие результата требованиям города и банка.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-card__photo">
+            <img src="/assets/krt-margin/team-andrey.jpg" alt="Андрей Пахоменков">
+          </div>
+          <div class="team-card__name">Андрей Пахоменков</div>
+          <p class="team-card__desc">Проверяет финансовую модель и обосновывает LLCR. Готовит пакет для кредитного комитета: архитектура переводится в язык цифр.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-card__photo">
+            <img src="/assets/krt-margin/team-ramzia.jpg" alt="Рамзия Фаздалова">
+          </div>
+          <div class="team-card__name">Рамзия Фаздалова</div>
+          <p class="team-card__desc">Обеспечивает прямую коммуникацию с китайскими бюро. Переводит ТЗ, протоколы встреч и техническую документацию без потерь смысла.</p>
         </div>
       </div>
     </div>
