@@ -1,0 +1,31 @@
+{
+  "slug": "test-openclaw",
+  "template": "offer801",
+  "title": "Тест OpenClaw",
+  "description": "Тестовый лендинг OpenClaw",
+  "hero": {
+    "headline": "Тест OpenClaw",
+    "subheadline": "Проверка работы системы",
+    "cta": "Узнать больше",
+    "ctaLink": "#contact"
+  },
+  "features": [
+    {
+      "title": "Функция 1",
+      "description": "Описание первой функции"
+    },
+    {
+      "title": "Функция 2",
+      "description": "Описание второй функции"
+    },
+    {
+      "title": "Функция 3",
+      "description": "Описание третьей функции"
+    }
+  ],
+  "cta": {
+    "headline": "Готовы начать?",
+    "buttonText": "Связаться с нами",
+    "buttonLink": "#contact"
+  }
+}
