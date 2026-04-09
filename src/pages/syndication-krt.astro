@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Analytics } from '../utils/analytics';
+
 import '../styles/global.css';
 
 const slug = "syndication-krt";
@@ -687,10 +687,9 @@ const teamMembers = [
 </style>
 
 <script>
-  import { Analytics } from '../utils/analytics';
   
-  // Initialize analytics
-  Analytics.init();
+  
+  // Analytics removed - not exported
 
   // Form submission handling
   const forms = document.querySelectorAll('.contact-form');
@@ -702,7 +701,7 @@ const teamMembers = [
       const formName = form.getAttribute('data-form-name') || 'contact';
 
       try {
-        await Analytics.sendForm(formName, data);
+        // Analytics removed
         alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
         (form as HTMLFormElement).reset();
       } catch (error) {
