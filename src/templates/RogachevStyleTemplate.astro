@@ -1,0 +1,133 @@
+---
+const { 
+  slug, 
+  formName, 
+  meta, 
+  images, 
+  hero, 
+  expertise,
+  book, 
+  cta 
+} = Astro.props;
+
+import '../styles/rogachev-style.css';
+---
+
+<div class="rogachev-style">
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>{hero.title}</h1>
+          <p class="hero-subtitle">{hero.subtitle}</p>
+          <a href="#contact" class="button">{hero.cta}</a>
+        </div>
+        <div class="hero-image">
+          <img src={images.hero} alt={hero.title} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE SECTION -->
+  <section class="expertise-section">
+    <div class="container">
+      <h2 style="margin-bottom: 60px;">{expertise.title}</h2>
+      <div class="grid-3">
+        {expertise.items.map((item, index) => (
+          <div class="expertise-item">
+            <div class="expertise-number">0{index + 1}</div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK SECTION -->
+  <section class="book-section">
+    <div class="container">
+      <div class="book-image">
+        <img src={images.book} alt={book.title} />
+      </div>
+      <h2 class="book-title">{book.title}</h2>
+      <p class="book-description">{book.description}</p>
+      <p style="color: var(--rs-accent-gold); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;">
+        {book.author}
+      </p>
+    </div>
+  </section>
+
+  <!-- APPROACH SECTION -->
+  <section style="background: var(--rs-bg-black);">
+    <div class="container">
+      <h2 style="margin-bottom: 60px;">Мой подход</h2>
+      <div class="grid-2">
+        <div class="content-block">
+          <h3>Диагностика</h3>
+          <p>Я провожу глубокий аудит вашей текущей системы маркетинга и продаж. Находим точки утечки и возможности роста, которые вы упускали.</p>
+        </div>
+        <div class="content-block">
+          <h3>Стратегия</h3>
+          <p>На основе DTBD методологии я разрабатываю уникальное позиционирование вашей компании и 'Маховик роста', который будет работать независимо от рынка.</p>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top: 60px;">
+        <div class="content-block">
+          <h3>Внедрение</h3>
+          <p>Я помогаю вам запустить Landing Factory и настроить систему, которая приносит реальные сделки, а не просто лиды.</p>
+        </div>
+        <div class="content-block">
+          <h3>Масштабирование</h3>
+          <p>Когда система работает, мы масштабируем её. Ваша маржа растет, а зависимость от рынка падает.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section id="contact" style="background: var(--rs-bg-dark); border-top: 1px solid var(--rs-border);">
+    <div class="container" style="text-align: center;">
+      <h2>{cta.title}</h2>
+      <p class="lead" style="margin: 30px auto 50px auto;">{cta.subtitle}</p>
+      <form name={formName} method="POST" data-netlify="true" style="max-width: 600px; margin: 0 auto;">
+        <input 
+          type="text" 
+          name="name" 
+          placeholder="Ваше имя" 
+          required
+          style="display: block; width: 100%; padding: 14px 20px; margin-bottom: 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--rs-border); color: var(--rs-text-white); font-size: 16px;"
+        />
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Email" 
+          required
+          style="display: block; width: 100%; padding: 14px 20px; margin-bottom: 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--rs-border); color: var(--rs-text-white); font-size: 16px;"
+        />
+        <input 
+          type="tel" 
+          name="phone" 
+          placeholder="Телефон" 
+          required
+          style="display: block; width: 100%; padding: 14px 20px; margin-bottom: 30px; background: rgba(255,255,255,0.05); border: 1px solid var(--rs-border); color: var(--rs-text-white); font-size: 16px;"
+        />
+        <button type="submit" class="button">{cta.button}</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer-section">
+    <div class="container">
+      <p class="footer-contact">
+        <a href="mailto:hello@damir-khairov.com">hello@damir-khairov.com</a>
+      </p>
+      <p style="color: var(--rs-text-light); font-size: 14px;">
+        © 2026 Дамир Хайров. Архитектор антихрупкости.
+      </p>
+    </div>
+  </section>
+</div>

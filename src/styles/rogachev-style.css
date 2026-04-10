@@ -1,0 +1,322 @@
+/* ============================================================
+   ROGACHEV STYLE: Swiss Grid + Minimal Luxury
+   Deep black, gold accents, precision typography
+   For Damir Khairov - Architect of Anti-fragility
+   ============================================================ */
+
+:root {
+  --rs-bg-black: #0a0a0a;
+  --rs-bg-dark: #121212;
+  --rs-text-white: #ffffff;
+  --rs-text-light: #f0f0f0;
+  --rs-accent-gold: #d4af37;
+  --rs-accent-warm: #e8c547;
+  --rs-border: rgba(212, 175, 55, 0.2);
+  --rs-spacing-unit: 8px;
+}
+
+.rogachev-style {
+  background-color: var(--rs-bg-black);
+  color: var(--rs-text-white);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   TYPOGRAPHY: Precision & Impact
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+.rogachev-style h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 12vw, 120px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--rs-text-white);
+  margin: 0;
+  padding: 0;
+}
+
+.rogachev-style h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 8vw, 72px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--rs-text-white);
+  margin: 0 0 24px 0;
+}
+
+.rogachev-style h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+  color: var(--rs-text-white);
+  margin: 0 0 16px 0;
+}
+
+.rogachev-style p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--rs-text-light);
+  margin: 0 0 20px 0;
+  font-weight: 300;
+  letter-spacing: 0.005em;
+}
+
+.rogachev-style .lead {
+  font-size: 20px;
+  line-height: 1.8;
+  color: var(--rs-text-white);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  max-width: 800px;
+}
+
+/* ============================================================
+   CONTAINER & GRID
+   ============================================================ */
+
+.rogachev-style .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.rogachev-style section {
+  padding: 100px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.rogachev-style .grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.rogachev-style .grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+/* ============================================================
+   HERO SECTION: Minimalist Power
+   ============================================================ */
+
+.rogachev-style .hero-section {
+  background: var(--rs-bg-black);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.rogachev-style .hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.rogachev-style .hero-text h1 {
+  margin-bottom: 40px;
+  word-spacing: 9999px;
+}
+
+.rogachev-style .hero-subtitle {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--rs-text-light);
+  margin-bottom: 60px;
+  max-width: 600px;
+}
+
+.rogachev-style .hero-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.rogachev-style .hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ============================================================
+   BUTTON: Gold Accent
+   ============================================================ */
+
+.rogachev-style .button {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--rs-accent-gold);
+  color: var(--rs-bg-black);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.rogachev-style .button:hover {
+  background: var(--rs-accent-warm);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   SECTION: Numbered Expertise
+   ============================================================ */
+
+.rogachev-style .expertise-section {
+  background: var(--rs-bg-dark);
+  border-top: 1px solid var(--rs-border);
+}
+
+.rogachev-style .expertise-item {
+  padding: 60px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--rs-border);
+  transition: all 0.3s ease;
+}
+
+.rogachev-style .expertise-item:hover {
+  background: rgba(212, 175, 55, 0.05);
+  border-color: var(--rs-accent-gold);
+}
+
+.rogachev-style .expertise-number {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--rs-accent-gold);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   BOOK SECTION: Red Accent Hero
+   ============================================================ */
+
+.rogachev-style .book-section {
+  background: var(--rs-bg-black);
+  text-align: center;
+  padding: 120px 0;
+  border-top: 1px solid var(--rs-border);
+  border-bottom: 1px solid var(--rs-border);
+}
+
+.rogachev-style .book-image {
+  width: 280px;
+  height: auto;
+  margin: 0 auto 60px auto;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
+}
+
+.rogachev-style .book-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.rogachev-style .book-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--rs-accent-gold);
+}
+
+.rogachev-style .book-description {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--rs-text-light);
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+/* ============================================================
+   CONTENT BLOCK: Minimal, Structured
+   ============================================================ */
+
+.rogachev-style .content-block {
+  margin-bottom: 80px;
+}
+
+.rogachev-style .content-block h3 {
+  margin-bottom: 20px;
+  color: var(--rs-text-white);
+}
+
+.rogachev-style .content-block p {
+  max-width: 900px;
+}
+
+/* ============================================================
+   FOOTER: Minimal Contact
+   ============================================================ */
+
+.rogachev-style .footer-section {
+  background: var(--rs-bg-dark);
+  padding: 80px 0;
+  border-top: 1px solid var(--rs-border);
+  text-align: center;
+}
+
+.rogachev-style .footer-contact {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.rogachev-style .footer-contact a {
+  color: var(--rs-accent-gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.rogachev-style .footer-contact a:hover {
+  color: var(--rs-accent-warm);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .rogachev-style .container {
+    padding: 0 30px;
+  }
+
+  .rogachev-style .grid-2,
+  .rogachev-style .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .rogachev-style .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .rogachev-style section {
+    padding: 60px 0;
+  }
+
+  .rogachev-style h1 {
+    font-size: clamp(32px, 10vw, 64px);
+  }
+}
