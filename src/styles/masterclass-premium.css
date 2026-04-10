@@ -1,0 +1,245 @@
+/* ============================================================
+   MASTERCLASS PREMIUM: Cinematic Luxury Landing Page
+   Deep blacks, gold accents, high-impact typography
+   For Damir Khairov - Architect of Anti-fragility
+   ============================================================ */
+
+:root {
+  --mc-bg-dark: #050505;
+  --mc-bg-deep: #0a0a0a;
+  --mc-text-light: #f5f5f5;
+  --mc-text-muted: #a0a0a0;
+  --mc-accent-gold: #d4af37;
+  --mc-accent-gold-light: #e8c547;
+  --mc-border-subtle: rgba(212, 175, 55, 0.15);
+  --mc-shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.8);
+  --mc-shadow-light: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.masterclass-premium {
+  background-color: var(--mc-bg-dark);
+  color: var(--mc-text-light);
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  position: relative;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   TYPOGRAPHY: Serif for Headings (Cinematic Impact)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+.masterclass-premium h1,
+.masterclass-premium h2,
+.masterclass-premium h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--mc-text-light);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.masterclass-premium h1 {
+  font-size: clamp(56px, 10vw, 96px);
+  margin-bottom: 24px;
+  letter-spacing: -0.04em;
+}
+
+.masterclass-premium h2 {
+  font-size: clamp(42px, 7vw, 72px);
+  margin-bottom: 24px;
+}
+
+.masterclass-premium h3 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 16px;
+}
+
+.masterclass-premium p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--mc-text-muted);
+  margin-bottom: 20px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.masterclass-premium .lead {
+  font-size: 22px;
+  line-height: 1.8;
+  color: var(--mc-text-light);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
+   CONTAINER & SECTIONS
+   ============================================================ */
+
+.masterclass-premium .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.masterclass-premium section {
+  padding: 120px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.masterclass-premium .section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.masterclass-premium .section-header h2 {
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--mc-text-light) 0%, var(--mc-accent-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.masterclass-premium .section-header p {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+}
+
+/* ============================================================
+   HERO SECTION: Cinematic Impact
+   ============================================================ */
+
+.masterclass-premium .hero-section {
+  background: linear-gradient(135deg, var(--mc-bg-dark) 0%, var(--mc-bg-deep) 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.masterclass-premium .hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  filter: grayscale(100%) contrast(1.2);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.masterclass-premium .hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.masterclass-premium .hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+.masterclass-premium .hero-text {
+  animation: fadeInUp 1s ease-out;
+}
+
+.masterclass-premium .hero-eyebrow {
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--mc-accent-gold);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.masterclass-premium .hero-image-wrapper {
+  position: relative;
+  animation: fadeInRight 1.2s ease-out;
+}
+
+.masterclass-premium .hero-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: linear-gradient(135deg, var(--mc-accent-gold) 0%, transparent 100%);
+  opacity: 0.1;
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.masterclass-premium .hero-image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: var(--mc-shadow-deep);
+}
+
+/* ============================================================
+   CTA BUTTON: Gold Accent
+   ============================================================ */
+
+.masterclass-premium .button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 48px;
+  background: linear-gradient(135deg, var(--mc-accent-gold) 0%, var(--mc-accent-gold-light) 100%);
+  color: var(--mc-bg-dark);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
+  border-radius: 4px;
+  margin-top: 32px;
+}
+
+.masterclass-premium .button-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(212, 175, 55, 0.5);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}

@@ -1,0 +1,147 @@
+---
+const { 
+  slug, 
+  formName, 
+  meta, 
+  images, 
+  hero, 
+  triggers, 
+  aha, 
+  book, 
+  evolution, 
+  plan, 
+  cta 
+} = Astro.props;
+
+import '../styles/masterclass-premium.css';
+---
+
+<div class="masterclass-premium">
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="hero-eyebrow">{hero.label}</span>
+          <h1>{hero.title}</h1>
+          <p class="lead">{hero.subtitle}</p>
+          <a href="#contact" class="button-primary">{hero.cta}</a>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src={images.hero} alt="Damir Khairov - Architect of Anti-fragility" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRIGGERS SECTION -->
+  <section class="triggers-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>{triggers.title}</h2>
+        <p>{triggers.subtitle}</p>
+      </div>
+      <div class="triggers-grid">
+        {triggers.items.map((item) => (
+          <div class="trigger-card">
+            <p>{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- IMMERSIVE SECTION (AHA 1) -->
+  <section class="immersive-section">
+    <div class="container">
+      <div class="immersive-content">
+        <div class="immersive-image-wrapper">
+          <img src={images.aha1} alt="Strategic Session" />
+        </div>
+        <div class="immersive-text">
+          <h2>{aha.title}</h2>
+          <p>{aha.description}</p>
+          <div class="aha-points">
+            {aha.points.map((point) => (
+              <div class="aha-point">
+                <h3>{point.title}</h3>
+                <p>{point.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK SECTION (RTB) -->
+  <section class="book-section">
+    <div class="container">
+      <div class="book-content">
+        <div class="book-image">
+          <img src={images.aha3} alt="Book: What's Next?" />
+        </div>
+        <div class="book-rtb">{book.label}</div>
+        <h2 class="book-title">{book.title}</h2>
+        <p class="book-quote">"{book.description}"</p>
+        <div class="book-author-info">Дамир Хайров — Архитектор антихрупкости</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVOLUTION SECTION -->
+  <section class="evolution-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>{evolution.title}</h2>
+        <p>{evolution.subtitle}</p>
+      </div>
+      <div class="evolution-grid">
+        {evolution.steps.map((step, index) => (
+          <div class="evolution-step">
+            <div class="step-number">0{index + 1}</div>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAN SECTION -->
+  <section class="plan-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>{plan.title}</h2>
+        <p>{plan.subtitle}</p>
+      </div>
+      <div class="plan-steps">
+        {plan.steps.map((step, index) => (
+          <div class="plan-step">
+            <div class="plan-number">{index + 1}</div>
+            <div class="plan-text">
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="contact" class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>{cta.title}</h2>
+        <p>{cta.subtitle}</p>
+        <form name={formName} method="POST" data-netlify="true" class="contact-form">
+          <input type="text" name="name" placeholder="Ваше имя" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="tel" name="phone" placeholder="Телефон" required />
+          <button type="submit" class="button-primary">{cta.button}</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
