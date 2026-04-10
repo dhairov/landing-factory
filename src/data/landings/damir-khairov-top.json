@@ -1,6 +1,6 @@
 {
   "slug": "damir-khairov-top",
-  "template": "aesthetes",
+  "template": "expert-clean",
   "formName": "contact-damir-khairov-top",
 
   "meta": {
@@ -12,11 +12,11 @@
     "hero": "/assets/damir-khairov/photo-portrait-1.webp",
     "aha1": "/assets/damir-khairov/photo-session-2.webp",
     "aha2": "/assets/damir-khairov/photo-session-3.webp",
-    "aha3": "/assets/damir-khairov/photo-session-1.webp",
+    "aha3": "/assets/damir-khairov/book-photo-1.jpg",
     "qualifier": "/assets/damir-khairov/photo-portrait-2.webp",
     "evolution": "/assets/damir-khairov/book-promo.jpg",
     "compare": "/assets/damir-khairov/photo-session-1.webp",
-    "footer": "/assets/damir-khairov/book-description.jpg",
+    "footer": "/assets/damir-khairov/photo-portrait-2.webp",
     "currentPositioning": "/assets/damir-khairov/photo-portrait-1.webp"
   },
 
