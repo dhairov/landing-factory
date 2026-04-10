@@ -1,6 +1,6 @@
 # Реестр лендингов DevPartners
 
-Всего лендингов: **52**
+Всего лендингов: **53**
 
 ---
 
@@ -74,6 +74,7 @@
 | DevPartners | Суперкейс по маржинальности КРТ — LLCR 1.15→1.40, финансирование 0/100, полный цикл | [https://devpartners.ru/krt-margin/](https://devpartners.ru/krt-margin/) |
 | Дамир Хайров | Архитектор антихрупкости девелопера — трансформация бизнес-модели и рост маржинальности через смыслы и гипотезы | [https://devpartners.ru/damir-khairov/](https://devpartners.ru/damir-khairov/) |
 | Дамир Хайров | Архитектор персональной капитализации — стратегия развития для топ-менеджеров корпораций | [https://devpartners.ru/damir-khairov-top/](https://devpartners.ru/damir-khairov-top/) |
+| Дамир Хайров | Архитектор антихрупкости v2 — bespoke cinematic landing (AntifragileTemplate) | [https://devpartners.ru/damir-khairov-antifragile/](https://devpartners.ru/damir-khairov-antifragile/) |
 
 ---
 

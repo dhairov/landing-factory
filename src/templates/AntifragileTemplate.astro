@@ -1,0 +1,215 @@
+---
+const { 
+  slug, 
+  formName, 
+  meta, 
+  images, 
+  hero, 
+  problem,
+  expertise,
+  book, 
+  approach,
+  proof,
+  cta 
+} = Astro.props;
+
+import '../styles/antifragile.css';
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <div class="antifragile-page">
+
+      <!-- ═══════════════════════════════════════════
+           HERO: Cinematic Full-Viewport Impact
+           ═══════════════════════════════════════════ -->
+      <section class="af-hero af-section">
+        <div class="af-container">
+          <div class="af-hero__grid">
+            <div class="af-hero__text">
+              <span class="af-eyebrow">{hero.eyebrow}</span>
+              <h1>{hero.title}</h1>
+              <p class="af-lead">{hero.subtitle}</p>
+              <a href="#contact" class="af-btn">{hero.cta}</a>
+            </div>
+            <div class="af-hero__image">
+              <img src={images.hero} alt="Дамир Хайров — Архитектор антихрупкости" loading="eager" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           PROBLEM: Market Reality & Tension
+           ═══════════════════════════════════════════ -->
+      <section class="af-problem af-section">
+        <div class="af-container">
+          <div class="af-problem__header">
+            <span class="af-eyebrow">{problem.eyebrow}</span>
+            <h2>{problem.title}</h2>
+          </div>
+          <div class="af-problem__grid">
+            {problem.points.map((point, index) => (
+              <div class="af-problem__card af-reveal">
+                <span class="af-problem__number">0{index + 1}</span>
+                <p>{point}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           EXPERTISE: Three Instruments
+           ═══════════════════════════════════════════ -->
+      <section class="af-expertise af-section">
+        <div class="af-container">
+          <div class="af-expertise__header">
+            <h2>{expertise.title}</h2>
+          </div>
+          <div class="af-expertise__grid">
+            {expertise.items.map((item) => (
+              <div class="af-expertise__item af-reveal">
+                <span class="af-expertise__number">{item.number}</span>
+                <h3>{item.title}</h3>
+                <span class="af-expertise__subtitle">{item.subtitle}</span>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           IMMERSIVE: Full-Width Photo + Text
+           ═══════════════════════════════════════════ -->
+      <section class="af-immersive af-section" style="padding: 0;">
+        <div class="af-immersive__grid">
+          <div class="af-immersive__image">
+            <img src={images.speaking} alt="Стратегическая сессия" loading="lazy" />
+          </div>
+          <div class="af-immersive__text">
+            <span class="af-eyebrow">Подход</span>
+            <h2>Не консалтинг. Система.</h2>
+            <p>Я не даю советы и не пишу стратегии в PowerPoint. Я встраиваюсь в вашу команду как Fractional CGO и строю систему, которая работает без меня.</p>
+            <p>Результат — не отчёт на 100 страниц. А работающий маховик продаж, который генерирует сделки каждый месяц.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           BOOK: Red Accent — Visual Anchor
+           ═══════════════════════════════════════════ -->
+      <section class="af-book af-section">
+        <div class="af-container">
+          <span class="af-eyebrow">{book.eyebrow}</span>
+          <div class="af-book__cover af-reveal">
+            <img src={images.book} alt="Книга «Что дальше?»" loading="lazy" />
+          </div>
+          <h2 class="af-book__title">{book.title}</h2>
+          <p class="af-book__subtitle">{book.subtitle}</p>
+          <p class="af-book__description">{book.description}</p>
+          <p class="af-book__authors">{book.authors}</p>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           APPROACH: 3-Step Process
+           ═══════════════════════════════════════════ -->
+      <section class="af-approach af-section">
+        <div class="af-container">
+          <div class="af-approach__header">
+            <span class="af-eyebrow">{approach.title}</span>
+            <h2>{approach.subtitle}</h2>
+          </div>
+          <div class="af-approach__steps">
+            {approach.steps.map((step) => (
+              <div class="af-approach__step af-reveal">
+                <div class="af-approach__step-number">{step.number}</div>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           QUOTE: Authority Statement
+           ═══════════════════════════════════════════ -->
+      <section class="af-quote af-section">
+        <div class="af-container">
+          <p class="af-quote__text af-reveal">{proof.quote}</p>
+          <p class="af-quote__author">{proof.author}</p>
+          <p class="af-quote__role">{proof.role}</p>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           CTA: Final Conversion
+           ═══════════════════════════════════════════ -->
+      <section id="contact" class="af-cta af-section">
+        <div class="af-container">
+          <span class="af-eyebrow">{cta.eyebrow}</span>
+          <h2>{cta.title}</h2>
+          <p>{cta.subtitle}</p>
+          <form name={formName} method="POST" data-netlify="true" class="af-form" action="/thank-you">
+            <input type="hidden" name="form-name" value={formName} />
+            <input type="text" name="name" placeholder="Ваше имя" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="tel" name="phone" placeholder="Телефон / Telegram" required />
+            <button type="submit" class="af-btn">{cta.button}</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════════ -->
+      <footer class="af-footer">
+        <div class="af-container">
+          <p class="af-footer__email">
+            <a href="mailto:hello@devpartners.ru">hello@devpartners.ru</a>
+          </p>
+          <p class="af-footer__copy">
+            &copy; 2026 Дамир Хайров. Архитектор антихрупкости.
+          </p>
+        </div>
+      </footer>
+
+    </div>
+
+    <!-- Scroll Reveal Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const reveals = document.querySelectorAll('.af-reveal');
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -60px 0px'
+        });
+
+        reveals.forEach(el => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>
