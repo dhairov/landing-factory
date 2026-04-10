@@ -1,0 +1,547 @@
+---
+import Analytics from '../components/Analytics.astro';
+import '../styles/global.css';
+
+const {
+  slug,
+  formName,
+  meta,
+  images,
+  hero,
+  triggerPoints = [],
+  selfSelection = [],
+  responseCards = [],
+  lifeStages = [],
+  processSteps = [],
+  comparisons = [],
+  sections = {},
+  socialProof = {}
+} = Astro.props;
+
+const s = sections;
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/inter-ui@3.19.3/inter.min.css">
+  </head>
+  <body class="expert-clean">
+    <Analytics landingSlug={slug} />
+
+    <main>
+      <!-- HERO -->
+      <section class="hero-clean">
+        <div class="container">
+          <div class="hero-clean__grid">
+            <div class="hero-clean__content">
+              <div class="eyebrow" set:html={hero.label}></div>
+              <h1 set:html={hero.h1}></h1>
+              <p class="lead" set:html={hero.lead}></p>
+              <div class="hero-clean__actions">
+                <a class="button button--primary" href="#contact">{hero.ctaText || 'Запросить консультацию'}</a>
+              </div>
+              <div class="hero-clean__offer-line" set:html={hero.offerLine}></div>
+            </div>
+            <div class="hero-clean__visual">
+              <div class="expert-card">
+                <img src={images.hero} alt={hero.cardH2} class="expert-card__img" />
+                <div class="expert-card__body">
+                  <h2 set:html={hero.cardH2}></h2>
+                  <p class="expert-card__meta" set:html={hero.cardMeta}></p>
+                  <p class="expert-card__text" set:html={hero.cardBody}></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRIGGERS -->
+      <section class="triggers-clean">
+        <div class="container">
+          <div class="grid-3">
+            {triggerPoints.map((item: string) => (
+              <div class="trigger-card">
+                <div class="trigger-card__icon">!</div>
+                <p set:html={item}></p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- SOCIAL PROOF / BOOK -->
+      <section class="proof-clean">
+        <div class="container">
+          <div class="proof-clean__layout">
+            <div class="proof-clean__image">
+              <img src={images.aha3} alt="Книга Дамира Хайрова" />
+            </div>
+            <div class="proof-clean__content">
+              <blockquote class="expert-quote">
+                <p set:html={socialProof.quote}></p>
+                <footer>
+                  <strong set:html={socialProof.author}></strong>
+                  <span set:html={socialProof.role}></span>
+                </footer>
+              </blockquote>
+              <div class="partners-grid">
+                {socialProof.partners?.map((p: any) => (
+                  <div class="partner-item">
+                    <strong set:html={p.name}></strong>
+                    <span set:html={p.description}></span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESPONSE CARDS (AHA MOMENTS) -->
+      <section class="responses-clean">
+        <div class="container">
+          <div class="section-header">
+            <h2 set:html={s.responses?.h2}></h2>
+          </div>
+          <div class="grid-3">
+            {responseCards.map((card: any) => (
+              <div class="feature-card">
+                <div class="step-number">{card.number}</div>
+                <h3 set:html={card.title}></h3>
+                <p class="text-problem" set:html={card.problem}></p>
+                <p set:html={card.answer}></p>
+                <p class="text-detail" set:html={card.detail}></p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- EVOLUTION LADDER -->
+      <section class="evolution-clean">
+        <div class="container">
+          <div class="section-header">
+            <h2 set:html={s.life?.h2}></h2>
+            <p class="lead" set:html={s.life?.lead}></p>
+          </div>
+          <div class="evolution-grid">
+            {lifeStages.map((stage: any) => (
+              <div class="evolution-card">
+                <div class="evolution-card__header">
+                  <h3 set:html={stage.stage}></h3>
+                  <span class="badge" set:html={stage.price}></span>
+                </div>
+                <p><strong>Ситуация:</strong> <span set:html={stage.who}></span></p>
+                <p><strong>Запрос:</strong> <span set:html={stage.hire}></span></p>
+                <div class="evolution-card__footer" set:html={stage.format}></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPARISON -->
+      <section class="compare-clean">
+        <div class="container">
+          <div class="section-header">
+            <div class="eyebrow" set:html={s.compare?.eyebrow}></div>
+            <h2 set:html={s.compare?.h2}></h2>
+          </div>
+          <div class="grid-3">
+            {comparisons.map((item: any) => (
+              <div class="compare-card">
+                <div class="compare-card__overline" set:html={item.overline}></div>
+                <h3 set:html={item.title}></h3>
+                <p set:html={item.text}></p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section class="process-clean">
+        <div class="container">
+          <div class="section-header">
+            <h2 set:html={s.process?.h2}></h2>
+          </div>
+          <div class="process-steps">
+            {processSteps.map((step: any) => (
+              <div class="process-step">
+                <div class="process-step__num">{step.number}</div>
+                <div class="process-step__content">
+                  <h3 set:html={step.title}></h3>
+                  <p set:html={step.text}></p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL FORM -->
+      <section id="contact" class="final-clean">
+        <div class="container">
+          <div class="form-layout">
+            <div class="final-clean__content">
+              <div class="eyebrow" set:html={s.final?.eyebrow}></div>
+              <h2 set:html={s.final?.h2}></h2>
+              <div class="final-clean__image">
+                <img src={images.footer} alt="Дамир Хайров" />
+              </div>
+            </div>
+            <div class="form-card">
+              <div class="eyebrow" set:html={s.final?.formEyebrow}></div>
+              <h3 set:html={s.final?.formTitle}></h3>
+              <p set:html={s.final?.formLead}></p>
+              
+              <form name={formName} method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+                <input type="hidden" name="form-name" value={formName} />
+                <div class="form-group">
+                  <label for="name">Имя</label>
+                  <input type="text" id="name" name="name" required placeholder="Как к вам обращаться" />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Телефон / Telegram</label>
+                  <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__" />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+                </div>
+                <button type="submit" class="button button--primary">{hero.ctaText || 'Запросить консультацию'}</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 Дамир Хайров. Все права защищены. Методология DTBD.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --primary: #1d4ed8;
+    --primary-dark: #1e3a8a;
+    --text: #111827;
+    --text-muted: #4b5563;
+    --bg-light: #f9fafb;
+    --border: #e5e7eb;
+  }
+
+  .expert-clean {
+    background: #fff;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 100px 0;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #eff6ff;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+
+  h1 { font-size: 56px; line-height: 1.1; font-weight: 800; margin-bottom: 24px; letter-spacing: -0.02em; }
+  h2 { font-size: 40px; line-height: 1.2; font-weight: 700; margin-bottom: 20px; }
+  h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+
+  .lead { font-size: 20px; color: var(--text-muted); margin-bottom: 32px; }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 18px;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .button--primary {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .button--primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+
+  /* HERO */
+  .hero-clean {
+    background: linear-gradient(to bottom, #f8fafc, #fff);
+    padding-top: 120px;
+  }
+
+  .hero-clean__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-clean__offer-line {
+    margin-top: 40px;
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .expert-card {
+    background: #fff;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+  }
+
+  .expert-card__img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .expert-card__body {
+    padding: 32px;
+  }
+
+  .expert-card__meta {
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+
+  /* TRIGGERS */
+  .triggers-clean {
+    background: var(--bg-light);
+  }
+
+  .trigger-card {
+    background: #fff;
+    padding: 32px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+  }
+
+  .trigger-card__icon {
+    width: 40px;
+    height: 40px;
+    background: #fee2e2;
+    color: #dc2626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 900;
+    margin-bottom: 20px;
+  }
+
+  /* PROOF */
+  .proof-clean__layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .proof-clean__image img {
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .expert-quote {
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .expert-quote::before {
+    content: '“';
+    position: absolute;
+    left: -40px;
+    top: -20px;
+    font-size: 80px;
+    color: var(--primary);
+    opacity: 0.2;
+  }
+
+  .expert-quote footer {
+    margin-top: 24px;
+    font-style: normal;
+    font-size: 18px;
+  }
+
+  .expert-quote footer strong {
+    display: block;
+    color: var(--text);
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    border-top: 1px solid var(--border);
+    padding-top: 40px;
+  }
+
+  .partner-item strong { display: block; font-size: 18px; }
+  .partner-item span { font-size: 14px; color: var(--text-muted); }
+
+  /* EVOLUTION */
+  .evolution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+
+  .evolution-card {
+    background: #fff;
+    padding: 32px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .evolution-card__header {
+    margin-bottom: 20px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 4px 8px;
+    background: #f3f4f6;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .evolution-card__footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  /* PROCESS */
+  .process-steps {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .process-step {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .process-step__num {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+  /* FORM */
+  .final-clean {
+    background: var(--bg-light);
+  }
+
+  .final-clean__image img {
+    width: 100%;
+    border-radius: 24px;
+    margin-top: 32px;
+  }
+
+  .form-card {
+    background: #fff;
+    padding: 48px;
+    border-radius: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  .form-card .button {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 960px) {
+    .hero-clean__grid, .proof-clean__layout, .form-layout {
+      grid-template-columns: 1fr;
+    }
+    h1 { font-size: 40px; }
+    section { padding: 60px 0; }
+  }
+</style>
