@@ -1,0 +1,552 @@
+/* ============================================================
+   CLEAN PREMIUM: The Strategist's Blueprint - Audited Version
+   High-end consulting landing page for Damir Khairov
+   ============================================================ */
+
+:root {
+  --clean-bg-light: #ffffff;
+  --clean-bg-ivory: #fcfcfc;
+  --clean-text-dark: #1a1a1a;
+  --clean-text-muted: #666666;
+  --clean-accent-red: #c41e3a;
+  --clean-border: #e0e0e0;
+  --clean-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.clean-premium {
+  background-color: var(--clean-bg-light);
+  color: var(--clean-text-dark);
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   TYPOGRAPHY: Serif for Headings, Clean Sans for Body
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+.clean-premium h1,
+.clean-premium h2,
+.clean-premium h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--clean-text-dark);
+}
+
+.clean-premium h1 {
+  font-size: clamp(48px, 8vw, 72px);
+  margin-bottom: 24px;
+}
+
+.clean-premium h2 {
+  font-size: clamp(36px, 5vw, 52px);
+  margin-bottom: 20px;
+}
+
+.clean-premium h3 {
+  font-size: clamp(24px, 3vw, 30px);
+  margin-bottom: 16px;
+}
+
+.clean-premium p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--clean-text-muted);
+  margin-bottom: 16px;
+}
+
+.clean-premium .lead {
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--clean-text-dark);
+  font-weight: 500;
+}
+
+/* ============================================================
+   CONTAINER & SECTIONS
+   ============================================================ */
+
+.clean-premium .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.clean-premium section {
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.clean-premium .section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.clean-premium .section-header h2 {
+  margin-bottom: 16px;
+}
+
+.clean-premium .section-header p {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================
+   HERO SECTION: Clean Background, Strong Offer
+   ============================================================ */
+
+.clean-premium .hero-section {
+  background-color: var(--clean-bg-light);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+}
+
+.clean-premium .hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.clean-premium .hero-text {
+  padding-right: 40px;
+}
+
+.clean-premium .hero-eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clean-text-muted);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.clean-premium .hero-image-wrapper {
+  position: relative;
+  padding: 20px;
+  background-color: var(--clean-bg-ivory);
+  border: 1px solid var(--clean-border);
+  box-shadow: var(--clean-shadow);
+}
+
+.clean-premium .hero-image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================================
+   CTA BUTTON: Red Accent
+   ============================================================ */
+
+.clean-premium .button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  background-color: var(--clean-accent-red);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(196, 30, 58, 0.2);
+  margin-top: 24px;
+}
+
+.clean-premium .button-primary:hover {
+  background-color: #a01830;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(196, 30, 58, 0.3);
+}
+
+/* ============================================================
+   TRIGGERS: Pain Points Grid
+   ============================================================ */
+
+.clean-premium .triggers-section {
+  background-color: var(--clean-bg-ivory);
+  border-top: 1px solid var(--clean-border);
+}
+
+.clean-premium .triggers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.clean-premium .trigger-card {
+  padding: 30px;
+  background-color: var(--clean-bg-light);
+  border: 1px solid var(--clean-border);
+  box-shadow: var(--clean-shadow);
+  transition: all 0.3s ease;
+}
+
+.clean-premium .trigger-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.clean-premium .trigger-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--clean-text-dark);
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   IMMERSIVE: Photo + Content (Cleaned up)
+   ============================================================ */
+
+.clean-premium .immersive-section {
+  background-color: var(--clean-bg-light);
+}
+
+.clean-premium .immersive-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.clean-premium .immersive-image-wrapper {
+  position: relative;
+  padding: 20px;
+  background-color: var(--clean-bg-ivory);
+  border: 1px solid var(--clean-border);
+  box-shadow: var(--clean-shadow);
+}
+
+.clean-premium .immersive-image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================================
+   BOOK: Central RTB Element
+   ============================================================ */
+
+.clean-premium .book-section {
+  background-color: var(--clean-bg-ivory);
+  text-align: center;
+  padding: 60px 0;
+}
+
+.clean-premium .book-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.clean-premium .book-image {
+  width: 280px;
+  height: auto;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--clean-border);
+}
+
+.clean-premium .book-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.clean-premium .book-quote {
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--clean-text-dark);
+  margin: 30px 0;
+  padding: 0 20px;
+}
+
+.clean-premium .book-author-info {
+  font-size: 16px;
+  color: var(--clean-text-muted);
+}
+
+/* ============================================================
+   RESPONSE CARDS: AHA Moments
+   ============================================================ */
+
+.clean-premium .responses-section {
+  background-color: var(--clean-bg-light);
+}
+
+.clean-premium .responses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.clean-premium .response-card {
+  padding: 40px;
+  background-color: var(--clean-bg-ivory);
+  border: 1px solid var(--clean-border);
+  box-shadow: var(--clean-shadow);
+  transition: all 0.3s ease;
+}
+
+.clean-premium .response-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.clean-premium .response-number {
+  display: inline-block;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--clean-accent-red);
+  margin-bottom: 12px;
+  font-family: 'Playfair Display', serif;
+}
+
+.clean-premium .response-card h3 {
+  margin-bottom: 16px;
+}
+
+.clean-premium .response-problem {
+  font-size: 15px;
+  color: var(--clean-accent-red);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.clean-premium .response-answer {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--clean-text-dark);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.clean-premium .response-detail {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--clean-text-muted);
+}
+
+/* ============================================================
+   EVOLUTION LADDER
+   ============================================================ */
+
+.clean-premium .evolution-section {
+  background-color: var(--clean-bg-ivory);
+}
+
+.clean-premium .evolution-ladder {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.clean-premium .evolution-rung {
+  padding: 30px;
+  background-color: var(--clean-bg-light);
+  border: 1px solid var(--clean-border);
+  box-shadow: var(--clean-shadow);
+  transition: all 0.3s ease;
+}
+
+.clean-premium .evolution-rung:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.clean-premium .evolution-stage {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--clean-text-dark);
+  margin-bottom: 12px;
+  font-family: 'Playfair Display', serif;
+}
+
+.clean-premium .evolution-rung p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--clean-text-muted);
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   ACTION PLAN (3 Steps before CTA)
+   ============================================================ */
+
+.clean-premium .action-plan-section {
+  background-color: var(--clean-bg-light);
+  text-align: center;
+}
+
+.clean-premium .action-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.clean-premium .action-step {
+  padding: 30px;
+  background-color: var(--clean-bg-ivory);
+  border: 1px solid var(--clean-border);
+  box-shadow: var(--clean-shadow);
+}
+
+.clean-premium .action-step-number {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--clean-accent-red);
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+}
+
+.clean-premium .action-step h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.clean-premium .action-step p {
+  font-size: 16px;
+  color: var(--clean-text-muted);
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   FINAL CTA / FORM
+   ============================================================ */
+
+.clean-premium .final-section {
+  background-color: var(--clean-bg-ivory);
+  padding-bottom: 0;
+}
+
+.clean-premium .final-content {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+}
+
+.clean-premium .form-card {
+  padding: 50px;
+  background-color: var(--clean-bg-light);
+  border: 1px solid var(--clean-border);
+  box-shadow: var(--clean-shadow);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.clean-premium .form-card h3 {
+  margin-bottom: 20px;
+  color: var(--clean-accent-red);
+}
+
+.clean-premium .form-card p {
+  margin-bottom: 28px;
+  font-size: 15px;
+}
+
+.clean-premium .form-group {
+  margin-bottom: 20px;
+}
+
+.clean-premium .form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clean-text-dark);
+  margin-bottom: 6px;
+}
+
+.clean-premium .form-group input,
+.clean-premium .form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--clean-border);
+  background-color: var(--clean-bg-ivory);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--clean-text-dark);
+  transition: all 0.3s ease;
+}
+
+.clean-premium .form-group input:focus,
+.clean-premium .form-group textarea:focus {
+  outline: none;
+  border-color: var(--clean-accent-red);
+  box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.clean-premium .site-footer {
+  padding: 40px 20px;
+  background-color: var(--clean-bg-light);
+  border-top: 1px solid var(--clean-border);
+  text-align: center;
+  font-size: 14px;
+  color: var(--clean-text-muted);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .clean-premium .hero-content,
+  .clean-premium .immersive-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .clean-premium .hero-text {
+    padding-right: 0;
+  }
+
+  .clean-premium .hero-image-wrapper,
+  .clean-premium .immersive-image-wrapper {
+    padding: 10px;
+  }
+
+  .clean-premium section {
+    padding: 60px 0;
+  }
+
+  .clean-premium h1 {
+    font-size: 38px;
+  }
+
+  .clean-premium h2 {
+    font-size: 30px;
+  }
+
+  .clean-premium .book-image {
+    width: 200px;
+  }
+
+  .clean-premium .book-quote {
+    font-size: 18px;
+  }
+
+  .clean-premium .action-plan-grid {
+    grid-template-columns: 1fr;
+  }
+}
