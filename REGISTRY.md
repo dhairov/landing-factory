@@ -1,6 +1,6 @@
 # Реестр лендингов DevPartners
 
-Всего лендингов: **51**
+Всего лендингов: **52**
 
 ---
 
@@ -72,7 +72,7 @@
 | DevPartners | Китайская архитектура для сложного КРТ (региональный девелопер, до 10 Га) | [https://devpartners.ru/china-arch-krt/](https://devpartners.ru/china-arch-krt/) |
 | DevPartners | Синдикация КРТ — структурирование партнёрств для масштабных проектов КРТ | [https://devpartners.ru/syndication-krt/](https://devpartners.ru/syndication-krt/) |
 | DevPartners | Суперкейс по маржинальности КРТ — LLCR 1.15→1.40, финансирование 0/100, полный цикл | [https://devpartners.ru/krt-margin/](https://devpartners.ru/krt-margin/) |
-| Дамир Хайров | Архитектор экспортной эволюции — стратегия выхода на новые рынки для экспортно-ориентированных компаний | [https://devpartners.ru/damir-khairov/](https://devpartners.ru/damir-khairov/) |
+| Дамир Хайров | Архитектор антихрупкости девелопера — трансформация бизнес-модели и рост маржинальности через смыслы и гипотезы | [https://devpartners.ru/damir-khairov/](https://devpartners.ru/damir-khairov/) |
 | Дамир Хайров | Архитектор персональной капитализации — стратегия развития для топ-менеджеров корпораций | [https://devpartners.ru/damir-khairov-top/](https://devpartners.ru/damir-khairov-top/) |
 
 ---
