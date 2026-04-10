@@ -1,5 +1,17 @@
 ---
-import Template from '../templates/AesthetesTemplate.astro';
+import Template from '../templates/ExpertCleanTemplate.astro';
 import data from '../data/landings/damir-khairov.json';
+import '../styles/premium-damir.css';
 ---
-<Template slug="damir-khairov" formName="contact-damir-khairov" {...data} />
+<div class="expert-clean premium-dark">
+  <Template slug="damir-khairov" formName="contact-damir-khairov" {...data} />
+</div>
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap');
+  
+  .premium-dark {
+    background-color: #0a0a0b;
+    color: #e4e4e7;
+  }
+</style>

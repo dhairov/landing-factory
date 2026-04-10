@@ -1,6 +1,6 @@
 {
   "slug": "damir-khairov",
-  "template": "aesthetes",
+  "template": "expert-clean",
   "formName": "contact-damir-khairov",
 
   "meta": {
@@ -9,15 +9,15 @@
   },
 
   "images": {
-    "hero": "/assets/damir-khairov/hero.jpg",
-    "aha1": "/assets/damir-khairov/aha1.jpg",
-    "aha2": "/assets/damir-khairov/aha2.jpg",
-    "aha3": "/assets/damir-khairov/aha3.jpg",
-    "qualifier": "/assets/damir-khairov/qualifier.jpg",
-    "evolution": "/assets/damir-khairov/hero.jpg",
-    "compare": "/assets/damir-khairov/aha2.jpg",
-    "footer": "/assets/damir-khairov/aha1.jpg",
-    "currentPositioning": "/assets/damir-khairov/qualifier.jpg"
+    "hero": "/assets/damir-khairov/photo-portrait-2.webp",
+    "aha1": "/assets/damir-khairov/photo-session-2.webp",
+    "aha2": "/assets/damir-khairov/photo-session-3.webp",
+    "aha3": "/assets/damir-khairov/book-promo.jpg",
+    "qualifier": "/assets/damir-khairov/photo-portrait-1.webp",
+    "evolution": "/assets/damir-khairov/photo-session-1.webp",
+    "compare": "/assets/damir-khairov/photo-session-2.webp",
+    "footer": "/assets/damir-khairov/photo-portrait-2.webp",
+    "currentPositioning": "/assets/damir-khairov/photo-portrait-2.webp"
   },
 
   "triggerPoints": [
@@ -51,7 +51,7 @@
       "answer": "Мы оцифровываем боли и сценарии жизни ваших клиентов, находя новые платежеспособные сегменты.",
       "detail": "Результат — точное попадание в ценность. Вы продаете не планировки, а решение конкретных жизненных задач (Dreams To Be Done).",
       "cta": "Узнать про DTBD",
-      "image": "/assets/damir-khairov/aha1.jpg",
+      "image": "/assets/damir-khairov/photo-session-2.webp",
       "alt": "Методология DTBD в девелопменте"
     },
     {
@@ -61,7 +61,7 @@
       "answer": "Мы синхронизируем продукт и продажи через систему непрерывного тестирования гипотез.",
       "detail": "Внедрение инфраструктуры Landing Factory позволяет тестировать новые офферы за дни, а не месяцы, кратно снижая CAC.",
       "cta": "Запустить маховик",
-      "image": "/assets/damir-khairov/aha2.jpg",
+      "image": "/assets/damir-khairov/photo-session-3.webp",
       "alt": "Маховик роста девелопера"
     },
     {
@@ -71,7 +71,7 @@
       "answer": "Сопровождение в роли независимого директора по стратегии для выхода на уровень Visionary-девелопера.",
       "detail": "Ваша компания перестает догонять тренды и начинает их диктовать, создавая уникальные продукты, за которыми стоит очередь.",
       "cta": "Обсудить трансформацию",
-      "image": "/assets/damir-khairov/aha3.jpg",
+      "image": "/assets/damir-khairov/photo-session-1.webp",
       "alt": "Книга 'Что дальше?' и стратегия визионерства"
     }
   ],
