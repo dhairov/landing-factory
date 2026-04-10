@@ -9,15 +9,15 @@
   },
 
   "images": {
-    "hero": "/assets/damir-khairov-top/hero.png",
-    "aha1": "/assets/damir-khairov-top/aha1.png",
-    "aha2": "/assets/damir-khairov-top/aha2.png",
-    "aha3": "/assets/damir-khairov-top/qualifier.png",
-    "qualifier": "/assets/damir-khairov-top/qualifier.png",
-    "evolution": "/assets/damir-khairov-top/aha1.png",
-    "compare": "/assets/damir-khairov-top/hero.png",
-    "footer": "/assets/damir-khairov-top/aha2.png",
-    "currentPositioning": "/assets/damir-khairov-top/hero.png"
+    "hero": "/assets/damir-khairov/photo-portrait-1.webp",
+    "aha1": "/assets/damir-khairov/photo-session-2.webp",
+    "aha2": "/assets/damir-khairov/photo-session-3.webp",
+    "aha3": "/assets/damir-khairov/photo-session-1.webp",
+    "qualifier": "/assets/damir-khairov/photo-portrait-2.webp",
+    "evolution": "/assets/damir-khairov/book-promo.jpg",
+    "compare": "/assets/damir-khairov/photo-session-1.webp",
+    "footer": "/assets/damir-khairov/book-description.jpg",
+    "currentPositioning": "/assets/damir-khairov/photo-portrait-1.webp"
   },
 
   "triggerPoints": [
@@ -51,7 +51,7 @@
       "answer": "Глубинный аудит вашего опыта для выявления «нечестного преимущества» и формирования авторской методологии.",
       "detail": "Результат — четкое понимание вашей уникальности, которую можно продавать рынку как независимый продукт.",
       "cta": "Заказать аудит",
-      "image": "/assets/damir-khairov-top/aha1.png",
+      "image": "/assets/damir-khairov/photo-session-2.webp",
       "alt": "Стратегическая сессия по выявлению суперсилы"
     },
     {
@@ -61,7 +61,7 @@
       "answer": "Создание системы влияния: от публикаций в Forbes до выступления на ПМЭФ с вашей авторской концепцией.",
       "detail": "Вы становитесь лидером мнений, чье видение (visionarism) генерирует входящие запросы от акционеров и инвесторов.",
       "cta": "Выстроить бренд",
-      "image": "/assets/damir-khairov-top/aha2.png",
+      "image": "/assets/damir-khairov/photo-session-3.webp",
       "alt": "Книга 'Что дальше?' как пример упаковки смыслов"
     },
     {
@@ -71,7 +71,7 @@
       "answer": "Персональное сопровождение до получения первых контрактов в роли независимого директора или эдвайзера.",
       "detail": "Готовый фреймворк перехода: от позиционирования для акционеров до структуры вашего эдвайзерингового бутика.",
       "cta": "Начать переход",
-      "image": "/assets/damir-khairov-top/qualifier.png",
+      "image": "/assets/damir-khairov/photo-session-1.webp",
       "alt": "Визионерский взгляд на карьеру"
     }
   ],
