@@ -1,0 +1,583 @@
+/* ============================================================
+   BLUEPRINT STRATEGIST: The Architect's Vision
+   High-end consulting landing page for Damir Khairov
+   ============================================================ */
+
+:root {
+  --blueprint-bg-light: #f4f4f5;
+  --blueprint-bg-ivory: #fafaf9;
+  --blueprint-text-dark: #1a1a1a;
+  --blueprint-text-muted: #666666;
+  --blueprint-accent-red: #c41e3a;
+  --blueprint-grid-line: #e0e0e0;
+  --blueprint-border: #d4d4d4;
+  --blueprint-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.blueprint-strategist {
+  background-color: var(--blueprint-bg-light);
+  color: var(--blueprint-text-dark);
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  position: relative;
+}
+
+/* ============================================================
+   BACKGROUND GRID PATTERN (Architectural Blueprint Feel)
+   ============================================================ */
+
+.blueprint-strategist::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(0deg, transparent 24%, rgba(224, 224, 224, 0.15) 25%, rgba(224, 224, 224, 0.15) 26%, transparent 27%, transparent 74%, rgba(224, 224, 224, 0.15) 75%, rgba(224, 224, 224, 0.15) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(224, 224, 224, 0.15) 25%, rgba(224, 224, 224, 0.15) 26%, transparent 27%, transparent 74%, rgba(224, 224, 224, 0.15) 75%, rgba(224, 224, 224, 0.15) 76%, transparent 77%, transparent);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   TYPOGRAPHY: Serif for Headings, Clean Sans for Body
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap');
+
+.blueprint-strategist h1,
+.blueprint-strategist h2,
+.blueprint-strategist h3 {
+  font-family: 'Playfair Display', 'Lora', serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--blueprint-text-dark);
+}
+
+.blueprint-strategist h1 {
+  font-size: clamp(48px, 8vw, 84px);
+  margin-bottom: 32px;
+  font-weight: 800;
+}
+
+.blueprint-strategist h2 {
+  font-size: clamp(36px, 5vw, 56px);
+  margin-bottom: 24px;
+}
+
+.blueprint-strategist h3 {
+  font-size: clamp(24px, 3vw, 32px);
+  margin-bottom: 16px;
+}
+
+.blueprint-strategist p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--blueprint-text-muted);
+  margin-bottom: 20px;
+}
+
+.blueprint-strategist .lead {
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--blueprint-text-dark);
+  font-weight: 500;
+}
+
+/* ============================================================
+   HERO SECTION: Full-Width Photo Overlay with Typography
+   ============================================================ */
+
+.blueprint-strategist .hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--blueprint-bg-ivory);
+  padding: 120px 40px;
+}
+
+.blueprint-strategist .hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/damir-khairov/photo-portrait-2.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  filter: grayscale(100%) contrast(150%);
+  z-index: 0;
+}
+
+.blueprint-strategist .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.blueprint-strategist .hero-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--blueprint-text-muted);
+  margin-bottom: 24px;
+  font-weight: 600;
+  border-bottom: 2px solid var(--blueprint-accent-red);
+  padding-bottom: 8px;
+}
+
+.blueprint-strategist .hero-h1 {
+  font-size: clamp(52px, 9vw, 96px);
+  line-height: 1.05;
+  margin-bottom: 40px;
+  font-weight: 800;
+}
+
+.blueprint-strategist .hero-lead {
+  font-size: 22px;
+  line-height: 1.6;
+  color: var(--blueprint-text-dark);
+  margin-bottom: 48px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================
+   CTA BUTTON: Red Accent
+   ============================================================ */
+
+.blueprint-strategist .button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 48px;
+  background-color: var(--blueprint-accent-red);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 32px rgba(196, 30, 58, 0.2);
+}
+
+.blueprint-strategist .button-primary:hover {
+  background-color: #a01830;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(196, 30, 58, 0.3);
+}
+
+/* ============================================================
+   SECTION: Triggers / Pain Points
+   ============================================================ */
+
+.blueprint-strategist .triggers-section {
+  position: relative;
+  z-index: 1;
+  padding: 120px 40px;
+  background-color: var(--blueprint-bg-light);
+  border-top: 1px solid var(--blueprint-grid-line);
+}
+
+.blueprint-strategist .triggers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blueprint-strategist .trigger-card {
+  position: relative;
+  padding: 40px;
+  background-color: var(--blueprint-bg-ivory);
+  border: 1px solid var(--blueprint-border);
+  box-shadow: var(--blueprint-shadow);
+  transition: all 0.3s ease;
+}
+
+.blueprint-strategist .trigger-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+}
+
+.blueprint-strategist .trigger-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--blueprint-accent-red);
+}
+
+.blueprint-strategist .trigger-card p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--blueprint-text-muted);
+}
+
+/* ============================================================
+   SECTION: Photo + Text Overlay (Immersive)
+   ============================================================ */
+
+.blueprint-strategist .immersive-section {
+  position: relative;
+  z-index: 1;
+  padding: 120px 40px;
+  background-color: var(--blueprint-bg-ivory);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.blueprint-strategist .immersive-photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+
+.blueprint-strategist .immersive-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(120%);
+  transition: filter 0.5s ease;
+}
+
+.blueprint-strategist .immersive-section:hover .immersive-photo img {
+  filter: grayscale(30%) contrast(110%);
+}
+
+.blueprint-strategist .immersive-content h2 {
+  margin-bottom: 32px;
+}
+
+.blueprint-strategist .immersive-content p {
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   SECTION: Red Book as Central Artifact
+   ============================================================ */
+
+.blueprint-strategist .book-section {
+  position: relative;
+  z-index: 1;
+  padding: 120px 40px;
+  background-color: var(--blueprint-bg-light);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.blueprint-strategist .book-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  box-shadow: 0 24px 64px rgba(196, 30, 58, 0.15);
+}
+
+.blueprint-strategist .book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blueprint-strategist .book-content h2 {
+  margin-bottom: 32px;
+  color: var(--blueprint-accent-red);
+}
+
+.blueprint-strategist .book-content p {
+  margin-bottom: 24px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.blueprint-strategist .book-quote {
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--blueprint-text-dark);
+  border-left: 4px solid var(--blueprint-accent-red);
+  padding-left: 32px;
+  margin: 40px 0;
+}
+
+/* ============================================================
+   SECTION: Response Cards (AHA Moments)
+   ============================================================ */
+
+.blueprint-strategist .responses-section {
+  position: relative;
+  z-index: 1;
+  padding: 120px 40px;
+  background-color: var(--blueprint-bg-ivory);
+}
+
+.blueprint-strategist .responses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blueprint-strategist .response-card {
+  position: relative;
+  padding: 48px;
+  background-color: var(--blueprint-bg-light);
+  border: 1px solid var(--blueprint-border);
+  box-shadow: var(--blueprint-shadow);
+  transition: all 0.3s ease;
+}
+
+.blueprint-strategist .response-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+}
+
+.blueprint-strategist .response-number {
+  display: inline-block;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--blueprint-accent-red);
+  margin-bottom: 16px;
+  font-family: 'Playfair Display', serif;
+}
+
+.blueprint-strategist .response-card h3 {
+  margin-bottom: 20px;
+}
+
+.blueprint-strategist .response-problem {
+  font-size: 14px;
+  color: var(--blueprint-accent-red);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.blueprint-strategist .response-answer {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--blueprint-text-dark);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.blueprint-strategist .response-detail {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--blueprint-text-muted);
+}
+
+/* ============================================================
+   SECTION: Evolution Ladder
+   ============================================================ */
+
+.blueprint-strategist .evolution-section {
+  position: relative;
+  z-index: 1;
+  padding: 120px 40px;
+  background-color: var(--blueprint-bg-light);
+}
+
+.blueprint-strategist .evolution-ladder {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blueprint-strategist .evolution-rung {
+  position: relative;
+  padding: 40px;
+  background-color: var(--blueprint-bg-ivory);
+  border: 1px solid var(--blueprint-border);
+  box-shadow: var(--blueprint-shadow);
+}
+
+.blueprint-strategist .evolution-rung::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--blueprint-accent-red);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.blueprint-strategist .evolution-rung:hover::before {
+  opacity: 1;
+}
+
+.blueprint-strategist .evolution-stage {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--blueprint-text-dark);
+  margin-bottom: 16px;
+  font-family: 'Playfair Display', serif;
+}
+
+.blueprint-strategist .evolution-rung p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--blueprint-text-muted);
+  margin-bottom: 12px;
+}
+
+/* ============================================================
+   SECTION: Final CTA / Form
+   ============================================================ */
+
+.blueprint-strategist .final-section {
+  position: relative;
+  z-index: 1;
+  padding: 120px 40px;
+  background-color: var(--blueprint-bg-ivory);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.blueprint-strategist .final-content h2 {
+  margin-bottom: 32px;
+}
+
+.blueprint-strategist .final-photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+
+.blueprint-strategist .final-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(120%);
+}
+
+.blueprint-strategist .form-card {
+  padding: 60px;
+  background-color: var(--blueprint-bg-light);
+  border: 1px solid var(--blueprint-border);
+  box-shadow: var(--blueprint-shadow);
+}
+
+.blueprint-strategist .form-card h3 {
+  margin-bottom: 24px;
+  color: var(--blueprint-accent-red);
+}
+
+.blueprint-strategist .form-card p {
+  margin-bottom: 32px;
+  font-size: 14px;
+}
+
+.blueprint-strategist .form-group {
+  margin-bottom: 24px;
+}
+
+.blueprint-strategist .form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blueprint-text-dark);
+  margin-bottom: 8px;
+}
+
+.blueprint-strategist .form-group input,
+.blueprint-strategist .form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--blueprint-border);
+  background-color: var(--blueprint-bg-ivory);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--blueprint-text-dark);
+  transition: all 0.3s ease;
+}
+
+.blueprint-strategist .form-group input:focus,
+.blueprint-strategist .form-group textarea:focus {
+  outline: none;
+  border-color: var(--blueprint-accent-red);
+  box-shadow: 0 0 0 4px rgba(196, 30, 58, 0.1);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.blueprint-strategist .site-footer {
+  position: relative;
+  z-index: 1;
+  padding: 48px 40px;
+  background-color: var(--blueprint-bg-light);
+  border-top: 1px solid var(--blueprint-grid-line);
+  text-align: center;
+  font-size: 14px;
+  color: var(--blueprint-text-muted);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .blueprint-strategist .immersive-section,
+  .blueprint-strategist .book-section,
+  .blueprint-strategist .final-section {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .blueprint-strategist .hero-section {
+    padding: 80px 24px;
+  }
+
+  .blueprint-strategist .triggers-section,
+  .blueprint-strategist .responses-section,
+  .blueprint-strategist .evolution-section,
+  .blueprint-strategist .final-section {
+    padding: 80px 24px;
+  }
+
+  .blueprint-strategist h1 {
+    font-size: 42px;
+  }
+
+  .blueprint-strategist h2 {
+    font-size: 32px;
+  }
+}

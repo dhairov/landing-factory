@@ -1,0 +1,172 @@
+---
+import Analytics from '../components/Analytics.astro';
+import '../styles/blueprint-strategist.css';
+
+const {
+  slug,
+  formName,
+  meta,
+  images,
+  hero,
+  triggerPoints = [],
+  responseCards = [],
+  lifeStages = [],
+  sections = {},
+  socialProof = {}
+} = Astro.props;
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  </head>
+  <body class="blueprint-strategist">
+    <Analytics landingSlug={slug} />
+
+    <main>
+      <!-- HERO: Full-Width Typography Over Photo -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="hero-eyebrow" set:html={hero.label}></div>
+          <h1 class="hero-h1" set:html={hero.h1}></h1>
+          <p class="hero-lead" set:html={hero.lead}></p>
+          <a href="#contact" class="button-primary">{hero.ctaText || 'Обсудить стратегию'}</a>
+        </div>
+      </section>
+
+      <!-- TRIGGERS: Pain Points Grid -->
+      {triggerPoints.length > 0 && (
+        <section class="triggers-section">
+          <div class="triggers-grid">
+            {triggerPoints.map((trigger: string) => (
+              <div class="trigger-card">
+                <p set:html={trigger}></p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- IMMERSIVE: Photo + Content -->
+      {images.aha1 && (
+        <section class="immersive-section">
+          <div class="immersive-photo">
+            <img src={images.aha1} alt="Дамир Хайров" />
+          </div>
+          <div class="immersive-content">
+            <h2 set:html={sections.immersive1?.h2 || 'Почему ваш маркетинг больше не работает'}></h2>
+            <p set:html={sections.immersive1?.body1 || ''}></p>
+            <p set:html={sections.immersive1?.body2 || ''}></p>
+          </div>
+        </section>
+      )}
+
+      <!-- BOOK: Red Accent Section -->
+      {images.aha3 && (
+        <section class="book-section">
+          <div class="book-image">
+            <img src={images.aha3} alt="Книга 'Что дальше?'" />
+          </div>
+          <div class="book-content">
+            <h2 set:html={socialProof.quote || 'Книга-революция'}></h2>
+            <p set:html={socialProof.author || ''}></p>
+            <div class="book-quote">
+              <p set:html={socialProof.role || ''}></p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- RESPONSE CARDS: AHA Moments -->
+      {responseCards.length > 0 && (
+        <section class="responses-section">
+          <div class="responses-grid">
+            {responseCards.map((card: any) => (
+              <div class="response-card">
+                <div class="response-number">{card.number}</div>
+                <h3 set:html={card.title}></h3>
+                <div class="response-problem" set:html={card.problem}></div>
+                <div class="response-answer" set:html={card.answer}></div>
+                <div class="response-detail" set:html={card.detail}></div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- EVOLUTION LADDER -->
+      {lifeStages.length > 0 && (
+        <section class="evolution-section">
+          <div class="evolution-ladder">
+            {lifeStages.map((stage: any) => (
+              <div class="evolution-rung">
+                <div class="evolution-stage" set:html={stage.stage}></div>
+                <p><strong>Ситуация:</strong> <span set:html={stage.who}></span></p>
+                <p><strong>Запрос:</strong> <span set:html={stage.hire}></span></p>
+                <p set:html={stage.format}></p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- FINAL CTA + FORM -->
+      <section id="contact" class="final-section">
+        <div class="final-content">
+          <h2 set:html={sections.final?.h2 || 'Начните трансформацию'}></h2>
+          <p set:html={sections.final?.lead || ''}></p>
+        </div>
+        {images.footer && (
+          <div class="final-photo">
+            <img src={images.footer} alt="Дамир Хайров" />
+          </div>
+        )}
+      </section>
+
+      <!-- FORM SECTION -->
+      <section class="final-section" style="grid-template-columns: 1fr;">
+        <div class="form-card">
+          <h3 set:html={sections.final?.formTitle || 'Запросить консультацию'}></h3>
+          <p set:html={sections.final?.formLead || ''}></p>
+          
+          <form name={formName} method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+            <input type="hidden" name="form-name" value={formName} />
+            
+            <div class="form-group">
+              <label for="name">Имя</label>
+              <input type="text" id="name" name="name" required placeholder="Как к вам обращаться" />
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Телефон / Telegram</label>
+              <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__" />
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Ваша задача</label>
+              <textarea id="message" name="message" rows="4" placeholder="Опишите вашу текущую ситуацию"></textarea>
+            </div>
+            
+            <button type="submit" class="button-primary">{hero.ctaText || 'Отправить'}</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Дамир Хайров. Архитектор антихрупкости. Методология DTBD.</p>
+    </footer>
+  </body>
+</html>
