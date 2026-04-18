@@ -79,3 +79,5 @@
 ---
 
 *Обновлено: 10 апреля 2026*
+
+| B2B2bi/dashboardteams | Beeline B2B GAP Dashboard — Sprint Tracker для Максима Зайкова |
