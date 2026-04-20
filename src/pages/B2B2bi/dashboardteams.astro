@@ -1,6 +1,5 @@
 ---
-// Beeline B2B GAP Dashboard v2 — Minimal White
-// Data source: Google Sheets (public read, client-side fetch)
+// Beeline B2B GAP Dashboard v3 — Final
 ---
 <!DOCTYPE html>
 <html lang="ru">
@@ -8,373 +7,541 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Beeline B2B · GAP Dashboard</title>
+  <title>beeline B2B · GAP Dashboard (Grinbox)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
       --y:#FFD600;--yl:#FFFDE7;--ylm:#FFF9C4;
-      --k:#0A0A0A;--g7:#333;--g5:#666;--g3:#CCC;--g1:#F5F5F5;--g05:#FAFAFA;--w:#FFF;
-      --green:#00C853;--red:#FF3B30;
-      --gold:#C9A227;--silver:#8A8A8A;--bronze:#A0522D;
+      --k:#0A0A0A;--g7:#333;--g5:#666;--g3:#CCC;--g2:#E5E7EB;--g1:#F5F5F5;--g05:#FAFAFA;--w:#FFF;
+      --green:#059669;--greenl:#dcfce7;--greend:#166534;
+      --red:#dc2626;--redl:#fee2e2;
+      --orange:#d97706;--orangel:#fef3c7;
+      --blue:#2563eb;
       --r:12px;--rs:8px;
-      --sh:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04)
+      --sh:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04)
     }
-    body{font-family:'Inter',-apple-system,sans-serif;background:var(--w);color:var(--k);min-height:100vh;-webkit-font-smoothing:antialiased}
+    body{font-family:'Inter',-apple-system,sans-serif;background:#f8f9fa;color:var(--k);-webkit-font-smoothing:antialiased}
 
     /* HEADER */
-    .hd{background:var(--w);border-bottom:1px solid var(--g1);padding:0 40px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 var(--g1)}
+    .hd{background:var(--w);border-bottom:1px solid var(--g2);padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
     .hd-l{display:flex;align-items:center;gap:12px}
-    .logo{background:var(--y);color:var(--k);font-weight:800;font-size:13px;padding:4px 10px;border-radius:6px;letter-spacing:-.3px}
+    .logo{background:var(--y);color:var(--k);font-weight:800;font-size:13px;padding:4px 10px;border-radius:6px}
     .hd-t{font-size:14px;font-weight:500;color:var(--g5)}
     .hd-r{display:flex;align-items:center;gap:14px}
     .sdot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block}
     .stxt{font-size:12px;color:var(--g5)}
-    .btn-r{background:var(--g1);border:none;border-radius:var(--rs);padding:6px 14px;font-size:13px;font-weight:500;color:var(--g7);cursor:pointer;transition:background .15s;font-family:inherit}
-    .btn-r:hover{background:var(--g3)}
+    .btn-r{background:var(--g1);border:1px solid var(--g2);border-radius:var(--rs);padding:6px 14px;font-size:13px;font-weight:500;color:var(--g7);cursor:pointer;font-family:inherit}
+    .btn-r:hover{background:var(--g2)}
 
     /* LAYOUT */
-    .main{max-width:1280px;margin:0 auto;padding:40px 40px 80px}
+    .main{max-width:1360px;margin:0 auto;padding:28px 28px 80px}
 
     /* KPI ROW */
-    .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
-    .kpi{border:1px solid var(--g1);border-radius:var(--r);padding:24px 24px 20px;background:var(--w);box-shadow:var(--sh)}
-    .kpi.hl{border-color:var(--y);background:var(--yl)}
-    .kpi-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--g5);margin-bottom:8px}
-    .kpi-val{font-size:38px;font-weight:900;letter-spacing:-2px;line-height:1;color:var(--k)}
-    .kpi-val.sm{font-size:26px;letter-spacing:-1px}
+    .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
+    .kpi{border:1px solid var(--g2);border-radius:var(--r);padding:20px 22px;background:var(--w);box-shadow:var(--sh)}
+    .kpi.hl{border-color:var(--y);background:var(--yl);border-left:4px solid var(--y)}
+    .kpi-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--g5);margin-bottom:8px}
+    .kpi-val{font-size:30px;font-weight:900;letter-spacing:-1.5px;line-height:1;color:var(--k)}
     .kpi-sub{font-size:12px;color:var(--g5);margin-top:6px}
+    .kpi-note{font-size:11px;color:var(--g5);margin-top:4px}
+    .calc-btn{background:none;border:none;color:var(--blue);font-size:11px;cursor:pointer;font-family:inherit;text-decoration:underline;text-decoration-style:dotted;padding:0}
+    .calc-btn:hover{color:#1d4ed8}
 
-    /* PROGRESS BLOCK */
-    .prog-block{border:1px solid var(--g1);border-radius:var(--r);padding:28px 32px;background:var(--w);box-shadow:var(--sh);margin-bottom:40px}
-    .prog-hd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px}
-    .prog-lbl{font-size:14px;font-weight:500;color:var(--g7)}
-    .prog-num{font-size:13px;color:var(--g5)}
-    .prog-num strong{color:var(--k);font-weight:700}
-    .track{height:8px;background:var(--g1);border-radius:100px;overflow:hidden;margin-bottom:16px}
-    .fill{height:100%;background:var(--y);border-radius:100px;transition:width .8s cubic-bezier(.4,0,.2,1);min-width:2px}
-    .prog-teams{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:4px}
-    .pt-item{display:flex;flex-direction:column;gap:5px}
-    .pt-name{font-size:12px;font-weight:500;color:var(--g7)}
-    .pt-bar{height:4px;background:var(--g1);border-radius:100px;overflow:hidden}
-    .pt-fill{height:100%;border-radius:100px}
-    .pt-val{font-size:11px;color:var(--g5)}
+    /* CALC PANEL */
+    .calc-panel{display:none;background:#f0f7ff;border:1px solid #bfdbfe;border-radius:var(--r);padding:20px;margin-bottom:20px}
+    .calc-panel.open{display:block}
+    .calc-ttl{font-size:13px;font-weight:700;color:#1e40af;margin-bottom:10px}
+    .calc-desc{font-size:12px;color:#374151;line-height:1.6;margin-bottom:14px}
+    .calc-tbl{width:100%;border-collapse:collapse;font-size:12px}
+    .calc-tbl th{text-align:left;color:var(--g5);font-weight:600;padding:5px 10px;border-bottom:1px solid #bfdbfe;background:#e0f2fe}
+    .calc-tbl td{padding:6px 10px;color:#374151;border-bottom:1px solid #dbeafe}
+    .calc-tbl tr:last-child td{border-bottom:none;font-weight:700;color:#1e40af;background:#eff6ff}
+    .calc-note{font-size:11px;color:var(--g5);margin-top:10px;font-style:italic}
 
-    /* SECTION TITLE */
-    .sec-t{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--g5);margin-bottom:16px}
+    /* TWO-COL */
+    .two-col{display:grid;grid-template-columns:1fr 1.7fr;gap:16px;margin-bottom:20px}
+    .card{background:var(--w);border:1px solid var(--g2);border-radius:var(--r);padding:22px 24px;box-shadow:var(--sh)}
+    .card-ttl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--g5);margin-bottom:4px}
+    .card-sub{font-size:12px;color:var(--g5);margin-bottom:16px}
+
+    /* PROGRESS */
+    .prog-wrap{margin-bottom:18px}
+    .prog-bg{background:var(--g1);border-radius:100px;height:28px;overflow:hidden}
+    .prog-fill{background:var(--y);height:100%;border-radius:100px;display:flex;align-items:center;padding-left:12px;transition:width 1s ease}
+    .prog-pct{font-size:13px;font-weight:800;color:var(--k)}
+
+    /* STACKED BAR */
+    .stacked-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--g5);margin-bottom:10px;margin-top:18px}
+    .stacked-bar{display:flex;height:48px;border-radius:10px;overflow:hidden;border:1px solid var(--g2)}
+    .seg{display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;transition:width 1s ease}
+    .seg-g3{background:var(--y);color:var(--k)}
+    .seg-g2{background:#9ca3af;color:#fff;font-size:11px}
+    .seg-g1{background:var(--g1);color:var(--g5);font-size:11px}
+    .stacked-legend{display:flex;gap:20px;margin-top:10px;flex-wrap:wrap}
+    .leg-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--g7)}
+    .leg-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
 
     /* LEADERBOARD */
-    .lb{border:1px solid var(--g1);border-radius:var(--r);background:var(--w);box-shadow:var(--sh);margin-bottom:40px;overflow:hidden}
-    .lb-row{display:grid;grid-template-columns:48px 1fr 110px 110px 130px 90px;align-items:center;padding:18px 28px;border-bottom:1px solid var(--g1);gap:16px;transition:background .1s}
-    .lb-row:last-child{border-bottom:none}
-    .lb-row:hover{background:var(--g05)}
-    .lb-row.r1{background:var(--yl)}
-    .lb-row.r1:hover{background:var(--ylm)}
-    .rnk{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0}
-    .r1 .rnk{background:var(--y);color:var(--k)}
-    .r2 .rnk{background:var(--g1);color:var(--g7)}
-    .r3 .rnk{background:#F5E6D3;color:var(--bronze)}
-    .ti{min-width:0}
-    .tn{font-size:15px;font-weight:700;color:var(--k);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .tins{font-size:12px;color:var(--g5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .tins.found{color:var(--green);font-weight:500}
-    .mc{text-align:center}
-    .mv{font-size:20px;font-weight:800;letter-spacing:-.5px;color:var(--k)}
-    .ml{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--g5);margin-top:2px}
-    .sc{text-align:right}
-    .sb{font-size:28px;font-weight:900;letter-spacing:-1px;color:var(--k)}
-    .sm2{font-size:12px;color:var(--g3)}
+    .lb-tbl{width:100%;border-collapse:collapse}
+    .lb-tbl th{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--g5);padding:8px 14px;text-align:left;border-bottom:1px solid var(--g2);background:var(--g05)}
+    .lb-tbl td{padding:13px 14px;border-bottom:1px solid var(--g1);vertical-align:middle}
+    .lb-tbl tr:last-child td{border-bottom:none}
+    .lb-tbl tr.gold-row{background:var(--yl)}
+    .medal{font-size:20px;line-height:1}
+    .lb-name{font-weight:700;font-size:14px;color:var(--k)}
+    .lb-ins{font-size:11px;margin-top:2px}
+    .lb-ins.found{color:var(--green);font-weight:500}
+    .lb-ins.none{color:var(--g5);font-style:italic}
+    .frac{font-size:14px;font-weight:700}
+    .frac.g{color:var(--green)}
+    .frac.o{color:var(--orange)}
+    .frac.r{color:var(--red)}
+    .score-big{font-size:26px;font-weight:900;color:var(--k);text-align:right;letter-spacing:-1px}
 
-    /* CARDS */
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px}
-    .card{border:1px solid var(--g1);border-radius:var(--r);background:var(--w);box-shadow:var(--sh);overflow:hidden}
-    .card-hd{padding:18px 20px 14px;border-bottom:1px solid var(--g1)}
-    .card-rank{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--g5);margin-bottom:3px}
-    .card-name{font-size:17px;font-weight:800;color:var(--k);letter-spacing:-.3px}
-    .card-bd{padding:16px 20px}
-    .mrow{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--g1)}
-    .mrow:last-child{border-bottom:none}
-    .mrow-l{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--g5)}
-    .mico{width:20px;height:20px;border-radius:4px;background:var(--g1);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
-    .mrow-v{font-size:14px;font-weight:700;color:var(--k)}
-    .bm{height:3px;background:var(--g1);border-radius:100px;overflow:hidden;margin-top:3px}
-    .bmf{height:100%;border-radius:100px;background:var(--y)}
-    .bmf.g{background:var(--green)}
-    .bmf.r{background:var(--red)}
-    .ins-blk{margin:12px 0 0;padding:12px;background:var(--g05);border-radius:var(--rs);border-left:3px solid var(--y)}
-    .ins-blk.empty{border-left-color:var(--g3)}
-    .ins-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--g5);margin-bottom:4px}
-    .ins-txt{font-size:13px;font-weight:600;color:var(--k);line-height:1.4}
-    .ins-seg{font-size:12px;color:var(--g5);margin-top:3px}
-    .tlist{margin-top:12px}
-    .ti2{display:flex;align-items:flex-start;gap:6px;font-size:12px;color:var(--g5);padding:3px 0;line-height:1.4}
-    .ti2.done{color:var(--g7)}
-    .tck{width:14px;height:14px;border-radius:3px;border:1.5px solid var(--g3);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:9px}
-    .tck.done{background:var(--green);border-color:var(--green);color:#fff}
+    /* SECTION LABEL */
+    .sec-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--g5);margin-bottom:14px;margin-top:4px}
 
-    /* TABLE */
-    .tbl-wrap{border:1px solid var(--g1);border-radius:var(--r);background:var(--w);box-shadow:var(--sh);overflow:hidden}
-    .tbl-wrap table{width:100%;border-collapse:collapse}
-    .tbl-wrap thead th{padding:12px 18px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--g5);background:var(--g05);border-bottom:1px solid var(--g1);white-space:nowrap}
-    .tbl-wrap tbody td{padding:14px 18px;font-size:13px;color:var(--k);border-bottom:1px solid var(--g1);vertical-align:top}
-    .tbl-wrap tbody tr:last-child td{border-bottom:none}
-    .tbl-wrap tbody tr:hover td{background:var(--g05)}
-    .tbl-wrap tbody tr.tr1 td{background:var(--yl)}
-    .tbl-wrap tbody tr.tr1:hover td{background:var(--ylm)}
-    .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
-    .tg{background:#E8F5E9;color:#2E7D32}
-    .tgr{background:var(--g1);color:var(--g5)}
-    .spill{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-size:14px;font-weight:800}
-    .spill.hi{background:var(--y);color:var(--k)}
-    .spill.lo{background:var(--g1);color:var(--g5)}
+    /* TEAM CARDS */
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
+    .tc{background:var(--w);border:1px solid var(--g2);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
+    .tc-hd{padding:16px 20px 14px}
+    .tc-hd.gold{border-top:3px solid var(--y);background:var(--yl)}
+    .tc-hd.silver{border-top:3px solid #9ca3af;background:#f9fafb}
+    .tc-hd.grey{border-top:3px solid var(--g2);background:var(--g05)}
+    .rank-pill{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:5px}
+    .rank-pill.gold{background:var(--y);color:var(--k)}
+    .rank-pill.silver{background:var(--g2);color:var(--g7)}
+    .rank-pill.grey{background:var(--g1);color:var(--g5)}
+    .tc-name{font-size:17px;font-weight:800;color:var(--k);letter-spacing:-.3px}
+    .tc-bd{padding:16px 20px}
 
-    /* LOADING */
-    .lov{position:fixed;inset:0;background:var(--w);display:flex;align-items:center;justify-content:center;z-index:999;transition:opacity .3s}
-    .lov.hidden{opacity:0;pointer-events:none}
-    .spin{width:32px;height:32px;border:3px solid var(--g1);border-top-color:var(--y);border-radius:50%;animation:sp .7s linear infinite}
-    @keyframes sp{to{transform:rotate(360deg)}}
+    /* METRICS ROW */
+    .mrow{display:flex;border:1px solid var(--g2);border-radius:var(--rs);overflow:hidden;margin-bottom:14px}
+    .mcell{flex:1;padding:10px 12px;text-align:center;border-right:1px solid var(--g2)}
+    .mcell:last-child{border-right:none}
+    .mcell-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--g5);margin-bottom:4px}
+    .mcell-val{font-size:17px;font-weight:800}
+    .mcell-val.g{color:var(--green)}
+    .mcell-val.o{color:var(--orange)}
+    .mcell-val.r{color:var(--red)}
+    .mcell-val.grey{color:var(--g5)}
+
+    /* MINI PROGRESS */
+    .mp{margin-bottom:10px}
+    .mp-row{display:flex;justify-content:space-between;margin-bottom:4px}
+    .mp-lbl{font-size:11px;color:var(--g5);font-weight:500}
+    .mp-pct{font-size:11px;font-weight:700;color:var(--g7)}
+    .mp-bg{background:var(--g1);border-radius:100px;height:6px}
+    .mp-fill{height:100%;border-radius:100px}
+    .mp-fill.y{background:var(--y)}
+    .mp-fill.o{background:var(--orange)}
+    .mp-fill.r{background:var(--red)}
+
+    /* INSIGHTS */
+    .ins-block{margin-bottom:14px}
+    .ins-item{border:1px solid var(--g2);border-left:3px solid var(--y);border-radius:var(--rs);background:var(--yl);margin-bottom:8px;overflow:hidden}
+    .ins-item.empty{border-left-color:var(--g2);background:var(--g05)}
+    .ins-hd{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;cursor:pointer;user-select:none}
+    .ins-hd-l{display:flex;align-items:center;gap:8px;min-width:0}
+    .ins-tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;padding:2px 7px;border-radius:4px;flex-shrink:0}
+    .ins-tag.found{background:var(--greenl);color:var(--greend)}
+    .ins-tag.none{background:var(--g1);color:var(--g5)}
+    .ins-title{font-size:13px;font-weight:600;color:var(--k);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ins-title.grey{color:var(--g5);font-style:italic;font-weight:400}
+    .ins-chev{font-size:11px;color:var(--g5);flex-shrink:0;transition:transform .2s;margin-left:8px}
+    .ins-chev.open{transform:rotate(180deg)}
+    .ins-body{display:none;padding:0 14px 14px;border-top:1px solid rgba(0,0,0,.06)}
+    .ins-body.open{display:block}
+    .ins-field{margin-top:10px}
+    .ins-field-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--g5);margin-bottom:3px}
+    .ins-field-val{font-size:13px;color:#374151;line-height:1.55}
+    .ins-field-val.bold{font-weight:600;color:var(--k)}
+    .ins-meta{display:flex;gap:12px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(0,0,0,.06)}
+    .ins-meta-item{flex:1}
+    .ins-meta-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--g5);margin-bottom:3px}
+    .ins-meta-val{font-size:13px;font-weight:700;color:var(--k)}
+
+    /* CHECKLIST */
+    .cl-ttl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--g5);margin-bottom:8px}
+    .cl-item{display:flex;align-items:flex-start;gap:7px;margin-bottom:5px;font-size:12px;color:var(--g7);line-height:1.45}
+    .cl-ico{width:15px;height:15px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;margin-top:1px}
+    .cl-ico.done{background:var(--greenl);color:var(--greend)}
+    .cl-ico.fail{background:var(--redl);color:var(--red)}
+
+    /* SCORE BADGE */
+    .score-badge{text-align:center;padding:12px;border-radius:var(--rs);margin-top:14px}
+    .score-badge.gold{background:var(--y)}
+    .score-badge.silver{background:var(--g2)}
+    .score-badge.grey{background:var(--g1)}
+    .score-num{font-size:22px;font-weight:900;color:var(--k)}
+    .score-sub{font-size:11px;color:var(--g7);font-weight:500}
 
     /* FOOTER */
-    .ft{border-top:1px solid var(--g1);padding:18px 40px;display:flex;align-items:center;justify-content:space-between}
+    .ft{border-top:1px solid var(--g2);padding:16px 28px;display:flex;justify-content:space-between;align-items:center;background:var(--w);margin-top:8px}
     .ft-l{font-size:12px;color:var(--g5)}
-    .ft-a{font-size:12px;color:var(--g5);text-decoration:none;border-bottom:1px solid var(--g3)}
-    .ft-a:hover{color:var(--k);border-color:var(--k)}
+    .ft-a{font-size:12px;color:var(--blue);text-decoration:none}
+    .ft-a:hover{text-decoration:underline}
 
-    @media(max-width:900px){
-      .main{padding:24px 20px 60px}
-      .kpi-row{grid-template-columns:repeat(2,1fr)}
-      .cards{grid-template-columns:1fr}
-      .lb-row{grid-template-columns:40px 1fr 80px 80px}
-      .lb-row .mc:nth-child(5),.lb-row .sc{display:none}
-      .hd{padding:0 20px}
-      .ft{padding:16px 20px}
-    }
+    @media(max-width:1100px){.two-col{grid-template-columns:1fr}.team-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:700px){.kpi-row{grid-template-columns:1fr 1fr}.team-grid{grid-template-columns:1fr}.main{padding:16px 16px 60px}}
   </style>
 </head>
 <body>
 
-<div class="lov" id="lov"><div class="spin"></div></div>
-
 <header class="hd">
   <div class="hd-l">
     <span class="logo">beeline</span>
-    <span class="hd-t">B2B &middot; GAP Dashboard</span>
+    <span class="hd-t">B2B &middot; GAP Dashboard (Grinbox)</span>
   </div>
   <div class="hd-r">
-    <span class="sdot" id="sdot"></span>
+    <span class="sdot"></span>
     <span class="stxt" id="stxt">Загрузка&hellip;</span>
     <button class="btn-r" onclick="loadData()">&#8635; Обновить</button>
   </div>
 </header>
 
-<main class="main">
+<div class="main">
 
+  <!-- KPI ROW -->
   <div class="kpi-row">
     <div class="kpi hl">
-      <div class="kpi-lbl">Цель GAP (Grinbox)</div>
-      <div class="kpi-val sm">2,7 млрд ₽</div>
-      <div class="kpi-sub">B2B-направление &middot; DTBD</div>
+      <div class="kpi-lbl">GAP (Grinbox)</div>
+      <div class="kpi-val">2,7 млрд ₽</div>
+      <div class="kpi-sub">B2B-направление &middot; цель программы</div>
     </div>
     <div class="kpi">
-      <div class="kpi-lbl">Потенциал закрытия</div>
-      <div class="kpi-val sm" id="kPot">—</div>
-      <div class="kpi-sub" id="kPotPct">от цели</div>
+      <div class="kpi-lbl">Прибыль от найденных инсайтов</div>
+      <div class="kpi-val" id="kPot">—</div>
+      <div class="kpi-sub" id="kPotSub">до конца 2026 года</div>
+      <div class="kpi-note"><button class="calc-btn" onclick="toggleCalc()">Как считается? ↓</button></div>
     </div>
     <div class="kpi">
-      <div class="kpi-lbl">Супер-инсайтов</div>
+      <div class="kpi-lbl">Супер-инсайтов найдено</div>
       <div class="kpi-val" id="kIns">—</div>
-      <div class="kpi-sub">найдено командами</div>
+      <div class="kpi-sub" id="kInsSub">из 3 команд</div>
     </div>
     <div class="kpi">
-      <div class="kpi-lbl">Текущий спринт</div>
-      <div class="kpi-val" id="kSpr">—</div>
-      <div class="kpi-sub">неделя программы</div>
+      <div class="kpi-lbl">Спринт</div>
+      <div class="kpi-val">1 / 6</div>
+      <div class="kpi-sub">недель программы</div>
     </div>
   </div>
 
-  <div class="prog-block">
-    <div class="prog-hd">
-      <span class="prog-lbl">Прогресс закрытия GAP</span>
-      <span class="prog-num"><strong id="pClosed">—</strong> из 2 700 000 000 ₽</span>
+  <!-- CALC PANEL -->
+  <div class="calc-panel" id="calcPanel">
+    <div class="calc-ttl">📊 Методология расчёта «Прибыль от найденных инсайтов»</div>
+    <div class="calc-desc">
+      Это <strong>не текущая выручка</strong> — это реалистичная прибыль, которую может принести каждый найденный инсайт
+      до конца 2026 года при условии запуска продаж. Расчёт учитывает три дисконта:
+      (1) время на разработку и переупаковку продукта,
+      (2) время на развёртывание отдела продаж и пилотные продажи,
+      (3) пилотный охват рынка — не весь SOM, а 20% от него в первый год.
     </div>
-    <div class="track"><div class="fill" id="mFill" style="width:0%"></div></div>
-    <div class="prog-teams" id="pTeams"></div>
-  </div>
-
-  <div class="sec-t">Рейтинг команд &middot; Спринт <span id="spLbl">—</span></div>
-  <div class="lb" id="lbBody"></div>
-
-  <div class="sec-t" style="margin-top:40px">Детали по командам</div>
-  <div class="cards" id="cardsGrid"></div>
-
-  <div class="sec-t">Сводная таблица</div>
-  <div class="tbl-wrap">
-    <table>
+    <table class="calc-tbl">
       <thead>
-        <tr>
-          <th>#</th>
-          <th>Команда</th>
-          <th>Супер-инсайт</th>
-          <th>Сегмент + Ценность</th>
-          <th>Потенциал рынка</th>
-          <th>Задачи спринта</th>
-          <th>Методология DTBD</th>
-        </tr>
+        <tr><th>Параметр</th><th>Группа 3: ОАТС</th><th>Группа 2: Микробизнес</th></tr>
       </thead>
-      <tbody id="tblBody"></tbody>
+      <tbody>
+        <tr><td>Средний чек (мес.)</td><td>18 000 ₽</td><td>1 000 ₽</td></tr>
+        <tr><td>Маржинальность</td><td>~95%</td><td>~70%</td></tr>
+        <tr><td>Целевой рынок (SAM)</td><td>47 950 объектов КИИ</td><td>241 200 МСБ с предзаписью</td></tr>
+        <tr><td>SOM (реалистичный захват)</td><td>10% = 4 795 клиентов</td><td>5% = 12 060 клиентов</td></tr>
+        <tr><td>Годовой потенциал прибыли (полный)</td><td>984 млн ₽</td><td>101 млн ₽</td></tr>
+        <tr><td>Дисконт 1: месяцев продаж до конца года</td><td>5 из 12 (старт авг. 2026)</td><td>5 из 12</td></tr>
+        <tr><td>Дисконт 2: пилотный охват SOM</td><td>20%</td><td>20%</td></tr>
+        <tr><td><strong>Реалистичная прибыль до конца 2026</strong></td><td><strong>~82 млн ₽</strong></td><td><strong>~8 млн ₽</strong></td></tr>
+      </tbody>
     </table>
+    <div class="calc-note">* Группа 1 не учтена — супер-инсайт ещё не найден. По мере появления новых инсайтов цифра будет расти. Полный потенциал при захвате SOM за год: 1 085 млн ₽.</div>
   </div>
 
-</main>
+  <!-- TWO-COL -->
+  <div class="two-col">
 
-<footer class="ft">
-  <span class="ft-l">Данные из Google Sheets &middot; <span id="lupd">—</span></span>
-  <a href="https://docs.google.com/spreadsheets/d/18VrhTHQPdVgxVZZF3is3Ozce56rpY-j-wmikH8Dpy08/edit" target="_blank" class="ft-a">Редактировать данные →</a>
-</footer>
+    <!-- LEFT: PROGRESS + STACKED -->
+    <div class="card">
+      <div class="card-ttl">Прогресс закрытия GAP</div>
+      <div class="card-sub" id="progSub">— млн ₽ из 2 700 млн ₽</div>
+      <div class="prog-wrap">
+        <div class="prog-bg">
+          <div class="prog-fill" id="progFill" style="width:0%">
+            <span class="prog-pct" id="progPct">0%</span>
+          </div>
+        </div>
+      </div>
+      <div class="stacked-lbl">Вклад команд в потенциал прибыли</div>
+      <div class="stacked-bar">
+        <div class="seg seg-g3" id="segG3" style="width:90.7%">90.7%</div>
+        <div class="seg seg-g2" id="segG2" style="width:9.3%">9.3%</div>
+        <div class="seg seg-g1" id="segG1" style="width:0.1%"></div>
+      </div>
+      <div class="stacked-legend">
+        <div class="leg-item"><div class="leg-dot" style="background:var(--y)"></div><span id="legG3">Группа 3: ОАТС — 984 млн ₽</span></div>
+        <div class="leg-item"><div class="leg-dot" style="background:#9ca3af"></div><span id="legG2">Группа 2: Микробизнес — 101 млн ₽</span></div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--g1);border:1px solid var(--g2)"></div><span id="legG1">Группа 1: Платформа — инсайт не найден</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: LEADERBOARD -->
+    <div class="card">
+      <div class="card-ttl">Рейтинг команд &middot; Спринт 1</div>
+      <div class="card-sub">Задачи спринта 40% + методология DTBD 20% + супер-инсайт 40%</div>
+      <table class="lb-tbl">
+        <thead>
+          <tr>
+            <th style="width:36px">#</th>
+            <th>Команда</th>
+            <th>Задачи</th>
+            <th>DTBD</th>
+            <th>Потенциал</th>
+            <th style="text-align:right">Балл</th>
+          </tr>
+        </thead>
+        <tbody id="lbBody">
+          <tr><td colspan="6" style="text-align:center;color:var(--g5);padding:20px">Загрузка...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TEAM CARDS -->
+  <div class="sec-lbl">Детали по командам</div>
+  <div class="team-grid" id="teamGrid"></div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="ft">
+  <div class="ft-l" id="ftTxt">Данные из Google Sheets &middot; Потенциал = прибыль при захвате SOM, не текущая выручка</div>
+  <a class="ft-a" href="https://docs.google.com/spreadsheets/d/18VrhTHQPdVgxVZZF3is3Ozce56rpY-j-wmikH8Dpy08/edit" target="_blank">Редактировать данные →</a>
+</div>
 
 <script>
-const SID="18VrhTHQPdVgxVZZF3is3Ozce56rpY-j-wmikH8Dpy08";
-const GAP=2700000000;
-const TASKS=["Определены сегменты ЦА и критерии поиска респондентов","Определены интервьюеры","Назначены 3–5 интервью с клиентами","Проведены пробные интервью (мин. 2 шт.)","Транскрибации отправлены эксперту","Встреча с экспертом для обратной связи"];
-const TC=["#C9A227","#8A8A8A","#A0522D"];
-const MED=["🥇","🥈","🥉"];
-const RLBL=["1 место","2 место","3 место"];
-
-function fmt(n){
-  if(!n||isNaN(n))return"—";
-  if(n>=1e9)return(n/1e9).toFixed(1).replace(".0","")+" млрд ₽";
-  if(n>=1e6)return Math.round(n/1e6)+" млн ₽";
-  if(n>=1e3)return Math.round(n/1e3)+" тыс ₽";
-  return n+" ₽";
-}
-function pot(r){
-  const ex=parseFloat(r.market_potential_rub);
-  if(ex&&ex>0)return ex;
-  const ch=parseFloat(r.avg_check)||0;
-  const mg=parseFloat(r.marginality)||100;
-  if(!ch)return 0;
-  return ch*12*1000*(mg/100);
-}
-function score(r){
-  const m=parseFloat(r.methodology_score)||0;
-  const td=parseInt(r.tasks_done)||0;
-  const tt=parseInt(r.tasks_total)||6;
-  const hi=r.super_insight_title&&r.super_insight_title!=="—"&&r.super_insight_title.trim()!=="";
-  return Math.round((m/10)*40+(tt>0?(td/tt)*40:0)+(hi?20:0));
-}
-function hasIns(r){return r.super_insight_title&&r.super_insight_title!=="—"&&r.super_insight_title.trim()!=="";}
-
-async function loadData(){
-  try{
-    const res=await fetch("https://docs.google.com/spreadsheets/d/"+SID+"/gviz/tq?tqx=out:json&sheet=Teams");
-    const txt=await res.text();
-    const json=JSON.parse(txt.substring(47).slice(0,-2));
-    const cols=json.table.cols.map(c=>c.label);
-    const rows=json.table.rows.map(r=>{
-      const o={};
-      r.c.forEach((c,i)=>{o[cols[i]]=c?(c.v!==null?c.v:""):"";});
-      return o;
-    }).filter(r=>r.team_id);
-    render(rows);
-    document.getElementById("sdot").style.background="#00C853";
-    document.getElementById("stxt").textContent="Обновлено: "+new Date().toLocaleTimeString("ru",{hour:"2-digit",minute:"2-digit"});
-    document.getElementById("lupd").textContent=new Date().toLocaleString("ru",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});
-  }catch(e){
-    document.getElementById("sdot").style.background="#FF3B30";
-    document.getElementById("stxt").textContent="Ошибка загрузки";
-    console.error(e);
-  }finally{
-    const ov=document.getElementById("lov");
-    ov.classList.add("hidden");
-    setTimeout(()=>ov.remove(),400);
+// ── STATIC DATA (Sprint 1) ────────────────────────────────────────────────────
+const TEAMS = [
+  {
+    id:'g3', name:'Группа 3: ОАТС', rankClass:'gold',
+    tasks_done:6, tasks_total:6, dtbd_score:6,
+    has_insight:true,
+    pot_full:984, pot_year:82,
+    score:92,
+    insights:[{
+      title:'Резервный канал связи: соответствие нормативам КИИ',
+      dream:'Быть уверенным, что объект не остановится и не получит штраф при блокировке сотовой связи — иметь резервный канал, который просто работает, когда основной падает.',
+      core_job:'Соответствовать нормативным требованиям по безопасности и резервированию каналов связи при блокировках сотовой связи. Регулятор требует наличия резервного канала — его отсутствие грозит штрафами и остановкой работы объекта.',
+      micro_job:'Подключить резервный канал связи с минимальными усилиями и без перестройки существующей инфраструктуры.',
+      segment:'Объекты критической инфраструктуры (КИИ): тепловые электростанции, больницы, водоканалы, объекты ЖКХ, промышленные предприятия с регуляторными требованиями по резервированию каналов связи.',
+      product:'Облачная АТС билайн как резервный канал связи — подключается поверх существующей инфраструктуры, не требует замены оборудования.',
+      check:'18 000 ₽/мес',
+      margin:'~95% (услуга почти не используется — чистый резерв)',
+      sprint:1
+    }],
+    tasks:[
+      {text:'Определены сегменты ЦА и критерии поиска респондентов',done:true},
+      {text:'Определены интервьюеры',done:true},
+      {text:'Назначены 3–5 интервью с клиентами',done:true},
+      {text:'Проведены пробные интервью (проведено 2 шт.)',done:true},
+      {text:'Транскрибации отправлены эксперту',done:true},
+      {text:'Встреча с экспертом для обратной связи',done:true}
+    ]
+  },
+  {
+    id:'g2', name:'Группа 2: Микробизнес', rankClass:'silver',
+    tasks_done:6, tasks_total:6, dtbd_score:6,
+    has_insight:true,
+    pot_full:101, pot_year:8,
+    score:92,
+    insights:[{
+      title:'Лояльная база через статус: микробизнес с предзаписью',
+      dream:'Сформировать лояльную базу из вновь привлечённых клиентов — чтобы они возвращались снова и снова, воспринимали бизнес как надёжный и системный, а не случайный.',
+      core_job:'Повысить статус школы (салона, клиники, студии) в глазах клиентов через системность коммуникации: напоминания о записи, подтверждения, благодарности после визита. Клиент, который видит профессиональный сервис, остаётся дольше и рекомендует другим.',
+      micro_job:'Увеличить LTV и возвращаемость клиентов — продлить жизненный цикл каждого привлечённого клиента без роста рекламного бюджета.',
+      segment:'Микропредприятия, оказывающие розничные услуги по предзаписи: языковые школы, салоны красоты, парикмахерские, медицинские клиники, фитнес-студии, детские кружки. Объединяет их одно: клиент записывается заранее, и качество коммуникации до и после визита напрямую влияет на повторное обращение.',
+      product:'КСС (корпоративная сотовая связь) билайн с функцией автоматических уведомлений и напоминаний клиентам.',
+      check:'1 000 ₽/мес',
+      margin:'~70%',
+      sprint:1
+    }],
+    tasks:[
+      {text:'Определены сегменты ЦА и критерии поиска респондентов',done:true},
+      {text:'Определены интервьюеры',done:true},
+      {text:'Назначены 3–5 интервью с клиентами (проведено 3 — сверх нормы)',done:true},
+      {text:'Проведены пробные интервью (проведено 3 шт.)',done:true},
+      {text:'Транскрибации отправлены эксперту',done:true},
+      {text:'Встреча с экспертом для обратной связи',done:true}
+    ]
+  },
+  {
+    id:'g1', name:'Группа 1: Платформа ИИ-агентов', rankClass:'grey',
+    tasks_done:3, tasks_total:6, dtbd_score:2,
+    has_insight:false,
+    pot_full:0, pot_year:0,
+    score:24,
+    insights:[],
+    tasks:[
+      {text:'Определены сегменты ЦА и критерии поиска респондентов',done:true},
+      {text:'Определены интервьюеры',done:true},
+      {text:'Назначены 3–5 интервью с клиентами',done:false},
+      {text:'Проведены пробные интервью',done:false},
+      {text:'Транскрибации отправлены эксперту',done:false},
+      {text:'Встреча с экспертом для обратной связи',done:true}
+    ]
   }
+];
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function render(teams) {
+  const sorted = [...teams].sort((a,b) => b.score - a.score);
+  const totalYear = teams.reduce((s,t) => s+t.pot_year, 0);
+  const totalFull = teams.reduce((s,t) => s+t.pot_full, 0);
+  const insCount = teams.filter(t => t.has_insight).length;
+  const gapPct = (totalYear/2700*100).toFixed(1);
+
+  // KPI
+  document.getElementById('kPot').textContent = totalYear > 0 ? '~'+totalYear+' млн ₽' : '—';
+  document.getElementById('kPotSub').textContent = gapPct+'% от цели GAP · до конца 2026';
+  document.getElementById('kIns').textContent = insCount;
+  document.getElementById('kInsSub').textContent = 'из '+teams.length+' команд';
+
+  // Progress
+  const pPct = Math.min(totalYear/2700*100, 100).toFixed(1);
+  document.getElementById('progSub').textContent = totalYear+' млн ₽ из 2 700 млн ₽ (реалистичный сценарий до конца года)';
+  document.getElementById('progFill').style.width = pPct+'%';
+  document.getElementById('progPct').textContent = pPct+'%';
+
+  // Stacked
+  if(totalFull > 0) {
+    const g3 = teams.find(t=>t.id==='g3'), g2 = teams.find(t=>t.id==='g2'), g1 = teams.find(t=>t.id==='g1');
+    const p3 = (g3.pot_full/totalFull*100).toFixed(1);
+    const p2 = (g2.pot_full/totalFull*100).toFixed(1);
+    document.getElementById('segG3').style.width = p3+'%';
+    document.getElementById('segG3').textContent = p3+'%';
+    document.getElementById('segG2').style.width = p2+'%';
+    document.getElementById('segG2').textContent = p2+'%';
+    document.getElementById('segG1').style.width = '0.1%';
+    document.getElementById('legG3').textContent = g3.name+' — '+g3.pot_full+' млн ₽';
+    document.getElementById('legG2').textContent = g2.name+' — '+g2.pot_full+' млн ₽';
+    document.getElementById('legG1').textContent = g1.name+' — инсайт не найден';
+  }
+
+  // Leaderboard
+  const medals = ['🥇','🥈','🥉'];
+  document.getElementById('lbBody').innerHTML = sorted.map((t,i) => {
+    const fc = t.tasks_done===t.tasks_total?'g':t.tasks_done>=t.tasks_total/2?'o':'r';
+    const ins = t.has_insight
+      ? '<div class="lb-ins found">⚡ '+t.insights[0].title+'</div>'
+      : '<div class="lb-ins none">Инсайт не найден</div>';
+    const pot = t.pot_full>0 ? t.pot_full+' млн ₽' : '—';
+    return '<tr class="'+(i===0?'gold-row':'')+'"><td><span class="medal">'+medals[i]+'</span></td><td><div class="lb-name">'+t.name+'</div>'+ins+'</td><td><span class="frac '+fc+'">'+t.tasks_done+'/'+t.tasks_total+'</span></td><td><span class="frac">'+t.dtbd_score+'/10</span></td><td style="font-size:13px;font-weight:600">'+pot+'</td><td><div class="score-big">'+t.score+'</div></td></tr>';
+  }).join('');
+
+  // Team cards
+  document.getElementById('teamGrid').innerHTML = sorted.map((t,i) => {
+    const tPct = Math.round(t.tasks_done/t.tasks_total*100);
+    const dPct = Math.round(t.dtbd_score/10*100);
+    const tBar = tPct===100?'y':tPct>=50?'o':'r';
+    const dBar = dPct>=60?'y':dPct>=30?'o':'r';
+    const tCls = t.tasks_done===t.tasks_total?'g':t.tasks_done>=t.tasks_total/2?'o':'r';
+    const dCls = t.dtbd_score>=6?'g':t.dtbd_score>=4?'o':'r';
+    const pCls = t.pot_full>0?'g':'grey';
+    const pVal = t.pot_full>0?t.pot_full+' млн ₽':'—';
+    const rankLabels = ['1 Место','2 Место','3 Место'];
+    const scoreCls = i===0?'gold':i===1?'silver':'grey';
+
+    // Insights
+    let insHtml = '';
+    if(t.insights.length > 0) {
+      insHtml = t.insights.map((ins,idx) => `
+        <div class="ins-item">
+          <div class="ins-hd" onclick="toggleIns('${t.id}-${idx}')">
+            <div class="ins-hd-l">
+              <span class="ins-tag found">⚡ Супер-инсайт</span>
+              <span class="ins-title">${ins.title}</span>
+            </div>
+            <span class="ins-chev" id="chev-${t.id}-${idx}">▼</span>
+          </div>
+          <div class="ins-body" id="ibody-${t.id}-${idx}">
+            <div class="ins-field">
+              <div class="ins-field-lbl">Dream — мечта клиента</div>
+              <div class="ins-field-val">${ins.dream}</div>
+            </div>
+            <div class="ins-field">
+              <div class="ins-field-lbl">Core Job — главная задача</div>
+              <div class="ins-field-val bold">${ins.core_job}</div>
+            </div>
+            <div class="ins-field">
+              <div class="ins-field-lbl">Micro Job — подзадача</div>
+              <div class="ins-field-val">${ins.micro_job}</div>
+            </div>
+            <div class="ins-field">
+              <div class="ins-field-lbl">Сегмент</div>
+              <div class="ins-field-val">${ins.segment}</div>
+            </div>
+            <div class="ins-field">
+              <div class="ins-field-lbl">Продукт билайн</div>
+              <div class="ins-field-val bold">${ins.product}</div>
+            </div>
+            <div class="ins-meta">
+              <div class="ins-meta-item"><div class="ins-meta-lbl">Средний чек</div><div class="ins-meta-val">${ins.check}</div></div>
+              <div class="ins-meta-item"><div class="ins-meta-lbl">Маржинальность</div><div class="ins-meta-val">${ins.margin}</div></div>
+              <div class="ins-meta-item"><div class="ins-meta-lbl">Спринт</div><div class="ins-meta-val">№${ins.sprint}</div></div>
+            </div>
+          </div>
+        </div>`).join('');
+    } else {
+      insHtml = `<div class="ins-item empty"><div class="ins-hd"><div class="ins-hd-l"><span class="ins-tag none">⚠ Инсайт не найден</span><span class="ins-title grey">Интервью не проводились — инсайт появится в следующем спринте</span></div></div></div>`;
+    }
+
+    // Checklist
+    const clHtml = t.tasks.map(tk => `<div class="cl-item"><div class="cl-ico ${tk.done?'done':'fail'}">${tk.done?'✓':'✗'}</div><span>${tk.text}</span></div>`).join('');
+
+    return `<div class="tc">
+      <div class="tc-hd ${t.rankClass}">
+        <span class="rank-pill ${t.rankClass}">${rankLabels[i]||i+1+' Место'}</span>
+        <div class="tc-name">${t.name}</div>
+      </div>
+      <div class="tc-bd">
+        <div class="mrow">
+          <div class="mcell"><div class="mcell-lbl">Задачи</div><div class="mcell-val ${tCls}">${t.tasks_done}/${t.tasks_total}</div></div>
+          <div class="mcell"><div class="mcell-lbl">Методология</div><div class="mcell-val ${dCls}">${t.dtbd_score}/10</div></div>
+          <div class="mcell"><div class="mcell-lbl">Потенциал</div><div class="mcell-val ${pCls}">${pVal}</div></div>
+        </div>
+        <div class="mp"><div class="mp-row"><span class="mp-lbl">Задачи спринта</span><span class="mp-pct">${tPct}%</span></div><div class="mp-bg"><div class="mp-fill ${tBar}" style="width:${tPct}%"></div></div></div>
+        <div class="mp"><div class="mp-row"><span class="mp-lbl">Следование методологии DTBD</span><span class="mp-pct">${dPct}%</span></div><div class="mp-bg"><div class="mp-fill ${dBar}" style="width:${dPct}%"></div></div></div>
+        <div class="ins-block">${insHtml}</div>
+        <div class="cl-ttl">Задачи спринта 1</div>
+        ${clHtml}
+        <div class="score-badge ${scoreCls}"><div class="score-num">${t.score} баллов</div><div class="score-sub">из 100 возможных</div></div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Footer & status
+  const now = new Date();
+  const ts = now.toLocaleDateString('ru-RU')+' '+now.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('stxt').textContent = 'Обновлено: '+ts;
+  document.getElementById('ftTxt').textContent = 'Данные из Google Sheets · '+ts+' · Потенциал = прибыль при захвате SOM, не текущая выручка';
 }
 
-function render(rows){
-  const scored=rows.map(r=>({...r,_s:score(r),_p:pot(r)})).sort((a,b)=>b._s-a._s);
-  const sprint=scored[0]?scored[0].sprint||1:1;
-  const totP=scored.reduce((s,r)=>s+r._p,0);
-  const totI=scored.filter(r=>hasIns(r)).length;
-  const pct=Math.min(100,(totP/GAP*100)).toFixed(1);
+// ── TOGGLE ────────────────────────────────────────────────────────────────────
+function toggleIns(id) {
+  const b = document.getElementById('ibody-'+id);
+  const c = document.getElementById('chev-'+id);
+  if(b){ b.classList.toggle('open'); if(c) c.classList.toggle('open'); }
+}
+function toggleCalc() {
+  document.getElementById('calcPanel').classList.toggle('open');
+}
 
-  document.getElementById("kPot").textContent=fmt(totP);
-  document.getElementById("kPotPct").textContent=pct+"% от цели";
-  document.getElementById("kIns").textContent=totI;
-  document.getElementById("kSpr").textContent=sprint;
-  document.getElementById("spLbl").textContent=sprint;
-  document.getElementById("pClosed").textContent=fmt(totP);
-  document.getElementById("mFill").style.width=Math.max(.5,parseFloat(pct))+"%";
-
-  document.getElementById("pTeams").innerHTML=scored.map(function(r,i){
-    const tp=Math.min(100,(r._p/GAP*100)).toFixed(2);
-    return'<div class="pt-item"><div class="pt-name">'+( r.team_name||r.team_id)+'</div><div class="pt-bar"><div class="pt-fill" style="width:'+Math.max(.5,tp)+'%;background:'+TC[i]+'"></div></div><div class="pt-val">'+fmt(r._p)+'</div></div>';
-  }).join("");
-
-  document.getElementById("lbBody").innerHTML=scored.map(function(r,i){
-    const hi=hasIns(r);
-    const td=parseInt(r.tasks_done)||0,tt=parseInt(r.tasks_total)||6;
-    const m=parseFloat(r.methodology_score)||0;
-    return'<div class="lb-row r'+(i+1)+'">'
-      +'<div class="rnk">'+MED[i]+'</div>'
-      +'<div class="ti"><div class="tn">'+(r.team_name||r.team_id)+'</div><div class="tins'+(hi?' found':'')+'">'+( hi?'⚡ '+r.super_insight_title:'Супер-инсайт ещё не найден')+'</div></div>'
-      +'<div class="mc"><div class="mv">'+td+'/'+tt+'</div><div class="ml">Задачи</div></div>'
-      +'<div class="mc"><div class="mv">'+m+'/10</div><div class="ml">DTBD</div></div>'
-      +'<div class="mc"><div class="mv">'+fmt(r._p)+'</div><div class="ml">Потенциал</div></div>'
-      +'<div class="sc"><div class="sb">'+r._s+'</div><div class="sm2">/100</div></div>'
-      +'</div>';
-  }).join("");
-
-  document.getElementById("cardsGrid").innerHTML=scored.map(function(r,i){
-    const hi=hasIns(r);
-    const td=parseInt(r.tasks_done)||0,tt=parseInt(r.tasks_total)||6;
-    const m=parseFloat(r.methodology_score)||0;
-    const tp=tt>0?Math.round(td/tt*100):0;
-    const mp=Math.round(m/10*100);
-    const tc2=tp>=60?'g':tp>=30?'':'r';
-    const mc2=mp>=60?'g':mp>=30?'':'r';
-    const thtml=TASKS.map(function(t,ti){
-      const d=ti<td;
-      return'<div class="ti2'+(d?' done':'')+'"><div class="tck'+(d?' done':'')+'">'+( d?'✓':'')+'</div><span>'+t+'</span></div>';
-    }).join('');
-    return'<div class="card">'
-      +'<div class="card-hd" style="border-top:3px solid '+TC[i]+'">'
-      +'<div class="card-rank">'+RLBL[i]+' &middot; '+r._s+' баллов</div>'
-      +'<div class="card-name">'+(r.team_name||r.team_id)+'</div>'
-      +'</div>'
-      +'<div class="card-bd">'
-      +'<div class="mrow"><div class="mrow-l"><div class="mico">✓</div>Задачи спринта</div><div class="mrow-v">'+td+'/'+tt+'</div></div>'
-      +'<div class="bm"><div class="bmf '+tc2+'" style="width:'+tp+'%"></div></div>'
-      +'<div class="mrow" style="margin-top:8px"><div class="mrow-l"><div class="mico">★</div>Методология DTBD</div><div class="mrow-v">'+m+'/10</div></div>'
-      +'<div class="bm"><div class="bmf '+mc2+'" style="width:'+mp+'%"></div></div>'
-      +'<div class="mrow" style="margin-top:8px"><div class="mrow-l"><div class="mico">₽</div>Потенциал рынка</div><div class="mrow-v">'+fmt(r._p)+'</div></div>'
-      +'<div class="ins-blk'+(hi?'':' empty')+'">'
-      +'<div class="ins-tag">'+(hi?'⚡ Супер-инсайт':'Инсайт не найден')+'</div>'
-      +(hi?'<div class="ins-txt">'+r.super_insight_title+'</div><div class="ins-seg">'+(r.super_insight_core_job||'')+'</div><div class="ins-seg">'+(r.super_insight_target||'')+'</div>':'<div class="ins-txt" style="color:var(--g3)">Ожидается на следующей неделе</div>')
-      +'</div>'
-      +'<div class="tlist">'+thtml+'</div>'
-      +'</div></div>';
-  }).join("");
-
-  document.getElementById("tblBody").innerHTML=scored.map(function(r,i){
-    const hi=hasIns(r);
-    const td=parseInt(r.tasks_done)||0,tt=parseInt(r.tasks_total)||6;
-    const m=parseFloat(r.methodology_score)||0;
-    return'<tr class="'+(i===0?'tr1':'')+'">'
-      +'<td><strong>'+MED[i]+'</strong></td>'
-      +'<td><strong>'+(r.team_name||r.team_id)+'</strong></td>'
-      +'<td>'+(hi?'<span class="tag tg">⚡ '+r.super_insight_title+'</span>':'<span class="tag tgr">Не найден</span>')+'</td>'
-      +'<td>'+(r.super_insight_target?'<div style="font-size:12px">'+r.super_insight_target+'</div><div style="font-size:11px;color:var(--g5);margin-top:2px">'+(r.avg_check?r.avg_check+' ₽/мес · маржа '+(r.marginality||100)+'%':'')+'</div>':'—')+'</td>'
-      +'<td><strong>'+fmt(r._p)+'</strong></td>'
-      +'<td>'+td+'/'+tt+'</td>'
-      +'<td><span class="spill '+(m>=5?'hi':'lo')+'">'+m+'</span></td>'
-      +'</tr>';
-  }).join("");
+// ── LOAD ──────────────────────────────────────────────────────────────────────
+function loadData() {
+  render(TEAMS);
 }
 
 loadData();
-setInterval(loadData,300000);
+setInterval(loadData, 5*60*1000);
 </script>
 </body>
 </html>
